@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemies
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ground
+    uniqueID: 3561788933
+    locked: 0
+  - name: wall
+    uniqueID: 1847602663
+    locked: 0
+  - name: stair
+    uniqueID: 690977855
     locked: 0
