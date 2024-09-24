@@ -3,7 +3,7 @@ guid: 742655aec44f3fa44ba64d6925733e08
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1017,50 +1063,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      stone ground-path to transp_0: 1634917094
-      stone ground-path to transp_1: 74851204
-      stone ground-path to transp_10: -972152867
-      stone ground-path to transp_11: 536207501
-      stone ground-path to transp_12: 401719518
-      stone ground-path to transp_13: 1760843293
-      stone ground-path to transp_14: 178520498
-      stone ground-path to transp_15: -1599208047
-      stone ground-path to transp_16: 1810492408
-      stone ground-path to transp_17: -97352029
-      stone ground-path to transp_18: -1042494237
-      stone ground-path to transp_19: -1514685854
-      stone ground-path to transp_2: 2086436168
-      stone ground-path to transp_20: -568797430
-      stone ground-path to transp_21: 804171239
-      stone ground-path to transp_22: 1178900448
-      stone ground-path to transp_23: -139312469
-      stone ground-path to transp_24: -511927774
-      stone ground-path to transp_25: -1590046742
-      stone ground-path to transp_26: -227926897
-      stone ground-path to transp_27: -2013459637
-      stone ground-path to transp_28: -1299927934
-      stone ground-path to transp_29: 1474870893
-      stone ground-path to transp_3: -520620543
-      stone ground-path to transp_30: 1170075022
-      stone ground-path to transp_31: 1219716905
-      stone ground-path to transp_32: -1047824679
-      stone ground-path to transp_33: 2058200239
-      stone ground-path to transp_34: 1743885296
-      stone ground-path to transp_35: -1650110106
-      stone ground-path to transp_36: -90488082
-      stone ground-path to transp_37: 1905034532
-      stone ground-path to transp_38: -778514971
-      stone ground-path to transp_39: 1203689298
-      stone ground-path to transp_4: 132708526
-      stone ground-path to transp_40: 1202905055
-      stone ground-path to transp_41: 1708697326
-      stone ground-path to transp_42: 193860556
-      stone ground-path to transp_5: -793736733
-      stone ground-path to transp_6: 192866763
-      stone ground-path to transp_7: 1006669797
-      stone ground-path to transp_8: 21495913
-      stone ground-path to transp_9: 1848051384
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

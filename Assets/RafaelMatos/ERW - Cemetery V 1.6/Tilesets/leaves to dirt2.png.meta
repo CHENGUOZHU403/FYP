@@ -3,7 +3,7 @@ guid: dd9e908c9a7b64946af0cc54ae0cd13c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      leaves to dirt2_0: -1248127344
-      leaves to dirt2_1: 1479725298
-      leaves to dirt2_10: 1406513359
-      leaves to dirt2_11: -299467802
-      leaves to dirt2_12: -1848617383
-      leaves to dirt2_13: -569691692
-      leaves to dirt2_14: 363209562
-      leaves to dirt2_15: -664448650
-      leaves to dirt2_16: 957576359
-      leaves to dirt2_17: -2143874787
-      leaves to dirt2_18: 1959348021
-      leaves to dirt2_19: 2065106000
-      leaves to dirt2_2: -1277150977
-      leaves to dirt2_20: 42449077
-      leaves to dirt2_21: 1075258316
-      leaves to dirt2_22: 896474994
-      leaves to dirt2_23: -532251828
-      leaves to dirt2_24: -1076539442
-      leaves to dirt2_25: -1267751442
-      leaves to dirt2_26: 706714527
-      leaves to dirt2_27: 42523070
-      leaves to dirt2_28: -1985977833
-      leaves to dirt2_29: -478277538
-      leaves to dirt2_3: -1498949004
-      leaves to dirt2_30: 1490661652
-      leaves to dirt2_31: 475912271
-      leaves to dirt2_32: -111055346
-      leaves to dirt2_33: -1548058723
-      leaves to dirt2_34: 1465743092
-      leaves to dirt2_4: 378742576
-      leaves to dirt2_5: -633724794
-      leaves to dirt2_6: -1874091870
-      leaves to dirt2_7: 395488332
-      leaves to dirt2_8: 927277569
-      leaves to dirt2_9: 2120355934
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

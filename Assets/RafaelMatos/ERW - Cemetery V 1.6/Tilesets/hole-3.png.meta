@@ -3,7 +3,7 @@ guid: 7cbe0a9c653e07241bdb44beb260180b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -2193,106 +2239,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      hole-3_0: -1414198635
-      hole-3_1: 1171720293
-      hole-3_10: -1398247744
-      hole-3_11: 755548480
-      hole-3_12: 639226135
-      hole-3_13: 225618268
-      hole-3_14: -522781387
-      hole-3_15: 1472503539
-      hole-3_16: 1954876940
-      hole-3_17: 2135084294
-      hole-3_18: -512146130
-      hole-3_19: -1979425510
-      hole-3_2: -805756828
-      hole-3_20: 637215491
-      hole-3_21: 1826922252
-      hole-3_22: -1561453573
-      hole-3_23: -1865793542
-      hole-3_24: 684673655
-      hole-3_25: -441243764
-      hole-3_26: -1463605315
-      hole-3_27: -1359294872
-      hole-3_28: -567352746
-      hole-3_29: -186115852
-      hole-3_3: -1706412666
-      hole-3_30: 1655502767
-      hole-3_31: -796678413
-      hole-3_32: -1756195475
-      hole-3_33: -265991636
-      hole-3_34: -4940195
-      hole-3_35: 499852477
-      hole-3_36: -439847345
-      hole-3_37: -39374186
-      hole-3_38: 440218045
-      hole-3_39: -133432592
-      hole-3_4: 430843286
-      hole-3_40: 1618290892
-      hole-3_41: -958811551
-      hole-3_42: -1710887294
-      hole-3_43: -281095620
-      hole-3_44: 572910046
-      hole-3_45: 2096315003
-      hole-3_46: 1948820836
-      hole-3_47: -2035630171
-      hole-3_48: -949967856
-      hole-3_49: -266949617
-      hole-3_5: 549082086
-      hole-3_50: -1837324295
-      hole-3_51: -1062516207
-      hole-3_52: -411280954
-      hole-3_53: 1922815489
-      hole-3_54: -1840828802
-      hole-3_55: -1831474231
-      hole-3_56: 1380573094
-      hole-3_57: -710034457
-      hole-3_58: -1497721484
-      hole-3_59: 1708436453
-      hole-3_6: 790970217
-      hole-3_60: -297025709
-      hole-3_61: -1639456866
-      hole-3_62: 270195594
-      hole-3_63: 1713019424
-      hole-3_64: -181702863
-      hole-3_65: 2710786
-      hole-3_66: -1799829131
-      hole-3_67: 1107977318
-      hole-3_68: 859691622
-      hole-3_69: -908846414
-      hole-3_7: 109583072
-      hole-3_70: -1229263079
-      hole-3_71: 705305425
-      hole-3_72: 1196425236
-      hole-3_73: -2078430117
-      hole-3_74: -2125312647
-      hole-3_75: -2101624160
-      hole-3_76: 1877381624
-      hole-3_77: -189774792
-      hole-3_78: 2087526544
-      hole-3_79: -464957733
-      hole-3_8: -266801892
-      hole-3_80: -926293064
-      hole-3_81: -60040353
-      hole-3_82: -598496185
-      hole-3_83: 1331524377
-      hole-3_84: -1481027609
-      hole-3_85: 278926996
-      hole-3_86: 1546787476
-      hole-3_87: -540913624
-      hole-3_88: -964553982
-      hole-3_89: 1855701347
-      hole-3_9: 1604612778
-      hole-3_90: -606322491
-      hole-3_91: -1201312759
-      hole-3_92: -635771330
-      hole-3_93: 875760383
-      hole-3_94: -350707362
-      hole-3_95: -746299693
-      hole-3_96: -1865942476
-      hole-3_97: -554333800
-      hole-3_98: 344591111
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

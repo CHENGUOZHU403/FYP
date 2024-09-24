@@ -3,7 +3,7 @@ guid: 45bfe68084988a845b8f77746e6e99d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      stone ground(broken) to grass2_0: -1999551074
-      stone ground(broken) to grass2_1: -771281860
-      stone ground(broken) to grass2_10: -1397170909
-      stone ground(broken) to grass2_11: 1029305014
-      stone ground(broken) to grass2_12: -2109860592
-      stone ground(broken) to grass2_13: 1331812127
-      stone ground(broken) to grass2_14: -1333767047
-      stone ground(broken) to grass2_15: 1272792777
-      stone ground(broken) to grass2_16: -677381406
-      stone ground(broken) to grass2_17: -1467942265
-      stone ground(broken) to grass2_18: 1877195180
-      stone ground(broken) to grass2_19: -760361529
-      stone ground(broken) to grass2_2: 713783937
-      stone ground(broken) to grass2_20: -1248377433
-      stone ground(broken) to grass2_21: -25044566
-      stone ground(broken) to grass2_22: -1596501898
-      stone ground(broken) to grass2_23: 553765368
-      stone ground(broken) to grass2_24: 1652771437
-      stone ground(broken) to grass2_25: -2142325879
-      stone ground(broken) to grass2_26: 1170497639
-      stone ground(broken) to grass2_27: -748846867
-      stone ground(broken) to grass2_28: -586718969
-      stone ground(broken) to grass2_29: 229366426
-      stone ground(broken) to grass2_3: 1028012189
-      stone ground(broken) to grass2_30: 1216197056
-      stone ground(broken) to grass2_31: 329990247
-      stone ground(broken) to grass2_32: 1519446564
-      stone ground(broken) to grass2_33: 1067538827
-      stone ground(broken) to grass2_34: 1434920396
-      stone ground(broken) to grass2_4: -879372351
-      stone ground(broken) to grass2_5: 387534518
-      stone ground(broken) to grass2_6: 395407704
-      stone ground(broken) to grass2_7: -1793534787
-      stone ground(broken) to grass2_8: -1024650251
-      stone ground(broken) to grass2_9: 48919067
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -3,7 +3,7 @@ guid: 314aacfb10232b842bf323671fc9b5e1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      darker grass to transp(no shade at the edge)_0: 1547695095
-      darker grass to transp(no shade at the edge)_1: -1279839416
-      darker grass to transp(no shade at the edge)_10: -1587643735
-      darker grass to transp(no shade at the edge)_11: -1724815387
-      darker grass to transp(no shade at the edge)_12: 687772496
-      darker grass to transp(no shade at the edge)_13: -1913867522
-      darker grass to transp(no shade at the edge)_14: -357426471
-      darker grass to transp(no shade at the edge)_15: -1773650411
-      darker grass to transp(no shade at the edge)_16: -1186965013
-      darker grass to transp(no shade at the edge)_17: 2058429141
-      darker grass to transp(no shade at the edge)_18: 1589740204
-      darker grass to transp(no shade at the edge)_19: -2039901478
-      darker grass to transp(no shade at the edge)_2: -1129275696
-      darker grass to transp(no shade at the edge)_20: -733553502
-      darker grass to transp(no shade at the edge)_21: -1747482195
-      darker grass to transp(no shade at the edge)_22: -749110951
-      darker grass to transp(no shade at the edge)_23: -2106714258
-      darker grass to transp(no shade at the edge)_24: 1258278411
-      darker grass to transp(no shade at the edge)_25: 212958045
-      darker grass to transp(no shade at the edge)_26: -1961592319
-      darker grass to transp(no shade at the edge)_27: 673675150
-      darker grass to transp(no shade at the edge)_28: 1052697952
-      darker grass to transp(no shade at the edge)_29: 884679456
-      darker grass to transp(no shade at the edge)_3: -1427943293
-      darker grass to transp(no shade at the edge)_30: -1362948118
-      darker grass to transp(no shade at the edge)_31: -550192443
-      darker grass to transp(no shade at the edge)_32: -1317188709
-      darker grass to transp(no shade at the edge)_33: -1531115220
-      darker grass to transp(no shade at the edge)_34: -1658171369
-      darker grass to transp(no shade at the edge)_4: 952580133
-      darker grass to transp(no shade at the edge)_5: -403499473
-      darker grass to transp(no shade at the edge)_6: 743084281
-      darker grass to transp(no shade at the edge)_7: -104565112
-      darker grass to transp(no shade at the edge)_8: 1800254169
-      darker grass to transp(no shade at the edge)_9: 1535254051
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

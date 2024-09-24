@@ -3,7 +3,7 @@ guid: 2cd303cc6f33ee942b4c52fdd369a714
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -2991,144 +3037,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      tileset-wall1 and 2 mixed_0: 907074110
-      tileset-wall1 and 2 mixed_1: 1778778065
-      tileset-wall1 and 2 mixed_10: 579479913
-      tileset-wall1 and 2 mixed_100: 1141310000
-      tileset-wall1 and 2 mixed_101: 612779699
-      tileset-wall1 and 2 mixed_102: -49896281
-      tileset-wall1 and 2 mixed_103: 756928597
-      tileset-wall1 and 2 mixed_104: 1329999686
-      tileset-wall1 and 2 mixed_105: 693983729
-      tileset-wall1 and 2 mixed_106: 1230792641
-      tileset-wall1 and 2 mixed_107: 1503218364
-      tileset-wall1 and 2 mixed_108: 723217802
-      tileset-wall1 and 2 mixed_109: 595789565
-      tileset-wall1 and 2 mixed_11: 549017412
-      tileset-wall1 and 2 mixed_110: -444513721
-      tileset-wall1 and 2 mixed_111: 2075581649
-      tileset-wall1 and 2 mixed_112: -1699290667
-      tileset-wall1 and 2 mixed_113: -380065054
-      tileset-wall1 and 2 mixed_114: 1278787057
-      tileset-wall1 and 2 mixed_115: -1868036354
-      tileset-wall1 and 2 mixed_116: -1754369896
-      tileset-wall1 and 2 mixed_117: -1529220909
-      tileset-wall1 and 2 mixed_118: -1515037355
-      tileset-wall1 and 2 mixed_119: 913085257
-      tileset-wall1 and 2 mixed_12: 1810729842
-      tileset-wall1 and 2 mixed_120: 96346354
-      tileset-wall1 and 2 mixed_121: 1889690236
-      tileset-wall1 and 2 mixed_122: 751208490
-      tileset-wall1 and 2 mixed_123: -442841218
-      tileset-wall1 and 2 mixed_124: 2016158089
-      tileset-wall1 and 2 mixed_125: 777935557
-      tileset-wall1 and 2 mixed_126: -998527535
-      tileset-wall1 and 2 mixed_127: -1871038586
-      tileset-wall1 and 2 mixed_128: -1229445596
-      tileset-wall1 and 2 mixed_129: -2033025685
-      tileset-wall1 and 2 mixed_13: -1957082690
-      tileset-wall1 and 2 mixed_130: -514580184
-      tileset-wall1 and 2 mixed_131: -988085628
-      tileset-wall1 and 2 mixed_132: 390198403
-      tileset-wall1 and 2 mixed_133: 757237549
-      tileset-wall1 and 2 mixed_134: -1609053718
-      tileset-wall1 and 2 mixed_135: -163311610
-      tileset-wall1 and 2 mixed_136: -993191477
-      tileset-wall1 and 2 mixed_14: -1708906785
-      tileset-wall1 and 2 mixed_15: -1359976190
-      tileset-wall1 and 2 mixed_16: 2046845571
-      tileset-wall1 and 2 mixed_17: -731413010
-      tileset-wall1 and 2 mixed_18: 2046906560
-      tileset-wall1 and 2 mixed_19: -1826097725
-      tileset-wall1 and 2 mixed_2: 225604237
-      tileset-wall1 and 2 mixed_20: 260909965
-      tileset-wall1 and 2 mixed_21: -1159697846
-      tileset-wall1 and 2 mixed_22: -1861600634
-      tileset-wall1 and 2 mixed_23: -961828347
-      tileset-wall1 and 2 mixed_24: -863169267
-      tileset-wall1 and 2 mixed_25: 1944000206
-      tileset-wall1 and 2 mixed_26: -2122717974
-      tileset-wall1 and 2 mixed_27: -1207525178
-      tileset-wall1 and 2 mixed_28: -1143563504
-      tileset-wall1 and 2 mixed_29: -1991831975
-      tileset-wall1 and 2 mixed_3: 353158666
-      tileset-wall1 and 2 mixed_30: -718376855
-      tileset-wall1 and 2 mixed_31: 368735201
-      tileset-wall1 and 2 mixed_32: -1080884432
-      tileset-wall1 and 2 mixed_33: 1117013971
-      tileset-wall1 and 2 mixed_34: -1100319548
-      tileset-wall1 and 2 mixed_35: 1359491412
-      tileset-wall1 and 2 mixed_36: -1936169155
-      tileset-wall1 and 2 mixed_37: 140348111
-      tileset-wall1 and 2 mixed_38: -450762837
-      tileset-wall1 and 2 mixed_39: -585744844
-      tileset-wall1 and 2 mixed_4: -1196864641
-      tileset-wall1 and 2 mixed_40: 1636735228
-      tileset-wall1 and 2 mixed_41: 50197424
-      tileset-wall1 and 2 mixed_42: 1297014958
-      tileset-wall1 and 2 mixed_43: -78467370
-      tileset-wall1 and 2 mixed_44: 1033360
-      tileset-wall1 and 2 mixed_45: -612052898
-      tileset-wall1 and 2 mixed_46: 1152738511
-      tileset-wall1 and 2 mixed_47: 226025576
-      tileset-wall1 and 2 mixed_48: 2055280212
-      tileset-wall1 and 2 mixed_49: -1735935656
-      tileset-wall1 and 2 mixed_5: -1084755352
-      tileset-wall1 and 2 mixed_50: 1125758676
-      tileset-wall1 and 2 mixed_51: 508645421
-      tileset-wall1 and 2 mixed_52: -1459969858
-      tileset-wall1 and 2 mixed_53: -2004642102
-      tileset-wall1 and 2 mixed_54: 805140170
-      tileset-wall1 and 2 mixed_55: 1065281360
-      tileset-wall1 and 2 mixed_56: 91168695
-      tileset-wall1 and 2 mixed_57: 966463679
-      tileset-wall1 and 2 mixed_58: 1837694416
-      tileset-wall1 and 2 mixed_59: 705727676
-      tileset-wall1 and 2 mixed_6: -1048052008
-      tileset-wall1 and 2 mixed_60: -977795994
-      tileset-wall1 and 2 mixed_61: -696363203
-      tileset-wall1 and 2 mixed_62: 1243368641
-      tileset-wall1 and 2 mixed_63: 2069092054
-      tileset-wall1 and 2 mixed_64: 498493874
-      tileset-wall1 and 2 mixed_65: -711615793
-      tileset-wall1 and 2 mixed_66: -1497490932
-      tileset-wall1 and 2 mixed_67: -1321737010
-      tileset-wall1 and 2 mixed_68: 1491280248
-      tileset-wall1 and 2 mixed_69: -478678854
-      tileset-wall1 and 2 mixed_7: -448482498
-      tileset-wall1 and 2 mixed_70: 718327342
-      tileset-wall1 and 2 mixed_71: -417045564
-      tileset-wall1 and 2 mixed_72: 816204539
-      tileset-wall1 and 2 mixed_73: -186396883
-      tileset-wall1 and 2 mixed_74: -1722860847
-      tileset-wall1 and 2 mixed_75: 486520499
-      tileset-wall1 and 2 mixed_76: -1340432603
-      tileset-wall1 and 2 mixed_77: 212984876
-      tileset-wall1 and 2 mixed_78: -1137717768
-      tileset-wall1 and 2 mixed_79: 413234188
-      tileset-wall1 and 2 mixed_8: 1923278267
-      tileset-wall1 and 2 mixed_80: 210662497
-      tileset-wall1 and 2 mixed_81: 1371096174
-      tileset-wall1 and 2 mixed_82: -793394015
-      tileset-wall1 and 2 mixed_83: 795128372
-      tileset-wall1 and 2 mixed_84: 1740343127
-      tileset-wall1 and 2 mixed_85: 730344366
-      tileset-wall1 and 2 mixed_86: -1914662863
-      tileset-wall1 and 2 mixed_87: -2111977567
-      tileset-wall1 and 2 mixed_88: 878889165
-      tileset-wall1 and 2 mixed_89: -1186009336
-      tileset-wall1 and 2 mixed_9: 204579435
-      tileset-wall1 and 2 mixed_90: 1326043488
-      tileset-wall1 and 2 mixed_91: -2066585868
-      tileset-wall1 and 2 mixed_92: -1209904237
-      tileset-wall1 and 2 mixed_93: -1172788830
-      tileset-wall1 and 2 mixed_94: 660739085
-      tileset-wall1 and 2 mixed_95: 953105943
-      tileset-wall1 and 2 mixed_96: -604639376
-      tileset-wall1 and 2 mixed_97: 2095933631
-      tileset-wall1 and 2 mixed_98: -229835169
-      tileset-wall1 and 2 mixed_99: -353679821
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

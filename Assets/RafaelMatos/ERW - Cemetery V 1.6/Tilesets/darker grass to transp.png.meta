@@ -3,7 +3,7 @@ guid: d15a56658dba9d346a9e5808abfc8909
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      darker grass to transp_0: 1034630299
-      darker grass to transp_1: -1684197855
-      darker grass to transp_10: 984777480
-      darker grass to transp_11: 121841807
-      darker grass to transp_12: -1321427022
-      darker grass to transp_13: -1677902899
-      darker grass to transp_14: 490511758
-      darker grass to transp_15: -509405082
-      darker grass to transp_16: -1442474542
-      darker grass to transp_17: 665073291
-      darker grass to transp_18: 391546699
-      darker grass to transp_19: 1180233139
-      darker grass to transp_2: -24491963
-      darker grass to transp_20: 1662634021
-      darker grass to transp_21: -1150881110
-      darker grass to transp_22: 1143930896
-      darker grass to transp_23: -1753516271
-      darker grass to transp_24: -382890877
-      darker grass to transp_25: -473572186
-      darker grass to transp_26: 990336985
-      darker grass to transp_27: -605946617
-      darker grass to transp_28: 1313474576
-      darker grass to transp_29: 169895891
-      darker grass to transp_3: 1144950005
-      darker grass to transp_30: 1867280296
-      darker grass to transp_31: 653309449
-      darker grass to transp_32: 1905729105
-      darker grass to transp_33: 878383186
-      darker grass to transp_34: -1576085712
-      darker grass to transp_4: 1571108109
-      darker grass to transp_5: -983400064
-      darker grass to transp_6: 410207339
-      darker grass to transp_7: -1068795471
-      darker grass to transp_8: 514181445
-      darker grass to transp_9: 1424079289
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

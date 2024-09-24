@@ -3,7 +3,7 @@ guid: a334cd8fdb2846d4aa70975ed775441d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1290,63 +1336,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      wall2-premade corners_0: 1584416103
-      wall2-premade corners_1: -672823486
-      wall2-premade corners_10: 1502415136
-      wall2-premade corners_11: -1396419138
-      wall2-premade corners_12: 1387875207
-      wall2-premade corners_13: 1463645717
-      wall2-premade corners_14: -2056284366
-      wall2-premade corners_15: -51399912
-      wall2-premade corners_16: -896927626
-      wall2-premade corners_17: 645334139
-      wall2-premade corners_18: 1664406706
-      wall2-premade corners_19: 1162687398
-      wall2-premade corners_2: -367949946
-      wall2-premade corners_20: 1535516990
-      wall2-premade corners_21: 1188727604
-      wall2-premade corners_22: 1083189206
-      wall2-premade corners_23: 1842976082
-      wall2-premade corners_24: 810855151
-      wall2-premade corners_25: -91291123
-      wall2-premade corners_26: -1947034605
-      wall2-premade corners_27: -888102408
-      wall2-premade corners_28: 1248069422
-      wall2-premade corners_29: -1084737867
-      wall2-premade corners_3: 1728452972
-      wall2-premade corners_30: 1676333596
-      wall2-premade corners_31: -1841146981
-      wall2-premade corners_32: -1829703520
-      wall2-premade corners_33: 1260135515
-      wall2-premade corners_34: -902926095
-      wall2-premade corners_35: -1069307522
-      wall2-premade corners_36: -1217328951
-      wall2-premade corners_37: 8187075
-      wall2-premade corners_38: -713299240
-      wall2-premade corners_39: 802073663
-      wall2-premade corners_4: 893901866
-      wall2-premade corners_40: 1895055034
-      wall2-premade corners_41: 2039650353
-      wall2-premade corners_42: 722058159
-      wall2-premade corners_43: -564933297
-      wall2-premade corners_44: 327154361
-      wall2-premade corners_45: 979809173
-      wall2-premade corners_46: 1518456188
-      wall2-premade corners_47: -1091491393
-      wall2-premade corners_48: 1559443865
-      wall2-premade corners_49: 1611214105
-      wall2-premade corners_5: 1241135110
-      wall2-premade corners_50: 1887594965
-      wall2-premade corners_51: 1524706396
-      wall2-premade corners_52: 737895228
-      wall2-premade corners_53: 53063514
-      wall2-premade corners_54: -704068540
-      wall2-premade corners_55: 1802990358
-      wall2-premade corners_6: 1537808947
-      wall2-premade corners_7: -1164790328
-      wall2-premade corners_8: 1657499417
-      wall2-premade corners_9: -490272664
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

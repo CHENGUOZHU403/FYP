@@ -3,7 +3,7 @@ guid: e858144702d5075479ac34c30cd641e6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      grass2 to rocky ground_0: -1799490954
-      grass2 to rocky ground_1: 1954746607
-      grass2 to rocky ground_10: 448630893
-      grass2 to rocky ground_11: -121069745
-      grass2 to rocky ground_12: 702650629
-      grass2 to rocky ground_13: -43098582
-      grass2 to rocky ground_14: 712137447
-      grass2 to rocky ground_15: 1520820116
-      grass2 to rocky ground_16: -1355006766
-      grass2 to rocky ground_17: 1628477710
-      grass2 to rocky ground_18: 346614254
-      grass2 to rocky ground_19: 2066166178
-      grass2 to rocky ground_2: 982223772
-      grass2 to rocky ground_20: 800285301
-      grass2 to rocky ground_21: -1900706623
-      grass2 to rocky ground_22: -779503701
-      grass2 to rocky ground_23: 1687076734
-      grass2 to rocky ground_24: -763416815
-      grass2 to rocky ground_25: 862515347
-      grass2 to rocky ground_26: -831469964
-      grass2 to rocky ground_27: -104092390
-      grass2 to rocky ground_28: 1646144698
-      grass2 to rocky ground_29: 1028950814
-      grass2 to rocky ground_3: 1994256974
-      grass2 to rocky ground_30: -443658740
-      grass2 to rocky ground_31: -1564504133
-      grass2 to rocky ground_32: 1776424403
-      grass2 to rocky ground_33: -1773562775
-      grass2 to rocky ground_34: 1871230075
-      grass2 to rocky ground_4: -565607299
-      grass2 to rocky ground_5: 1732170205
-      grass2 to rocky ground_6: 1684252813
-      grass2 to rocky ground_7: -1303781695
-      grass2 to rocky ground_8: -949323834
-      grass2 to rocky ground_9: -196043031
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

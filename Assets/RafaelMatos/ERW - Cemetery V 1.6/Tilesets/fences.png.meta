@@ -3,7 +3,7 @@ guid: 8737c74212b54a547a74042295bab129
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1500,73 +1546,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      fences_0: -142316736
-      fences_1: -1933494871
-      fences_10: -1903090282
-      fences_11: 631981528
-      fences_12: -1800040218
-      fences_13: -662132693
-      fences_14: 721578154
-      fences_15: 1021597901
-      fences_16: 1198527549
-      fences_17: -1786458213
-      fences_18: 434288192
-      fences_19: -884670405
-      fences_2: -1464105665
-      fences_20: 465880932
-      fences_21: 2037844774
-      fences_22: 1341236717
-      fences_23: -1124448656
-      fences_24: -1221686310
-      fences_25: 1034442017
-      fences_26: 1843024045
-      fences_27: -94471267
-      fences_28: -1385015093
-      fences_29: 1002467029
-      fences_3: -1439031624
-      fences_30: -1600774613
-      fences_31: -552066319
-      fences_32: 832747737
-      fences_33: 1915426402
-      fences_34: -1110824718
-      fences_35: -1062940018
-      fences_36: -569084101
-      fences_37: 1576962522
-      fences_38: 740910861
-      fences_39: -92646832
-      fences_4: -945852617
-      fences_40: -615803800
-      fences_41: 1008409839
-      fences_42: 1501906652
-      fences_43: -1509674809
-      fences_44: 222816694
-      fences_45: 288394314
-      fences_46: 2037276460
-      fences_47: -42046854
-      fences_48: -1602816818
-      fences_49: -1409507595
-      fences_5: -1146882850
-      fences_50: 905767646
-      fences_51: -714236719
-      fences_52: -1307380501
-      fences_53: -1898623085
-      fences_54: 864860103
-      fences_55: -1192326393
-      fences_56: 90519016
-      fences_57: 785546188
-      fences_58: 42288498
-      fences_59: -449093118
-      fences_6: 160043132
-      fences_60: -68339591
-      fences_61: -453241074
-      fences_62: -657248883
-      fences_63: 1304594389
-      fences_64: -2102311111
-      fences_65: 1459597034
-      fences_7: -860839955
-      fences_8: -812559823
-      fences_9: 1703216164
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

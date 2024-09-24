@@ -3,7 +3,7 @@ guid: 29fd8acbf86b4c44481425cd3489fccc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      stone ground to rocky ground_0: 558032521
-      stone ground to rocky ground_1: 172805289
-      stone ground to rocky ground_10: 389555336
-      stone ground to rocky ground_11: 1612715419
-      stone ground to rocky ground_12: 173041516
-      stone ground to rocky ground_13: -978501053
-      stone ground to rocky ground_14: 580005860
-      stone ground to rocky ground_15: -718503375
-      stone ground to rocky ground_16: 1577061415
-      stone ground to rocky ground_17: -1455933809
-      stone ground to rocky ground_18: 1135156916
-      stone ground to rocky ground_19: -1137220120
-      stone ground to rocky ground_2: -304674291
-      stone ground to rocky ground_20: -2027893725
-      stone ground to rocky ground_21: 259567878
-      stone ground to rocky ground_22: 2145310330
-      stone ground to rocky ground_23: -1580680024
-      stone ground to rocky ground_24: 895120872
-      stone ground to rocky ground_25: -1114623857
-      stone ground to rocky ground_26: -573769308
-      stone ground to rocky ground_27: 1777989935
-      stone ground to rocky ground_28: 1335173375
-      stone ground to rocky ground_29: -1038440419
-      stone ground to rocky ground_3: -1351889186
-      stone ground to rocky ground_30: 18092566
-      stone ground to rocky ground_31: -1406311345
-      stone ground to rocky ground_32: -996158379
-      stone ground to rocky ground_33: 1664238850
-      stone ground to rocky ground_34: 1283278504
-      stone ground to rocky ground_4: -425147350
-      stone ground to rocky ground_5: -1187389782
-      stone ground to rocky ground_6: 342583297
-      stone ground to rocky ground_7: 1690499731
-      stone ground to rocky ground_8: -542435216
-      stone ground to rocky ground_9: -1561815921
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

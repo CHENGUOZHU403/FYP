@@ -3,7 +3,7 @@ guid: ea0d3a92d160cdc4daccc24a0d17503a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      grass-stone curb to transp_0: -1342840436
-      grass-stone curb to transp_1: 321064871
-      grass-stone curb to transp_10: -1081665270
-      grass-stone curb to transp_11: 249613584
-      grass-stone curb to transp_12: -495051918
-      grass-stone curb to transp_13: -524786484
-      grass-stone curb to transp_14: -269088135
-      grass-stone curb to transp_15: -528032520
-      grass-stone curb to transp_16: -1198615677
-      grass-stone curb to transp_17: 348853755
-      grass-stone curb to transp_18: -1886484705
-      grass-stone curb to transp_19: 1532091097
-      grass-stone curb to transp_2: -843185162
-      grass-stone curb to transp_20: -1838853161
-      grass-stone curb to transp_21: 1165803383
-      grass-stone curb to transp_22: 386929017
-      grass-stone curb to transp_23: 657614481
-      grass-stone curb to transp_24: -904432460
-      grass-stone curb to transp_25: -1973687623
-      grass-stone curb to transp_26: 1292734656
-      grass-stone curb to transp_27: -2078075570
-      grass-stone curb to transp_28: -2005396614
-      grass-stone curb to transp_29: 406802131
-      grass-stone curb to transp_3: 339586540
-      grass-stone curb to transp_30: -96253301
-      grass-stone curb to transp_31: 136108936
-      grass-stone curb to transp_32: 1386771285
-      grass-stone curb to transp_33: 923765134
-      grass-stone curb to transp_34: -520357092
-      grass-stone curb to transp_4: 2090696176
-      grass-stone curb to transp_5: 2078367114
-      grass-stone curb to transp_6: 1604792411
-      grass-stone curb to transp_7: -910712468
-      grass-stone curb to transp_8: -1429052864
-      grass-stone curb to transp_9: 15173282
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

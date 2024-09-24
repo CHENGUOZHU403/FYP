@@ -3,7 +3,7 @@ guid: 75fe4fc212a034549bf2941ffba2579d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -849,42 +895,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      grass1 to grass2_0: 1006984228
-      grass1 to grass2_1: 261799392
-      grass1 to grass2_10: -69703696
-      grass1 to grass2_11: -342420397
-      grass1 to grass2_12: -684833695
-      grass1 to grass2_13: 230697382
-      grass1 to grass2_14: -1181630613
-      grass1 to grass2_15: -1790864363
-      grass1 to grass2_16: 1278115388
-      grass1 to grass2_17: 543816225
-      grass1 to grass2_18: 849408569
-      grass1 to grass2_19: 740087993
-      grass1 to grass2_2: 836503214
-      grass1 to grass2_20: 244113640
-      grass1 to grass2_21: 1834196643
-      grass1 to grass2_22: 266711710
-      grass1 to grass2_23: -2135866062
-      grass1 to grass2_24: -1432788135
-      grass1 to grass2_25: 1207316094
-      grass1 to grass2_26: 1164070853
-      grass1 to grass2_27: 1504661512
-      grass1 to grass2_28: 1112484698
-      grass1 to grass2_29: 1173235143
-      grass1 to grass2_3: 397331370
-      grass1 to grass2_30: 1476260543
-      grass1 to grass2_31: -1390673837
-      grass1 to grass2_32: -400701047
-      grass1 to grass2_33: -848548634
-      grass1 to grass2_34: -246321365
-      grass1 to grass2_4: -1557131194
-      grass1 to grass2_5: -494725807
-      grass1 to grass2_6: 920179547
-      grass1 to grass2_7: 2058654617
-      grass1 to grass2_8: 1718943692
-      grass1 to grass2_9: 1369632494
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

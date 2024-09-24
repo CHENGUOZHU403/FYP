@@ -3,7 +3,7 @@ guid: cac5d2163f9db434ea435fb67bd7097f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -82,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +93,54 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -2193,106 +2239,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      hole - transparency_0: 1599868491
-      hole - transparency_1: -935659751
-      hole - transparency_10: 403547752
-      hole - transparency_11: 236266065
-      hole - transparency_12: -726756888
-      hole - transparency_13: -1166825243
-      hole - transparency_14: -1512557999
-      hole - transparency_15: -2096193214
-      hole - transparency_16: -1543535071
-      hole - transparency_17: 1756678711
-      hole - transparency_18: -2109877548
-      hole - transparency_19: -91244185
-      hole - transparency_2: 1975993354
-      hole - transparency_20: 384720202
-      hole - transparency_21: -1902506162
-      hole - transparency_22: -894222604
-      hole - transparency_23: 1680753281
-      hole - transparency_24: 377135708
-      hole - transparency_25: -524964350
-      hole - transparency_26: -154867631
-      hole - transparency_27: -2124939724
-      hole - transparency_28: 1532484014
-      hole - transparency_29: 1903910474
-      hole - transparency_3: 1213299128
-      hole - transparency_30: 1500832902
-      hole - transparency_31: -1630729398
-      hole - transparency_32: -913785398
-      hole - transparency_33: -735224424
-      hole - transparency_34: -285119991
-      hole - transparency_35: 686511087
-      hole - transparency_36: 1412975205
-      hole - transparency_37: 2024501636
-      hole - transparency_38: 1232020466
-      hole - transparency_39: 1599706708
-      hole - transparency_4: -70656808
-      hole - transparency_40: 1563818605
-      hole - transparency_41: -2041053056
-      hole - transparency_42: -1724592453
-      hole - transparency_43: -1605581306
-      hole - transparency_44: 1225713771
-      hole - transparency_45: -14280021
-      hole - transparency_46: 1051448315
-      hole - transparency_47: -1614548868
-      hole - transparency_48: 1606974850
-      hole - transparency_49: 1100043231
-      hole - transparency_5: -1101307231
-      hole - transparency_50: 596273528
-      hole - transparency_51: -1207987489
-      hole - transparency_52: -1276859310
-      hole - transparency_53: 160327892
-      hole - transparency_54: -1109455736
-      hole - transparency_55: -1631212372
-      hole - transparency_56: -50286273
-      hole - transparency_57: -514440152
-      hole - transparency_58: -1817809353
-      hole - transparency_59: -17662407
-      hole - transparency_6: 169118666
-      hole - transparency_60: -171547339
-      hole - transparency_61: -442781814
-      hole - transparency_62: 436635384
-      hole - transparency_63: -570351469
-      hole - transparency_64: 61832437
-      hole - transparency_65: -954226303
-      hole - transparency_66: -65548575
-      hole - transparency_67: -351600378
-      hole - transparency_68: 1483656192
-      hole - transparency_69: 1452036722
-      hole - transparency_7: 1173377922
-      hole - transparency_70: -1778735738
-      hole - transparency_71: 1723713505
-      hole - transparency_72: 49686671
-      hole - transparency_73: -965341629
-      hole - transparency_74: 1382834472
-      hole - transparency_75: -1526811457
-      hole - transparency_76: 1656257690
-      hole - transparency_77: 1685224056
-      hole - transparency_78: 647875517
-      hole - transparency_79: 1765712235
-      hole - transparency_8: -600662773
-      hole - transparency_80: 1285323589
-      hole - transparency_81: -132656331
-      hole - transparency_82: 514719517
-      hole - transparency_83: -1714522134
-      hole - transparency_84: 1119564953
-      hole - transparency_85: 499960559
-      hole - transparency_86: 1755552257
-      hole - transparency_87: -735972462
-      hole - transparency_88: 1776474755
-      hole - transparency_89: -952551915
-      hole - transparency_9: 349169866
-      hole - transparency_90: 1429310212
-      hole - transparency_91: -765787694
-      hole - transparency_92: 1784421010
-      hole - transparency_93: 115017995
-      hole - transparency_94: -262178555
-      hole - transparency_95: 1287210925
-      hole - transparency_96: -2041576316
-      hole - transparency_97: 1604479291
-      hole - transparency_98: -1813748746
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
