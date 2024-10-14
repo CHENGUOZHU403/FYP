@@ -5,16 +5,17 @@ using UnityEngine;
 public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
-    public BattleSystem BattleSystem;
+    public MCsystem MCSystem;
     public void Answer() {
         if (isCorrect)
         {
             Debug.Log("Correct Answer");
-            BattleSystem.correct();
+            MCSystem.correct();
         }
         else
         {
             Debug.Log("Wrong Answer");
+            MCSystem.wrong();
         }
     }
 }
