@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleSystem : MonoBehaviour
 {
-    public enemyHp;
+   // public enemyHp;
     // Start is called before the first frame update
     void Start()
     {
