@@ -9,18 +9,17 @@ public class MCsystem : MonoBehaviour
     public int QuestionA;
     public int QuestionB;
     public int Answer;
+    public int Answered;
     public Text QuestionText;
     public Text CorrectCountText;
     public Text WrongCountText;
+
+
     public int CorrectNum = 0, WrongNum = 0;
 
     public int[] optionOffset = { 0, 1, 2, -1 };
     public List<int> optionsArr = new List<int>() { 1, 2, 3, 4 };
     public GameObject[] options;
-
-    public Timer Timer;
-    public GameObject MultChoiUI;
-    public float gameTime = 3;
 
     void Start()
     {
@@ -30,11 +29,13 @@ public class MCsystem : MonoBehaviour
     public void correct()
     {
         CorrectCountText.text = "Correct :" + ++CorrectNum;
+        Answered++;
         generateQuestion();
     }
     public void wrong()
     {
         WrongCountText.text = "Wrong :" + ++WrongNum;
+        Answered++;
         generateQuestion();
     }
 
@@ -56,21 +57,6 @@ public class MCsystem : MonoBehaviour
             if (optionsArr[i] == Answer)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
-            }
-        }
-    }
-
-    void Update()
-    {
-        if(Timer.stopTimer == true)
-        {
-            MultChoiUI.SetActive(false);
-            gameTime -= Time.deltaTime;
-            if (gameTime < 0)
-            {
-                MultChoiUI.SetActive(true);
-                Reset();
-                
             }
         }
     }
@@ -97,14 +83,13 @@ public class MCsystem : MonoBehaviour
         return list;
     }
 
-    void Reset()
+    public void Reset()
     {
         CorrectNum = 0;
         WrongNum = 0;
+        Answered = 0;
         CorrectCountText.text = "Correct :" + CorrectNum;
         WrongCountText.text = "Wrong :" + WrongNum;
-        gameTime = 3;
-        Timer.Reset();
         generateQuestion();
     }
 }

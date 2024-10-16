@@ -7,9 +7,16 @@ public class Timer : MonoBehaviour
 {
     public Slider TimerSlider;
     public Text TimerText;
+    public Text DamageText;
     public float gameTime;
+    public float sleepTime;
 
     public bool stopTimer;
+
+    public BattleSystem battleSystem;
+    public MCsystem MCsystem;
+    public GameObject MultChoiUI;
+    public GameObject RoundEndUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,22 +29,37 @@ public class Timer : MonoBehaviour
     void Update()
     {
         gameTime -= Time.deltaTime;
-        if (gameTime <= 0)
+        if (gameTime <= 0 && stopTimer == false)
         {
             stopTimer = true;
+            battleSystem.TurnEnd();
+            DamageText.text = battleSystem.Damage.ToString();
+            RoundEndUI.SetActive(true);
             
+            gameTime = sleepTime;
         }
 
-        if(stopTimer == false) {
+        if (stopTimer == false)
+        {
             TimerText.text = Mathf.RoundToInt(gameTime).ToString();
             TimerSlider.value = gameTime;
         }
+        if (stopTimer == true)
+        {
+            MultChoiUI.SetActive(false);
+            if (gameTime < 0)
+            {
+                Reset();
+            }
+        }
     }
 
-    public void Reset()
+    private void Reset()
     {
-        gameTime = 10;
+        MultChoiUI.SetActive(true);
+        RoundEndUI.SetActive(false);
+        gameTime = TimerSlider.maxValue;
         stopTimer = false;
-        
+        MCsystem.Reset();
     }
 }
