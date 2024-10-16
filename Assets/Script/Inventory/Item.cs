@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
     }
 
 
- private void Oncollision2D (Collision2D collision)
+    private void Oncollision2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -27,3 +27,4 @@ public class Item : MonoBehaviour
             Destroy(gameObject);
         }
     }
+}
