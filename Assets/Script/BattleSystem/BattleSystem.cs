@@ -6,11 +6,7 @@ using TMPro;
 
 public class BattleSystem : MonoBehaviour
 {
-<<<<<<< Updated upstream
-   // public enemyHp;
-    // Start is called before the first frame update
-    void Start()
-=======
+
     public TextMeshProUGUI EnemyHpText;
     public TextMeshProUGUI PlayerHpText;
    
@@ -21,10 +17,9 @@ public class BattleSystem : MonoBehaviour
 
     public Text AccuracyText;
     public float Accuracy;
-    public float Damage;
+    public int Damage;
 
     private void Update()
->>>>>>> Stashed changes
     {
         if (MCsystem.Answered == 0)
         {
@@ -39,9 +34,9 @@ public class BattleSystem : MonoBehaviour
 
     public void TurnEnd() 
     {
-        Damage = MCsystem.CorrectNum * 10 * Accuracy / 100;
+        Damage = Mathf.RoundToInt(MCsystem.CorrectNum * 10 * Accuracy / 100);
         PlayerHp -= 20;
-        EnemyHp -= Mathf.RoundToInt(Damage);
+        EnemyHp -= Damage;
 
         PlayerHpText.text = "Player Hp: " + PlayerHp;
         EnemyHpText.text = "Enemy Hp:" + EnemyHp;
