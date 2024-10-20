@@ -9,12 +9,10 @@ public class AnswerScript : MonoBehaviour
     public void Answer() {
         if (isCorrect)
         {
-            Debug.Log("Correct Answer");
             MCSystem.correct();
         }
         else
         {
-            Debug.Log("Wrong Answer");
             MCSystem.wrong();
         }
     }

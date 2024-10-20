@@ -7,7 +7,6 @@ public class Timer : MonoBehaviour
 {
     public Slider TimerSlider;
     public Text TimerText;
-    public Text DamageText;
     public float gameTime;
     public float sleepTime;
 
@@ -33,7 +32,6 @@ public class Timer : MonoBehaviour
         {
             stopTimer = true;
             battleSystem.TurnEnd();
-            DamageText.text = battleSystem.Damage.ToString();
             RoundEndUI.SetActive(true);
             
             gameTime = sleepTime;
@@ -54,12 +52,13 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void Reset()
+    public void Reset()
     {
         MultChoiUI.SetActive(true);
         RoundEndUI.SetActive(false);
         gameTime = TimerSlider.maxValue;
         stopTimer = false;
         MCsystem.Reset();
+
     }
 }
