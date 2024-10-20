@@ -8,9 +8,8 @@ public class ShowSecondUI : MonoBehaviour
     public GameObject SettingMenu;
  
 
-    private void Start()
+    void Start()
     {
-        // 在 UI 按鈕上加入監聽器
         SettingMenu.gameObject.SetActive(false);
         GetComponent<Button>().onClick.AddListener(ShowSettingsPanelOnClick);
     }
@@ -19,4 +18,6 @@ public class ShowSecondUI : MonoBehaviour
     {
         SettingMenu.SetActive(true);
     }
+
+
 }
