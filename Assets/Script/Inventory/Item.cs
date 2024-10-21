@@ -18,13 +18,25 @@ public class Item : MonoBehaviour
         inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
     }
 
-
-    private void Oncollision2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("hi");
         if (collision.gameObject.tag == "Player")
         {
             inventoryManagers.AddItem(itemName, quantity, sprite);
             Destroy(gameObject);
         }
     }
+
+    //private void Oncollision2D(Collision2D collision)
+    //{
+
+    //    Debug.Log("hi");
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        inventoryManagers.AddItem(itemName, quantity, sprite);
+
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
