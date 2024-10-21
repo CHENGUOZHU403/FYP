@@ -6,6 +6,7 @@ public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
     public MCsystem MCSystem;
+
     public void Answer() {
         if (isCorrect)
         {

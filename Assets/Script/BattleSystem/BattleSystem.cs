@@ -6,70 +6,72 @@ using TMPro;
 
 public class BattleSystem : MonoBehaviour
 {
+    public Slider PlayerHpSlider;
+    public Slider EnemyHpSlider;
 
     public TextMeshProUGUI EnemyHpText;
     public TextMeshProUGUI PlayerHpText;
     public Text palyerDamageText;
-    public Text enmyDamageText;
+    public Text enemyDamageText;
 
-   
-    public int EnemyHp = 100 , PlayerHp = 100;
 
-    
+    public int EnemyHp, PlayerHp;
+    public int PlayerDamage, EnemyDamage;
+
     public MCsystem MCsystem;
     public Timer Timer;
 
-    public Text AccuracyText;
-    public float Accuracy;
-    public int PlayerDamage, EnemyDamage;
-
     public GameObject GameoverUI;
+    public GameObject EnemyDamageGameObj;
 
     public Text GameOverTitle;
 
-    private void Update()
+    private void Start()
     {
-        if (MCsystem.Answered == 0)
-        {
-            Accuracy = 0;
-        }
-        else
-        {
-            Accuracy = 1.0f * MCsystem.CorrectNum / MCsystem.Answered * 100;
-        }
-        AccuracyText.text = "Accuracy : " + Mathf.RoundToInt(Accuracy) + "%";
-
-
-
+        EnemyHp = 100;
+        PlayerHp = 100;
+        PlayerHpSlider.maxValue = PlayerHp;
+        PlayerHpSlider.value = PlayerHp;
+        EnemyHpSlider.maxValue = EnemyHp;
+        EnemyHpSlider.value = EnemyHp;
     }
+
+
 
     public void Reset()
     {
         EnemyHp = 100;
         PlayerHp = 100;
         PlayerHpText.text = "Player Hp: " + PlayerHp;
-        EnemyHpText.text = "Enemy Hp:" + EnemyHp;
+        EnemyHpText.text = "Enemy Hp: " + EnemyHp;
+        PlayerHpSlider.maxValue = PlayerHp;
+        PlayerHpSlider.value = PlayerHp;
+        EnemyHpSlider.maxValue = EnemyHp;
+        EnemyHpSlider.value = EnemyHp;
         Time.timeScale = 1;
         GameoverUI.SetActive(false);
+        EnemyDamageGameObj.SetActive(true);
         Timer.Reset();
 
     }
 
     public void TurnEnd() 
     {
-        PlayerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * 10 * Accuracy / 100);
+        PlayerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * 10 * MCsystem.Accuracy / 100);
         palyerDamageText.text =  PlayerDamage.ToString();
         EnemyHp -= PlayerDamage;
+        EnemyHpSlider.value = EnemyHp;
+        EnemyHpText.text = "Enemy Hp:" + EnemyHp;
+        
         if (!CheckWin())
         {
             EnemyDamage = Random.Range(15, 20);
-            enmyDamageText.text = EnemyDamage.ToString();
+            enemyDamageText.text = EnemyDamage.ToString();
             PlayerHp -= EnemyDamage;
+            PlayerHpSlider.value = PlayerHp;
+            PlayerHpText.text = "Player Hp: " + PlayerHp;
             CheckWin();
         }
-
-        PlayerHpText.text = "Player Hp: " + PlayerHp;
-        EnemyHpText.text = "Enemy Hp:" + EnemyHp;
     }
 
     bool CheckWin()
@@ -77,11 +79,13 @@ public class BattleSystem : MonoBehaviour
         if (PlayerHp <= 0)
         {
             Lose();
+            PlayerHpText.text = "Player Hp: " + 0;
             return false;
         }
         if (EnemyHp <= 0)
         {
-            
+            EnemyDamageGameObj.SetActive(false);
+            EnemyHpText.text = "Enemy Hp: " + 0;
             Win();
             return true;
         }
