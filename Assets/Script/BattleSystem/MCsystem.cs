@@ -43,13 +43,13 @@ public class MCsystem : MonoBehaviour
 
     public void correct()
     {
-        CorrectCountText.text = "Correct :" + ++CorrectNum;
+        CorrectCountText.text = "Correct : " + ++CorrectNum;
         Answered++;
         generateQuestion();
     }
     public void wrong()
     {
-        WrongCountText.text = "Wrong :" + ++WrongNum;
+        WrongCountText.text = "Wrong : " + ++WrongNum;
         Answered++;
         generateQuestion();
     }
@@ -104,8 +104,8 @@ public class MCsystem : MonoBehaviour
         WrongNum = 0;
         Answered = 0;
         Accuracy = 0;
-        CorrectCountText.text = "Correct :" + CorrectNum;
-        WrongCountText.text = "Wrong :" + WrongNum;
+        CorrectCountText.text = "Correct : " + CorrectNum;
+        WrongCountText.text = "Wrong : " + WrongNum;
         AccuracyText.text = "Accuracy : " + Accuracy;
         generateQuestion();
     }
