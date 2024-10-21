@@ -58,29 +58,34 @@ public class BattleSystem : MonoBehaviour
     public void TurnEnd() 
     {
         PlayerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * 10 * Accuracy / 100);
-        palyerDamageText.text = PlayerDamage.ToString();
+        palyerDamageText.text =  PlayerDamage.ToString();
         EnemyHp -= PlayerDamage;
-        CheckWin();
-        EnemyDamage = Random.Range(15, 20);
-        enmyDamageText.text = EnemyDamage.ToString();
-        PlayerHp -= EnemyDamage;
-        CheckWin();
+        if (!CheckWin())
+        {
+            EnemyDamage = Random.Range(15, 20);
+            enmyDamageText.text = EnemyDamage.ToString();
+            PlayerHp -= EnemyDamage;
+            CheckWin();
+        }
 
         PlayerHpText.text = "Player Hp: " + PlayerHp;
         EnemyHpText.text = "Enemy Hp:" + EnemyHp;
     }
 
-    void CheckWin()
+    bool CheckWin()
     {
         if (PlayerHp <= 0)
         {
             Lose();
+            return false;
         }
         if (EnemyHp <= 0)
         {
+            
             Win();
+            return true;
         }
-        
+        return false;
     }
 
     void Lose()
