@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-public class ItemSlot : MonoBehaviour
+using UnityEngine.EventSystems;
+
+public class ItemSlot : MonoBehaviour,IPointerClickHandler
 {
     //itemdata
     public string itemName;
@@ -18,6 +20,10 @@ public class ItemSlot : MonoBehaviour
     [SerializeField]
     private Image itemImage;
 
+    public GameObject selectedShader;
+    public bool thisItemSeleted;
+
+
     public void AddItem(string itemName, int quantity, Sprite itemSprite)
     {
         this.itemName = itemName;
@@ -30,7 +36,27 @@ public class ItemSlot : MonoBehaviour
         itemImage.sprite = itemSprite;
     }
 
-    
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            OnLeftClick();
+        }
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnRightClick();
+        }
+    }
+    public void OnLeftClick()
+    {
+        selectedShader.SetActive(true);
+        thisItemSeleted = true;
+    }
+
+    public void OnRightClick()
+    {
+
+    }
     void Start()
     {
         
