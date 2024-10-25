@@ -168,12 +168,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   quantity: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   isFull: 0
+  itemDescription: 
+  emptySprite: {fileID: 0}
   quantityText: {fileID: 1574763927261474900}
   itemImage: {fileID: 4377763898437845516}
+  itemDescriptionImage: {fileID: 0}
+  ItemDescriptionNameText: {fileID: 0}
+  ItemDescriptionText: {fileID: 0}
   selectedShader: {fileID: 3253854928756105813}
-  thisItemSeleted: 0
+  thisItemSelected: 0
 --- !u!1 &7519261264314568285
 GameObject:
   m_ObjectHideFlags: 0
