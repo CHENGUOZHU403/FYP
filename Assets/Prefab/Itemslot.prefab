@@ -106,8 +106,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4661016139087401581}
-  - {fileID: 3603510777463234514}
   - {fileID: 4049456289529122312}
+  - {fileID: 3603510777463234514}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -172,6 +172,7 @@ MonoBehaviour:
   isFull: 0
   itemDescription: 
   emptySprite: {fileID: 0}
+  maxNumberOfItems: 99
   quantityText: {fileID: 1574763927261474900}
   itemImage: {fileID: 4377763898437845516}
   itemDescriptionImage: {fileID: 0}
@@ -209,7 +210,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6984845821467066634}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -266,7 +267,7 @@ GameObject:
   - component: {fileID: 2024277315119534528}
   - component: {fileID: 1574763927261474900}
   m_Layer: 5
-  m_Name: Text
+  m_Name: QuantityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,11 +285,11 @@ RectTransform:
   m_LocalScale: {x: 1.9125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6984845821467066634}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -59, y: 24}
+  m_AnchoredPosition: {x: -62, y: 38.2}
   m_SizeDelta: {x: 68.349, y: 47.7603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2024277315119534528
@@ -346,13 +347,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
+  m_fontStyle: 1
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -12.302719, z: 5.24115, w: 0}
+  m_margin: {x: 0, y: -35.046555, z: 3.6039734, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
