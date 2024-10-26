@@ -90,6 +90,10 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     }
     public void OnLeftClick()
     {
+        if (thisItemSelected)
+        { 
+            inventoryManagers.UseItem(itemName);
+        }
         inventoryManagers.DeselectAllSlots();
         selectedShader.SetActive(true);
         thisItemSelected = true;
