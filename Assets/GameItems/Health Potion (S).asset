@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04ef0f83783cbd649a1142c7e71e34de, type: 3}
-  m_Name: New Item SO
+  m_Name: Health Potion (S)
   m_EditorClassIdentifier: 
-  itemName: 
-  statToChange: 0
+  itemName: Health Potion (S)
+  statToChange: 1
+  amountToChangeStat: 10
+  attributesToChange: 0
+  amountToChangeAttribute: 0
