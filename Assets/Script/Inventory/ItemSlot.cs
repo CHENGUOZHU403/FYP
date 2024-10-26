@@ -93,7 +93,16 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         if (thisItemSelected)
         { 
             inventoryManagers.UseItem(itemName);
+            this.quantity  -= 1;
+            quantityText.text = this.quantity.ToString();
+            if(this.quantity<=0)
+            {
+                EmptySlot();
+            }
         }
+
+        else
+        { 
         inventoryManagers.DeselectAllSlots();
         selectedShader.SetActive(true);
         thisItemSelected = true;
@@ -102,6 +111,16 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         itemDescriptionImage.sprite = itemSprite;
         if (itemDescriptionImage.sprite == null)
             itemDescriptionImage.sprite = emptySprite;
+        }
+    }
+    private void EmptySlot()
+    {
+        quantityText.enabled = false;
+        itemImage.sprite = emptySprite;
+
+        ItemDescriptionNameText.text = "";
+        ItemDescriptionText.text = "";
+        itemDescriptionImage.sprite = emptySprite;
     }
 
     public void OnRightClick()
