@@ -100143,6 +100143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077476114}
   - component: {fileID: 1077476115}
+  - component: {fileID: 1077476117}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -100186,7 +100187,17 @@ MonoBehaviour:
   ReToGameButton: {fileID: 1748147359}
   SettingsButton: {fileID: 2568760818978075318}
   BackButton: {fileID: 969260277}
+  notclosemenu: {fileID: 1370784975}
   scene: Start
+  sound: {fileID: 0}
+--- !u!81 &1077476117
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077476113}
+  m_Enabled: 1
 --- !u!1 &1106057809
 GameObject:
   m_ObjectHideFlags: 0
