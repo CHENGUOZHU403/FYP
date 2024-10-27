@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        //remove diagonal movement
+        //if (movement.x != 0) movement.y = 0;
+
+
     }
 
     void FixedUpdate()

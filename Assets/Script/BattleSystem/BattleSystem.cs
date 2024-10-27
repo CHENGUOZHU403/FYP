@@ -14,6 +14,9 @@ public class BattleSystem : MonoBehaviour
     public Text palyerDamageText;
     public Text enemyDamageText;
 
+    public GameObject player;
+    public GameObject enemy;
+
 
     public int EnemyHp, PlayerHp;
     public int PlayerDamage, EnemyDamage;
@@ -73,6 +76,18 @@ public class BattleSystem : MonoBehaviour
             CheckWin();
         }
     }
+
+    void PlyerAttack()
+    {
+        
+    }
+
+    void EnemyAttack()
+    {
+
+    }
+
+    
 
     bool CheckWin()
     {
