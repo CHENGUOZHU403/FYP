@@ -10,7 +10,10 @@ public class PauseMenu : MonoBehaviour
     public Button ReToGameButton;
     public Button SettingsButton;
     public Button BackButton;
+    public GameObject secmenu;
     public string scene; 
+    //private AudioSource audio;
+    //public AudioClip sound;
 
     void Start()
     {
@@ -19,13 +22,24 @@ public class PauseMenu : MonoBehaviour
         ReToGameButton.onClick.AddListener(OnReToGameClick);
         SettingsButton.onClick.AddListener(OnSettingsClick);
         BackButton.onClick.AddListener(OnBackClick);
+        //audio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            secmenu.SetActive(false);
+            //audio.PlayOneShot(sound);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             TogglePauseMenu();
+           //if (other.gameObject.CompareTag("Player") && !player.Isfindsister)
+           //{
+           //audio.PlayOneShot(sound);
+           //}
         }
     }
 
@@ -37,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     void OnReToGameClick()
     {
-        Debug.Log("Return");
+        Debug.Log("Return to game");
         pausemenu.SetActive(false);
         Time.timeScale = 1;
     }
@@ -48,7 +62,7 @@ public class PauseMenu : MonoBehaviour
 
     void OnBackClick()
     {
-        Debug.Log("Back");
+        Debug.Log("Back to main menu");
         SceneManager.LoadScene(scene);
     }
 }

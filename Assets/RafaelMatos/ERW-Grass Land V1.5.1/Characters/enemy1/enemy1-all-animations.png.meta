@@ -3,7 +3,7 @@ guid: 15d9f0e8eb178fb4dae1136bf717ab3a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,7 +62,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -79,10 +77,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1542,75 +1540,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      enemy1-all-animations_0: -605466545
-      enemy1-all-animations_1: -1262609686
-      enemy1-all-animations_10: -773769417
-      enemy1-all-animations_11: -290954217
-      enemy1-all-animations_12: -256661200
-      enemy1-all-animations_13: -1538821063
-      enemy1-all-animations_14: -102324492
-      enemy1-all-animations_15: -1585272712
-      enemy1-all-animations_16: 848583674
-      enemy1-all-animations_17: -1332509932
-      enemy1-all-animations_18: -406633428
-      enemy1-all-animations_19: -444609429
-      enemy1-all-animations_2: -670923691
-      enemy1-all-animations_20: 1510003401
-      enemy1-all-animations_21: 1584316292
-      enemy1-all-animations_22: -1926718098
-      enemy1-all-animations_23: 1690226386
-      enemy1-all-animations_24: 750805600
-      enemy1-all-animations_25: -1908939493
-      enemy1-all-animations_26: -497035430
-      enemy1-all-animations_27: -108573418
-      enemy1-all-animations_28: -973108364
-      enemy1-all-animations_29: -850974676
-      enemy1-all-animations_3: 1378750469
-      enemy1-all-animations_30: -243267933
-      enemy1-all-animations_31: -1018898180
-      enemy1-all-animations_32: -596371807
-      enemy1-all-animations_33: -1401072305
-      enemy1-all-animations_34: 864120680
-      enemy1-all-animations_35: 1085818583
-      enemy1-all-animations_36: 111136907
-      enemy1-all-animations_37: 2129323721
-      enemy1-all-animations_38: -980861706
-      enemy1-all-animations_39: 1643284487
-      enemy1-all-animations_4: 402608582
-      enemy1-all-animations_40: -1694515066
-      enemy1-all-animations_41: -1048963764
-      enemy1-all-animations_42: -430541437
-      enemy1-all-animations_43: 831717607
-      enemy1-all-animations_44: -1984878543
-      enemy1-all-animations_45: 351029360
-      enemy1-all-animations_46: 1581211339
-      enemy1-all-animations_47: 1694558514
-      enemy1-all-animations_48: 1224015956
-      enemy1-all-animations_49: -408121409
-      enemy1-all-animations_5: -139092048
-      enemy1-all-animations_50: 1156105065
-      enemy1-all-animations_51: 97644076
-      enemy1-all-animations_52: 1917869999
-      enemy1-all-animations_53: -719423150
-      enemy1-all-animations_54: 1369288467
-      enemy1-all-animations_55: -459619752
-      enemy1-all-animations_56: 1367767236
-      enemy1-all-animations_57: -70487309
-      enemy1-all-animations_58: 919544826
-      enemy1-all-animations_59: 744859870
-      enemy1-all-animations_6: -1925736923
-      enemy1-all-animations_60: 383817070
-      enemy1-all-animations_61: -413216530
-      enemy1-all-animations_62: 1636141753
-      enemy1-all-animations_63: 740964727
-      enemy1-all-animations_64: -171266179
-      enemy1-all-animations_65: 2047876224
-      enemy1-all-animations_66: 711635060
-      enemy1-all-animations_67: 550479338
-      enemy1-all-animations_7: 672026838
-      enemy1-all-animations_8: -1909370078
-      enemy1-all-animations_9: -533748322
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

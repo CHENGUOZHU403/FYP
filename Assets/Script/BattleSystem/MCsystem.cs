@@ -15,7 +15,7 @@ public class MCsystem : MonoBehaviour
     public Text WrongCountText;
 
     public Text AccuracyText;
-    public float Accuracy;
+    public float Accuracy = 0;
 
     public int CorrectNum = 0, WrongNum = 0;
 
@@ -28,29 +28,18 @@ public class MCsystem : MonoBehaviour
         generateQuestion();
     }
 
-    private void Update()
-    {
-        if (Answered == 0)
-        {
-            Accuracy = 0;
-        }
-        else
-        {
-            Accuracy = 1.0f * CorrectNum / Answered * 100;
-        }
-        AccuracyText.text = "Accuracy : " + Mathf.RoundToInt(Accuracy) + "%";
-    }
-
     public void correct()
     {
         CorrectCountText.text = "Correct : " + ++CorrectNum;
-        Answered++;
+        Accuracy = 1.0f * CorrectNum / ++Answered * 100;
+        AccuracyText.text = "Accuracy : " + Mathf.RoundToInt(Accuracy) + "%";
         generateQuestion();
     }
     public void wrong()
     {
         WrongCountText.text = "Wrong : " + ++WrongNum;
-        Answered++;
+        Accuracy = 1.0f * CorrectNum / ++Answered * 100;
+        AccuracyText.text = "Accuracy : " + Mathf.RoundToInt(Accuracy) + "%";
         generateQuestion();
     }
 

@@ -29,6 +29,8 @@ public class BattleSystem : MonoBehaviour
 
     public Text GameOverTitle;
 
+    public bool MonsterDead;
+
     private void Start()
     {
         EnemyHp = 100;
@@ -119,6 +121,7 @@ public class BattleSystem : MonoBehaviour
         Time.timeScale = 0;
         GameOverTitle.text = "You Win";
         GameoverUI.SetActive(true);
+        MonsterDead = true;
     }
 
 }
