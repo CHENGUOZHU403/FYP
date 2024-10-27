@@ -16,6 +16,8 @@ public class Timer : MonoBehaviour
     public MCsystem MCsystem;
     public GameObject MultChoiUI;
     public GameObject RoundEndUI;
+
+    public bool isStart =  false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,29 +29,33 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameTime -= Time.deltaTime;
-        if (gameTime <= 0 && stopTimer == false)
+        if (isStart)
         {
-            stopTimer = true;
-            battleSystem.TurnEnd();
-            RoundEndUI.SetActive(true);
-            
-            gameTime = sleepTime;
-        }
-
-        if (stopTimer == false)
-        {
-            TimerText.text = Mathf.RoundToInt(gameTime).ToString();
-            TimerSlider.value = gameTime;
-        }
-        if (stopTimer == true)
-        {
-            MultChoiUI.SetActive(false);
-            if (gameTime < 0)
+            gameTime -= Time.deltaTime;
+            if (gameTime <= 0 && stopTimer == false)
             {
-                Reset();
+                stopTimer = true;
+                battleSystem.TurnEnd();
+                RoundEndUI.SetActive(true);
+
+                gameTime = sleepTime;
+            }
+
+            if (stopTimer == false)
+            {
+                TimerText.text = Mathf.RoundToInt(gameTime).ToString();
+                TimerSlider.value = gameTime;
+            }
+            if (stopTimer == true)
+            {
+                MultChoiUI.SetActive(false);
+                if (gameTime < 0)
+                {
+                    Reset();
+                }
             }
         }
+
     }
 
     public void Reset()
@@ -60,5 +66,10 @@ public class Timer : MonoBehaviour
         stopTimer = false;
         MCsystem.Reset();
 
+    }
+
+    public void start()
+    {
+        isStart = true;
     }
 }
