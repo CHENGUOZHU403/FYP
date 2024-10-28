@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
 
         //remove diagonal movement
         //if (movement.x != 0) movement.y = 0;
-
-
     }
 
     void FixedUpdate()

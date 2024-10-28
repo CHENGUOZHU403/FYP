@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SocialPlatforms;
 
 public class BattleSystem : MonoBehaviour
 {
     public Slider PlayerHpSlider;
     public Slider EnemyHpSlider;
-
     public TextMeshProUGUI EnemyHpText;
     public TextMeshProUGUI PlayerHpText;
     public Text palyerDamageText;
@@ -17,12 +17,12 @@ public class BattleSystem : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
 
-
     public int EnemyHp, PlayerHp;
     public int PlayerDamage, EnemyDamage;
 
     public MCsystem MCsystem;
     public Timer Timer;
+
 
     public GameObject GameoverUI;
     public GameObject EnemyDamageGameObj;

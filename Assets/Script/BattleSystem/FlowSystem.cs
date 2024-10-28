@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlowSystem : MonoBehaviour
 {
@@ -25,7 +26,8 @@ public class FlowSystem : MonoBehaviour
     {
         if (run)
         {
-            if (rightborad.transform.position.x > 200)
+            Debug.Log(rightborad.transform.position.x);
+            if (rightborad.transform.position.x > 20)
             {
                 Destroy(leftborad);
                 Destroy(rightborad);
@@ -37,5 +39,11 @@ public class FlowSystem : MonoBehaviour
                 rightborad.transform.Translate(Vector3.right * speed * Time.deltaTime);
             }
         }
+    }
+
+    public void SettimeScale()
+    {
+        Time.timeScale = 1;
+
     }
 }
