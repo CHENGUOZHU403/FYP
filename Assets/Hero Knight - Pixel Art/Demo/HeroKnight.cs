@@ -4,7 +4,7 @@ using System.Collections;
 public class HeroKnight : MonoBehaviour {
 
     [SerializeField] float      m_speed = 10.0f;
-    [SerializeField] float      m_jumpForce = 7.5f;
+    //[SerializeField] float      m_jumpForce = 7.5f;
     [SerializeField] float      m_rollForce = 6.0f;
     [SerializeField] bool       m_noBlood = false;
     [SerializeField] GameObject m_slideDust;
@@ -150,17 +150,17 @@ public class HeroKnight : MonoBehaviour {
             
 
         //Jump
-        else if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
-        {
-            m_animator.SetTrigger("Jump");
-            m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
-            m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-            m_groundSensor.Disable(0.2f);
-        }
+        //else if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
+        //{
+        //    m_animator.SetTrigger("Jump");
+        //    m_grounded = false;
+        //    m_animator.SetBool("Grounded", m_grounded);
+        //    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+        //    m_groundSensor.Disable(0.2f);
+        //}
 
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon) 
         {
             // Reset timer
             m_delayToIdle = 0.05f;
@@ -180,6 +180,7 @@ public class HeroKnight : MonoBehaviour {
     void FixedUpdate()
     {
         m_body2d.MovePosition(m_body2d.position + movement * m_speed * Time.fixedDeltaTime);
+        
     }
     // Animation Events
     // Called in slide animation.
