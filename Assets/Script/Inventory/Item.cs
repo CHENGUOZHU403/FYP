@@ -24,12 +24,12 @@ public class Item : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("hi");
+        Debug.Log("Pick Up");
         if (collision.gameObject.tag == "Player")
         {
 
             int leftOverItems = inventoryManagers.AddItem(itemName, quantity, sprite,itemDescription);
-            if (leftOverItems <= 0)
+            if (leftOverItems == 0)
             {
                 Destroy(gameObject);
             }
@@ -37,7 +37,7 @@ public class Item : MonoBehaviour
             {
                 quantity = leftOverItems;
             }
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

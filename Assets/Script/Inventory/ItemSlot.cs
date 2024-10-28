@@ -60,7 +60,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         this.itemDescription = itemDescription;
 
         // Update amount
-        this.quantity += delta != 0 ? delta : quantity;
+        this.quantity += delta != 0 ? available : quantity;
         
         // Update UI
         RefreshSlotUI();
@@ -81,12 +81,14 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     }
     public void OnLeftClick()
     {
-        if (thisItemSelected)
+        if (thisItemSelected && quantity > 0)
         { 
             inventoryManagers.UseItem(itemName);
             this.quantity -= 1;
-            if (this.quantity <=0)
+            if (this.quantity <= 0)
                 EmptySlot();
+            else
+                RefreshSlotUI();
         }
         else
         { 
@@ -99,9 +101,9 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
 
     private void EmptySlot()
     {
-        quantityText.enabled = false;
         itemName = itemDescription = string.Empty;
-        itemSprite = null;
+        itemSprite = emptySprite;
+
         RefreshSlotUI();
         RefreshDescUI();
     }
@@ -123,6 +125,6 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     {
         ItemDescriptionNameText.text = itemName;
         ItemDescriptionText.text = itemDescription;
-        itemDescriptionImage.sprite = itemSprite != null ? itemSprite : emptySprite;
+        itemDescriptionImage.sprite = itemSprite != emptySprite ? itemSprite : emptySprite;
     }
 }
