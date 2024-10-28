@@ -44,37 +44,28 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite,string itemDescription)
     {
-        //check slot is full
-        if (isFull)
-        {
-            return quantity;
-        }
-        this.itemName = itemName;
-        
-        this.itemSprite = itemSprite;
-        itemImage.sprite = itemSprite;
+        // TODO: Check if the item is the same?
 
+        // Check if we still have space left in this slot
+        int available = maxNumberOfItems - this.quantity;
+        if (available <= 0)
+            return quantity;
+
+        // Take the avaiable amount of item
+        int delta = quantity > available ? quantity - available : 0;
+
+        // Set item data
+        this.itemName = itemName;
+        this.itemSprite = itemSprite;
         this.itemDescription = itemDescription;
 
-        this.quantity += quantity;
-        if(this.quantity >= maxNumberOfItems)
-        {
-            quantityText.text = quantity.ToString();
-            quantityText.enabled = true;
-            isFull = true;
+        // Update amount
+        this.quantity += delta != 0 ? delta : quantity;
         
-        //return the leftover
-            int extraItems = this.quantity - maxNumberOfItems;
-            this.quantity = maxNumberOfItems;
-            return extraItems;
-        }
-        //update quantity
-        quantityText.text = this.quantity.ToString();
-        quantityText.enabled = true;
+        // Update UI
+        RefreshSlotUI();
 
-        return 0;
-
-       
+        return delta;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -93,34 +84,26 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         if (thisItemSelected)
         { 
             inventoryManagers.UseItem(itemName);
-            this.quantity  -= 1;
-            quantityText.text = this.quantity.ToString();
-            if(this.quantity<=0)
-            {
+            this.quantity -= 1;
+            if (this.quantity <=0)
                 EmptySlot();
-            }
         }
-
         else
         { 
-        inventoryManagers.DeselectAllSlots();
-        selectedShader.SetActive(true);
-        thisItemSelected = true;
-        ItemDescriptionNameText.text = itemName;
-        ItemDescriptionText.text = itemDescription;
-        itemDescriptionImage.sprite = itemSprite;
-        if (itemDescriptionImage.sprite == null)
-            itemDescriptionImage.sprite = emptySprite;
+            inventoryManagers.DeselectAllSlots();
+            selectedShader.SetActive(true);
+            thisItemSelected = true;
+            RefreshDescUI();
         }
     }
+
     private void EmptySlot()
     {
         quantityText.enabled = false;
-        itemImage.sprite = emptySprite;
-
-        ItemDescriptionNameText.text = "";
-        ItemDescriptionText.text = "";
-        itemDescriptionImage.sprite = emptySprite;
+        itemName = itemDescription = string.Empty;
+        itemSprite = null;
+        RefreshSlotUI();
+        RefreshDescUI();
     }
 
     public void OnRightClick()
@@ -130,8 +113,16 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
 
 
     
-    void Update()
+    private void RefreshSlotUI()
     {
-        
+        quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
+        itemImage.sprite = itemSprite != null ? itemSprite : emptySprite;
+    }
+
+    private void RefreshDescUI()
+    {
+        ItemDescriptionNameText.text = itemName;
+        ItemDescriptionText.text = itemDescription;
+        itemDescriptionImage.sprite = itemSprite != null ? itemSprite : emptySprite;
     }
 }
