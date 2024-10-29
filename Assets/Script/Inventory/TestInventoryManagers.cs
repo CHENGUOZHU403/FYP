@@ -74,6 +74,7 @@ public class TestInventoryManagers : MonoBehaviour
 
     public void BeginDrag(TestItemSlot itemSlot, PointerEventData eventData)
     {
+        if(itemSlot.quantity > 0) {
         draggedItem = eventData.pointerDrag;
         draggedItemRectTransform = draggedItem.GetComponent<RectTransform>();
         draggedItemCanvasGroup = draggedItem.GetComponent<CanvasGroup>();
@@ -81,7 +82,8 @@ public class TestInventoryManagers : MonoBehaviour
         originalPosition = draggedItemRectTransform.anchoredPosition;
 
         draggedItemCanvasGroup.alpha = 0.6f;
-        draggedItemCanvasGroup.blocksRaycasts = false;
+        draggedItemCanvasGroup.blocksRaycasts = false; 
+        }
     }
 
     public void Drag(PointerEventData eventData)
@@ -99,7 +101,7 @@ public class TestInventoryManagers : MonoBehaviour
             draggedItemCanvasGroup.alpha = 1f;
             draggedItemCanvasGroup.blocksRaycasts = true;
 
-            if (!eventData.pointerEnter || eventData.pointerEnter.GetComponent<ItemSlot>() == null)
+            if (!eventData.pointerEnter || eventData.pointerEnter.GetComponent<TestItemSlot>() == null)
             {
                 draggedItemRectTransform.anchoredPosition = originalPosition;
             }
