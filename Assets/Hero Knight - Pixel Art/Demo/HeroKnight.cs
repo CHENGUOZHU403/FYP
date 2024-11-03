@@ -160,12 +160,12 @@ public class HeroKnight : MonoBehaviour {
         //}
 
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon) 
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon || Mathf.Abs(inputY) > Mathf.Epsilon) 
         {
-            // Reset timer
-            m_delayToIdle = 0.05f;
-            m_animator.SetInteger("AnimState", 1);
-        }
+        // Reset timer
+        m_delayToIdle = 0.05f;
+        m_animator.SetInteger("AnimState", 1);
+        }       
 
         //Idle
         else
