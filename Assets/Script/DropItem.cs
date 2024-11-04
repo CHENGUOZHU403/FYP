@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DropItem : MonoBehaviour
 {
-    public GameObject itemPrefab;
+    public GameObject Itemdrop;
     public int DropItemNum = 1; 
     public float dropRadius = 1f; 
 
@@ -13,7 +13,7 @@ public class DropItem : MonoBehaviour
             Vector3 dropPosition = transform.position + Random.insideUnitSphere * dropRadius;
             dropPosition.y = 0;
 
-            Instantiate(itemPrefab, dropPosition, Quaternion.identity);
+            Instantiate(Itemdrop, dropPosition, Quaternion.identity);
         }
     }
 }
