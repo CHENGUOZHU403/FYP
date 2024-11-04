@@ -35,7 +35,7 @@ public class Timer : MonoBehaviour
             if (gameTime <= 0 && stopTimer == false)
             {
                 stopTimer = true;
-                battleSystem.TurnEnd();
+                //battleSystem.TurnEnd();
                 RoundEndUI.SetActive(true);
 
                 gameTime = sleepTime;
