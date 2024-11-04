@@ -1525,7 +1525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6766553641026796530, guid: 6821000e1e01b5a4084cd1c158fa38e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.74854
+      value: -17.5
       objectReference: {fileID: 0}
     - target: {fileID: 6766553641026796530, guid: 6821000e1e01b5a4084cd1c158fa38e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4718,6 +4718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1803086475}
   - component: {fileID: 1803086474}
+  - component: {fileID: 1803086476}
   m_Layer: 0
   m_Name: mockup-3
   m_TagString: Untagged
@@ -4791,6 +4792,32 @@ Transform:
   m_Father: {fileID: 1644717571}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1803086476
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803086473}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 4.8}
+    newSize: {x: 5.12, y: 4.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5}
+  m_EdgeRadius: 0
 --- !u!1 &1835791482
 GameObject:
   m_ObjectHideFlags: 0
