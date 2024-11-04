@@ -3287,6 +3287,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8652391595165629330, guid: 1b173540bddeab04ea08b8a1862179eb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652391595165629330, guid: 1b173540bddeab04ea08b8a1862179eb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652391595165629330, guid: 1b173540bddeab04ea08b8a1862179eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4939,6 +4947,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9f16f4f3527ec46ad2c42b664d2fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  playerPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 0}
+  playerBattleStation: {fileID: 0}
+  enemyBattleStation: {fileID: 0}
   PlayerHpSlider: {fileID: 1253625102}
   EnemyHpSlider: {fileID: 1510059922}
   EnemyHpText: {fileID: 1007611428}
