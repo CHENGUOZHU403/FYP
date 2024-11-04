@@ -4443,7 +4443,6 @@ GameObject:
   - component: {fileID: 1720071456}
   - component: {fileID: 1720071458}
   - component: {fileID: 1720071457}
-  - component: {fileID: 1720071459}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -4497,21 +4496,6 @@ MonoBehaviour:
   BattleScene: {fileID: 1835791482}
   InGameScene: {fileID: 1644717570}
   BattleSystem: {fileID: 1580153747}
---- !u!114 &1720071459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720071455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c0ebd90a834e24787c757e3d0824f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 1644207946}
-  DropItemNum: 1
-  dropRadius: 1
 --- !u!1 &1721218625
 GameObject:
   m_ObjectHideFlags: 0

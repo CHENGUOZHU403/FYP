@@ -12,7 +12,7 @@ public class InventoryManagers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        InventoryMenu.SetActive(false);
     }
 
     // Update is called once per frame
