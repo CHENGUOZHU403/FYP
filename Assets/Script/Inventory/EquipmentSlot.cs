@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour,IPointerClickHandler
+public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
     //itemdata
     public string itemName;
@@ -16,8 +16,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-    [SerializeField]
-    private int maxNumberOfItems;
+
 
     //itemslot
     [SerializeField]
@@ -25,11 +24,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     [SerializeField]
     private Image itemImage;
 
-    //item description slot
-    public Image itemDescriptionImage;
-    public TMP_Text ItemDescriptionNameText;
-    public TMP_Text ItemDescriptionText;
-
+   
 
 
 
@@ -43,7 +38,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
     }
 
-    public int AddItem(string itemName, int quantity, Sprite itemSprite,string itemDescription, ItemType itemType)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
         //updata itemtype
         this.itemType = itemType;
@@ -51,25 +46,21 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         // TODO: Check if the item is the same?
 
         // Check if we still have space left in this slot
-        int available = maxNumberOfItems - this.quantity;
-        if (available <= 0)
-            return quantity;
-
-        // Take the avaiable amount of item
-        int delta = quantity > available ? quantity - available : 0;
-
+        
         // Set item data
         this.itemName = itemName;
         this.itemSprite = itemSprite;
         this.itemDescription = itemDescription;
 
-        // Update amount
-        this.quantity += delta != 0 ? available : quantity;
+        this.quantity = 1;
+        isFull = true;
         
+        
+
         // Update UI
         RefreshSlotUI();
 
-        return delta;
+        return 0;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -78,7 +69,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         {
             OnLeftClick();
         }
-        if(eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
             OnRightClick();
         }
@@ -86,7 +77,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     public void OnLeftClick()
     {
         if (thisItemSelected && quantity > 0)
-        { 
+        {
             inventoryManagers.UseItem(itemName);
             this.quantity -= 1;
             if (this.quantity <= 0)
@@ -95,11 +86,11 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
                 RefreshSlotUI();
         }
         else
-        { 
+        {
             inventoryManagers.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
-            RefreshDescUI();
+           
         }
     }
 
@@ -109,7 +100,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         itemSprite = emptySprite;
 
         RefreshSlotUI();
-        RefreshDescUI();
+        
     }
 
     public void OnRightClick()
@@ -118,17 +109,12 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     }
 
 
-    
+
     private void RefreshSlotUI()
     {
         quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
         itemImage.sprite = itemSprite != null ? itemSprite : emptySprite;
     }
 
-    private void RefreshDescUI()
-    {
-        ItemDescriptionNameText.text = itemName;
-        ItemDescriptionText.text = itemDescription;
-        itemDescriptionImage.sprite = itemSprite != emptySprite ? itemSprite : emptySprite;
-    }
+ 
 }

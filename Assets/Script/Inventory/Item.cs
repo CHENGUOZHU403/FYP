@@ -16,6 +16,8 @@ public class Item : MonoBehaviour
     private string itemDescription;
 
     private InventoryManagers inventoryManagers;
+
+    public ItemType itemType;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class Item : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
 
-            int leftOverItems = inventoryManagers.AddItem(itemName, quantity, sprite,itemDescription);
+            int leftOverItems = inventoryManagers.AddItem(itemName, quantity, sprite,itemDescription, itemType);
             if (leftOverItems == 0)
             {
                 Destroy(gameObject);
