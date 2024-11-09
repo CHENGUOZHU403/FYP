@@ -14,8 +14,6 @@ public class BattleSystem : MonoBehaviour
 
     public TextMeshProUGUI dialogue;
 
-
-
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
     public Transform playerBattleStation;
@@ -27,21 +25,17 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
-
     public Text palyerDamageText;
     public Text enemyDamageText;
 
-
     public MCsystem MCsystem;
     public Timer Timer;
-
 
     public GameObject GameoverUI;
     public GameObject EnemyDamageGameObj;
 
     public Text GameOverTitle;
 
-    public bool MonsterDead;
 
     private void Start()
     {

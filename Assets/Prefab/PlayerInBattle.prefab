@@ -255,9 +255,9 @@ GameObject:
   - component: {fileID: 1384985729158554790}
   - component: {fileID: 1271520984704192645}
   - component: {fileID: 4902543741632216523}
-  - component: {fileID: 2769882419075518028}
+  - component: {fileID: -4455825015795043269}
   m_Layer: 6
-  m_Name: Player
+  m_Name: PlayerInBattle
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,14 +434,23 @@ MonoBehaviour:
   m_newColors:
   - {r: 0.050980397, g: 0.20392159, b: 0.12941177, a: 1}
   - {r: 0.18039216, g: 0.4156863, b: 0.07058824, a: 1}
---- !u!81 &2769882419075518028
-AudioListener:
+--- !u!114 &-4455825015795043269
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4098715190306889107}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f808c9a19bab74f9ca0caba107ffb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Player
+  unitLevel: 1
+  damage: 10
+  maxHP: 100
+  currentHP: 100
 --- !u!1 &7975552942274926592
 GameObject:
   m_ObjectHideFlags: 0
