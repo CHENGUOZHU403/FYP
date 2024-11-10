@@ -8,68 +8,33 @@ public class Timer : MonoBehaviour
     public Slider TimerSlider;
     public Text TimerText;
     public float gameTime;
-    public float sleepTime;
-
-    public bool stopTimer;
 
     public BattleSystem battleSystem;
     public MCsystem MCsystem;
-    public GameObject MultChoiUI;
-    public GameObject RoundEndUI;
 
-    public bool isStart =  false;
+    public UiManager UiManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        stopTimer = false;
-        TimerSlider.maxValue = gameTime;
-        TimerSlider.value = gameTime;
+        gameTime = 5;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (isStart)
+        gameTime -= Time.deltaTime;
+        TimerSlider.value = gameTime;
+        TimerText.text = Mathf.Round(gameTime).ToString();
+        if (gameTime <= 0)
         {
-            gameTime -= Time.deltaTime;
-            if (gameTime <= 0 && stopTimer == false)
-            {
-                stopTimer = true;
-                //battleSystem.TurnEnd();
-                RoundEndUI.SetActive(true);
-
-                gameTime = sleepTime;
-            }
-
-            if (stopTimer == false)
-            {
-                TimerText.text = Mathf.RoundToInt(gameTime).ToString();
-                TimerSlider.value = gameTime;
-            }
-            if (stopTimer == true)
-            {
-                MultChoiUI.SetActive(false);
-                if (gameTime < 0)
-                {
-                    Reset();
-                }
-            }
+            UiManager.TurnEnd();
         }
-
     }
 
     public void Reset()
     {
-        MultChoiUI.SetActive(true);
-        RoundEndUI.SetActive(false);
+        UiManager.TurnStart();
         gameTime = TimerSlider.maxValue;
-        stopTimer = false;
         MCsystem.Reset();
-
-    }
-
-    public void start()
-    {
-        isStart = true;
     }
 }

@@ -65,7 +65,7 @@ public class MCsystem : MonoBehaviour
         }
     }
 
-    void generateQuestion()
+    public void generateQuestion()
     {
         QuestionA = UnityEngine.Random.Range(0, 5);
         QuestionB = UnityEngine.Random.Range(0, 5);
