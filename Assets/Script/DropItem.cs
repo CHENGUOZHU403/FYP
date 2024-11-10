@@ -5,6 +5,8 @@ public class DropItem : MonoBehaviour
     public GameObject Itemdrop;
     public int DropItemNum = 1; 
     public float dropRadius = 1f; 
+    public int xpDropAmount = 20; // exp
+    public GameObject xpOrbPrefab; 
 
     private void OnDestroy()
     {
@@ -15,5 +17,12 @@ public class DropItem : MonoBehaviour
 
             Instantiate(Itemdrop, dropPosition, Quaternion.identity);
         }
+        DropXPOrb();
+    }
+
+      void DropXPOrb()
+    {
+        // 生成經驗球
+        Instantiate(xpOrbPrefab, transform.position, Quaternion.identity);
     }
 }

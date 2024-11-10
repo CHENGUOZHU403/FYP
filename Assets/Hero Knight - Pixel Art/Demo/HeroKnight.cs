@@ -26,6 +26,10 @@ public class HeroKnight : MonoBehaviour {
     private float               m_rollDuration = 8.0f / 14.0f;
     private float               m_rollCurrentTime;
     Vector2 movement;
+    public int level = 1;
+    public int currentXP = 0;
+    public int xpToLevelUp = 100; // 初始升級所需的經驗值
+    public int xpPerLevelIncrease = 50; // 每次升級增加的經驗需求
 
 
     // Use this for initialization
@@ -175,6 +179,12 @@ public class HeroKnight : MonoBehaviour {
                 if(m_delayToIdle < 0)
                     m_animator.SetInteger("AnimState", 0);
         }
+
+          // 檢查是否達到升級條件
+        if (currentXP >= xpToLevelUp)
+        {
+            LevelUp();
+        }
     }
 
     void FixedUpdate()
@@ -200,5 +210,21 @@ public class HeroKnight : MonoBehaviour {
             // Turn arrow in correct direction
             dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
         }
+    }
+
+    void LevelUp()
+    {
+        level++;
+        currentXP -= xpToLevelUp; // 升級後多餘的經驗繼續累計
+        xpToLevelUp += xpPerLevelIncrease; // 下一級需要的經驗值增加
+
+        // 這裡可以加入升級效果，例如增加生命值或攻擊力
+        Debug.Log("Player leveled up to level: " + level);
+    }
+
+    // 收集經驗值的函數
+    public void AddXP(int xpAmount)
+    {
+        currentXP += xpAmount;
     }
 }
