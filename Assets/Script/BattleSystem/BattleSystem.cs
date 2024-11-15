@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public enum BattleState { Start, Playerturn, Enemyturn, Won, Lost }
 
 public class BattleSystem : MonoBehaviour
@@ -26,19 +25,9 @@ public class BattleSystem : MonoBehaviour
     public Text palyerDamageText;
     public Text enemyDamageText;
 
-    public GameObject button;
-
+    public UiManager UiManager;
     public MCsystem MCsystem;
     public Timer Timer;
-
-    public GameObject GameoverUI;
-    public GameObject EnemyDamageGameObj;
-
-    public GameObject MCUI;
-    public GameObject DialogueUI;
-
-    public Text GameOverTitle;
-
 
     private void Start()
     {
@@ -71,7 +60,10 @@ public class BattleSystem : MonoBehaviour
         dialogue.text = enemyUnit.unitName + " Attack!";
         yield return new WaitForSeconds(1f);
 
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        int EnemyDamage = Random.Range(enemyUnit.damage-5, enemyUnit.damage+5);
+        enemyDamageText.text = EnemyDamage.ToString();
+        UiManager.ShowEnemyDamage();
+        bool isDead = playerUnit.TakeDamage(EnemyDamage);
 
         playerHUD.SetHP(playerUnit.currentHP);
 
@@ -97,33 +89,43 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.Won)
         {
             dialogue.text = "You won the battle!";
+            UiManager.Gameover("You won the battle!");
+
         } else if (state == BattleState.Lost)
         {
             dialogue.text = "You were defeated.";
+            UiManager.Gameover("You were defeated.");
         }
 
     }
 
     void PlayerTurn()
     {
+        UiManager.hideDamage();
+        UiManager.ChooseAction();
+        
         dialogue.text = "Choose an action";
 
     }
 
     IEnumerator PlayerAttack()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
+
 
         int playerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * playerUnit.damage * MCsystem.Accuracy / 100);
-        //damage the enmey
+        //damage to enmey
+
         palyerDamageText.text = playerDamage.ToString();
+        UiManager.ShowPlayerDamage();
+      
         bool isDead = enemyUnit.TakeDamage(playerDamage);
         
 
         enemyHUD.SetHP(enemyUnit.currentHP);
         dialogue.text = "Attack is successful";
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         //Check if the enmey is dead
         //change state 
@@ -157,8 +159,9 @@ public class BattleSystem : MonoBehaviour
         if (state != BattleState.Playerturn)
             return;
 
-        MCUI.SetActive(true);
-        DialogueUI.SetActive(false);
+
+        UiManager.Attack();
+        Timer.ResetTimer();
         StartCoroutine(PlayerAttack());
     }
 
@@ -170,34 +173,6 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.Enemyturn;
         StartCoroutine(PlayerHeal());
     }
-    
-
-    //public void Reset()
-    //{
-    //    Time.timeScale = 1;
-    //    GameoverUI.SetActive(false);
-    //    EnemyDamageGameObj.SetActive(true);
-    //    Timer.Reset();
-    //}
-
-    //public void TurnEnd() 
-    //{
-    //    PlayerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * 10 * MCsystem.Accuracy / 100);
-    //    palyerDamageText.text =  PlayerDamage.ToString();
-    //    EnemyHp -= PlayerDamage;
-    //    EnemyHpSlider.value = EnemyHp;
-    //    EnemyHpText.text = "Enemy Hp:" + EnemyHp;
-        
-    //    if (!CheckWin())
-    //    {
-    //        EnemyDamage = Random.Range(15, 20);
-    //        enemyDamageText.text = EnemyDamage.ToString();
-    //        PlayerHp -= EnemyDamage;
-    //        PlayerHpSlider.value = PlayerHp;
-    //        PlayerHpText.text = "Player Hp: " + PlayerHp;
-    //        CheckWin();
-    //    }
-    //}
 
     void PlyerAttack()
     {
@@ -208,40 +183,4 @@ public class BattleSystem : MonoBehaviour
     {
 
     }
-
-    
-
-    //bool CheckWin()
-    //{
-    //    if (PlayerHp <= 0)
-    //    {
-    //        Lose();
-    //        PlayerHpText.text = "Player Hp: " + 0;
-    //        return false;
-    //    }
-    //    if (EnemyHp <= 0)
-    //    {
-    //        EnemyDamageGameObj.SetActive(false);
-    //        EnemyHpText.text = "Enemy Hp: " + 0;
-    //        Win();
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
-    //void Lose()
-    //{
-    //    Time.timeScale = 0;
-    //    GameOverTitle.text = "You Lose";
-    //    GameoverUI.SetActive(true);
-    //}
-
-    //void Win()
-    //{
-    //    Time.timeScale = 0;
-    //    GameOverTitle.text = "You Win";
-    //    GameoverUI.SetActive(true);
-    //    MonsterDead = true;
-    //}
-
 }

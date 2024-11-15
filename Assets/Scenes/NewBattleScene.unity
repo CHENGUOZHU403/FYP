@@ -809,6 +809,10 @@ MonoBehaviour:
   MultChoiUI: {fileID: 768007521}
   RoundEndUI: {fileID: 547055692}
   GameoverUI: {fileID: 2077195765}
+  DialoguePanle: {fileID: 112583536}
+  playerdam: {fileID: 425007694}
+  enemydam: {fileID: 1261962528}
+  gameoverText: {fileID: 566338571}
 --- !u!1 &425007694
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &425007695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1062,43 +1066,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 491006332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 985698267}
-        m_TargetAssemblyTypeName: FlowSystem, Assembly-CSharp
-        m_MethodName: SettimeScale
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &491006332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,14 +1144,9 @@ MonoBehaviour:
   enemyHUD: {fileID: 1188146428}
   palyerDamageText: {fileID: 1933179377}
   enemyDamageText: {fileID: 1067717745}
-  button: {fileID: 1154287671}
+  UiManager: {fileID: 345633667}
   MCsystem: {fileID: 1386565344}
   Timer: {fileID: 794490455}
-  GameoverUI: {fileID: 2077195765}
-  EnemyDamageGameObj: {fileID: 1261962528}
-  MCUI: {fileID: 768007521}
-  DialogueUI: {fileID: 112583536}
-  GameOverTitle: {fileID: 566338571}
 --- !u!4 &497153241
 Transform:
   m_ObjectHideFlags: 0
@@ -1328,7 +1291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &547055693
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1426,7 +1389,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b34bb197959572d4d82ed4b5b0e4a58e, type: 3}
-    m_FontSize: 140
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1886,10 +1849,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9211e8fbabfffb94280ff989eebbe9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerSlider: {fileID: 173703512}
-  TimerText: {fileID: 2116160688}
-  gameTime: 5
-  battleSystem: {fileID: 497153240}
+  timerSlider: {fileID: 173703512}
+  timerText: {fileID: 2116160688}
+  timerDuration: 5
   MCsystem: {fileID: 1386565344}
   UiManager: {fileID: 345633667}
 --- !u!4 &794490456
@@ -3601,7 +3563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1261962529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4055,7 +4017,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
