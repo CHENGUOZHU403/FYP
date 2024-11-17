@@ -22,25 +22,20 @@ public class UiManager : MonoBehaviour
     public void ChooseAction()
     {
         DialoguePanle.SetActive(true);
+        enemydam.SetActive(false);
     }
 
-
-public void ShowPlayerDamage()
-    {
-        hideDamage();
-        playerdam.SetActive(true);
-    }
-    public void ShowEnemyDamage()
-    {
-        hideDamage();
-        enemydam.SetActive(true);
-    }
-
-    public void hideDamage()
+    public void ShowPlayerDamage()
     {
         MultChoiUI.SetActive(false);
-        playerdam.SetActive(false);
         enemydam.SetActive(false);
+        playerdam.SetActive(true);
+    }
+
+    public void ShowEnemyDamage()
+    {
+        playerdam.SetActive(false);
+        enemydam.SetActive(true);
     }
 
     public void Gameover(string str)
@@ -48,4 +43,11 @@ public void ShowPlayerDamage()
         gameoverText.text = str;
         GameoverUI.SetActive(true);
     }
+
+    public void ShowDialogue()
+    {
+        DialoguePanle.SetActive(true);
+        MultChoiUI.SetActive(false);
+    }
+
 }

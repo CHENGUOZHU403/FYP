@@ -14,10 +14,12 @@ public class Timer : MonoBehaviour
     public MCsystem MCsystem;
     public UiManager UiManager;
 
+    public unit playerunit;
+
     // Start is called before the first frame update
     void Start()
     {
-        timeRemaining = 5f;
+        timeRemaining = playerunit.timeRemaining;
         timeRemaining = timerDuration;
         timerSlider.maxValue = timerDuration;
         timerSlider.value = timerDuration;
