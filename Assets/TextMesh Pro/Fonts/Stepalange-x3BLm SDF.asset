@@ -95,7 +95,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -146,6 +146,20 @@ MonoBehaviour:
     m_StrikethroughThickness: 0
     m_TabWidth: 44
   m_GlyphTable:
+  - m_Index: 2
+    m_Metrics:
+      m_Width: 0
+      m_Height: 0
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 0
+      m_HorizontalAdvance: 0
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 0
+      m_Width: 0
+      m_Height: 0
+    m_Scale: 1
+    m_AtlasIndex: 0
   - m_Index: 4
     m_Metrics:
       m_Width: 0
@@ -1448,7 +1462,7 @@ MonoBehaviour:
       m_Height: 0
     m_Scale: 1
     m_AtlasIndex: 0
-  - m_Index: 2
+  - m_Index: 3
     m_Metrics:
       m_Width: 0
       m_Height: 0
@@ -1463,6 +1477,10 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
   m_CharacterTable:
+  - m_ElementType: 1
+    m_Unicode: 10
+    m_GlyphIndex: 2
+    m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 32
     m_GlyphIndex: 4
@@ -1836,8 +1854,8 @@ MonoBehaviour:
     m_GlyphIndex: 96
     m_Scale: 1
   - m_ElementType: 1
-    m_Unicode: 10
-    m_GlyphIndex: 2
+    m_Unicode: 13
+    m_GlyphIndex: 3
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 8567964560981946507}
