@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class NPCDialogue : MonoBehaviour
 {
     [Header("Dialogue UI")]
     public GameObject dialoguePanel; 
-    public Text dialogueText;        
+    public TMP_Text dialogueText;        
     public Button nextButton;        
 
     [Header("Dialogue Content")]
