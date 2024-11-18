@@ -810,9 +810,8 @@ MonoBehaviour:
   RoundEndUI: {fileID: 547055692}
   GameoverUI: {fileID: 2077195765}
   DialoguePanle: {fileID: 112583536}
-  playerdam: {fileID: 425007694}
-  enemydam: {fileID: 0}
   gameoverText: {fileID: 566338571}
+  buttonContainer: {fileID: 1154287671}
 --- !u!1 &425007694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,8 +1159,6 @@ MonoBehaviour:
   enemyBattleStation: {fileID: 1180290591}
   playerHUD: {fileID: 1247232042}
   enemyHUD: {fileID: 1188146428}
-  palyerDamageText: {fileID: 1933179377}
-  enemyDamageText: {fileID: 0}
   damageDisplay: {fileID: 425007696}
   UiManager: {fileID: 345633667}
   MCsystem: {fileID: 1386565344}
@@ -1533,6 +1530,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: OnAttackButton
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1154287671}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3273,7 +3282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1154287672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3306,7 +3315,7 @@ GameObject:
   - component: {fileID: 1180290591}
   - component: {fileID: 1180290590}
   m_Layer: 6
-  m_Name: enemy
+  m_Name: enemyPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3589,7 +3598,7 @@ GameObject:
   - component: {fileID: 1350861673}
   - component: {fileID: 1350861672}
   m_Layer: 7
-  m_Name: player
+  m_Name: playerPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5412,6 +5421,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: OnHealButton
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1154287671}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

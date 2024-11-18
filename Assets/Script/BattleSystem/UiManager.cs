@@ -9,9 +9,9 @@ public class UiManager : MonoBehaviour
     public GameObject RoundEndUI;
     public GameObject GameoverUI;
     public GameObject DialoguePanle;
-    public GameObject playerdam;
-    public GameObject enemydam;
     public Text gameoverText;
+
+    public GameObject buttonContainer;
 
     public void Attack()
     {
@@ -22,6 +22,7 @@ public class UiManager : MonoBehaviour
     public void ChooseAction()
     {
         DialoguePanle.SetActive(true);
+        buttonContainer.SetActive(true);
     }
 
     public void ShowDamage()
@@ -33,6 +34,7 @@ public class UiManager : MonoBehaviour
     {
         gameoverText.text = str;
         GameoverUI.SetActive(true);
+        DialoguePanle.SetActive(false);
     }
 
     public void ShowDialogue()
