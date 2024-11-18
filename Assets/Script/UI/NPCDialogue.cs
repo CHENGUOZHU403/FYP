@@ -38,6 +38,17 @@ public class NPCDialogue : MonoBehaviour
         }
     }
 
+    public void OpenShop()
+    {
+        shopUI.SetActive(true);
+    }
+
+    public void CloseShop()
+    {
+        shopUI.SetActive(false);
+    }
+
+
     private void StartDialogue()
     {
         currentLineIndex = 0;
