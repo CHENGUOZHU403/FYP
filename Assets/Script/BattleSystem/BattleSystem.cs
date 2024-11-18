@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public enum BattleState { Start, Playerturn, Enemyturn, Won, Lost }
 
@@ -22,19 +23,17 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
-    public Text palyerDamageText;
-    public Text enemyDamageText;
-
     public DamageDisplay damageDisplay;
 
     public UiManager UiManager;
     public MCsystem MCsystem;
     public Timer Timer;
 
+    
+
     private void Start()
     {
         state = BattleState.Start;
-
         StartCoroutine(SetupBattle());
     }
 
@@ -46,13 +45,14 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGO.GetComponent<unit>();
 
-        dialogue.text = "Fight";
+        
 
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
 
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(ShowDialogue("Welcome to Math Wrold"));
 
+        yield return new WaitForSeconds(1f);
         state = BattleState.Playerturn;
         PlayerTurn();
 
@@ -62,10 +62,12 @@ public class BattleSystem : MonoBehaviour
     {
         Vector3 originalPosition = enemyUnit.transform.position;
 
-        dialogue.text = enemyUnit.unitName + " Attack!";
-        yield return StartCoroutine(Move(enemyUnit.transform, playerUnit.transform.position, enemyUnit.attackRange, enemyUnit));
+        //dialogue.text = enemyUnit.unitName + " Attack!";
+        StartCoroutine(ShowDialogue(enemyUnit.unitName + " Attack!"));
+        yield return StartCoroutine(enemyUnit.Move(enemyUnit.transform, playerBattleStation.position, enemyUnit.attackRange));
 
         enemyUnit.Attack();
+        playerUnit.Hurt();
 
         int EnemyDamage = Random.Range(enemyUnit.damage-5, enemyUnit.damage+5);
 
@@ -76,7 +78,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(Move(enemyUnit.transform, originalPosition, 0, enemyUnit));
+        yield return StartCoroutine(enemyUnit.Move(enemyUnit.transform, originalPosition, 0));
 
         yield return new WaitForSeconds(1f);
 
@@ -84,6 +86,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             // End the battle
+            playerUnit.Dead();
             state = BattleState.Lost;
             EndBattle();
         }
@@ -113,8 +116,8 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
+        StartCoroutine(ShowDialogue("Choose your action"));
         UiManager.ChooseAction();
-        dialogue.text = "Choose an action";
     }
 
     IEnumerator PlayerAttack()
@@ -124,43 +127,36 @@ public class BattleSystem : MonoBehaviour
 
         Vector3 originalPosition = playerUnit.transform.position;
 
-        dialogue.text = "Attack is successful";
+        //dialogue.text = "Attack is successful";
+        StartCoroutine(ShowDialogue("Attack is successful"));
         UiManager.ShowDialogue();
-        
 
-        yield return StartCoroutine(Move(playerUnit.transform, enemyUnit.transform.position, playerUnit.attackRange, playerUnit));
+        yield return StartCoroutine(playerUnit.Move(playerUnit.transform, enemyBattleStation.position, playerUnit.attackRange)); 
 
         playerUnit.Attack();
+        enemyUnit.Hurt();
 
         int playerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * playerUnit.damage * MCsystem.Accuracy / 100);
-    
         damageDisplay.ShowDamage(enemyUnit.transform.position, playerDamage, playerUnit.attackRange);
         UiManager.ShowDamage();
+
         bool isDead = enemyUnit.TakeDamage(playerDamage);
         enemyHUD.SetHP(enemyUnit.currentHP);
-        
 
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(Move(playerUnit.transform, originalPosition, 0, playerUnit));
+        yield return StartCoroutine(playerUnit.Move(playerUnit.transform, originalPosition, 0));
 
         yield return new WaitForSeconds(1f);
 
-        
-
-        //Check if the enmey is dead
-        //change state 
         if (isDead)
         {
-            // End the battle
+            enemyUnit.Dead();
             state = BattleState.Won;
             EndBattle();
         }
         else
         {
-            //Enemy Turn
-            Debug.Log("enemy turn");
-            
             StartCoroutine(EnemyTurn());
         }
     }
@@ -169,9 +165,7 @@ public class BattleSystem : MonoBehaviour
     {
         playerUnit.Heal(10);
         playerHUD.SetHP(playerUnit.currentHP);
-        dialogue.text = "You feel renewed strength!";
-
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(ShowDialogue("You feel renewed strength!"));
         StartCoroutine(EnemyTurn());
     }
 
@@ -179,6 +173,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state != BattleState.Playerturn)
             return;
+
         Timer.ResetTimer();
         StartCoroutine(PlayerAttack());
     }
@@ -192,26 +187,13 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerHeal());
     }
 
-    IEnumerator Move(Transform unitTransform, Vector3 targetPosition, float attackRange, unit actionUnit)
+    IEnumerator ShowDialogue(string sentence)
     {
-        float duration = 0.5f; // Duration of the movement
-        float elapsed = 0f;
-
-        Vector3 startingPosition = unitTransform.position;
-        Vector3 stoppingPosition = new Vector3(targetPosition.x - attackRange, targetPosition.y, targetPosition.z);
-
-        actionUnit.setWalkingBool(true);
-
-        while (elapsed < duration)
+        dialogue.text = "";
+        foreach (char c in sentence)
         {
-            unitTransform.position = Vector3.Lerp(startingPosition, stoppingPosition, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null; // Wait for the next frame
+            dialogue.text += c;
+            yield return new WaitForSeconds(0.1f);
         }
-
-        // Ensure the unit ends exactly at the target position
-        unitTransform.position = stoppingPosition;
-        actionUnit.setWalkingBool(false);
     }
-
 }
