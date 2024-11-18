@@ -7,16 +7,18 @@ public class DamageDisplay : MonoBehaviour
 {
     public Text damageText;
     public float displayDuration = 1f;
-    public float moveSpeed = 20f;
-    public float verticalOffset = 10f;
-    public float horizontalOffset = 0.5f;
+    public float moveSpeed = 1f;
+    public float verticalOffset = 1f;
+    public Camera uiCamera;
 
-    public void ShowDamage(Vector3 startPosition, int damageAmount)
+    public void ShowDamage(Vector3 targetWorldPosition, int damageAmount, float horizontalOffset)
     {
         damageText.text = damageAmount.ToString();
         gameObject.SetActive(true);
-        Debug.Log(gameObject.transform.position);
-        
+
+        Vector3 damagePosition = targetWorldPosition + new Vector3(horizontalOffset, verticalOffset, 0);
+        gameObject.transform.position = damagePosition; ;
+
         StartCoroutine(MoveDamageText());
     }
 
@@ -24,7 +26,7 @@ public class DamageDisplay : MonoBehaviour
     {
 
         Vector3 startPosition = gameObject.transform.position; 
-        Vector3 targetPosition = startPosition + new Vector3(0,100, 0); 
+        Vector3 targetPosition = startPosition + new Vector3(0, 1f, 0); 
 
         float elapsedTime = 0f;
 

@@ -22,6 +22,11 @@ public class unit : MonoBehaviour
     {
         animator.SetTrigger("Attack1");
     }
+    
+    public void setWalkingBool(bool isWalking)
+    {
+        animator.SetBool("isMove", isWalking);
+    }
 
     public bool TakeDamage(int dmg)
     {

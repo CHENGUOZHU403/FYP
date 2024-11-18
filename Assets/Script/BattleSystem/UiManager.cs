@@ -22,20 +22,11 @@ public class UiManager : MonoBehaviour
     public void ChooseAction()
     {
         DialoguePanle.SetActive(true);
-        enemydam.SetActive(false);
     }
 
-    public void ShowPlayerDamage()
+    public void ShowDamage()
     {
         MultChoiUI.SetActive(false);
-        enemydam.SetActive(false);
-        playerdam.SetActive(true);
-    }
-
-    public void ShowEnemyDamage()
-    {
-        playerdam.SetActive(false);
-        enemydam.SetActive(true);
     }
 
     public void Gameover(string str)

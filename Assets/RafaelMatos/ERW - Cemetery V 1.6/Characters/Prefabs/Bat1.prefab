@@ -122,5 +122,5 @@ MonoBehaviour:
   damage: 10
   maxHP: 30
   currentHP: 30
-  attackRange: -1
+  attackRange: -2
   animator: {fileID: 0}

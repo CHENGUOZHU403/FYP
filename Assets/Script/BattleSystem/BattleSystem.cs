@@ -36,7 +36,6 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.Start;
 
         StartCoroutine(SetupBattle());
-        Debug.Log(enemyUnit.transform.position);
     }
 
     IEnumerator SetupBattle()
@@ -64,29 +63,24 @@ public class BattleSystem : MonoBehaviour
         Vector3 originalPosition = enemyUnit.transform.position;
 
         dialogue.text = enemyUnit.unitName + " Attack!";
-        yield return new WaitForSeconds(1f);
-
-        yield return StartCoroutine(Move(enemyUnit.transform, playerUnit.transform.position, enemyUnit.attackRange));
+        yield return StartCoroutine(Move(enemyUnit.transform, playerUnit.transform.position, enemyUnit.attackRange, enemyUnit));
 
         enemyUnit.Attack();
 
         int EnemyDamage = Random.Range(enemyUnit.damage-5, enemyUnit.damage+5);
-        enemyDamageText.text = EnemyDamage.ToString();
-        UiManager.ShowEnemyDamage();
 
-        yield return new WaitForSeconds(1f);
-
-        yield return StartCoroutine(Move(enemyUnit.transform, originalPosition, 0));
-
-        yield return new WaitForSeconds(1f);
-
-
+        damageDisplay.ShowDamage(playerUnit.transform.position, EnemyDamage, enemyUnit.attackRange);
+        UiManager.ShowDamage();
         bool isDead = playerUnit.TakeDamage(EnemyDamage);
-
         playerHUD.SetHP(playerUnit.currentHP);
 
         yield return new WaitForSeconds(1f);
 
+        yield return StartCoroutine(Move(enemyUnit.transform, originalPosition, 0, enemyUnit));
+
+        yield return new WaitForSeconds(1f);
+
+        
         if (isDead)
         {
             // End the battle
@@ -134,22 +128,25 @@ public class BattleSystem : MonoBehaviour
         UiManager.ShowDialogue();
         
 
-        yield return StartCoroutine(Move(playerUnit.transform, enemyUnit.transform.position, playerUnit.attackRange));
+        yield return StartCoroutine(Move(playerUnit.transform, enemyUnit.transform.position, playerUnit.attackRange, playerUnit));
 
         playerUnit.Attack();
 
         int playerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * playerUnit.damage * MCsystem.Accuracy / 100);
     
-        damageDisplay.ShowDamage(enemyUnit.transform.position, playerDamage);
-        UiManager.ShowPlayerDamage();
-        enemyHUD.SetHP(enemyUnit.currentHP);
+        damageDisplay.ShowDamage(enemyUnit.transform.position, playerDamage, playerUnit.attackRange);
+        UiManager.ShowDamage();
         bool isDead = enemyUnit.TakeDamage(playerDamage);
+        enemyHUD.SetHP(enemyUnit.currentHP);
+        
 
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(Move(playerUnit.transform, originalPosition, 0));
+        yield return StartCoroutine(Move(playerUnit.transform, originalPosition, 0, playerUnit));
 
         yield return new WaitForSeconds(1f);
+
+        
 
         //Check if the enmey is dead
         //change state 
@@ -195,13 +192,15 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerHeal());
     }
 
-    IEnumerator Move(Transform unitTransform, Vector3 targetPosition, float attackRange)
+    IEnumerator Move(Transform unitTransform, Vector3 targetPosition, float attackRange, unit actionUnit)
     {
         float duration = 0.5f; // Duration of the movement
         float elapsed = 0f;
 
         Vector3 startingPosition = unitTransform.position;
         Vector3 stoppingPosition = new Vector3(targetPosition.x - attackRange, targetPosition.y, targetPosition.z);
+
+        actionUnit.setWalkingBool(true);
 
         while (elapsed < duration)
         {
@@ -212,15 +211,7 @@ public class BattleSystem : MonoBehaviour
 
         // Ensure the unit ends exactly at the target position
         unitTransform.position = stoppingPosition;
+        actionUnit.setWalkingBool(false);
     }
 
-    void PlyerAttack()
-    {
-        
-    }
-
-    void EnemyAttack()
-    {
-
-    }
 }
