@@ -30,6 +30,7 @@ public class HeroKnight : MonoBehaviour {
     public int currentXP = 0;
     public int xpToLevelUp = 100; // 初始升級所需的經驗值
     public int xpPerLevelIncrease = 50; // 每次升級增加的經驗需求
+    public int money = 0;
 
 
     // Use this for initialization
@@ -226,5 +227,23 @@ public class HeroKnight : MonoBehaviour {
     public void AddXP(int xpAmount)
     {
         currentXP += xpAmount;
+    }
+
+    public void AddMoney(int amount)
+    {
+        money += amount;
+        Debug.Log("Money: " + money);
+    }
+
+    public bool SpendMoney(int amount)
+    {
+        if (money >= amount)
+        {
+            money -= amount;
+            Debug.Log("Money: " + money);
+            return true;
+        }
+        Debug.Log("Not enough money!");
+        return false;
     }
 }

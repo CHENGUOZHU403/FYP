@@ -12,7 +12,7 @@ public class test : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObj); // 銷毀當前物件
-            Debug.Log("...");
+            Debug.Log("You Destroy a enemy!!");
         }
     }
 }

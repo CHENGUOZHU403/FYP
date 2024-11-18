@@ -1,24 +1,32 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class NPCDialogue : MonoBehaviour
 {
     [Header("Dialogue UI")]
-    public GameObject dialoguePanel; 
-    public TMP_Text dialogueText;        
-    public Button nextButton;        
+    public GameObject dialoguePanel;
+    public TMP_Text dialogueText;
+    public Button nextButton;
+    public Button ShopButton;
+    public GameObject shopUI;
 
     [Header("Dialogue Content")]
     [TextArea(3, 5)]
-    public string[] dialogueLines;   // content
+    public string[] dialogueLines;
 
-    private int currentLineIndex = 0; // 當前對話行索引
-    private bool playerInRange = false; // 玩家是否在範圍內
+    [Header("Settings")]
+    public float textDisplaySpeed = 0.05f; 
+
+    private int currentLineIndex = 0;
+    private bool playerInRange = false;
+    private Coroutine displayCoroutine;
 
     private void Start()
     {
-        dialoguePanel.SetActive(false); // 隱藏對話框
+        dialoguePanel.SetActive(false);
+        shopUI.SetActive(false);
         nextButton.onClick.AddListener(DisplayNextLine);
     }
 
@@ -39,14 +47,29 @@ public class NPCDialogue : MonoBehaviour
 
     private void DisplayNextLine()
     {
+        if (displayCoroutine != null)
+        {
+            StopCoroutine(displayCoroutine);
+        }
+
         if (currentLineIndex < dialogueLines.Length)
         {
-            dialogueText.text = dialogueLines[currentLineIndex];
+            displayCoroutine = StartCoroutine(TypeSentence(dialogueLines[currentLineIndex]));
             currentLineIndex++;
         }
         else
         {
             EndDialogue();
+        }
+    }
+
+    private IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(textDisplaySpeed);
         }
     }
 
