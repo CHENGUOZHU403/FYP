@@ -1,29 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ShopUIManager : MonoBehaviour
 {
+    [Header("UI Elements")]
     public GameObject shopPanel; 
-    public Button openShopButton; 
 
     private bool isShopOpen = false; 
 
     private void Start()
     {
         shopPanel.SetActive(false);
-
-        openShopButton.onClick.AddListener(ToggleShopUI);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && isShopOpen)
-        {
-            CloseShopUI();
-        }
-    }
 
     public void ToggleShopUI()
     {
@@ -37,19 +25,25 @@ public class ShopUIManager : MonoBehaviour
         }
     }
 
-    // 打開商店 UI
-    private void OpenShopUI()
+    public void OpenShopUI()
     {
-        shopPanel.SetActive(true);
+        shopPanel.SetActive(true); 
         isShopOpen = true;
         Time.timeScale = 0f; 
     }
 
-    // 關閉商店 UI
-    private void CloseShopUI()
+    public void CloseShopUI()
     {
-        shopPanel.SetActive(false);
+        shopPanel.SetActive(false); 
         isShopOpen = false;
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isShopOpen)
+        {
+            CloseShopUI();
+        }
     }
 }
