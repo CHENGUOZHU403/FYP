@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public int userMoney = 100; // ????? 100 ??
-    public int itemPrice = 20;   // ????
-    public Text totalPriceText;  // ???? UI ??
-    public Text itemPriceText;   // ????? UI ??
-    public Button addButton;      // ???????
-    public Button buyButton;      // ????
+    public int userMoney = 100; 
+    public int itemPrice = 20;   
+    public TMP_Text totalPriceText;  
+    public TMP_Text itemPriceText;   
+    public Button addButton;      
+    public Button buyButton;     
 
-    private int totalPrice = 0;   // ???
+    private int totalPrice = 0;   
 
     void Start()
     {
-        itemPriceText.text = "????: " + itemPrice + " ??";
-        totalPriceText.text = "???: " + totalPrice;
 
         addButton.onClick.AddListener(AddItem);
         buyButton.onClick.AddListener(PurchaseItems);
@@ -26,22 +25,22 @@ public class ShopManager : MonoBehaviour
     void AddItem()
     {
         totalPrice += itemPrice;
-        totalPriceText.text = "???: " + totalPrice;
+        totalPriceText.text = "Total price: " + totalPrice;
     }
 
     void PurchaseItems()
     {
         if (totalPrice <= userMoney)
         {
-            Debug.Log("?????");
+            Debug.Log("Player purchased item(s)");
             // ?????????????
             totalPrice = 0; // ?????
-            totalPriceText.text = "???: " + totalPrice;
+            totalPriceText.text = "PLayer used money: " + totalPrice;
         }
         else
         {
-            Debug.Log("???????????");
-            // ?????????????
+            Debug.Log("You have not enought money");
+
         }
     }
 }

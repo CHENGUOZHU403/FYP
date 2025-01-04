@@ -1892,8 +1892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userMoney: 100
   itemPrice: 20
-  totalPriceText: {fileID: 0}
-  itemPriceText: {fileID: 0}
+  totalPriceText: {fileID: 135303575}
+  itemPriceText: {fileID: 571481338}
   addButton: {fileID: 791814999}
   buyButton: {fileID: 1603692244}
 --- !u!1 &889650518
