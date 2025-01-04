@@ -130,9 +130,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 563180106620431855, guid: 6acd59285e156564abfd37e17be7bdbc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 563180107281875897, guid: 6acd59285e156564abfd37e17be7bdbc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 563180107359797854, guid: 6acd59285e156564abfd37e17be7bdbc, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 563180107359797854, guid: 6acd59285e156564abfd37e17be7bdbc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -177,6 +185,10 @@ PrefabInstance:
     - target: {fileID: 563180107359797855, guid: 6acd59285e156564abfd37e17be7bdbc, type: 3}
       propertyPath: m_Name
       value: BattleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 563180107359797855, guid: 6acd59285e156564abfd37e17be7bdbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6acd59285e156564abfd37e17be7bdbc, type: 3}
@@ -244,7 +256,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &889650518
 GameObject:
@@ -319,7 +331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &889650522
 MonoBehaviour:
@@ -708,7 +720,7 @@ Transform:
   m_LocalScale: {x: 34.887184, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758679312
 GameObject:
@@ -867,7 +879,7 @@ Transform:
   m_LocalScale: {x: 6.792, y: 6.792, z: 6.792}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1803086476
 BoxCollider2D:
@@ -909,7 +921,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6766553641026796530, guid: 6821000e1e01b5a4084cd1c158fa38e9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6766553641026796530, guid: 6821000e1e01b5a4084cd1c158fa38e9, type: 3}
       propertyPath: m_LocalPosition.x
