@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems; 
+
 
 public class HeroKnight : MonoBehaviour {
 
@@ -28,8 +30,8 @@ public class HeroKnight : MonoBehaviour {
     Vector2 movement;
     public int level = 1;
     public int currentXP = 0;
-    public int xpToLevelUp = 100; // 初始升級所需的經驗值
-    public int xpPerLevelIncrease = 50; // 每次升級增加的經驗需求
+    public int xpToLevelUp = 100; 
+    public int xpPerLevelIncrease = 50; 
     public int money = 0;
 
 
@@ -116,7 +118,7 @@ public class HeroKnight : MonoBehaviour {
         //    m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling)
+        else if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling && !EventSystem.current.IsPointerOverGameObject())
         {
             m_currentAttack++;
 
@@ -181,7 +183,6 @@ public class HeroKnight : MonoBehaviour {
                     m_animator.SetInteger("AnimState", 0);
         }
 
-          // 檢查是否達到升級條件
         if (currentXP >= xpToLevelUp)
         {
             LevelUp();
@@ -219,11 +220,10 @@ public class HeroKnight : MonoBehaviour {
         currentXP -= xpToLevelUp; // 升級後多餘的經驗繼續累計
         xpToLevelUp += xpPerLevelIncrease; // 下一級需要的經驗值增加
 
-        // 這裡可以加入升級效果，例如增加生命值或攻擊力
         Debug.Log("Player leveled up to level: " + level);
     }
 
-    // 收集經驗值的函數
+
     public void AddXP(int xpAmount)
     {
         currentXP += xpAmount;
