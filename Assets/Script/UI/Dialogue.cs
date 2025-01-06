@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
     public Button nextButton;
+    public HeroKnight HeroKnight;
 
     [Header("Dialogue Content")]
     [TextArea(3, 5)]
@@ -18,6 +19,7 @@ public class Dialogue : MonoBehaviour
     private int currentLineIndex = 0;
     private Coroutine displayCoroutine;
 
+    [Header("Black Mask")]
     public Image blackMask;
     public float fadeDuration = 2.0f;
 
@@ -25,6 +27,7 @@ public class Dialogue : MonoBehaviour
     {
         StartDialogue();
         nextButton.onClick.AddListener(DisplayNextLine);
+
     }
 
     private void StartDialogue()

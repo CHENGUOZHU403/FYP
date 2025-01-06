@@ -9,12 +9,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Postprocessing
+  - 
   - Water
   - UI
   - player
   - Enemy
-  - Grass
+  - 
   - 
   - 
   - 
@@ -42,21 +42,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ground
-    uniqueID: 3561788933
+  - name: Background
+    uniqueID: 488151559
     locked: 0
-  - name: wall
-    uniqueID: 1847602663
+  - name: Foreground
+    uniqueID: 2188765809
     locked: 0
-  - name: stair
-    uniqueID: 690977855
+  - name: Player
+    uniqueID: 2144453847
+    locked: 0
+  - name: NPC
+    uniqueID: 2412312317
     locked: 0
   - name: Enemy
     uniqueID: 2621478683
     locked: 0
-  - name: Board
-    uniqueID: 1496557241
-    locked: 0
-  - name: Player
-    uniqueID: 2144453847
+  - name: Items
+    uniqueID: 2464777993
     locked: 0
