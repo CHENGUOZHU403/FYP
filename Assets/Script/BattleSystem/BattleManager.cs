@@ -18,6 +18,7 @@ public class BattleManager : MonoBehaviour
 
         if (encounteredMonster != null)
         {
+
             monsterImage.sprite = encounteredMonster.monsterSprite;
             monsterNameText.text = encounteredMonster.monsterName;
             // 初始化怪物生命值、攻击力等战斗数据

@@ -1,0 +1,66 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "PlayerData", menuName = "Game/PlayerData")]
+public class PlayerData : ScriptableObject
+{
+    [Header("Health")]
+    public int maxHealth = 100;
+    public int currentHealth = 100;
+
+    [Header("Leveling")]
+    public int level = 1;
+    public int currentXP = 0;
+    public int xpToNextLevel = 100;
+
+    [Header("Currency")]
+    public int money = 0;
+
+    public void Heal(int amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentHealth = Mathf.Max(currentHealth - amount, 0);
+    }
+
+    public void AddMoney(int amount)
+    {
+        money += amount;
+    }
+
+    public bool SpendMoney(int amount)
+    {
+        if(amount > money)
+        {
+            return false;
+        }
+        else
+        {
+            money -= amount;
+            return true;
+        }
+        
+        
+    }
+
+    public void GainXP(int amount)
+    {
+        currentXP += amount;
+        while (currentXP >= xpToNextLevel)
+        {
+            currentXP -= xpToNextLevel;
+            LevelUp();
+        }
+    }
+
+    private void LevelUp()
+    {
+        level++;
+        maxHealth += 5; // 每次升级增加最大血量
+        currentHealth = maxHealth; // 升级后恢复满血
+        xpToNextLevel += 50; 
+    }
+
+}

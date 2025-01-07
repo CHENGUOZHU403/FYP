@@ -6,10 +6,13 @@ using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
+    public TMP_Text HPText;
     public TMP_Text levelText;        // 用來顯示等級的 Text 元件
     public Slider xpBar;           // 用來顯示經驗進度的 Slider 元件
     public TMP_Text moneyText;
     private HeroKnight player;     // 參考玩家的 HeroKnight 腳本
+    public PlayerData PlayerData;
+
 
 
     void Start()
@@ -26,6 +29,8 @@ public class PlayerUI : MonoBehaviour
 
     void UpdateUI()
     {
+        HPText.text = "Hp : " + PlayerData.currentHealth.ToString();
+
         // 更新等級文字
         levelText.text = "Level: " + player.level;
 
