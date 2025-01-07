@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
 {
     public TMP_Text HPText;
     public TMP_Text levelText;        // 用來顯示等級的 Text 元件
-    public Slider xpBar;           // 用來顯示經驗進度的 Slider 元件
+
     public TMP_Text moneyText;
     private HeroKnight player;     // 參考玩家的 HeroKnight 腳本
     public PlayerData PlayerData;
@@ -38,6 +38,5 @@ public class PlayerUI : MonoBehaviour
 
         // 計算經驗進度比例
         float xpProgress = (float)player.currentXP / player.xpToLevelUp;
-        xpBar.value = xpProgress; // 更新 Slider 的進度
     }
 }

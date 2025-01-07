@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class NPCDialogue : MonoBehaviour
+public class ShopNPCDialogue : MonoBehaviour
 {
     [Header("Dialogue UI")]
     public GameObject dialoguePanel;
@@ -11,6 +11,7 @@ public class NPCDialogue : MonoBehaviour
     public Button nextButton;
     public Button ShopButton;
     public GameObject shopUI;
+    private bool isDialogueActive = false;
 
     [Header("Dialogue Content")]
     [TextArea(3, 5)]
@@ -28,6 +29,7 @@ public class NPCDialogue : MonoBehaviour
         dialoguePanel.SetActive(false);
         shopUI.SetActive(false);
         nextButton.onClick.AddListener(DisplayNextLine);
+        ShopButton.onClick.AddListener(OpenShop);
     }
 
     private void Update()
@@ -40,6 +42,7 @@ public class NPCDialogue : MonoBehaviour
 
     public void OpenShop()
     {
+        if (dialoguePanel.activeSelf) return;
         shopUI.SetActive(true);
     }
 
@@ -51,6 +54,10 @@ public class NPCDialogue : MonoBehaviour
 
     private void StartDialogue()
     {
+        if (isDialogueActive) return; 
+        if (shopUI.activeSelf) return;
+        isDialogueActive = true;
+
         currentLineIndex = 0;
         dialoguePanel.SetActive(true);
         DisplayNextLine();
@@ -86,6 +93,7 @@ public class NPCDialogue : MonoBehaviour
 
     private void EndDialogue()
     {
+        isDialogueActive = false;
         dialoguePanel.SetActive(false);
     }
 

@@ -59,13 +59,12 @@ public class PlayerData : ScriptableObject
     private void LevelUp()
     {
         level++;
-        maxHealth += 5; // 每次升级增加最大血量
-        currentHealth = maxHealth; // 升级后恢复满血
+        maxHealth += 5; 
+        currentHealth = maxHealth;
         xpToNextLevel += 50; 
     }
     public void Reset()
     {
-        // 恢复初始数据
         currentHealth = 100;
         level = 1;
         currentXP = 0;
