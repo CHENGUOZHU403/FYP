@@ -6,33 +6,41 @@ public class Trap : MonoBehaviour
     public float damageCooldown = 2f; // 扣血的冷却时间
     private float nextDamageTime = 0f; // 记录下一次允许扣血的时间
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        // 检查是否是玩家
-        if (other.CompareTag("Player"))
-        {
-            // 如果当前时间大于等于下一次扣血时间
-            if (Time.time >= nextDamageTime)
-            {
-                // 扣血逻辑
-                HeroKnight HeroKnight = other.GetComponent<HeroKnight>();
-                if (HeroKnight != null)
-                {
-                    HeroKnight.TakeDamage(damage);
-                }
+    private bool playerInTrap = false; // 记录玩家是否在陷阱中
+    private HeroKnight currentPlayer; // 保存当前玩家对象
 
-                // 更新下一次扣血时间
+    private void Update()
+    {
+        if (playerInTrap && Time.time >= nextDamageTime)
+        {
+            if (currentPlayer != null)
+            {
+                currentPlayer.TakeDamage(damage);
                 nextDamageTime = Time.time + damageCooldown;
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // 如果玩家离开陷阱区域，重置冷却时间
         if (other.CompareTag("Player"))
         {
-            nextDamageTime = 0f;
+            currentPlayer = other.GetComponent<HeroKnight>();
+            if (currentPlayer != null)
+            {
+                currentPlayer.TakeDamage(damage); // 立即扣血
+                nextDamageTime = Time.time + damageCooldown; // 设置下一次扣血时间
+            }
+            playerInTrap = true; // 标记玩家在陷阱中
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInTrap = false; // 玩家离开陷阱
+            currentPlayer = null; // 清空玩家引用
         }
     }
 }

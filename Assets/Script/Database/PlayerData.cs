@@ -15,6 +15,7 @@ public class PlayerData : ScriptableObject
     [Header("Currency")]
     public int money = 0;
 
+
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
@@ -61,6 +62,15 @@ public class PlayerData : ScriptableObject
         maxHealth += 5; // 每次升级增加最大血量
         currentHealth = maxHealth; // 升级后恢复满血
         xpToNextLevel += 50; 
+    }
+    public void Reset()
+    {
+        // 恢复初始数据
+        currentHealth = 100;
+        level = 1;
+        currentXP = 0;
+        xpToNextLevel = 100;
+        money = 0;
     }
 
 }

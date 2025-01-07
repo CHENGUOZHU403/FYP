@@ -44,6 +44,7 @@ public class HeroKnight : MonoBehaviour {
     {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
+        playerData.Reset();
         m_animator.SetBool("Grounded", true);
         //m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_HeroKnight>();
         //m_wallSensorR1 = transform.Find("WallSensor_R1").GetComponent<Sensor_HeroKnight>();
@@ -135,11 +136,10 @@ public class HeroKnight : MonoBehaviour {
         //m_animator.SetBool("WallSlide", m_isWallSliding);
 
         //Death
-        //if (Input.GetKeyDown("e") && !m_rolling)
-        //{
-        //    m_animator.SetBool("noBlood", m_noBlood);
-        //    m_animator.SetTrigger("Death");
-        //}
+        if (playerData.currentHealth <= 0)
+        {
+            m_animator.SetTrigger("Death");
+        }
 
         //Hurt
         //else if (Input.GetKeyDown("q") && !m_rolling)
@@ -233,6 +233,7 @@ public class HeroKnight : MonoBehaviour {
     public void TakeDamage(int Damage)
     {
         playerData.TakeDamage(Damage);
+        m_animator.SetTrigger("Hurt");
     }
 
 
