@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Moose
   m_EditorClassIdentifier: 
   monsterName: Moose
+  level: 999
   monsterSprite: {fileID: 1052291084590242904, guid: c2fb4797587234247a931c8df4e4bd51, type: 3}
-  maxHealth: 999
+  maxHealth: 99999
   attackPower: 1

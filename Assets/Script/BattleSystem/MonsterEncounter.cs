@@ -11,7 +11,7 @@ public class MonsterEncounter : MonoBehaviour
         {
             // 保存怪物信息并跳转到战斗场景
             PlayerPrefs.SetString("EncounteredMonster", monster.name);
-            SceneManager.LoadScene("BattleScene");
+            SceneManager.LoadScene("NewBattleScene");
         }
     }
 }

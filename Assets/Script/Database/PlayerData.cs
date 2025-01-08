@@ -3,6 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Game/PlayerData")]
 public class PlayerData : ScriptableObject
 {
+    [Header("PlayerInfo")]
+    public string playerName;
+    public int attackPower;
+
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth = 100;
@@ -11,6 +15,8 @@ public class PlayerData : ScriptableObject
     public int level = 1;
     public int currentXP = 0;
     public int xpToNextLevel = 100;
+
+    public Sprite PlayerImage;
 
     [Header("Currency")]
     public int money = 0;
@@ -42,8 +48,6 @@ public class PlayerData : ScriptableObject
             money -= amount;
             return true;
         }
-        
-        
     }
 
     public void GainXP(int amount)
@@ -63,6 +67,7 @@ public class PlayerData : ScriptableObject
         currentHealth = maxHealth;
         xpToNextLevel += 50; 
     }
+
     public void Reset()
     {
         maxHealth = 100;

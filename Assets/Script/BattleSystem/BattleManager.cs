@@ -1,15 +1,32 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+
+public enum BattleState { Start, Playerturn, Enemyturn, Won, Lost }
 
 
 public class BattleManager : MonoBehaviour
 {
-    public MonsterData[] allMonsters; // 所有怪物数据
-    public Image monsterImage;
-    public TMP_Text monsterNameText;
+    public BattleState state;
 
-    private MonsterData encounteredMonster;
+    [Header("Monster Data")]
+    public MonsterData[] allMonsters;
+    public int monsterCurrentHealth;
+    public MonsterData encounteredMonster;
+
+    [Header("Player Data")]
+    public PlayerData playerData;
+
+    [Header("UI Elements")]
+    public BattleHUD playerHUD;
+    public BattleHUD monsterHUD;
+    public TMP_Text dialogueText;
+
+    public DamageDisplay damageDisplay;
+
+    public UiManager uiManager;
+    public MCsystem MCsystem;
+    public Timer timer;
 
     void Start()
     {
@@ -18,14 +35,164 @@ public class BattleManager : MonoBehaviour
 
         if (encounteredMonster != null)
         {
-
-            monsterImage.sprite = encounteredMonster.monsterSprite;
-            monsterNameText.text = encounteredMonster.monsterName;
-            // 初始化怪物生命值、攻击力等战斗数据
+            StartCoroutine(InitializeBattle());
         }
         else
         {
-            Debug.LogError("未找到对应的怪物信息！");
+            Debug.LogError("Encountered monster not found!");
         }
     }
+
+    IEnumerator InitializeBattle()
+    {
+        // 初始化怪物信息 and 玩家信息
+        monsterCurrentHealth = encounteredMonster.maxHealth;
+        monsterHUD.SetHUD(encounteredMonster);
+
+        playerHUD.SetHUD(playerData);
+        UpdateUI();
+
+        yield return StartCoroutine(ShowDialogue("You meet " + encounteredMonster.monsterName + "!"));
+        yield return new WaitForSeconds(1f);
+
+        state = BattleState.Playerturn;
+        PlayerTurn();
+    }
+
+    void PlayerTurn()
+    {
+        StartCoroutine(ShowDialogue("Choose your action"));
+        uiManager.ChooseAction();
+    }
+
+    public void OnAttackButton()
+    {
+        if (state != BattleState.Playerturn)
+            return;
+
+        timer.ResetTimer();
+        StartCoroutine(PlayerAttack());
+    }
+
+    public void OnHealButton()
+    {
+        if (state != BattleState.Playerturn)
+            return;
+
+        StartCoroutine(PlayerHeal());
+    }
+
+    IEnumerator PlayerAttack()
+    {
+
+        //yield return new WaitForSeconds(timer.timerDuration);
+
+        //Vector3 originalPosition = playerHUD.Position.position;
+
+        //yield return StartCoroutine(playerUnit.Move(playerUnit.transform, enemyBattleStation.position, playerUnit.attackRange));
+
+        //playerUnit.Attack();
+        //enemyUnit.Hurt();
+
+        //int playerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * playerUnit.damage * MCsystem.Accuracy / 100);
+        yield return new WaitForSeconds(1f);
+
+        int playerDamage = Mathf.RoundToInt(playerData.attackPower * Random.Range(0.8f, 1.2f));
+        damageDisplay.ShowDamage(monsterHUD.imageTransform.position, playerDamage, 0);
+        monsterCurrentHealth -= playerDamage;
+
+        monsterHUD.SetHP(monsterCurrentHealth);
+
+        StartCoroutine(ShowDialogue($"You dealt {playerDamage} damage!"));
+        //UiManager.ShowDialogue();
+        //UiManager.ShowDamage();
+
+        //yield return StartCoroutine(playerUnit.Move(playerUnit.transform, originalPosition, 0));
+
+
+        if (monsterCurrentHealth <= 0)
+        {
+            state = BattleState.Won;
+            EndBattle();
+        }
+        else
+        {
+            state = BattleState.Enemyturn;
+            StartCoroutine(EnemyTurn());
+        }
+    }
+
+    IEnumerator PlayerHeal()
+    {
+        playerData.Heal(10);
+        playerHUD.SetHP(playerData.currentHealth);
+        yield return StartCoroutine(ShowDialogue("You feel renewed strength!"));
+        StartCoroutine(EnemyTurn());
+    }
+
+
+    IEnumerator EnemyTurn()
+    {
+        //Vector3 originalPosition = monsterHUD.ImageTransform.position;
+
+        yield return StartCoroutine(ShowDialogue($"{encounteredMonster.monsterName} attacks!"));
+        //yield return StartCoroutine(enemyUnit.Move(enemyUnit.transform, playerBattleStation.position, enemyUnit.attackRange));
+
+        //enemyUnit.Attack();
+        //playerUnit.Hurt();
+
+        int damage = Mathf.RoundToInt(encounteredMonster.attackPower * Random.Range(0.8f, 1.2f));
+        damageDisplay.ShowDamage(playerHUD.imageTransform.position, damage, 0);
+        playerData.TakeDamage(damage);
+        playerHUD.SetHP(playerData.currentHealth);
+        uiManager.ShowDamage();
+        playerHUD.SetHP(playerData.currentHealth);
+
+
+
+        //yield return StartCoroutine(enemyUnit.Move(enemyUnit.transform, originalPosition, 0));
+
+
+        if (playerData.currentHealth <= 0)
+        {
+            state = BattleState.Lost;
+            EndBattle();
+        }
+        else
+        {
+            state = BattleState.Playerturn;
+            PlayerTurn();
+        }
+    }
+
+    void EndBattle()
+    {
+        if (state == BattleState.Won)
+        {
+            StartCoroutine(ShowDialogue("You won the battle!"));
+            uiManager.GameOver("Victory");
+        }
+        else if (state == BattleState.Lost)
+        {
+            StartCoroutine(ShowDialogue("You were defeated..."));
+            uiManager.GameOver("Defeat");
+        }
+    }
+
+    IEnumerator ShowDialogue(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char c in sentence)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    void UpdateUI()
+    {
+        playerHUD.UpdateHealth(playerData.currentHealth, playerData.maxHealth);
+        monsterHUD.UpdateHealth(monsterCurrentHealth, encounteredMonster.maxHealth);
+    }
 }
+

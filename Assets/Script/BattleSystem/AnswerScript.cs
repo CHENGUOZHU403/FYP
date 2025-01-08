@@ -10,11 +10,11 @@ public class AnswerScript : MonoBehaviour
     public void Answer() {
         if (isCorrect)
         {
-            MCSystem.correct();
+            MCSystem.Correct();
         }
         else
         {
-            MCSystem.wrong();
+            MCSystem.Wrong();
         }
     }
 }

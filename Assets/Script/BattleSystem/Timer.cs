@@ -5,29 +5,38 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    [Header("Timer Settings")]
+    public float timerDuration = 5f;
+
+    [Header("UI Elements")]
     public Slider timerSlider;
     public Text timerText;
 
+    [Header("Dependencies")]
+    public MCsystem mcSystem;
+    public UiManager uiManager;
+
     private float timeRemaining;
-    public float timerDuration;
-
-    public MCsystem MCsystem;
-    public UiManager UiManager;
-
-    public unit playerunit;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeRemaining = playerunit.timeRemaining;
+        InitializeTimer();
+    }
+
+    private void InitializeTimer()
+    {
         timeRemaining = timerDuration;
         timerSlider.maxValue = timerDuration;
         timerSlider.value = timerDuration;
         UpdateTimerText();
     }
 
-
     void Update()
+    {
+        UpdateTimer();
+    }
+    private void UpdateTimer()
     {
         if (timeRemaining > 0)
         {
@@ -37,32 +46,31 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            // Call the TimesUp function once when the timer reaches zero
             TimesUp();
-            // Optionally, stop further updates
-            enabled = false; // Disable the script to stop the timer
+            enabled = false; // Disable further updates
         }
     }
 
-    void UpdateTimerText()
+    private void UpdateTimerText()
     {
-        timerText.text = Mathf.CeilToInt(timeRemaining).ToString(); // Display only seconds
+        timerText.text = Mathf.CeilToInt(timeRemaining).ToString(); 
     }
+
+
 
     private void TimesUp()
     {
-        Debug.Log("Time's up!"); // Replace with your desired functionality
-        // You can add any other behavior here, such as showing a message or triggering an event.
+        Debug.Log("Time's up!");
     }
 
 
     public void ResetTimer()
     {
-        UiManager.Attack();
+        //UiManager.Attack();
         timeRemaining = timerDuration;
         timerSlider.value = timerDuration;
         UpdateTimerText();
-        enabled = true; // Re-enable the script if it was disabled
-        MCsystem.Reset();
+        enabled = true; 
+        mcSystem.Reset();
     }
 }

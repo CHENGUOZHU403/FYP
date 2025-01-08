@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
-public enum BattleState { Start, Playerturn, Enemyturn, Won, Lost }
+
 
 public class BattleSystem : MonoBehaviour
 {
@@ -47,8 +47,8 @@ public class BattleSystem : MonoBehaviour
 
         
 
-        playerHUD.SetHUD(playerUnit);
-        enemyHUD.SetHUD(enemyUnit);
+        //playerHUD.SetHUD(playerUnit);
+        //enemyHUD.SetHUD(enemyUnit);
 
         yield return StartCoroutine(ShowDialogue("Welcome to Math Wrold"));
 
@@ -104,12 +104,12 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.Won)
         {
             dialogue.text = "You won the battle!";
-            UiManager.Gameover("You won the battle!");
+            UiManager.GameOver("You won the battle!");
 
         } else if (state == BattleState.Lost)
         {
             dialogue.text = "You were defeated.";
-            UiManager.Gameover("You were defeated.");
+            UiManager.GameOver("You were defeated.");
         }
 
     }
@@ -136,7 +136,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit.Attack();
         enemyUnit.Hurt();
 
-        int playerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * playerUnit.damage * MCsystem.Accuracy / 100);
+        int playerDamage = Mathf.RoundToInt(MCsystem.correctCount * playerUnit.damage * MCsystem.accuracy / 100);
         damageDisplay.ShowDamage(enemyUnit.transform.position, playerDamage, playerUnit.attackRange);
         UiManager.ShowDamage();
 
@@ -195,5 +195,25 @@ public class BattleSystem : MonoBehaviour
             dialogue.text += c;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    public IEnumerator Move(Transform unitTransform, Vector3 targetPosition, float attackRange)
+    {
+        float duration = 1f; // Duration of the movement
+        float elapsed = 0f;
+
+        Vector3 startingPosition = unitTransform.position;
+        Vector3 stoppingPosition = new Vector3(targetPosition.x - attackRange, targetPosition.y, targetPosition.z);
+
+
+        while (elapsed < duration)
+        {
+            unitTransform.position = Vector3.Lerp(startingPosition, stoppingPosition, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+        // Ensure the unit ends exactly at the target position
+        unitTransform.position = stoppingPosition;
     }
 }

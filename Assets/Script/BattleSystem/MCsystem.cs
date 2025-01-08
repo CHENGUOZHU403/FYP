@@ -6,73 +6,88 @@ using UnityEngine.UI;
 
 public class MCsystem : MonoBehaviour
 {
-    public int QuestionA;
-    public int QuestionB;
-    public int Answer;
-    public int Answered;
-    public Text QuestionText;
-    public Text CorrectCountText;
-    public Text WrongCountText;
+    [Header("Question Settings")]
+    public int questionA;
+    public int questionB;
+    public int answer;
+    public Text questionText;
 
-    public Text AccuracyText;
-    public float Accuracy = 0;
-
-    public int CorrectNum = 0, WrongNum = 0;
-
+    [Header("Options Settings")]
     public int[] optionOffset = { 0, 1, 2, -1 };
     public List<int> optionsArr = new List<int>() { 1, 2, 3, 4 };
     public GameObject[] options;
 
+    [Header("Statistics")]
+    public int correctCount = 0;
+    public int wrongCount = 0;    
+    public int answeredCount = 0; 
+    public float accuracy = 0;    
+
+
+    [Header("UI Elements")]
+    public Text correctCountText;
+    public Text wrongCountText;
+    public Text accuracyText;
+
+
     void Start()
     {
-        generateQuestion();
+        GenerateQuestion();
     }
 
-    public void correct()
+    public void Correct()
     {
-        CorrectCountText.text = "Correct : " + ++CorrectNum;
-        Accuracy = 1.0f * CorrectNum / ++Answered * 100;
-        AccuracyText.text = "Accuracy : " + Mathf.RoundToInt(Accuracy) + "%";
-        generateQuestion();
+        correctCount++;
+        UpdateStatistics();
+        GenerateQuestion();
     }
-    public void wrong()
+    public void Wrong()
     {
-        WrongCountText.text = "Wrong : " + ++WrongNum;
-        Accuracy = 1.0f * CorrectNum / ++Answered * 100;
-        AccuracyText.text = "Accuracy : " + Mathf.RoundToInt(Accuracy) + "%";
-        generateQuestion();
+        wrongCount++;
+        UpdateStatistics();
+        GenerateQuestion();
     }
 
-    void SetAnswer()
+    private void UpdateStatistics()
     {
-        for (int i = 0; i < optionsArr.Count; i++)
+        answeredCount++;
+        accuracy = (float)correctCount / answeredCount * 100;
+
+        correctCountText.text = $"Correct: {correctCount}";
+        wrongCountText.text = $"Wrong: {wrongCount}";
+        accuracyText.text = $"Accuracy: {Mathf.RoundToInt(accuracy)}%";
+    }
+
+    private void SetAnswerOptions()
+    {
+        // 根据偏移量生成选项数组
+        for (int i = 0; i < optionOffset.Length; i++)
         {
-            optionsArr[i] = optionOffset[i] + Answer;
+            optionsArr[i] = answer + optionOffset[i];
         }
 
+        // 随机打乱选项
         ShuffleList(optionsArr);
 
+        // 将选项分配给按钮
         for (int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
+            var answerScript = options[i].GetComponent<AnswerScript>();
+            Text optionText = options[i].transform.GetChild(0).GetComponent<Text>();
 
-            options[i].transform.GetChild(0).GetComponent<Text>().text = optionsArr[i].ToString();
-
-            if (optionsArr[i] == Answer)
-            {
-                options[i].GetComponent<AnswerScript>().isCorrect = true;
-            }
+            optionText.text = optionsArr[i].ToString();
+            answerScript.isCorrect = (optionsArr[i] == answer); // 标记正确选项
         }
     }
 
-    public void generateQuestion()
+    public void GenerateQuestion()
     {
-        QuestionA = UnityEngine.Random.Range(0, 5);
-        QuestionB = UnityEngine.Random.Range(0, 5);
+        questionA = UnityEngine.Random.Range(0, 5);
+        questionB = UnityEngine.Random.Range(0, 5);
 
-        QuestionText.text = QuestionA + " + " + QuestionB + " = ?";
-        Answer = QuestionA + QuestionB;
-        SetAnswer();
+        questionText.text = $"{questionA} + {questionB} = ?";
+        answer = questionA + questionB;
+        SetAnswerOptions();
     }
 
     List<int> ShuffleList(List<int> list)
@@ -89,13 +104,15 @@ public class MCsystem : MonoBehaviour
 
     public void Reset()
     {
-        CorrectNum = 0;
-        WrongNum = 0;
-        Answered = 0;
-        Accuracy = 0;
-        CorrectCountText.text = "Correct : " + CorrectNum;
-        WrongCountText.text = "Wrong : " + WrongNum;
-        AccuracyText.text = "Accuracy : " + Accuracy;
-        generateQuestion();
+        correctCount = 0;
+        wrongCount = 0;
+        answeredCount = 0;
+        accuracy = 0;
+
+        correctCountText.text = $"Correct: {correctCount}";
+        wrongCountText.text = $"Wrong: {wrongCount}";
+        accuracyText.text = $"Accuracy: {Mathf.RoundToInt(accuracy)}%";
+
+        GenerateQuestion();
     }
 }

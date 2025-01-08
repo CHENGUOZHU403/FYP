@@ -30,7 +30,7 @@ public class UiManager : MonoBehaviour
         MultChoiUI.SetActive(false);
     }
 
-    public void Gameover(string str)
+    public void GameOver(string str)
     {
         gameoverText.text = str;
         GameoverUI.SetActive(true);

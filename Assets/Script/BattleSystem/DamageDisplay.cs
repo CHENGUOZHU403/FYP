@@ -9,10 +9,10 @@ public class DamageDisplay : MonoBehaviour
     public float displayDuration = 1f;
     public float moveSpeed = 1f;
     public float verticalOffset = 1f;
-    public Camera uiCamera;
 
     public void ShowDamage(Vector3 targetWorldPosition, int damageAmount, float horizontalOffset)
     {
+        
         damageText.text = damageAmount.ToString();
         gameObject.SetActive(true);
 
