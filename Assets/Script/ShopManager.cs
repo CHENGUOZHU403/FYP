@@ -13,11 +13,12 @@ public class ShopManager : MonoBehaviour
 
     public TMP_Text totalPriceText;
 
-    public TMP_Text alartText;
+    public TMP_Text alertText;
 
     public Button buyButton;
 
-    private int totalPrice = 0;   
+    private int totalPrice = 0;
+    public PlayerData playerData;
 
     void Start()
     {
@@ -25,27 +26,42 @@ public class ShopManager : MonoBehaviour
         UserMoneyText.text = userMoney.ToString();
     }
 
+    void Update()
+    {
+        UpdatePlayerMoneyUI();
+    }
+
+    void UpdatePlayerMoneyUI()
+    {
+        UserMoneyText.text = "Money: " + playerData.money.ToString();
+    }
+
     void PurchaseItems()
     {
-        if (totalPrice <= userMoney)
-        {
-            Debug.Log("Player purchased item(s)");
-            alartText.text = "Purchase successfully";
-            userMoney -= totalPrice;
-            UserMoneyText.text = userMoney.ToString();
-            Reset();
-        }
-        else
-        {
-            Debug.Log("You have not enought money");
-            alartText.text = "Not Enought Money";
-        }
+        if (totalPrice <= playerData.money) 
+    {
+        Debug.Log("Player purchased item(s)");
+        alertText.text = "Purchase successfully!";
+        
+        playerData.money -= totalPrice;
+
+        UpdatePlayerMoneyUI();
+
+        Reset();
+    }
+    else
+    {
+        Debug.Log("You have not enough money");
+        alertText.text = "Not enough money!";
+    }
+
+    StartCoroutine(ClearAlert());
     }
 
     public void UpdateTotalPrice()
     {
         totalPrice = 0;
-        foreach(var item in itemFrameslist)
+        foreach (var item in itemFrameslist)
         {
             totalPrice += item.ItemtotPricel;
         }
@@ -64,5 +80,11 @@ public class ShopManager : MonoBehaviour
         totalPrice = 0;
         totalPriceText.text = "Total Price : " + totalPrice;
 
+    }
+
+    private IEnumerator ClearAlert()
+    {
+        yield return new WaitForSeconds(2f);
+        alertText.text = "";
     }
 }
