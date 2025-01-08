@@ -65,6 +65,7 @@ public class PlayerData : ScriptableObject
     }
     public void Reset()
     {
+        maxHealth = 100;
         currentHealth = 100;
         level = 1;
         currentXP = 0;

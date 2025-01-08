@@ -7,11 +7,14 @@ using TMPro;
 public class PlayerUI : MonoBehaviour
 {
     public TMP_Text HPText;
-    public TMP_Text levelText;      
+    public Slider HpSilder;
+
+    public TMP_Text levelText;
+    public Slider LevelSilder;
 
     public TMP_Text moneyText;
+
     private HeroKnight player;     
-    public PlayerData PlayerData;
 
 
 
@@ -25,12 +28,6 @@ public class PlayerUI : MonoBehaviour
             Debug.LogError("HeroKnight script not found in the scene!");
         }
 
-        // 檢查是否分配了 PlayerData
-        if (PlayerData == null)
-        {
-            Debug.LogError("PlayerData reference is missing!");
-        }
-
         UpdateUI();
     }
 
@@ -41,9 +38,13 @@ public class PlayerUI : MonoBehaviour
 
     void UpdateUI()
     {
-        HPText.text = "Hp : " + PlayerData.currentHealth.ToString();
+        HpSilder.maxValue = player.playerData.maxHealth;
+        HpSilder.value = player.playerData.currentHealth;
+        HPText.text = "Hp : " + player.playerData.currentHealth.ToString();
 
-        levelText.text = "Level: " + player.level;
+        LevelSilder.maxValue = player.playerData.xpToNextLevel;
+        LevelSilder.value = player.playerData.currentXP;
+        levelText.text = "Level : " + player.playerData.level;
 
         moneyText.text = player.money.ToString();
 

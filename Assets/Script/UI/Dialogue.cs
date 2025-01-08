@@ -25,6 +25,7 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
+
         StartDialogue();
         nextButton.onClick.AddListener(DisplayNextLine);
 

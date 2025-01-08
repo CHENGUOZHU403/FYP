@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class XPOrb : MonoBehaviour
 {
-    public int xpValue = 20; // 經驗球提供的經驗值
+    public int xpValue = 30; // 經驗球提供的經驗值
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,7 +14,7 @@ public class XPOrb : MonoBehaviour
             HeroKnight player = other.GetComponent<HeroKnight>();
             if (player != null)
             {
-                player.AddXP(xpValue);
+                player.playerData.GainXP(xpValue);
                 Destroy(gameObject); 
             }
             Debug.Log("EXP");
