@@ -34,7 +34,7 @@ public class ShopNPCDialogue : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             StartDialogue();
         }

@@ -31,7 +31,8 @@ public class NPCInteraction : MonoBehaviour
                 isPlayerInRange = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            // 檢測玩家是否按下 E 鍵
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 InteractWithNPC();
             }
