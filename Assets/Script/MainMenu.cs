@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Prologue");
+        SceneManager.LoadScene("Mix");
     }
 
     public void ExitGame()

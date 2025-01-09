@@ -16,12 +16,18 @@ public class NormalDialogueManager : MonoBehaviour
     [TextArea(3, 5)]
     public string[] dialogueLines; // 對話內容
 
+    [Header("Typing Sound")]
+    public AudioClip typingSound; // 打字音效
+    private AudioSource audioSource; // AudioSource 組件
+
     private bool isPlayerInTrigger = false; // 標記玩家是否在觸發區域
     private int currentLineIndex = 0; // 當前對話行索引
     private Coroutine displayCoroutine = null; // 顯示對話的協程
 
     private void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = typingSound; // 設置打字音效
         // 隱藏對話框
         dialoguePanel.SetActive(false);
         
@@ -87,6 +93,7 @@ public class NormalDialogueManager : MonoBehaviour
         foreach (char letter in sentence)
         {
             dialogueText.text += letter; // 按字符顯示對話
+            audioSource.PlayOneShot(typingSound);
             yield return new WaitForSeconds(0.05f); // 等待一段時間後顯示下一字符
         }
     }
