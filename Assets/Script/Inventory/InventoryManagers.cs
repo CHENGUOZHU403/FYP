@@ -80,13 +80,14 @@ public class InventoryManagers : MonoBehaviour
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
-        if(itemType == ItemType.mission || itemType == ItemType.use)
-        {
+        
+            if(itemType == ItemType.mission || itemType == ItemType.use)
+               {
             for (int i = 0; i < itemSlot.Length; i++)
             { 
-            if (itemSlot[i].isFull == false && itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0)
-            {
-                int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
+                if (itemSlot[i].isFull == false && itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0)
+                {
+                    int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
                 if (leftOverItems > 0)
                     leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
 
@@ -96,6 +97,7 @@ public class InventoryManagers : MonoBehaviour
         }
         return quantity;
         }
+      
         else
         {
             for (int i = 0; i <equipmentSlot.Length; i++)
@@ -125,6 +127,14 @@ public class InventoryManagers : MonoBehaviour
         {
             itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemSelected = false;
+        }
+    }
+    public void DeselectAllEQSlots()
+    {
+        for (int i = 0; i < equipmentSlot.Length; i++)
+        {
+            equipmentSlot[i].selectedShader.SetActive(false);
+            equipmentSlot[i].thisItemSelected = false;
         }
     }
 }

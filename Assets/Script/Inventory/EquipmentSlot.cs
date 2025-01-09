@@ -35,7 +35,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     public void Start()
     {
-        inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
+        inventoryManagers = GameObject.Find("EquipmentCanvas").GetComponent<InventoryManagers>();
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
@@ -78,8 +78,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         if (thisItemSelected && quantity > 0)
         {
-            inventoryManagers.UseItem(itemName);
-            this.quantity -= 1;
+            
             if (this.quantity <= 0)
                 EmptySlot();
             else
@@ -87,7 +86,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            inventoryManagers.DeselectAllSlots();
+           //inventoryManagers.DeselectAllEQSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
            
@@ -112,7 +111,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     private void RefreshSlotUI()
     {
-        quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
+        
         itemImage.sprite = itemSprite != null ? itemSprite : emptySprite;
     }
 
