@@ -1126,9 +1126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPText: {fileID: 930681776}
+  HpSilder: {fileID: 635003618}
   levelText: {fileID: 948015308}
+  LevelSilder: {fileID: 1603203133}
   moneyText: {fileID: 1394901822}
-  PlayerData: {fileID: 11400000, guid: 50c4fef23791f194284b29c485a6f65e, type: 2}
 --- !u!1 &504323376
 GameObject:
   m_ObjectHideFlags: 0
