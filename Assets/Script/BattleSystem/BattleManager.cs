@@ -45,7 +45,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator InitializeBattle()
     {
-        // ³õÊ¼»¯¹ÖÎïÐÅÏ¢ and Íæ¼ÒÐÅÏ¢
+        // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ and ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
         monsterCurrentHealth = encounteredMonster.maxHealth;
         monsterHUD.SetHUD(encounteredMonster);
 
@@ -103,7 +103,7 @@ public class BattleManager : MonoBehaviour
 
         monsterHUD.SetHP(monsterCurrentHealth);
 
-        StartCoroutine(ShowDialogue($"You dealt {playerDamage} damage!"));
+        yield return StartCoroutine(ShowDialogue($"You dealt {playerDamage} damage!"));
         //UiManager.ShowDialogue();
         //UiManager.ShowDamage();
 
