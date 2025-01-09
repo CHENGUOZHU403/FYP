@@ -1,43 +1,48 @@
 using UnityEngine;
+using System.Collections;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    public float scrollSpeed = 0.5f; // 滾動速度
-    public float backgroundWidth = 10f; // 背景圖片的寬度
-    private Transform[] backgrounds; // 背景物件陣列
+    public float moveSpeed = 2f;        // 移動速度
+    public float moveDistance = 5f;    // 移動的距離
+    public float pauseDuration = 1f;   // 停頓的時間
+
+    private Vector3 startPosition;     // 起始位置
+    private bool movingLeft = true;    // 是否正在向左移動
 
     void Start()
     {
-        backgrounds = new Transform[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            backgrounds[i] = transform.GetChild(i); // 獲取背景子物件
-        }
+        // 紀錄背景的初始位置
+        startPosition = transform.position;
+        // 開始移動協程
+        StartCoroutine(MoveBackground());
     }
 
-    void Update()
-{
-    // 控制背景滾動
-    for (int i = 0; i < backgrounds.Length; i++)
+    private IEnumerator MoveBackground()
     {
-        backgrounds[i].Translate(Vector3.left * scrollSpeed * Time.deltaTime);
-        
-        // 當背景移出畫面時，重設位置
-        if (backgrounds[i].position.x <= -backgroundWidth)
+        while (true)
         {
-            Vector3 newPosition = backgrounds[i].position;
-            newPosition.x += backgroundWidth * backgrounds.Length; // 移到最右側
-            backgrounds[i].position = newPosition;
-        }
-    }
+            // 計算目標位置
+            Vector3 targetPosition = movingLeft
+                ? startPosition + Vector3.left * moveDistance
+                : startPosition + Vector3.right * moveDistance;
 
-    // 更新 UI 按鈕位置
-    foreach (Transform uiElement in transform) // 確保 uiElement 是 BackgroundManager 的子物件
-    {
-        if (uiElement.CompareTag("UI")) // 假設UI元素有特定的Tag
-        {
-            uiElement.localPosition = new Vector3(backgrounds[0].localPosition.x, backgrounds[0].localPosition.y, 0); // 調整為相對位置
+            // 移動到目標位置
+            while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+            {
+                transform.position = Vector3.MoveTowards(
+                    transform.position,
+                    targetPosition,
+                    moveSpeed * Time.deltaTime
+                );
+                yield return null; // 等待下一幀
+            }
+
+            // 停頓
+            yield return new WaitForSeconds(pauseDuration);
+
+            // 反轉移動方向
+            movingLeft = !movingLeft;
         }
     }
-}
 }

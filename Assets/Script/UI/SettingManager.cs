@@ -22,7 +22,7 @@ public class SettingManager : MonoBehaviour
         soundSlider.onValueChanged.AddListener(UpdateSound);
 
         // 設置初始值
-        brightnessSlider.value = 0.5f; // 假設默認亮度為50%
+        brightnessSlider.value = 1f; // 假設默認亮度為50%
         soundSlider.value = AudioListener.volume; // 音量使用 AudioListener
     }
 
@@ -48,5 +48,15 @@ public class SettingManager : MonoBehaviour
         // 使用 AudioListener 控制全局音量
         AudioListener.volume = value;
     }
+
+    private void OnEnable()
+{
+    if (screenOverlay != null)
+    {
+        Color overlayColor = screenOverlay.color;
+        overlayColor.a = 0; // 設置為完全透明
+        screenOverlay.color = overlayColor;
+    }
+}
 }
 
