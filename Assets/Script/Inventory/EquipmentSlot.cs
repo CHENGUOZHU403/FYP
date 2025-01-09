@@ -24,7 +24,12 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Image itemImage;
 
-   
+    //equipped slots
+    private EquippedSlot headSlot, bodySlot, legSlot, handSlot;
+
+    public Image itemDescriptionImage;
+    public TMP_Text ItemDescriptionNameText;
+    public TMP_Text ItemDescriptionText;
 
 
 
@@ -35,7 +40,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     public void Start()
     {
-        inventoryManagers = GameObject.Find("EquipmentCanvas").GetComponent<InventoryManagers>();
+        inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
@@ -78,21 +83,31 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         if (thisItemSelected && quantity > 0)
         {
+            EquipGear();
+           
             
-            if (this.quantity <= 0)
-                EmptySlot();
-            else
-                RefreshSlotUI();
         }
         else
         {
-           //inventoryManagers.DeselectAllEQSlots();
+            inventoryManagers.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
-           
+            RefreshDescUI();
         }
     }
+    private void EquipGear()
+    {
+        if (itemType == ItemType.head)
+            headSlot.EquipGear(itemSprite, itemName, itemDescription);
+        if (itemType == ItemType.body)
+            bodySlot.EquipGear(itemSprite, itemName, itemDescription);
+        if (itemType == ItemType.leg)
+            legSlot.EquipGear(itemSprite, itemName, itemDescription);
+        if (itemType == ItemType.hand)
+            handSlot.EquipGear(itemSprite, itemName, itemDescription);
 
+        EmptySlot();
+    }
     private void EmptySlot()
     {
         itemName = itemDescription = string.Empty;
@@ -106,14 +121,19 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
 
     }
-
-
-
     private void RefreshSlotUI()
     {
-        
+        //quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
         itemImage.sprite = itemSprite != null ? itemSprite : emptySprite;
     }
-
- 
+    private void RefreshDescUI()
+    {
+        //ItemDescriptionNameText.text = itemName;
+        //ItemDescriptionText.text = itemDescription;
+       // itemDescriptionImage.sprite = itemSprite != emptySprite ? itemSprite : emptySprite;
+    }
 }
+
+   
+ 
+
