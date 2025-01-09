@@ -14,6 +14,16 @@ public class InventoryManagers : MonoBehaviour
     void Start()
     {
         InventoryMenu.SetActive(false);
+
+        // Initialize equipment slots if they are not set
+        if (equipmentSlot == null || equipmentSlot.Length == 0)
+        {
+            equipmentSlot = GetComponentsInChildren<EquipmentSlot>();
+            Debug.Log("Equipment slots initialized dynamically.");
+        }
+
+        // Log the count of equipment slots
+        Debug.Log($"Number of equipment slots: {equipmentSlot.Length}");
     }
 
     // Update is called once per frame
@@ -80,44 +90,64 @@ public class InventoryManagers : MonoBehaviour
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
-        
-            if(itemType == ItemType.mission || itemType == ItemType.use)
-               {
+        Debug.Log($"Attempting to add item: {itemName}, Quantity: {quantity}, Type: {itemType}");
+
+        if (itemType == ItemType.mission || itemType == ItemType.use)
+        {
             for (int i = 0; i < itemSlot.Length; i++)
-            { 
-                if (itemSlot[i].isFull == false && itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0)
+            {
+                if (itemSlot[i] == null)
+                {
+                    Debug.LogError($"ItemSlot at index {i} is not initialized!");
+                    continue;
+                }
+
+                if (!itemSlot[i].isFull && (itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0))
                 {
                     int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
-                if (leftOverItems > 0)
-                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
+                    
 
-
-                return leftOverItems;
-            }
-        }
-        return quantity;
-        }
-      
-        else
-        {
-            for (int i = 0; i <equipmentSlot.Length; i++)
-            {
-                if (equipmentSlot[i].isFull == false && equipmentSlot[i].itemName == itemName || equipmentSlot[i].quantity == 0)
-                {
-                    int leftOverItems = equipmentSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription,itemType);
                     if (leftOverItems > 0)
+                    {
                         leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
-
+                    }
 
                     return leftOverItems;
                 }
             }
+            Debug.Log("No space in item slots.");
             return quantity;
         }
+        else
+        {
+            for (int i = 0; i < equipmentSlot.Length; i++)
+            {
+                if (equipmentSlot[i] == null)
+                {
+                    Debug.LogError($"EquipmentSlot at index {i} is not initialized!");
+                    continue;
+                }
 
+                if (!equipmentSlot[i].isFull && (equipmentSlot[i].itemName == itemName || equipmentSlot[i].quantity == 0))
+                {
+                    int leftOverItems = equipmentSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
+                    Debug.Log($"Left over items after adding to equipment: {leftOverItems}");
 
+                    if (leftOverItems > 0)
+                    {
+                        leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
+                    }
 
+                    return leftOverItems;
+                }
+            }
+            Debug.Log("No space in equipment slots.");
+            return quantity;
+        }
     }
+
+
+
 
 
 
@@ -128,15 +158,13 @@ public class InventoryManagers : MonoBehaviour
             itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemSelected = false;
         }
-    }
-    public void DeselectAllEQSlots()
-    {
         for (int i = 0; i < equipmentSlot.Length; i++)
         {
-            equipmentSlot[i].selectedShader.SetActive(false);
-            equipmentSlot[i].thisItemSelected = false;
+            itemSlot[i].selectedShader.SetActive(false);
+            itemSlot[i].thisItemSelected = false;
         }
     }
+    
 }
 
 public enum ItemType
