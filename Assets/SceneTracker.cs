@@ -7,6 +7,7 @@ public class SceneTracker : MonoBehaviour
 
     public void ReturnToPreviousScene()
     {
+        GameSceneManager.Instance.isMonsterDefeated = true;
         SceneManager.LoadScene(previousSceneName);
     }
 }

@@ -20,15 +20,27 @@ public class Dialogue : MonoBehaviour
     private Coroutine displayCoroutine;
 
     [Header("Black Mask")]
+    public GameObject blackMaskContainer;
     public Image blackMask;
     public float fadeDuration = 2.0f;
 
     private void Start()
     {
+        if (GameSceneManager.Instance.hasShownOpening)
+        {
+            // 如果开场白已显示过，直接跳过
+            blackMaskContainer.SetActive(false);
+            dialoguePanel.SetActive(false);
+        }
+        else
+        {
+            // 显示开场白
+            blackMaskContainer.SetActive(true);
+            GameSceneManager.Instance.hasShownOpening = true;
 
-        StartDialogue();
-        nextButton.onClick.AddListener(DisplayNextLine);
-
+            StartDialogue();
+            nextButton.onClick.AddListener(DisplayNextLine);
+        }
     }
 
     private void StartDialogue()

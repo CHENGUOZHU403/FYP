@@ -103,7 +103,8 @@ public class BattleManager : MonoBehaviour
 
         monsterHUD.SetHP(monsterCurrentHealth);
 
-        StartCoroutine(ShowDialogue($"You dealt {playerDamage} damage!"));
+        yield return StartCoroutine(ShowDialogue($"You dealt {playerDamage} damage!"));
+
         //UiManager.ShowDialogue();
         //UiManager.ShowDamage();
 
@@ -181,12 +182,17 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator ShowDialogue(string sentence)
     {
+        Debug.Log("ShowDialogue called with: " + sentence);
         dialogueText.text = "";
         foreach (char c in sentence)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(0.05f);
         }
+
+        yield return new WaitForSeconds(0.5f);
+
+
     }
 
     void UpdateUI()

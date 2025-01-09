@@ -25,7 +25,7 @@ public class GuideNPCDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // 按E键与NPC互动
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F)) // 按E键与NPC互动
         {
             dialoguePanel.SetActive(true);
             ShowNextDialogue();
@@ -37,7 +37,6 @@ public class GuideNPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            Debug.Log("Player is Nearby NPC");
         }
     }
 
@@ -49,7 +48,6 @@ public class GuideNPCDialogue : MonoBehaviour
             isPlayerNearby = false;
             dialoguePanel.SetActive(false);
             currentDialogueIndex = 0;
-            Debug.Log("Player is not Nearby NPC");
         }
     }
 
