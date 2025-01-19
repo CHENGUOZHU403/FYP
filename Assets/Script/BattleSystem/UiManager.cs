@@ -28,6 +28,7 @@ public class UiManager : MonoBehaviour
     public void ShowDamage()
     {
         MultChoiUI.SetActive(false);
+        DialoguePanle.SetActive(true);
     }
 
     public void GameOver(string str)

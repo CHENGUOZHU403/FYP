@@ -45,7 +45,6 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator InitializeBattle()
     {
-        // ��ʼ��������Ϣ and �����Ϣ
         monsterCurrentHealth = encounteredMonster.maxHealth;
         monsterHUD.SetHUD(encounteredMonster);
 
@@ -84,8 +83,8 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-
-        //yield return new WaitForSeconds(timer.timerDuration);
+        uiManager.Attack();
+        yield return new WaitForSeconds(timer.timerDuration);
 
         //Vector3 originalPosition = playerHUD.Position.position;
 
@@ -94,18 +93,18 @@ public class BattleManager : MonoBehaviour
         //playerUnit.Attack();
         //enemyUnit.Hurt();
 
-        //int playerDamage = Mathf.RoundToInt(MCsystem.CorrectNum * playerUnit.damage * MCsystem.Accuracy / 100);
-        yield return new WaitForSeconds(1f);
+        uiManager.ShowDamage();
 
-        int playerDamage = Mathf.RoundToInt(playerData.attackPower * Random.Range(0.8f, 1.2f));
+        int playerDamage = Mathf.RoundToInt(playerData.attackPower * MCsystem.correctCount * MCsystem.accuracy / 100 * 0.5f ) ;
+        //int playerDamage = Mathf.RoundToInt(playerData.attackPower * Random.Range(0.8f, 1.2f));
         damageDisplay.ShowDamage(monsterHUD.imageTransform.position, playerDamage, 0);
         monsterCurrentHealth -= playerDamage;
 
         monsterHUD.SetHP(monsterCurrentHealth);
 
         yield return StartCoroutine(ShowDialogue($"You dealt {playerDamage} damage!"));
-        //UiManager.ShowDialogue();
-        //UiManager.ShowDamage();
+
+
 
         //yield return StartCoroutine(playerUnit.Move(playerUnit.transform, originalPosition, 0));
 
@@ -187,6 +186,7 @@ public class BattleManager : MonoBehaviour
             dialogueText.text += c;
             yield return new WaitForSeconds(0.05f);
         }
+        yield return new WaitForSeconds(0.5f);
     }
 
     void UpdateUI()
