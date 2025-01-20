@@ -166,6 +166,13 @@ public class BattleManager : MonoBehaviour
 
     void EndBattle()
     {
+        string monsterID = PlayerPrefs.GetString("CurrentMonster", "");
+
+        if (!string.IsNullOrEmpty(monsterID))
+        {
+            GameManager.Instance.MarkMonsterAsDefeated(monsterID);
+        }
+
         if (state == BattleState.Won)
         {
             StartCoroutine(ShowDialogue("You won the battle!"));
