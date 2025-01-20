@@ -3,7 +3,7 @@ guid: 0ad4904a490087341b075fc45b74de61
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,10 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -62,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -73,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -85,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -97,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -109,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -130,7 +138,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2b47586d11712c34a8746490577ea569
-      internalID: 541980068
+      internalID: 941499170004621180
       vertices: []
       indices: 
       edges: []
@@ -151,7 +159,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a2374569e59b80e4e88e948c4b19ffb8
-      internalID: -806912914
+      internalID: -4394393755371598375
       vertices: []
       indices: 
       edges: []
@@ -172,7 +180,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ccba266972fbe774c96a8ce0d3d87a5f
-      internalID: 6850426
+      internalID: -4980779929469009976
       vertices: []
       indices: 
       edges: []
@@ -193,7 +201,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 36f079174e596e5449aaf4267b2c674c
-      internalID: 1827402688
+      internalID: 2897510078535396710
       vertices: []
       indices: 
       edges: []
@@ -214,7 +222,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e5ff3f057455a1848bf25bf2cbf04325
-      internalID: -1675242227
+      internalID: -3840073664276031881
       vertices: []
       indices: 
       edges: []
@@ -235,7 +243,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6d458c5049ea3ba4f89a28199c447c63
-      internalID: -93425248
+      internalID: 3390653792270752090
       vertices: []
       indices: 
       edges: []
@@ -256,7 +264,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e33e8ef477b80c3408cc7fc8164b547b
-      internalID: -618632808
+      internalID: 6444996774121349010
       vertices: []
       indices: 
       edges: []
@@ -277,7 +285,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e355c7fa3fe395e43b38d3828805a366
-      internalID: 1681736946
+      internalID: -3377009902074564711
       vertices: []
       indices: 
       edges: []
@@ -292,9 +300,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      full tile blood_0: 941499170004621180
+      full tile blood_1: -4394393755371598375
+      full tile blood_2: -4980779929469009976
+      full tile blood_3: 2897510078535396710
+      full tile blood_4: -3840073664276031881
+      full tile blood_5: 3390653792270752090
+      full tile blood_6: 6444996774121349010
+      full tile blood_7: -3377009902074564711
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

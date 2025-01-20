@@ -3,7 +3,7 @@ guid: 778622a03ffd0ea4ea456b9304f40e63
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,10 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -62,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -73,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -85,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -97,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -109,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -130,7 +138,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ad0408d7cd3f9d24e87914047402f4d8
-      internalID: -1428758561
+      internalID: -4250372234689559582
       vertices: []
       indices: 
       edges: []
@@ -151,7 +159,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ba63802fe4442bc409007972527ea931
-      internalID: -1243724164
+      internalID: -6171911773007376887
       vertices: []
       indices: 
       edges: []
@@ -172,7 +180,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4048e6d5be123c644b75e9670ca06c88
-      internalID: -743094149
+      internalID: 8969033688557891529
       vertices: []
       indices: 
       edges: []
@@ -193,7 +201,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f3aff082121d1274282d8e0c158d0451
-      internalID: -1165875815
+      internalID: -4179593064214595733
       vertices: []
       indices: 
       edges: []
@@ -214,7 +222,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 59bcffb08812e1e44b4631965546ba3f
-      internalID: -1237146136
+      internalID: -8856739709175275049
       vertices: []
       indices: 
       edges: []
@@ -235,7 +243,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ee1be8b6cc310804fa97dc728c48571a
-      internalID: -446149679
+      internalID: -8814141100334605554
       vertices: []
       indices: 
       edges: []
@@ -256,7 +264,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 25f7c4ee014418e4299a9e094022fc25
-      internalID: -537978652
+      internalID: -7609597343450455646
       vertices: []
       indices: 
       edges: []
@@ -277,7 +285,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f2e8a6385fd121a40a26e6acb0afb55f
-      internalID: -295628883
+      internalID: 7314876455267125511
       vertices: []
       indices: 
       edges: []
@@ -292,9 +300,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Bat-Idle animation_0: -4250372234689559582
+      Bat-Idle animation_1: -6171911773007376887
+      Bat-Idle animation_2: 8969033688557891529
+      Bat-Idle animation_3: -4179593064214595733
+      Bat-Idle animation_4: -8856739709175275049
+      Bat-Idle animation_5: -8814141100334605554
+      Bat-Idle animation_6: -7609597343450455646
+      Bat-Idle animation_7: 7314876455267125511
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
