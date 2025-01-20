@@ -8,4 +8,5 @@ public class MonsterData : ScriptableObject
     public Sprite monsterSprite;
     public int maxHealth;
     public int attackPower;
+    public GameObject Prefabs;
 }

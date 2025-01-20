@@ -46,6 +46,6 @@ public class PlayerUI : MonoBehaviour
         LevelSilder.value = player.playerData.currentXP;
         levelText.text = "Level : " + player.playerData.level;
 
-        moneyText.text = player.money.ToString();
+        moneyText.text = player.playerData.money.ToString();
     }
 }

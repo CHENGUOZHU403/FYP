@@ -31,14 +31,6 @@ public class HeroKnight : MonoBehaviour {
 
     public PlayerData playerData;
 
-    public int playerHp;
-    public int level = 1;
-    public int currentXP = 0;
-    public int xpToLevelUp = 100; 
-    public int xpPerLevelIncrease = 50; 
-    public int money = 0;
-
-
     // Use this for initialization
     void Start ()
     {
@@ -123,12 +115,6 @@ public class HeroKnight : MonoBehaviour {
             if (m_delayToIdle < 0)
                 m_animator.SetInteger("AnimState", 0);
         }
-
-        if (currentXP >= xpToLevelUp)
-        {
-            LevelUp();
-        }
-
 
         // -- Handle Animations --
         //Wall Slide
@@ -221,15 +207,6 @@ public class HeroKnight : MonoBehaviour {
         }
     }
 
-    void LevelUp()
-    {
-        level++;
-        currentXP -= xpToLevelUp; // 升級後多餘的經驗繼續累計
-        xpToLevelUp += xpPerLevelIncrease; // 下一級需要的經驗值增加
-
-        Debug.Log("Player leveled up to level: " + level);
-    }
-
     public void TakeDamage(int Damage)
     {
         playerData.TakeDamage(Damage);
@@ -239,24 +216,16 @@ public class HeroKnight : MonoBehaviour {
 
     public void AddXP(int xpAmount)
     {
-        currentXP += xpAmount;
+        playerData.GainXP(xpAmount);
     }
 
     public void AddMoney(int amount)
     {
-        money += amount;
-        Debug.Log("Money: " + money);
+        playerData.AddMoney(amount);
     }
 
     public bool SpendMoney(int amount)
     {
-        if (money >= amount)
-        {
-            money -= amount;
-            Debug.Log("Money: " + money);
-            return true;
-        }
-        Debug.Log("Not enough money!");
-        return false;
+        return playerData.SpendMoney(amount);
     }
 }

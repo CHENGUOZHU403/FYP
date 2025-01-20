@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using JetBrains.Annotations;
 
 public class Dialogue : MonoBehaviour
 {
@@ -31,9 +32,10 @@ public class Dialogue : MonoBehaviour
 
     }
 
-    private void StartDialogue()
+    public void StartDialogue()
     {
         currentLineIndex = 0;
+        dialoguePanel.SetActive(true);
         DisplayNextLine();
     }
 
@@ -69,6 +71,12 @@ public class Dialogue : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(textDisplaySpeed);
         }
+    }
+
+    public void SetSentence(string[] sentences)
+    {
+        dialogueLines = sentences;
+        StartDialogue();
     }
 
     private IEnumerator FadeIn()
