@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Mix");
+        SceneManager.LoadScene("BasicMap");
     }
 
     public void ExitGame()
