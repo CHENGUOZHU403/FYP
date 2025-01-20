@@ -6,7 +6,6 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public int userMoney = 100;
     public TMP_Text UserMoneyText;
 
     public ItemFrame[] itemFrameslist;
@@ -18,12 +17,13 @@ public class ShopManager : MonoBehaviour
     public Button buyButton;
 
     private int totalPrice = 0;
+
     public PlayerData playerData;
 
     void Start()
     {
         buyButton.onClick.AddListener(PurchaseItems);
-        UserMoneyText.text = userMoney.ToString();
+        UserMoneyText.text = playerData.money.ToString();
     }
 
     void Update()

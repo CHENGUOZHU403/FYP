@@ -9,7 +9,7 @@ public class CoinBag : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // 获取玩家脚本并增加金钱
+           
             HeroKnight HeroKnight = other.GetComponent<HeroKnight>();
             if (HeroKnight != null)
             {

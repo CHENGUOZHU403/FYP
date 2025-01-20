@@ -25,7 +25,7 @@ public class GuideNPCDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // ∞¥Eº¸”ÎNPCª•∂Ø
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F)) // Input F to interact with NPC
         {
             dialoguePanel.SetActive(true);
             ShowNextDialogue();
