@@ -32,6 +32,7 @@ public class GuideNPCDialogue : MonoBehaviour
         {
             //dialoguePanel.SetActive(true);
             dialoguePlane.SetSentence(dialogue);
+            dialoguePlane.currentLineIndex = currentDialogueIndex;
             isInteract = true;
             //ShowNextDialogue();
         }

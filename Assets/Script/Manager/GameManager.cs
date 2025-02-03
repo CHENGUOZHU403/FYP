@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Vector3 playerPosition;
     private Dictionary<string, bool> defeatedMonsters = new Dictionary<string, bool>();
+    public bool isWatched = false;
 
     private void Awake()
     {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    
+
     public void MarkMonsterAsDefeated(string enemyID)
     {
         if (!defeatedMonsters.ContainsKey(enemyID))

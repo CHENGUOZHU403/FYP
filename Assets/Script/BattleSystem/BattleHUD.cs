@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
+
 public class BattleHUD : MonoBehaviour
 {
     [Header("UI Components")]
@@ -18,7 +19,7 @@ public class BattleHUD : MonoBehaviour
 
     private int maxHealth;
 
-    private void SetCommonHUD(string name, int maxHealth, int level, Sprite sprite)
+    private void SetCommonHUD(string name, int maxHealth, int level, GameObject prefab, Sprite sprite)
     {
         nameText.text = name;
 
@@ -32,21 +33,21 @@ public class BattleHUD : MonoBehaviour
             imageComponent.sprite = sprite;
         }
 
+        Instantiate(prefab, imageTransform);
+
         UpdateHealth(hpSlider.value, maxHealth);
     }
 
     public void SetHUD(MonsterData monsterData)
     {
-        SetCommonHUD(monsterData.monsterName, monsterData.maxHealth, monsterData.level , monsterData.monsterSprite);
+        SetCommonHUD(monsterData.monsterName, monsterData.maxHealth, monsterData.level ,monsterData.monsterPrefab, monsterData.monsterSprite);
         hpSlider.maxValue = monsterData.maxHealth;
         hpSlider.value = monsterData.maxHealth;
     }
 
     public void SetHUD(PlayerData playerData)
     {
-        SetCommonHUD(playerData.playerName, playerData.maxHealth, playerData.level, playerData.PlayerImage);
-
-        // 更新滑块和血量
+        SetCommonHUD(playerData.playerName, playerData.maxHealth, playerData.level,playerData.playerPrefab, playerData.PlayerImage);
         hpSlider.maxValue = playerData.maxHealth;
         hpSlider.value = playerData.currentHealth;
     }
@@ -61,6 +62,21 @@ public class BattleHUD : MonoBehaviour
         hpText.text = $"{Mathf.CeilToInt(currentHealth)} / {Mathf.CeilToInt(maxHealth)}";
         hpText.text = $"{currentHealth}/{maxHealth}";
         hpSlider.value = currentHealth;
+    }
+
+    public IEnumerator Move(Vector3 targetPosition)
+    {
+        float duration = 1f; // Duration of the movement
+        float elapsed = 0f;
+        Vector3 startingPosition = imageTransform.position;
+        Vector3 stoppingPosition = targetPosition;
+        while (elapsed < duration)
+        {
+            imageTransform.position = Vector3.Lerp(startingPosition, stoppingPosition, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+        // Ensure the unit ends exactly at the target position
     }
 
 }

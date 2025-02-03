@@ -7,10 +7,10 @@ public class MonsterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string monsterID = gameObject.name; // 以怪物名字作为唯一ID
+        string monsterID = gameObject.name; // set object name to ID
         if (GameManager.Instance.IsMonsterDefeated(monsterID))
         {
-            gameObject.SetActive(false); // 隐藏已被击败的怪物
+            gameObject.SetActive(false); // hide gameobject
         }
     }
 

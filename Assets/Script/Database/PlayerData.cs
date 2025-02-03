@@ -17,6 +17,7 @@ public class PlayerData : ScriptableObject
     public int xpToNextLevel = 100;
 
     public Sprite PlayerImage;
+    public GameObject playerPrefab;
 
     [Header("Currency")]
     public int money = 0;
@@ -77,5 +78,4 @@ public class PlayerData : ScriptableObject
         xpToNextLevel = 100;
         money = 0;
     }
-
 }

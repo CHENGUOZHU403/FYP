@@ -48,6 +48,7 @@ public class BattleManager : MonoBehaviour
         monsterCurrentHealth = encounteredMonster.maxHealth;
         monsterHUD.SetHUD(encounteredMonster);
 
+
         playerHUD.SetHUD(playerData);
         UpdateUI();
 
@@ -86,9 +87,12 @@ public class BattleManager : MonoBehaviour
         uiManager.Attack();
         yield return new WaitForSeconds(timer.timerDuration);
 
-        //Vector3 originalPosition = playerHUD.Position.position;
+        uiManager.HideMultChoiUI();
+
+        Vector3 originalPosition = playerHUD.imageTransform.position;
 
         //yield return StartCoroutine(playerUnit.Move(playerUnit.transform, enemyBattleStation.position, playerUnit.attackRange));
+        yield return StartCoroutine(playerHUD.Move(monsterHUD.imageTransform.position));
 
         //playerUnit.Attack();
         //enemyUnit.Hurt();
@@ -97,7 +101,7 @@ public class BattleManager : MonoBehaviour
 
         int playerDamage = Mathf.RoundToInt(playerData.attackPower * MCsystem.correctCount * MCsystem.accuracy / 100 * 0.5f ) ;
         //int playerDamage = Mathf.RoundToInt(playerData.attackPower * Random.Range(0.8f, 1.2f));
-        damageDisplay.ShowDamage(monsterHUD.imageTransform.position, playerDamage, 0);
+        damageDisplay.ShowDamage(monsterHUD.imageTransform.position, playerDamage, 1.5f);
         monsterCurrentHealth -= playerDamage;
 
         monsterHUD.SetHP(monsterCurrentHealth);
@@ -106,7 +110,7 @@ public class BattleManager : MonoBehaviour
 
 
 
-        //yield return StartCoroutine(playerUnit.Move(playerUnit.transform, originalPosition, 0));
+        yield return StartCoroutine(playerHUD.Move(originalPosition));
 
 
         if (monsterCurrentHealth <= 0)
@@ -132,16 +136,16 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        //Vector3 originalPosition = monsterHUD.ImageTransform.position;
+        Vector3 originalPosition = monsterHUD.imageTransform.position;
 
         yield return StartCoroutine(ShowDialogue($"{encounteredMonster.monsterName} attacks!"));
-        //yield return StartCoroutine(enemyUnit.Move(enemyUnit.transform, playerBattleStation.position, enemyUnit.attackRange));
+        yield return StartCoroutine(monsterHUD.Move(playerHUD.imageTransform.position));
 
         //enemyUnit.Attack();
         //playerUnit.Hurt();
 
         int damage = Mathf.RoundToInt(encounteredMonster.attackPower * Random.Range(0.8f, 1.2f));
-        damageDisplay.ShowDamage(playerHUD.imageTransform.position, damage, 0);
+        damageDisplay.ShowDamage(playerHUD.imageTransform.position, damage, -1.5f);
         playerData.TakeDamage(damage);
         playerHUD.SetHP(playerData.currentHealth);
         uiManager.ShowDamage();
@@ -149,7 +153,7 @@ public class BattleManager : MonoBehaviour
 
 
 
-        //yield return StartCoroutine(enemyUnit.Move(enemyUnit.transform, originalPosition, 0));
+        yield return StartCoroutine(monsterHUD.Move(originalPosition));
 
 
         if (playerData.currentHealth <= 0)

@@ -25,9 +25,13 @@ public class UiManager : MonoBehaviour
         buttonContainer.SetActive(true);
     }
 
-    public void ShowDamage()
+    public void HideMultChoiUI()
     {
         MultChoiUI.SetActive(false);
+    }
+
+    public void ShowDamage()
+    {
         DialoguePanle.SetActive(true);
     }
 

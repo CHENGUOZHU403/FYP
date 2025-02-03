@@ -17,3 +17,5 @@ MonoBehaviour:
   monsterSprite: {fileID: 1052291084590242904, guid: c2fb4797587234247a931c8df4e4bd51, type: 3}
   maxHealth: 99999
   attackPower: 1
+  isDefeated: 0
+  monsterPrefab: {fileID: 6789403814776205503, guid: 0cbf459013c13c741a75a94250f8e04f, type: 3}

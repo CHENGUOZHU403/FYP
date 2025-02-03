@@ -9,5 +9,6 @@ public class MonsterData : ScriptableObject
     public int maxHealth;
     public int attackPower;
     public bool isDefeated;
-    public GameObject Prefabs;
+    public GameObject monsterPrefab;
+    public Animator animator;
 }

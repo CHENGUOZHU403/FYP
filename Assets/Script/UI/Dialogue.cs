@@ -17,7 +17,7 @@ public class Dialogue : MonoBehaviour
     public string[] dialogueLines;
 
     public float textDisplaySpeed = 0.05f;
-    private int currentLineIndex = 0;
+    public int currentLineIndex = 0;
     private Coroutine displayCoroutine;
 
     [Header("Black Mask")]
@@ -26,10 +26,17 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
-
-        StartDialogue();
-        nextButton.onClick.AddListener(DisplayNextLine);
-
+        if (GameManager.Instance.isWatched)
+        {
+            dialoguePanel.SetActive(false);
+            blackMask.enabled = false;
+        }
+        else
+        {
+            GameManager.Instance.isWatched = true;
+            StartDialogue();
+            nextButton.onClick.AddListener(DisplayNextLine);
+        }
     }
 
     public void StartDialogue()
@@ -81,26 +88,21 @@ public class Dialogue : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
-        // 获取初始颜色
         Color maskColor = blackMask.color;
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)
         {
-            // 逐渐减少 Alpha 值
             maskColor.a = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
             blackMask.color = maskColor;
 
-            // 累计时间
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // 确保完全透明
         maskColor.a = 0f;
         blackMask.color = maskColor;
 
-        // 禁用遮罩，提升性能（可选）
         blackMask.gameObject.SetActive(false);
     }
 }
