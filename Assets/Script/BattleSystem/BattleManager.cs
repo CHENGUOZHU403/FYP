@@ -94,8 +94,8 @@ public class BattleManager : MonoBehaviour
         //yield return StartCoroutine(playerUnit.Move(playerUnit.transform, enemyBattleStation.position, playerUnit.attackRange));
         yield return StartCoroutine(playerHUD.Move(monsterHUD.imageTransform.position));
 
-        //playerUnit.Attack();
-        //enemyUnit.Hurt();
+        playerHUD.Attack();
+        monsterHUD.Hurt();
 
         uiManager.ShowDamage();
 
@@ -141,8 +141,8 @@ public class BattleManager : MonoBehaviour
         yield return StartCoroutine(ShowDialogue($"{encounteredMonster.monsterName} attacks!"));
         yield return StartCoroutine(monsterHUD.Move(playerHUD.imageTransform.position));
 
-        //enemyUnit.Attack();
-        //playerUnit.Hurt();
+        monsterHUD.Attack();
+        playerHUD.Hurt();
 
         int damage = Mathf.RoundToInt(encounteredMonster.attackPower * Random.Range(0.8f, 1.2f));
         damageDisplay.ShowDamage(playerHUD.imageTransform.position, damage, -1.5f);

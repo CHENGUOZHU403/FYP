@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         string monsterID = gameObject.name; // set object name to ID
@@ -12,11 +11,5 @@ public class MonsterManager : MonoBehaviour
         {
             gameObject.SetActive(false); // hide gameobject
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -5471,6 +5471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {x: -6.58, y: -1.97, z: -0.00024414062}
+  isWatched: 0
 --- !u!1 &1103573932
 GameObject:
   m_ObjectHideFlags: 0

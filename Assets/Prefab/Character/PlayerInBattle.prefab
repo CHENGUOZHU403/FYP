@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 7.5
   m_slideDust: {fileID: 1038168246061390451, guid: 8b8c8cc6774fb074cb9139cc631b108e, type: 3}
-  playerData: {fileID: 0}
+  playerData: {fileID: 11400000, guid: 50c4fef23791f194284b29c485a6f65e, type: 2}
 --- !u!95 &499382694651989276
 Animator:
   serializedVersion: 5

@@ -19,6 +19,8 @@ public class BattleHUD : MonoBehaviour
 
     private int maxHealth;
 
+    public Animator animator;
+
     private void SetCommonHUD(string name, int maxHealth, int level, GameObject prefab, Sprite sprite)
     {
         nameText.text = name;
@@ -33,7 +35,9 @@ public class BattleHUD : MonoBehaviour
             imageComponent.sprite = sprite;
         }
 
-        Instantiate(prefab, imageTransform);
+        GameObject GO = Instantiate(prefab, imageTransform);
+
+        animator = GO.GetComponent<Animator>();
 
         UpdateHealth(hpSlider.value, maxHealth);
     }
@@ -43,6 +47,7 @@ public class BattleHUD : MonoBehaviour
         SetCommonHUD(monsterData.monsterName, monsterData.maxHealth, monsterData.level ,monsterData.monsterPrefab, monsterData.monsterSprite);
         hpSlider.maxValue = monsterData.maxHealth;
         hpSlider.value = monsterData.maxHealth;
+        //animator = monsterData.monsterPrefab.GetComponent<Animator>();
     }
 
     public void SetHUD(PlayerData playerData)
@@ -50,6 +55,7 @@ public class BattleHUD : MonoBehaviour
         SetCommonHUD(playerData.playerName, playerData.maxHealth, playerData.level,playerData.playerPrefab, playerData.PlayerImage);
         hpSlider.maxValue = playerData.maxHealth;
         hpSlider.value = playerData.currentHealth;
+        //animator = playerData.playerPrefab.GetComponent<Animator>();
     }
 
     public void SetHP(int currentHealth)
@@ -70,13 +76,28 @@ public class BattleHUD : MonoBehaviour
         float elapsed = 0f;
         Vector3 startingPosition = imageTransform.position;
         Vector3 stoppingPosition = targetPosition;
+
+        animator.SetBool("isMove", true);
+
         while (elapsed < duration)
-        {
+        {   
             imageTransform.position = Vector3.Lerp(startingPosition, stoppingPosition, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null; // Wait for the next frame
         }
         // Ensure the unit ends exactly at the target position
+        imageTransform.position = stoppingPosition;
+        animator.SetBool("isMove", false);
+    }
+
+    public void Attack()
+    {
+        animator.SetTrigger("Attack");
+    }
+
+    public void Hurt()
+    {
+        animator.SetTrigger("Hurt");
     }
 
 }

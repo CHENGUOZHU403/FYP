@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
+    public TMP_Text speakerNameText;
     public Button nextButton;
     public HeroKnight HeroKnight;
 
@@ -84,6 +85,11 @@ public class Dialogue : MonoBehaviour
     {
         dialogueLines = sentences;
         StartDialogue();
+    }
+    
+    public void SetSpeakerName(string speakerName)
+    {
+        speakerNameText.text = speakerName;
     }
 
     private IEnumerator FadeIn()
