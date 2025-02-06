@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
-    //itemdata
+    // Item data
     public string itemName;
     public int quantity;
     public Sprite itemSprite;
@@ -16,23 +16,19 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
+    // Item slot UI
+    [SerializeField] private TMP_Text quantityText;
+    [SerializeField] private Image itemImage;
 
-
-    //itemslot
-    [SerializeField]
-    private TMP_Text quantityText;
-    [SerializeField]
-    private Image itemImage;
-
-    //equipped slots
+    // Equipped slots
     private EquippedSlot headSlot, bodySlot, legSlot, handSlot;
 
+    // Description UI
     public Image itemDescriptionImage;
     public TMP_Text ItemDescriptionNameText;
     public TMP_Text ItemDescriptionText;
 
-
-
+    // Selection
     public GameObject selectedShader;
     public bool thisItemSelected;
 
@@ -41,31 +37,32 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public void Start()
     {
         inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
+        headSlot = GameObject.Find("HeadSlot").GetComponent<EquippedSlot>();
+        bodySlot = GameObject.Find("BodySlot").GetComponent<EquippedSlot>();
+        legSlot = GameObject.Find("LegSlot").GetComponent<EquippedSlot>();
+        handSlot = GameObject.Find("HandSlot").GetComponent<EquippedSlot>();
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
-        //updata itemtype
-        this.itemType = itemType;
+        Debug.Log($"Adding item: {itemName} to slot {this.name}");
+        if (isFull)
+        {
+            Debug.LogWarning("Slot is already full.");
+            return 0;
+        }
 
-        // TODO: Check if the item is the same?
-
-        // Check if we still have space left in this slot
-        
         // Set item data
         this.itemName = itemName;
         this.itemSprite = itemSprite;
         this.itemDescription = itemDescription;
+        this.itemType = itemType;
 
-        this.quantity = 1;
+        this.quantity = quantity;
         isFull = true;
-        
-        
 
-        // Update UI
         RefreshSlotUI();
-
-        return 0;
+        return quantity;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -79,13 +76,12 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
             OnRightClick();
         }
     }
+
     public void OnLeftClick()
     {
         if (thisItemSelected && quantity > 0)
         {
             EquipGear();
-           
-            
         }
         else
         {
@@ -95,45 +91,67 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
             RefreshDescUI();
         }
     }
+
     private void EquipGear()
     {
-        if (itemType == ItemType.head)
+        if (itemType == ItemType.head && headSlot != null)
             headSlot.EquipGear(itemSprite, itemName, itemDescription);
-        if (itemType == ItemType.body)
+        if (itemType == ItemType.body && bodySlot != null)
             bodySlot.EquipGear(itemSprite, itemName, itemDescription);
-        if (itemType == ItemType.leg)
+        if (itemType == ItemType.leg && legSlot != null)
             legSlot.EquipGear(itemSprite, itemName, itemDescription);
-        if (itemType == ItemType.hand)
+        if (itemType == ItemType.hand && handSlot != null)
             handSlot.EquipGear(itemSprite, itemName, itemDescription);
 
         EmptySlot();
     }
-    private void EmptySlot()
-    {
-        itemName = itemDescription = string.Empty;
-        itemSprite = emptySprite;
-
-        RefreshSlotUI();
-        
-    }
 
     public void OnRightClick()
     {
-
+        if (thisItemSelected && quantity > 0)
+        {
+            UnequipGear();
+        }
     }
+
+    private void UnequipGear()
+    {
+        Debug.Log($"Unequipping item: {itemName} from slot {this.name}");
+        inventoryManagers.AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
+        EmptySlot();
+    }
+
+    private void EmptySlot()
+    {
+        itemName = string.Empty;
+        itemDescription = string.Empty;
+        itemSprite = emptySprite;
+        quantity = 0;
+        isFull = false;
+
+        RefreshSlotUI();
+        RefreshDescUI();
+    }
+
     private void RefreshSlotUI()
     {
-        //quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
+        quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
         itemImage.sprite = itemSprite != null ? itemSprite : emptySprite;
     }
+
     private void RefreshDescUI()
     {
-        //ItemDescriptionNameText.text = itemName;
-        //ItemDescriptionText.text = itemDescription;
-       // itemDescriptionImage.sprite = itemSprite != emptySprite ? itemSprite : emptySprite;
+        if (string.IsNullOrEmpty(itemName))
+        {
+            ItemDescriptionNameText.text = string.Empty;
+            ItemDescriptionText.text = string.Empty;
+            itemDescriptionImage.sprite = emptySprite;
+        }
+        else
+        {
+            ItemDescriptionNameText.text = itemName;
+            ItemDescriptionText.text = itemDescription;
+            itemDescriptionImage.sprite = itemSprite;
+        }
     }
 }
-
-   
- 
-

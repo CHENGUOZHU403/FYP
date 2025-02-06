@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour,IPointerClickHandler
+public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     //itemdata
     public string itemName;
@@ -16,8 +16,8 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-    [SerializeField]
-    private int maxNumberOfItems;
+    // Define maxStackSize
+    private const int maxStackSize = 99;
 
     //itemslot
     [SerializeField]
@@ -30,9 +30,6 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
     public TMP_Text ItemDescriptionNameText;
     public TMP_Text ItemDescriptionText;
 
-
-
-
     public GameObject selectedShader;
     public bool thisItemSelected;
 
@@ -43,19 +40,19 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
     }
 
-    public int AddItem(string itemName, int quantity, Sprite itemSprite,string itemDescription, ItemType itemType)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
-        //updata itemtype
+        // Update item type
         this.itemType = itemType;
 
         // TODO: Check if the item is the same?
 
         // Check if we still have space left in this slot
-        int available = maxNumberOfItems - this.quantity;
+        int available = maxStackSize - this.quantity;
         if (available <= 0)
             return quantity;
 
-        // Take the avaiable amount of item
+        // Take the available amount of item
         int delta = quantity > available ? quantity - available : 0;
 
         // Set item data
@@ -65,7 +62,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
 
         // Update amount
         this.quantity += delta != 0 ? available : quantity;
-        
+
         // Update UI
         RefreshSlotUI();
 
@@ -78,15 +75,16 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
         {
             OnLeftClick();
         }
-        if(eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
             OnRightClick();
         }
     }
+
     public void OnLeftClick()
     {
         if (thisItemSelected && quantity > 0)
-        { 
+        {
             inventoryManagers.UseItem(itemName);
             this.quantity -= 1;
             if (this.quantity <= 0)
@@ -95,7 +93,7 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
                 RefreshSlotUI();
         }
         else
-        { 
+        {
             inventoryManagers.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
@@ -114,11 +112,9 @@ public class ItemSlot : MonoBehaviour,IPointerClickHandler
 
     public void OnRightClick()
     {
-
+        // Additional logic for right click if needed
     }
 
-
-    
     private void RefreshSlotUI()
     {
         quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
