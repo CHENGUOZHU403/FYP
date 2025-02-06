@@ -60,27 +60,20 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
             Debug.LogWarning("Slot is already full.");
             return 0; // or handle stacking logic if needed
         }
-        //updata itemtype
+
+        // Update item data
         this.itemType = itemType;
-
-        // TODO: Check if the item is the same?
-
-        // Check if we still have space left in this slot
-
-        // Set item data
         this.itemName = itemName;
         this.itemSprite = itemSprite;
         this.itemDescription = itemDescription;
 
-        this.quantity = 1;
-        isFull = true;
-
-
+        this.quantity = 1; // Set the quantity
+        isFull = true; // Mark the slot as full
 
         // Update UI
         RefreshSlotUI();
 
-        return 0;
+        return 0; // Return any leftover items (if applicable)
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -114,15 +107,42 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         // Ensure itemType is set correctly
         Debug.Log($"Equipping: {itemName} of type {itemType}");
-        if (itemType == ItemType.head && headSlot != null)
+
+        switch (itemType)
         {
-            headSlot.EquipGear(itemSprite, itemName, itemDescription);
+            case ItemType.head:
+                if (headSlot != null)
+                {
+                    headSlot.EquipGear(itemSprite, itemName, itemDescription);
+                }
+                break;
+
+            case ItemType.body:
+                if (bodySlot != null)
+                {
+                    bodySlot.EquipGear(itemSprite, itemName, itemDescription);
+                }
+                break;
+
+            case ItemType.leg:
+                if (legSlot != null)
+                {
+                    legSlot.EquipGear(itemSprite, itemName, itemDescription);
+                }
+                break;
+
+            case ItemType.hand:
+                if (handSlot != null)
+                {
+                    handSlot.EquipGear(itemSprite, itemName, itemDescription);
+                }
+                break;
+
+            default:
+                Debug.LogError("Unable to equip gear: Invalid type or slot not found.");
+                break;
         }
-        // Add similar checks for body, leg, hand
-        else
-        {
-            Debug.LogError("Unable to equip gear: Invalid type or slot not found.");
-        }
+
         EmptySlot(); // Clear the current slot after equipping
     }
     private void EmptySlot()
@@ -137,6 +157,13 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public void OnRightClick()
     {
 
+    }
+    public void Deselect()
+    {
+        thisItemSelected = false;
+        selectedShader.SetActive(false);
+        RefreshDescUI(); // Clear the description UI if necessary
+        Debug.Log("Slot deselected.");
     }
     private void RefreshSlotUI()
     {

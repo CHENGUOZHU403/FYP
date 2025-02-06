@@ -15,14 +15,14 @@ public class EquipmentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("EqirpmentMenu") && menuActivated)
+        if (Input.GetButtonDown("EquipmentMenu") && menuActivated)
         {
             Time.timeScale = 1;
             EquipmentMenu.SetActive(false);
             menuActivated = false;
         }
 
-        else if (Input.GetButtonDown("EqirpmentMenu") && !menuActivated)
+        else if (Input.GetButtonDown("EquipmentMenu") && !menuActivated)
         {
             Time.timeScale = 0;
             EquipmentMenu.SetActive(true);

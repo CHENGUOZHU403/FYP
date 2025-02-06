@@ -11,7 +11,7 @@ public class InventoryManagers : MonoBehaviour
     public EquipmentSlot[] equipmentSlot;
 
     public ItemSO[] itemSOs;
-    // Start is called before the first frame update
+
     void Start()
     {
         InventoryMenu.SetActive(false);
@@ -27,26 +27,20 @@ public class InventoryManagers : MonoBehaviour
         Debug.Log($"Number of equipment slots: {equipmentSlot.Length}");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("InventoryMenu"))
-        { 
-            Inventory(); 
+        {
+            Inventory();
         }
 
-        if (Input.GetButtonDown("EqirpmentMenu"))
-            { 
-            Equipment(); 
-            }
+        if (Input.GetButtonDown("EquipmentMenu"))
+        {
+            Equipment();
+        }
     }
 
-    internal int AddItem(string itemName, int quantity, object itemSprite, string itemDescription, ItemType itemType)
-    {
-        throw new NotImplementedException();
-    }
-
-    void Inventory()
+    public void Inventory()
     {
         if (InventoryMenu.activeSelf)
         {
@@ -54,18 +48,15 @@ public class InventoryManagers : MonoBehaviour
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
         }
-
         else
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
             EquipmentMenu.SetActive(false);
         }
-
     }
 
-
-    void Equipment()
+    public void Equipment()
     {
         if (EquipmentMenu.activeSelf)
         {
@@ -73,14 +64,12 @@ public class InventoryManagers : MonoBehaviour
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
         }
-
         else
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(true);
         }
-
     }
 
     public void UseItem(string itemName)
@@ -119,6 +108,7 @@ public class InventoryManagers : MonoBehaviour
 
                     return leftOverItems;
                 }
+
             }
             Debug.Log("No space in item slots.");
             return quantity;
@@ -127,54 +117,56 @@ public class InventoryManagers : MonoBehaviour
         {
             for (int i = 0; i < equipmentSlot.Length; i++)
             {
-                if (equipmentSlot[i] == null)
-                {
-                    Debug.LogError($"EquipmentSlot at index {i} is not initialized!");
-                    continue;
-                }
-
-                if (!equipmentSlot[i].isFull && (equipmentSlot[i].itemName == itemName || equipmentSlot[i].quantity == 0))
+                if (!equipmentSlot[i].isFull && equipmentSlot[i].itemName == string.Empty)
                 {
                     // Attempt to add the item to the equipment slot.
-                    int leftOverItems = equipmentSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
-                    Debug.Log($"Left over items after adding to equipment: {leftOverItems}");
-
-                    if (leftOverItems > 0)
-                    {
-                        leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
-                    }
-
-                    return leftOverItems;
+                    equipmentSlot[i].AddItem(itemName, 1, itemSprite, itemDescription, itemType);
+                    return 0; // Successfully added back to equipment slot
                 }
             }
-            Debug.Log("No space in equipment slots.");
+            Debug.Log("No space in equipment slots to return the item.");
             return quantity; // Return the leftover quantity if no slots are available
         }
     }
-
-
-
-
-
-
-    public void DeselectAllSlots()
+    public void ReturnToEquipmentSlot(string itemName, Sprite itemSprite, string itemDescription, ItemType itemType)
+{
+    for (int i = 0; i < equipmentSlot.Length; i++)
     {
-        for(int i = 0; i < itemSlot.Length; i++)
+        if (equipmentSlot[i].itemType == itemType && !equipmentSlot[i].isFull)
         {
-            itemSlot[i].selectedShader.SetActive(false);
-            itemSlot[i].thisItemSelected = false;
-        }
-        for (int i = 0; i < equipmentSlot.Length; i++)
-        {
-            itemSlot[i].selectedShader.SetActive(false);
-            itemSlot[i].thisItemSelected = false;
+            equipmentSlot[i].AddItem(itemName, 1, itemSprite, itemDescription, itemType);
+            Debug.Log($"Returned {itemName} to {equipmentSlot[i].name}.");
+            return;
         }
     }
-    
+    Debug.Log("No available equipment slots to return the item.");
+}
+    public void DeselectAllSlots()
+    {
+        // Deselect all item slots
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
+            if (itemSlot[i] != null)
+            {
+                itemSlot[i].selectedShader.SetActive(false);
+                itemSlot[i].thisItemSelected = false;
+            }
+        }
+
+        // Deselect all equipment slots
+        for (int i = 0; i < equipmentSlot.Length; i++)
+        {
+            if (equipmentSlot[i] != null)
+            {
+                equipmentSlot[i].Deselect(); // Call the Deselect method on each EquipmentSlot
+            }
+        }
+    }
 }
 
 public enum ItemType
-{   use,
+{
+    use,
     mission,
     head,
     body,
