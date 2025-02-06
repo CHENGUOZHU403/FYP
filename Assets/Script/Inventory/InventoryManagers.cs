@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,11 @@ public class InventoryManagers : MonoBehaviour
             { 
             Equipment(); 
             }
+    }
+
+    internal int AddItem(string itemName, int quantity, object itemSprite, string itemDescription, ItemType itemType)
+    {
+        throw new NotImplementedException();
     }
 
     void Inventory()
@@ -105,7 +111,6 @@ public class InventoryManagers : MonoBehaviour
                 if (!itemSlot[i].isFull && (itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0))
                 {
                     int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
-                    
 
                     if (leftOverItems > 0)
                     {
@@ -118,7 +123,7 @@ public class InventoryManagers : MonoBehaviour
             Debug.Log("No space in item slots.");
             return quantity;
         }
-        else
+        else // For equipment items
         {
             for (int i = 0; i < equipmentSlot.Length; i++)
             {
@@ -130,6 +135,7 @@ public class InventoryManagers : MonoBehaviour
 
                 if (!equipmentSlot[i].isFull && (equipmentSlot[i].itemName == itemName || equipmentSlot[i].quantity == 0))
                 {
+                    // Attempt to add the item to the equipment slot.
                     int leftOverItems = equipmentSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
                     Debug.Log($"Left over items after adding to equipment: {leftOverItems}");
 
@@ -142,7 +148,7 @@ public class InventoryManagers : MonoBehaviour
                 }
             }
             Debug.Log("No space in equipment slots.");
-            return quantity;
+            return quantity; // Return the leftover quantity if no slots are available
         }
     }
 

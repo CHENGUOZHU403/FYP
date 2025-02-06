@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
-    // Item data
+    //itemdata
     public string itemName;
     public int quantity;
     public Sprite itemSprite;
@@ -16,19 +16,23 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-    // Item slot UI
-    [SerializeField] private TMP_Text quantityText;
-    [SerializeField] private Image itemImage;
 
-    // Equipped slots
+
+    //itemslot
+    [SerializeField]
+    private TMP_Text quantityText;
+    [SerializeField]
+    private Image itemImage;
+
+    //equipped slots
     private EquippedSlot headSlot, bodySlot, legSlot, handSlot;
 
-    // Description UI
     public Image itemDescriptionImage;
     public TMP_Text ItemDescriptionNameText;
     public TMP_Text ItemDescriptionText;
 
-    // Selection
+
+
     public GameObject selectedShader;
     public bool thisItemSelected;
 
@@ -36,33 +40,47 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     public void Start()
     {
-        inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
-        headSlot = GameObject.Find("HeadSlot").GetComponent<EquippedSlot>();
-        bodySlot = GameObject.Find("BodySlot").GetComponent<EquippedSlot>();
-        legSlot = GameObject.Find("LegSlot").GetComponent<EquippedSlot>();
-        handSlot = GameObject.Find("HandSlot").GetComponent<EquippedSlot>();
-    }
+        inventoryManagers = GameObject.Find("InventoryCanvas")?.GetComponent<InventoryManagers>();
 
+        headSlot = GameObject.Find("HeadSlot")?.GetComponent<EquippedSlot>();
+        bodySlot = GameObject.Find("BodySlot")?.GetComponent<EquippedSlot>();
+        legSlot = GameObject.Find("LegSlot")?.GetComponent<EquippedSlot>();
+        handSlot = GameObject.Find("HandSlot")?.GetComponent<EquippedSlot>();
+
+        // Log if any equipped slot is not found
+        if (headSlot == null) Debug.LogError("HeadSlot not found!");
+        if (bodySlot == null) Debug.LogError("BodySlot not found!");
+        if (legSlot == null) Debug.LogError("LegSlot not found!");
+        if (handSlot == null) Debug.LogError("HandSlot not found!");
+    }
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
-        Debug.Log($"Adding item: {itemName} to slot {this.name}");
         if (isFull)
         {
             Debug.LogWarning("Slot is already full.");
-            return 0;
+            return 0; // or handle stacking logic if needed
         }
+        //updata itemtype
+        this.itemType = itemType;
+
+        // TODO: Check if the item is the same?
+
+        // Check if we still have space left in this slot
 
         // Set item data
         this.itemName = itemName;
         this.itemSprite = itemSprite;
         this.itemDescription = itemDescription;
-        this.itemType = itemType;
 
-        this.quantity = quantity;
+        this.quantity = 1;
         isFull = true;
 
+
+
+        // Update UI
         RefreshSlotUI();
-        return quantity;
+
+        return 0;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -76,9 +94,9 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
             OnRightClick();
         }
     }
-
     public void OnLeftClick()
     {
+        Debug.Log($"Left clicked on slot: {itemName}");
         if (thisItemSelected && quantity > 0)
         {
             EquipGear();
@@ -94,64 +112,41 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     private void EquipGear()
     {
+        // Ensure itemType is set correctly
+        Debug.Log($"Equipping: {itemName} of type {itemType}");
         if (itemType == ItemType.head && headSlot != null)
+        {
             headSlot.EquipGear(itemSprite, itemName, itemDescription);
-        if (itemType == ItemType.body && bodySlot != null)
-            bodySlot.EquipGear(itemSprite, itemName, itemDescription);
-        if (itemType == ItemType.leg && legSlot != null)
-            legSlot.EquipGear(itemSprite, itemName, itemDescription);
-        if (itemType == ItemType.hand && handSlot != null)
-            handSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        // Add similar checks for body, leg, hand
+        else
+        {
+            Debug.LogError("Unable to equip gear: Invalid type or slot not found.");
+        }
+        EmptySlot(); // Clear the current slot after equipping
+    }
+    private void EmptySlot()
+    {
+        itemName = itemDescription = string.Empty;
+        itemSprite = emptySprite;
 
-        EmptySlot();
+        RefreshSlotUI();
+
     }
 
     public void OnRightClick()
     {
-        if (thisItemSelected && quantity > 0)
-        {
-            UnequipGear();
-        }
+
     }
-
-    private void UnequipGear()
-    {
-        Debug.Log($"Unequipping item: {itemName} from slot {this.name}");
-        inventoryManagers.AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
-        EmptySlot();
-    }
-
-    private void EmptySlot()
-    {
-        itemName = string.Empty;
-        itemDescription = string.Empty;
-        itemSprite = emptySprite;
-        quantity = 0;
-        isFull = false;
-
-        RefreshSlotUI();
-        RefreshDescUI();
-    }
-
     private void RefreshSlotUI()
     {
-        quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
+        //quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
         itemImage.sprite = itemSprite != null ? itemSprite : emptySprite;
     }
-
     private void RefreshDescUI()
     {
-        if (string.IsNullOrEmpty(itemName))
-        {
-            ItemDescriptionNameText.text = string.Empty;
-            ItemDescriptionText.text = string.Empty;
-            itemDescriptionImage.sprite = emptySprite;
-        }
-        else
-        {
-            ItemDescriptionNameText.text = itemName;
-            ItemDescriptionText.text = itemDescription;
-            itemDescriptionImage.sprite = itemSprite;
-        }
+        //ItemDescriptionNameText.text = itemName;
+        //ItemDescriptionText.text = itemDescription;
+        // itemDescriptionImage.sprite = itemSprite != emptySprite ? itemSprite : emptySprite;
     }
 }
