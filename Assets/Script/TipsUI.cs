@@ -3,10 +3,9 @@ using UnityEngine.UI;
 
 public class TipsUI : MonoBehaviour
 {
-    public GameObject promptUI; // UI 提示
-    public Animator promptAnimator; // Animator 控制動畫
-    public AudioSource promptSound; // 音效
-
+    public GameObject promptUI; 
+    public Animator promptAnimator; 
+    public AudioSource promptSound; 
     private bool isPlayerNear = false;
 
     private void Start()
@@ -27,8 +26,8 @@ public class TipsUI : MonoBehaviour
             if (promptUI != null)
             {
                 promptUI.SetActive(true);
-                promptAnimator.SetBool("isVisible", true); // 播放動畫
-                if (promptSound != null) promptSound.Play(); // 播放音效
+                promptAnimator.SetBool("isVisible", true); 
+                if (promptSound != null) promptSound.Play(); 
             }
         }
         
@@ -41,7 +40,7 @@ public class TipsUI : MonoBehaviour
             isPlayerNear = false;
             if (promptAnimator != null)
             {
-                promptAnimator.SetBool("isVisible", false); // 關閉動畫
+                promptAnimator.SetBool("isVisible", false); 
             }
         }
     }
