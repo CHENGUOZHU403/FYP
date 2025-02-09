@@ -2,6 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SaveUI : MonoBehaviour
 {
@@ -93,6 +94,7 @@ public class SaveUI : MonoBehaviour
     {
         SaveManager.Instance.LoadGame();
         UpdateSaveInfo();
+        LoadGame();
     }
 
     void DeleteSave()
@@ -101,5 +103,9 @@ public class SaveUI : MonoBehaviour
         UpdateSaveInfo();
     }
 
-    
+    void LoadScene()
+{
+    string sceneName = "Prologue";  
+    SceneManager.LoadScene(sceneName);
+}
 }
