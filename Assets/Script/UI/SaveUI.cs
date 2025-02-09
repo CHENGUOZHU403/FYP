@@ -16,19 +16,19 @@ public class SaveUI : MonoBehaviour
     public Button saveButton;
     public Button loadButton;
     public Button deleteButton;
+    public Button closeButton;
 
     private string savePath;
 
     void Start()
     {
-        // 確保 SaveUI 是隱藏的
         if (saveUIPanel != null)
         {
             saveUIPanel.SetActive(false);
         }
 
-        // 綁定按鈕點擊事件
         startButton.onClick.AddListener(OpenSaveUI);
+        closeButton.onClick.AddListener(CloseSaveUI);
 
         savePath = Application.persistentDataPath + "/game_save.json";
 
@@ -44,6 +44,14 @@ public class SaveUI : MonoBehaviour
         if (saveUIPanel != null)
         {
             saveUIPanel.SetActive(true); 
+        }
+    }
+
+     void CloseSaveUI()
+    {
+        if (saveUIPanel != null)
+        {
+            saveUIPanel.SetActive(false);
         }
     }
 
