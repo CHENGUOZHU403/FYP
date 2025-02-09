@@ -22,7 +22,23 @@ public class PlayerData : ScriptableObject
     [Header("Currency")]
     public int money = 0;
 
+    [Header("Player Position")]
+    public float positionX;
+    public float positionY;
+    public float positionZ;
 
+    public void SavePlayerPosition(Vector3 position)
+    {
+        positionX = position.x;
+        positionY = position.y;
+        positionZ = position.z;
+    }
+
+    public Vector3 LoadPlayerPosition()
+    {
+        return new Vector3(positionX, positionY, positionZ);
+    }
+    
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
