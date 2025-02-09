@@ -6,6 +6,7 @@ public class PlayerData : ScriptableObject
     [Header("PlayerInfo")]
     public string playerName;
     public int attackPower;
+    public float attackRange;
 
     [Header("Health")]
     public int maxHealth = 100;
@@ -16,7 +17,6 @@ public class PlayerData : ScriptableObject
     public int currentXP = 0;
     public int xpToNextLevel = 100;
 
-    public Sprite PlayerImage;
     public GameObject playerPrefab;
 
     [Header("Currency")]

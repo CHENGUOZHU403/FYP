@@ -3435,6 +3435,8 @@ MonoBehaviour:
   hpSlider: {fileID: 1482947886}
   hpText: {fileID: 446993495}
   imageTransform: {fileID: 1831388299}
+  animator: {fileID: 0}
+  attackRange: 0
 --- !u!224 &1188146429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3493,6 +3495,8 @@ MonoBehaviour:
   hpSlider: {fileID: 1285618089}
   hpText: {fileID: 972160313}
   imageTransform: {fileID: 468048034}
+  animator: {fileID: 0}
+  attackRange: 0
 --- !u!224 &1247232043
 RectTransform:
   m_ObjectHideFlags: 0

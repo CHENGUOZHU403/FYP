@@ -100,7 +100,6 @@ public class BattleManager : MonoBehaviour
         uiManager.ShowDamage();
 
         int playerDamage = Mathf.RoundToInt(playerData.attackPower * MCsystem.correctCount * MCsystem.accuracy / 100 * 0.5f ) ;
-        //int playerDamage = Mathf.RoundToInt(playerData.attackPower * Random.Range(0.8f, 1.2f));
         damageDisplay.ShowDamage(monsterHUD.imageTransform.position, playerDamage, 1.5f);
         monsterCurrentHealth -= playerDamage;
 
@@ -110,7 +109,7 @@ public class BattleManager : MonoBehaviour
 
 
 
-        yield return StartCoroutine(playerHUD.Move(originalPosition));
+        yield return StartCoroutine(playerHUD.Back(originalPosition));
 
 
         if (monsterCurrentHealth <= 0)
@@ -153,7 +152,7 @@ public class BattleManager : MonoBehaviour
 
 
 
-        yield return StartCoroutine(monsterHUD.Move(originalPosition));
+        yield return StartCoroutine(monsterHUD.Back(originalPosition));
 
 
         if (playerData.currentHealth <= 0)

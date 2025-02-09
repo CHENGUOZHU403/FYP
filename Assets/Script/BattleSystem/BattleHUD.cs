@@ -21,7 +21,9 @@ public class BattleHUD : MonoBehaviour
 
     public Animator animator;
 
-    private void SetCommonHUD(string name, int maxHealth, int level, GameObject prefab, Sprite sprite)
+    public float attackRange;
+
+    private void SetCommonHUD(string name, int maxHealth, int level, GameObject prefab, float attackRange)
     {
         nameText.text = name;
 
@@ -30,32 +32,29 @@ public class BattleHUD : MonoBehaviour
         levelText.text = $"Lvl {level}";
 
         var imageComponent = imageTransform.GetComponentInChildren<SpriteRenderer>();
-        if (imageComponent != null && sprite != null)
-        {
-            imageComponent.sprite = sprite;
-        }
 
         GameObject GO = Instantiate(prefab, imageTransform);
 
         animator = GO.GetComponent<Animator>();
 
         UpdateHealth(hpSlider.value, maxHealth);
+
+        this.attackRange = attackRange;
     }
 
     public void SetHUD(MonsterData monsterData)
     {
-        SetCommonHUD(monsterData.monsterName, monsterData.maxHealth, monsterData.level ,monsterData.monsterPrefab, monsterData.monsterSprite);
+        SetCommonHUD(monsterData.monsterName, monsterData.maxHealth, monsterData.level ,monsterData.monsterPrefab, monsterData.attackRange);
         hpSlider.maxValue = monsterData.maxHealth;
         hpSlider.value = monsterData.maxHealth;
-        //animator = monsterData.monsterPrefab.GetComponent<Animator>();
+        attackRange = monsterData.attackRange;
     }
 
     public void SetHUD(PlayerData playerData)
     {
-        SetCommonHUD(playerData.playerName, playerData.maxHealth, playerData.level,playerData.playerPrefab, playerData.PlayerImage);
+        SetCommonHUD(playerData.playerName, playerData.maxHealth, playerData.level,playerData.playerPrefab, playerData.attackRange );
         hpSlider.maxValue = playerData.maxHealth;
         hpSlider.value = playerData.currentHealth;
-        //animator = playerData.playerPrefab.GetComponent<Animator>();
     }
 
     public void SetHP(int currentHealth)
@@ -75,7 +74,7 @@ public class BattleHUD : MonoBehaviour
         float duration = 1f; // Duration of the movement
         float elapsed = 0f;
         Vector3 startingPosition = imageTransform.position;
-        Vector3 stoppingPosition = targetPosition;
+        Vector3 stoppingPosition = targetPosition - new Vector3(attackRange,0,0);
 
         animator.SetBool("isMove", true);
 
@@ -90,9 +89,29 @@ public class BattleHUD : MonoBehaviour
         animator.SetBool("isMove", false);
     }
 
+    public IEnumerator Back(Vector3 targetPosition)
+    {
+        float duration = 1f; // Duration of the movement
+        float elapsed = 0f;
+        Vector3 startingPosition = imageTransform.position;
+        Vector3 stoppingPosition = targetPosition;
+
+        animator.SetBool("isMove", true);
+
+        while (elapsed < duration)
+        {
+            imageTransform.position = Vector3.Lerp(startingPosition, stoppingPosition, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+        // Ensure the unit ends exactly at the target position
+        imageTransform.position = stoppingPosition;
+        animator.SetBool("isMove", false);
+    }
+
     public void Attack()
     {
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack1");
     }
 
     public void Hurt()
