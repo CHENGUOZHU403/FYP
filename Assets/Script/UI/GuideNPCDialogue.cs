@@ -9,32 +9,68 @@ public class GuideNPCDialogue : MonoBehaviour
 
     public string NPCName = "Eryn";
 
-    //public GameObject dialoguePanel;
-    public TMP_Text speakerNameText;
-    public TMP_Text dialogueText;
+    private uint talkCount = 0;
     private bool isPlayerNearby = false;
     private bool isInteract = false;
-    public Dialogue dialoguePlane;
+    public DialogueManager dialogueManager;
 
-    private string[] dialogue = {
+    public string[] dialogue = {
         "Hello, newcomer...",
         "Welcome to the world of mathematics!",
         "Oh, sorry I forgot to introduce myself.",
-        "My name is Eryn"
+        "My name is Eryn",
+        "I'm a businesswoman",
+        "You can buy props from me",
+        "Look, there are some bags of money",
+        "As a meeting gift I give you",
+        "Take it"
     };
 
-    private int currentDialogueIndex = 0;
+    public string[] dialogue2 =
+    {
+        "I see you got some money",
+        "You can buy a potion from me",
+        "It抯 up to you to buy it or not",
+        "But the potion will help you a lot"
+    };
+
+    public string[] dialogue3 =
+    {
+        "What do you need?",
+        "Have a nice day",
+    };
 
     // Update is called once per frame
     void Update()
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && !isInteract) // Input F to interact with NPC
         {
-            //dialoguePanel.SetActive(true);
-            dialoguePlane.SetSentence(dialogue);
-            dialoguePlane.currentLineIndex = currentDialogueIndex;
+            string[] dialog;
+            int changeNameIndex;
+            switch (talkCount)
+            {
+                case 0:
+                    dialog = dialogue;
+                    changeNameIndex = 3;
+                    break;
+                case 1:
+                    dialog = dialogue2;
+                    changeNameIndex = 0;
+                    dialogueManager.shopButton.gameObject.SetActive(true);
+                    break;
+                case 2:
+                default:
+                    dialog = dialogue3;
+                    changeNameIndex = 0;
+                    dialogueManager.shopButton.gameObject.SetActive(true);
+                    break;
+            }
+            dialogueManager.SetSentence(dialog);
+            dialogueManager.speakerName = NPCName;
+            dialogueManager.currentLineIndex = 0;
+            dialogueManager.changeNameIndex = changeNameIndex;
+            talkCount++;
             isInteract = true;
-            //ShowNextDialogue();
         }
     }
 
@@ -53,29 +89,9 @@ public class GuideNPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            //dialoguePanel.SetActive(false);
-            currentDialogueIndex = 0;
-            dialoguePlane.SetSentence(null);
             isInteract = false;
+            dialogueManager.EndDialogue();
             Debug.Log("Player is not Nearby NPC");
         }
     }
-
-    //void ShowNextDialogue()
-    //{
-        
-    //    if (currentDialogueIndex < dialogue.Length)
-    //    {
-    //        if (currentDialogueIndex == 3)
-    //        {
-    //            speakerNameText.text = NPCName;
-    //        }
-    //        dialogueText.text = dialogue[currentDialogueIndex];
-    //        currentDialogueIndex++;
-    //    }
-    //    else
-    //    {
-    //        dialoguePanel.SetActive(false); // 对话结束时隐藏对话框
-    //    }
-    //}
 }

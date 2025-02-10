@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using JetBrains.Annotations;
+using UnityEditor;
 
-public class Dialogue : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
     public TMP_Text speakerNameText;
+    public Button shopButton;
     public Button nextButton;
     public HeroKnight HeroKnight;
 
+    public string speakerName = "???";
     [Header("Dialogue Content")]
     [TextArea(3, 5)]
     public string[] dialogueLines;
@@ -20,6 +23,7 @@ public class Dialogue : MonoBehaviour
     public float textDisplaySpeed = 0.05f;
     public int currentLineIndex = 0;
     private Coroutine displayCoroutine;
+    public int changeNameIndex = -1;
 
     [Header("Black Mask")]
     public Image blackMask;
@@ -44,6 +48,7 @@ public class Dialogue : MonoBehaviour
     {
         currentLineIndex = 0;
         dialoguePanel.SetActive(true);
+        if (changeNameIndex == currentLineIndex) { SetSpeakerName(speakerName); }
         DisplayNextLine();
     }
 
@@ -56,6 +61,7 @@ public class Dialogue : MonoBehaviour
 
         if (currentLineIndex < dialogueLines.Length)
         {
+            if (changeNameIndex == currentLineIndex) { SetSpeakerName(speakerName); }
             displayCoroutine = StartCoroutine(TypeSentence(dialogueLines[currentLineIndex]));
             currentLineIndex++;
         }
@@ -66,9 +72,11 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
+        shopButton.gameObject.SetActive(false);
         dialoguePanel.SetActive(false);
+        
     }
 
     private IEnumerator TypeSentence(string sentence)
