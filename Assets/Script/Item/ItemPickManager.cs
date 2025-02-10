@@ -10,6 +10,7 @@ public class ItemPickManager : MonoBehaviour
 {
     public Transform InteractorSource;
     public float InteractRange;
+    public PlayerData playerData;
     void Start()
     {
 
