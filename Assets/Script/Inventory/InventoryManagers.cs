@@ -108,7 +108,6 @@ public class InventoryManagers : MonoBehaviour
 
                     return leftOverItems;
                 }
-
             }
             Debug.Log("No space in item slots.");
             return quantity;
@@ -129,18 +128,21 @@ public class InventoryManagers : MonoBehaviour
         }
     }
     public void ReturnToEquipmentSlot(string itemName, Sprite itemSprite, string itemDescription, ItemType itemType)
-{
-    for (int i = 0; i < equipmentSlot.Length; i++)
     {
-        if (equipmentSlot[i].itemType == itemType && !equipmentSlot[i].isFull)
+        for (int i = 0; i < equipmentSlot.Length; i++)
         {
-            equipmentSlot[i].AddItem(itemName, 1, itemSprite, itemDescription, itemType);
-            Debug.Log($"Returned {itemName} to {equipmentSlot[i].name}.");
-            return;
+            if (equipmentSlot[i].itemType == itemType && !equipmentSlot[i].isFull)
+            {
+                equipmentSlot[i].AddItem(itemName, 1, itemSprite, itemDescription, itemType);
+                Debug.Log($"Returned {itemName} to {equipmentSlot[i].name}.");
+                return;
+            }
         }
+
+        // If no equipment slot is available, add the item to the item slots
+        Debug.Log("No available equipment slots to return the item. Adding to item slots.");
+        AddItem(itemName, 1, itemSprite, itemDescription, itemType);
     }
-    Debug.Log("No available equipment slots to return the item.");
-}
     public void DeselectAllSlots()
     {
         // Deselect all item slots
@@ -166,11 +168,11 @@ public class InventoryManagers : MonoBehaviour
 
 public enum ItemType
 {
-    use,
-    mission,
     head,
     body,
-    leg,
     hand,
+    leg,
+    use,
+    mission,
     none
 };

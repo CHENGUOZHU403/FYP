@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    //private ItemData itemData;
+    public ItemType itemType;
     [SerializeField]
     private string itemName;
     [SerializeField]
@@ -17,7 +19,6 @@ public class Item : MonoBehaviour
 
     private InventoryManagers inventoryManagers;
 
-    public ItemType itemType;
     // Start is called before the first frame update
     void Start()
     {

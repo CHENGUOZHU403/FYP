@@ -1,34 +1,48 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine;
+using UnityEngine.UI;
+using static UnityEngine.Rendering.PostProcessing.SubpixelMorphologicalAntialiasing;
 
 public class EquippedSlot : MonoBehaviour, IPointerClickHandler
 {
     // Slot appearance
     [SerializeField]
     private Image slotImage;
-
     [SerializeField]
     private TMP_Text slotName;
+
+    // Add a reference to the UI mask sprite
+    [SerializeField]
+    private Sprite uiMaskSprite;
 
     // Slot data
     [SerializeField]
     private ItemType itemType;
-
     private Sprite itemSprite;
     private string itemName;
     private string itemDescription;
 
     // Other variables
     private bool slotInUse;
-
-    // Reference to the inventory manager
     private InventoryManagers inventoryManagers;
 
     void Start()
     {
         inventoryManagers = GameObject.Find("InventoryCanvas")?.GetComponent<InventoryManagers>();
+        slotImage = GetComponent<Image>();
+        //slotName = GetComponentInChildren<TMP_Text>();
+    }
+
+    public ItemData GetEquipData()
+    {
+        ItemData itemData = new ItemData();
+        itemData.itemName = itemName;
+        itemData.sprite = itemSprite;
+        itemData.itemType = itemType;
+
+        Debug.Log("itemName :"+ itemName);
+        return itemData;
     }
 
     public void EquipGear(Sprite itemSprite, string itemName, string itemDescription)
@@ -56,7 +70,6 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         // Update other data
         this.itemName = itemName;
         this.itemDescription = itemDescription;
-
         slotInUse = true;
         Debug.Log($"Equipped: {itemName}");
     }
@@ -77,21 +90,34 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
 
         // Clear the slot
         this.itemSprite = null;
-        slotImage.sprite = null;
+        slotImage.sprite = uiMaskSprite; // Set the slot sprite to the UI mask sprite
         slotName.text = string.Empty; // Clear the name
         slotName.enabled = false; // Hide the name
         slotInUse = false;
-
-        // Reset item type
-        itemType = ItemType.none; // Or appropriate logic
-
-        Debug.Log($"Gear unequipped: {returnedName}");
 
         // Return the item back to the appropriate equipment slot
         if (inventoryManagers != null)
         {
             inventoryManagers.ReturnToEquipmentSlot(returnedName, returnedSprite, returnedDescription, returnedItemType);
         }
+
+        EmptySlot();
+    }
+
+    private void RefreshSlotUI()
+    {
+        slotImage.sprite = itemSprite != null ? itemSprite : uiMaskSprite;
+    }
+
+    private void EmptySlot()
+    {
+        itemName = string.Empty;
+        itemDescription = string.Empty;
+        itemSprite = uiMaskSprite;
+        itemType = ItemType.none;
+        slotInUse = false;
+
+        RefreshSlotUI();
     }
 
     public void OnPointerClick(PointerEventData eventData)

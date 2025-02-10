@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
+
     //itemdata
     public string itemName;
     public int quantity;
@@ -26,6 +27,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     //equipped slots
     private EquippedSlot headSlot, bodySlot, legSlot, handSlot;
+    private EquippedSlot[] equippedSlots;
 
     public Image itemDescriptionImage;
     public TMP_Text ItemDescriptionNameText;
@@ -42,16 +44,17 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         inventoryManagers = GameObject.Find("InventoryCanvas")?.GetComponent<InventoryManagers>();
 
-        headSlot = GameObject.Find("HeadSlot")?.GetComponent<EquippedSlot>();
-        bodySlot = GameObject.Find("BodySlot")?.GetComponent<EquippedSlot>();
-        legSlot = GameObject.Find("LegSlot")?.GetComponent<EquippedSlot>();
-        handSlot = GameObject.Find("HandSlot")?.GetComponent<EquippedSlot>();
+        equippedSlots = new EquippedSlot[4];
+        equippedSlots[(int)ItemType.head] = GameObject.Find("HeadSlot")?.GetComponent<EquippedSlot>();
+        equippedSlots[(int)ItemType.body] = GameObject.Find("BodySlot")?.GetComponent<EquippedSlot>();
+        equippedSlots[(int)ItemType.leg] = GameObject.Find("LegSlot")?.GetComponent<EquippedSlot>();
+        equippedSlots[(int)ItemType.hand] = GameObject.Find("HandSlot")?.GetComponent<EquippedSlot>();
 
         // Log if any equipped slot is not found
-        if (headSlot == null) Debug.LogError("HeadSlot not found!");
-        if (bodySlot == null) Debug.LogError("BodySlot not found!");
-        if (legSlot == null) Debug.LogError("LegSlot not found!");
-        if (handSlot == null) Debug.LogError("HandSlot not found!");
+        //if (headSlot == null) Debug.LogError("HeadSlot not found!");
+        //if (bodySlot == null) Debug.LogError("BodySlot not found!");
+        //if (legSlot == null) Debug.LogError("LegSlot not found!");
+        //if (handSlot == null) Debug.LogError("HandSlot not found!");
     }
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)
     {
@@ -92,7 +95,15 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         Debug.Log($"Left clicked on slot: {itemName}");
         if (thisItemSelected && quantity > 0)
         {
+            ItemData oldEquirp = GetOldEquipData();
+            oldEquirp.DebugItem();
+
             EquipGear();
+            EmptySlot();
+            if (oldEquirp != null)
+            {
+                AddItem(oldEquirp.itemName, oldEquirp.quantity, oldEquirp.sprite, " ", oldEquirp.itemType);
+            }
         }
         else
         {
@@ -103,55 +114,57 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    private ItemData GetOldEquipData()
+    {
+        EquippedSlot es = equippedSlots[(int)itemType];
+        return es.GetEquipData();
+    }
+
     private void EquipGear()
     {
         // Ensure itemType is set correctly
         Debug.Log($"Equipping: {itemName} of type {itemType}");
 
-        switch (itemType)
-        {
-            case ItemType.head:
-                if (headSlot != null)
-                {
-                    headSlot.EquipGear(itemSprite, itemName, itemDescription);
-                }
-                break;
+        equippedSlots[(int)itemType]?.EquipGear(itemSprite, itemName, itemDescription);
 
-            case ItemType.body:
-                if (bodySlot != null)
-                {
-                    bodySlot.EquipGear(itemSprite, itemName, itemDescription);
-                }
-                break;
+        //if (equippedSlots[(int)itemType] !=null)
+        //{
+        //    equippedSlots[(int)itemType].EquipGear(itemSprite, itemName, itemDescription);
+        //}
 
-            case ItemType.leg:
-                if (legSlot != null)
-                {
-                    legSlot.EquipGear(itemSprite, itemName, itemDescription);
-                }
-                break;
+        //EquippedSlot es = null;
 
-            case ItemType.hand:
-                if (handSlot != null)
-                {
-                    handSlot.EquipGear(itemSprite, itemName, itemDescription);
-                }
-                break;
+        //switch (itemType)
+        //{
+        //    case ItemType.head:
+        //        es = headSlot;
+        //        break;
+        //    case ItemType.body:
+        //        es = bodySlot;
+        //        break;
+        //    case ItemType.leg:
+        //        es = legSlot;
+        //        break;
+        //    default:
+        //        Debug.LogError("Unable to equip gear: Invalid type or slot not found.");
+        //        break;
+        //}
 
-            default:
-                Debug.LogError("Unable to equip gear: Invalid type or slot not found.");
-                break;
-        }
+        //if (es != null)
+        //{
+        //    es.EquipGear(itemSprite, itemName, itemDescription);
+        //}
 
-        EmptySlot(); // Clear the current slot after equipping
+        //EmptySlot(); // Clear the current slot after equipping
     }
     private void EmptySlot()
     {
         itemName = itemDescription = string.Empty;
         itemSprite = emptySprite;
-
+        quantity = 0;
+        isFull = false;
         RefreshSlotUI();
-
+        RefreshDescUI();
     }
 
     public void OnRightClick()
@@ -165,6 +178,8 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         RefreshDescUI(); // Clear the description UI if necessary
         Debug.Log("Slot deselected.");
     }
+   
+    
     private void RefreshSlotUI()
     {
         //quantityText.text = quantity > 0 ? quantity.ToString() : string.Empty;
