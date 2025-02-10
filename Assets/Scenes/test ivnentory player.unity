@@ -2295,11 +2295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b53ec4bd69185f48867be03c58ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
   itemName: REDhead
   quantity: 1
   sprite: {fileID: 21300000, guid: 80a404949b9668d4ca7775d08597484b, type: 3}
   itemDescription: head
-  itemType: 2
 --- !u!50 &847836590
 Rigidbody2D:
   serializedVersion: 4
@@ -3318,7 +3318,7 @@ SpriteRenderer:
   m_SortingLayerID: 690977855
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 80a404949b9668d4ca7775d08597484b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a0fd8a149fd00d4ea28eec558cf28c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3673,67 +3673,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &1152139538
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.9973239
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.5932553
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766537, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747407186858766538, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
-      propertyPath: m_Name
-      value: Enemy1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 04d22d4e2ae615049a6fb87b1c176589, type: 3}
 --- !u!1 &1180153657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,11 +4242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b53ec4bd69185f48867be03c58ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: REDhead
-  quantity: 1
-  sprite: {fileID: 21300000, guid: 80a404949b9668d4ca7775d08597484b, type: 3}
-  itemDescription: head
   itemType: 2
+  itemName: Whitehead
+  quantity: 1
+  sprite: {fileID: 21300000, guid: 5a0fd8a149fd00d4ea28eec558cf28c6, type: 3}
+  itemDescription: head
 --- !u!50 &1336096397
 Rigidbody2D:
   serializedVersion: 4
@@ -5935,11 +5874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b53ec4bd69185f48867be03c58ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
   itemName: REDhead
   quantity: 1
   sprite: {fileID: 21300000, guid: 80a404949b9668d4ca7775d08597484b, type: 3}
   itemDescription: head
-  itemType: 2
 --- !u!50 &1851536824
 Rigidbody2D:
   serializedVersion: 4
@@ -11852,10 +11791,6 @@ PrefabInstance:
     - target: {fileID: 3083228670899575643, guid: ea038e673b9f5744dbaf6248afdb61d6, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3083228670899575643, guid: ea038e673b9f5744dbaf6248afdb61d6, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3083228670899575643, guid: ea038e673b9f5744dbaf6248afdb61d6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -20370,10 +20305,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7349321794680576759, guid: 5b5a37d5ec3b00043bf87888bb6dc608, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7349321794680576759, guid: 5b5a37d5ec3b00043bf87888bb6dc608, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.18
       objectReference: {fileID: 0}
@@ -22886,11 +22817,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b53ec4bd69185f48867be03c58ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 4
   itemName: MoneyBag
   quantity: 1
   sprite: {fileID: 21300000, guid: 33ba7e5a0469f6445ac74658886b46d8, type: 3}
   itemDescription: +20 Coins
-  itemType: 4
 --- !u!4 &8830108052770081580
 Transform:
   m_ObjectHideFlags: 0
@@ -23361,7 +23292,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 914221197019780532}
-  - {fileID: 1152139538}
   - {fileID: 421816427}
   - {fileID: 917639114}
   - {fileID: 585071141}
@@ -23374,5 +23304,5 @@ SceneRoots:
   - {fileID: 1799895094}
   - {fileID: 8830108050836001656}
   - {fileID: 1336096399}
-  - {fileID: 847836592}
   - {fileID: 1851536826}
+  - {fileID: 847836592}

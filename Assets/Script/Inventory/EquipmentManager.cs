@@ -6,28 +6,20 @@ public class EquipmentManager : MonoBehaviour
 {
     public GameObject EquipmentMenu;
     private bool menuActivated;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    private void Start()
+    {
+        menuActivated = EquipmentMenu.activeSelf;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("EquipmentMenu") && menuActivated)
+        if (Input.GetButtonDown("EquipmentMenu"))
         {
-            Time.timeScale = 1;
-            EquipmentMenu.SetActive(false);
-            menuActivated = false;
+            menuActivated = !menuActivated;
+            Time.timeScale = menuActivated ? 0 : 1;
+            EquipmentMenu.SetActive(menuActivated);
         }
-
-        else if (Input.GetButtonDown("EquipmentMenu") && !menuActivated)
-        {
-            Time.timeScale = 0;
-            EquipmentMenu.SetActive(true);
-            menuActivated = true;
-        }
-
     }
 }
