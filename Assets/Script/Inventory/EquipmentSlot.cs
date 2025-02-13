@@ -100,10 +100,10 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
             EquipGear();
             EmptySlot();
-            if (oldEquirp != null)
-            {
-                AddItem(oldEquirp.itemName, oldEquirp.quantity, oldEquirp.sprite, " ", oldEquirp.itemType);
-            }
+            //if (oldEquirp != null)
+            //{
+            //    AddItem(oldEquirp.itemName, oldEquirp.quantity, oldEquirp.sprite, " ", oldEquirp.itemType);
+           // }
         }
         else
         {
