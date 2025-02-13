@@ -57,15 +57,15 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         // Check if the slot is already in use
         if (slotInUse)
         {
-            Debug.LogWarning("Slot is already in use. Unequip first.");
-            return;
+
+            UnequipGear();
         }
 
         // Update slot appearance and data
-        this.itemSprite = itemSprite;
-        slotImage.sprite = this.itemSprite;
-        slotName.text = itemName; // Set the slot name to the equipped item's name
-        slotName.enabled = true; // Show the item name
+       this.itemSprite = itemSprite;
+       slotImage.sprite = this.itemSprite;
+       slotName.text = itemName; // Set the slot name to the equipped item's name
+       slotName.enabled = true; // Show the item name
 
         // Update other data
         this.itemName = itemName;
@@ -82,10 +82,10 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        // Store item details for returning to the inventory
+        //Store item details for returning to the inventory
         Sprite returnedSprite = itemSprite;
         string returnedName = itemName;
-        string returnedDescription = itemDescription;
+       string returnedDescription = itemDescription;
         ItemType returnedItemType = itemType; // Store item type
 
         // Clear the slot
@@ -95,19 +95,19 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         slotName.enabled = false; // Hide the name
         slotInUse = false;
 
-        // Return the item back to the appropriate equipment slot
-        if (inventoryManagers != null)
+         //Return the item back to the appropriate equipment slot
+      if (inventoryManagers != null)
         {
             inventoryManagers.ReturnToEquipmentSlot(returnedName, returnedSprite, returnedDescription, returnedItemType);
-        }
+       }
 
         EmptySlot();
     }
 
-    private void RefreshSlotUI()
-    {
-        slotImage.sprite = itemSprite != null ? itemSprite : uiMaskSprite;
-    }
+    //private void RefreshSlotUI()
+    //{
+       // slotImage.sprite = itemSprite != null ? itemSprite : uiMaskSprite;
+  //  }
 
     private void EmptySlot()
     {
@@ -117,7 +117,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         itemType = ItemType.none;
         slotInUse = false;
 
-        RefreshSlotUI();
+        slotImage.sprite = itemSprite != null ? itemSprite : uiMaskSprite;
     }
 
     public void OnPointerClick(PointerEventData eventData)
