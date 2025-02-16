@@ -26,11 +26,14 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     // Other variables
     private bool slotInUse;
     private InventoryManagers inventoryManagers;
+    private EqiupmentSOLibrary eqiupmentSOLibrary;
 
     void Start()
     {
         inventoryManagers = GameObject.Find("InventoryCanvas")?.GetComponent<InventoryManagers>();
         slotImage = GetComponent<Image>();
+
+        eqiupmentSOLibrary= GameObject.Find("InventoryCanvas")?.GetComponent<EqiupmentSOLibrary>();
         //slotName = GetComponentInChildren<TMP_Text>();
     }
 
@@ -70,6 +73,15 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         // Update other data
         this.itemName = itemName;
         this.itemDescription = itemDescription;
+
+        //Update stats
+        for (int i = 0; i < eqiupmentSOLibrary.equipmentSO.Length; i++)
+        {
+            if (eqiupmentSOLibrary.equipmentSO[i].itemName == this.itemName)
+                eqiupmentSOLibrary.equipmentSO[i].EquipItem();
+        }
+
+
         slotInUse = true;
         Debug.Log($"Equipped: {itemName}");
     }
@@ -101,6 +113,12 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
             inventoryManagers.ReturnToEquipmentSlot(returnedName, returnedSprite, returnedDescription, returnedItemType);
        }
 
+        //Update stats
+        for (int i = 0; i < eqiupmentSOLibrary.equipmentSO.Length; i++)
+        {
+            if (eqiupmentSOLibrary.equipmentSO[i].itemName == this.itemName)
+                eqiupmentSOLibrary.equipmentSO[i].UnEquipItem();
+        }
         EmptySlot();
     }
 
