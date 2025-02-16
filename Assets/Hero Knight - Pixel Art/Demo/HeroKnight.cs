@@ -29,6 +29,8 @@ public class HeroKnight : MonoBehaviour {
     private float               m_rollCurrentTime;
     Vector2 movement;
 
+    public bool hasEnergyBall;
+
     public PlayerData playerData;
 
     // Use this for initialization
