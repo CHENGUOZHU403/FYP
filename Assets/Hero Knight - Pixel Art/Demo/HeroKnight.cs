@@ -34,6 +34,11 @@ public class HeroKnight : MonoBehaviour {
     public PlayerData playerData;
 
     // Use this for initialization
+
+    void Awake()
+{
+    DontDestroyOnLoad(gameObject); 
+}
     void Start ()
     {
         m_animator = GetComponent<Animator>();
