@@ -757,6 +757,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181645761}
   m_CullTransparentMesh: 1
+--- !u!1 &188023496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188023498}
+  - component: {fileID: 188023497}
+  m_Layer: 0
+  m_Name: StatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &188023497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188023496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1eeace595d85f4da8982c5ba720cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  armor: 0
+  mp: 0
+  ap: 5
+  time: 10
+  healthText: {fileID: 8576031152979335942}
+  armorText: {fileID: 2285703046787569839}
+  mpText: {fileID: 4289971786345046192}
+  apText: {fileID: 5947714824762688359}
+  timeText: {fileID: 8799738054991129268}
+--- !u!4 &188023498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188023496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 998.4799, y: 862.62775, z: -7.3713007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &221462679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2295,7 +2349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b53ec4bd69185f48867be03c58ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 0
   itemName: REDhead
   quantity: 1
   sprite: {fileID: 21300000, guid: 80a404949b9668d4ca7775d08597484b, type: 3}
@@ -3417,6 +3471,7 @@ GameObject:
   - component: {fileID: 1138942986}
   - component: {fileID: 1138942985}
   - component: {fileID: 1138942984}
+  - component: {fileID: 1138942989}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -3577,6 +3632,7 @@ RectTransform:
   m_Children:
   - {fileID: 1902965094}
   - {fileID: 1278781901}
+  - {fileID: 4369636984636852830}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3584,6 +3640,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1138942989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138942983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbccc9fce7c5f6d498a2fece09091b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentSO:
+  - {fileID: 11400000, guid: 076a1e06ff5047f4dbd514f953aa28b3, type: 2}
 --- !u!1 &1149418257
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,7 +4312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b53ec4bd69185f48867be03c58ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 0
   itemName: Whitehead
   quantity: 1
   sprite: {fileID: 21300000, guid: 5a0fd8a149fd00d4ea28eec558cf28c6, type: 3}
@@ -5874,7 +5944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b53ec4bd69185f48867be03c58ac14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 0
   itemName: REDhead
   quantity: 1
   sprite: {fileID: 21300000, guid: 80a404949b9668d4ca7775d08597484b, type: 3}
@@ -7434,8 +7504,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4369636984636852830}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -16765,14 +16834,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685676222410898059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3357915466577573334}
   - {fileID: 1864657189435187325}
-  m_Father: {fileID: 914221197019780532}
+  m_Father: {fileID: 1138942988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23306,3 +23375,4 @@ SceneRoots:
   - {fileID: 1336096399}
   - {fileID: 1851536826}
   - {fileID: 847836592}
+  - {fileID: 188023498}
