@@ -38,7 +38,7 @@ public class HeroKnight : MonoBehaviour {
 
     void Awake()
 {
-    DontDestroyOnLoad(gameObject); 
+    //DontDestroyOnLoad(gameObject); 
 }
     void Start ()
     {
