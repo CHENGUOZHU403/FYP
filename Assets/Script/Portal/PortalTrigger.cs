@@ -3,15 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class PortalTrigger : MonoBehaviour
 {
-    public GameObject levelSelectUI; // 关联的UI Panel
-    public Animator portalAnimator;  // 传送门动画组件
+    public GameObject levelSelectUI;
+    public Animator portalAnimator; 
 
     private bool playerInRange;
     private HeroKnight player;
 
+    private int selectedLevelIndex;
+    private Vector3 selectedSpawnPosition;
+
     private void Start()
     {
-        portalAnimator.enabled = false; // 初始禁用动画
+        portalAnimator.enabled = false; 
+        levelSelectUI.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,11 +25,11 @@ public class PortalTrigger : MonoBehaviour
             player = other.GetComponent<HeroKnight>();
             playerInRange = true;
 
-            // 如果玩家有能量球，激活动画
+
             if (player.hasEnergyBall)
             {
                 portalAnimator.enabled = true;
-                portalAnimator.Play("Activate"); // 播放激活动画
+                portalAnimator.Play("Activate"); 
             }
         }
     }
@@ -35,7 +39,7 @@ public class PortalTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            levelSelectUI.SetActive(false); // 离开时关闭UI
+            levelSelectUI.SetActive(false); 
         }
     }
 
@@ -43,17 +47,35 @@ public class PortalTrigger : MonoBehaviour
     {
         if (playerInRange && player.hasEnergyBall && Input.GetKeyDown(KeyCode.X))
         {
-            levelSelectUI.SetActive(true); // 显示关卡选择UI
-            Time.timeScale = 0f; // 暂停游戏
+            levelSelectUI.SetActive(true); 
+            Time.timeScale = 0f; 
         }
     }
 
-    // 供UI按钮调用的传送方法
-    public void TeleportToLevel(int levelIndex, Vector3 spawnPosition)
+    public void SetLevelIndex(int index)
     {
-        Time.timeScale = 1f; // 恢复时间
-        SceneManager.LoadScene(levelIndex);
-        // 假设新场景有脚本处理玩家位置
-        PlayerSpawner.SetSpawnPosition(spawnPosition);
+        selectedLevelIndex = index;
     }
+
+    public void SetSpawnPosition(Vector3 pos)
+    {
+        selectedSpawnPosition = pos;
+    }
+
+    // 最终执行传送的方法（无参数）
+    public void ExecuteTeleport()
+    {
+        if (selectedLevelIndex < 0) return;
+
+        Time.timeScale = 1f;
+        PlayerSpawner.SetSpawnPosition(selectedSpawnPosition);
+        SceneManager.LoadScene(selectedLevelIndex);
+    }
+    
+    public void CloseLevelSelectUI()
+    {
+        levelSelectUI.SetActive(false);
+        Time.timeScale = 1f; 
+    }
+
 }
