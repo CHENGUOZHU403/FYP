@@ -207,4 +207,4 @@ MonoBehaviour:
   itemName: potions
   quantity: 1
   sprite: {fileID: 21300000, guid: 8beebe2f19dce8040be0e46ed3b9a048, type: 3}
-  itemDescription: Speedpotion. +movement speed 20% in 3mins.
+  itemDescription: healing potion, Heal 10% of player's health

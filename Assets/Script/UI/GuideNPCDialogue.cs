@@ -14,6 +14,8 @@ public class GuideNPCDialogue : MonoBehaviour
     private bool isInteract = false;
     public DialogueManager dialogueManager;
 
+    public GameObject interactionPrompt;
+
     public string[] dialogue = {
         "Hello, newcomer...",
         "Welcome to the world of mathematics!",
@@ -79,6 +81,7 @@ public class GuideNPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
+            interactionPrompt.SetActive(true);
             Debug.Log("Player is Nearby NPC");
         }
     }
@@ -90,6 +93,7 @@ public class GuideNPCDialogue : MonoBehaviour
         {
             isPlayerNearby = false;
             isInteract = false;
+            interactionPrompt.SetActive(false);
             dialogueManager.EndDialogue();
             Debug.Log("Player is not Nearby NPC");
         }

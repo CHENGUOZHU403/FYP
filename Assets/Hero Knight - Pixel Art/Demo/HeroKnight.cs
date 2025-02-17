@@ -21,6 +21,7 @@ public class HeroKnight : MonoBehaviour {
     //private bool                m_isWallSliding = false;
     //private bool                m_grounded = false;
     private bool                m_rolling = false;
+    public bool                m_canMove = true;
     private int                 m_facingDirection = 1;
     //private int                 m_currentAttack = 0;
     private float               m_timeSinceAttack = 0.0f;
@@ -100,7 +101,7 @@ public class HeroKnight : MonoBehaviour {
         }
 
         // Move
-        if (!m_rolling )
+        if (!m_rolling && m_canMove)
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
 
         //Set AirSpeed in animator
@@ -191,7 +192,8 @@ public class HeroKnight : MonoBehaviour {
 
     void FixedUpdate()
     {
-        m_body2d.MovePosition(m_body2d.position + movement * m_speed * Time.fixedDeltaTime);
+        if(m_canMove)
+            m_body2d.MovePosition(m_body2d.position + movement * m_speed * Time.fixedDeltaTime);
         
     }
     // Animation Events

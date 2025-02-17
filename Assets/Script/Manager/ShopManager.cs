@@ -20,6 +20,8 @@ public class ShopManager : MonoBehaviour
 
     public PlayerData playerData;
 
+    public GameObject shopUi;
+
     void Start()
     {
         buyButton.onClick.AddListener(PurchaseItems);
@@ -33,29 +35,35 @@ public class ShopManager : MonoBehaviour
 
     void UpdatePlayerMoneyUI()
     {
-        UserMoneyText.text = "Money: " + playerData.money.ToString();
+        UserMoneyText.text = playerData.money.ToString();
     }
 
     void PurchaseItems()
     {
-        if (totalPrice <= playerData.money) 
-    {
-        Debug.Log("Player purchased item(s)");
-        alertText.text = "Purchase successfully!";
+
+        if(totalPrice == 0)
+        {
+            Debug.Log("You can't buy nothing!");
+            alertText.text = "You can't buy nothing!";
+        }
+        else if (totalPrice <= playerData.money) 
+        {
+
+            Debug.Log("Player purchased item(s)");
+            alertText.text = "Purchase successfully!";
         
-        playerData.money -= totalPrice;
+            playerData.money -= totalPrice;
 
-        UpdatePlayerMoneyUI();
+            UpdatePlayerMoneyUI();
+            Reset();
+        }
+        else
+        {
+            Debug.Log("You have not enough money");
+            alertText.text = "Not enough money!";
+        }
 
-        Reset();
-    }
-    else
-    {
-        Debug.Log("You have not enough money");
-        alertText.text = "Not enough money!";
-    }
-
-    StartCoroutine(ClearAlert());
+        StartCoroutine(ClearAlert());
     }
 
     public void UpdateTotalPrice()
@@ -73,7 +81,7 @@ public class ShopManager : MonoBehaviour
         foreach (var item in itemFrameslist)
         {
             item.quantity = 0;
-            item.ValueText.text = "Value : 0";
+            item.ValueText.text = "0";
             item.ItemtotPricel = 0;
         }
 
@@ -86,5 +94,10 @@ public class ShopManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         alertText.text = "";
+    }
+
+    public void hideShopUI()
+    {
+        shopUi.SetActive(false);
     }
 }

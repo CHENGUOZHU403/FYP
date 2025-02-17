@@ -29,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     public Image blackMask;
     public float fadeDuration = 2.0f;
 
+    public HeroKnight heroKnight;
+
     private void Start()
     {
         if (GameManager.Instance.isWatched)
@@ -48,6 +50,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentLineIndex = 0;
         dialoguePanel.SetActive(true);
+        heroKnight.m_canMove = false;
         if (changeNameIndex == currentLineIndex) { SetSpeakerName(speakerName); }
         DisplayNextLine();
     }
@@ -76,7 +79,9 @@ public class DialogueManager : MonoBehaviour
     {
         shopButton.gameObject.SetActive(false);
         dialoguePanel.SetActive(false);
-        
+        heroKnight.m_canMove = true;
+
+
     }
 
     private IEnumerator TypeSentence(string sentence)
