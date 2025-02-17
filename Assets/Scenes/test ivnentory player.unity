@@ -3654,6 +3654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentSO:
   - {fileID: 11400000, guid: 076a1e06ff5047f4dbd514f953aa28b3, type: 2}
+  - {fileID: 11400000, guid: a60551cc2a1a8a34980bb94712afab55, type: 2}
 --- !u!1 &1149418257
 GameObject:
   m_ObjectHideFlags: 0
