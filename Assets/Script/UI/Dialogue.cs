@@ -31,6 +31,8 @@ public class DialogueManager : MonoBehaviour
 
     public HeroKnight heroKnight;
 
+    public bool isEnd;
+
     private void Start()
     {
         if (GameManager.Instance.isWatched)
@@ -51,6 +53,7 @@ public class DialogueManager : MonoBehaviour
         currentLineIndex = 0;
         dialoguePanel.SetActive(true);
         heroKnight.m_canMove = false;
+        isEnd = false;
         if (changeNameIndex == currentLineIndex) { SetSpeakerName(speakerName); }
         DisplayNextLine();
     }
@@ -79,6 +82,7 @@ public class DialogueManager : MonoBehaviour
     {
         shopButton.gameObject.SetActive(false);
         dialoguePanel.SetActive(false);
+        isEnd = true;
         heroKnight.m_canMove = true;
 
 

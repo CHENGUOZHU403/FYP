@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 
-public class GuideNPCDialogue : MonoBehaviour
+public class ErynNPCDialogue : MonoBehaviour
 {
 
     public string NPCName = "Eryn";
@@ -16,31 +16,11 @@ public class GuideNPCDialogue : MonoBehaviour
 
     public GameObject interactionPrompt;
 
-    public string[] dialogue = {
-        "Hello, newcomer...",
-        "Welcome to the world of mathematics!",
-        "Oh, sorry I forgot to introduce myself.",
-        "My name is Eryn",
-        "I'm a businesswoman",
-        "You can buy props from me",
-        "Look, there are some bags of money",
-        "As a meeting gift I give you",
-        "Take it"
-    };
+    public string[] dialogue;
 
-    public string[] dialogue2 =
-    {
-        "I see you got some money",
-        "You can buy a potion from me",
-        "It’s up to you to buy it or not",
-        "But the potion will help you a lot"
-    };
+    public string[] dialogue2;
 
-    public string[] dialogue3 =
-    {
-        "What do you need?",
-        "Have a nice day",
-    };
+    public string[] dialogue3;
 
     // Update is called once per frame
     void Update()

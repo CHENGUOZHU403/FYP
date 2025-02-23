@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3633354669061428938}
   - component: {fileID: 6475835558547436217}
   - component: {fileID: 8652391594586486873}
+  - component: {fileID: 6815688180929967992}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Enemies
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.09, y: -3.49, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -166,3 +167,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.42029458, y: 0.29370272}
   m_EdgeRadius: 0
+--- !u!114 &6815688180929967992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633354669061428937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256cc0024f8d58c488a1a1e16fe0afa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
