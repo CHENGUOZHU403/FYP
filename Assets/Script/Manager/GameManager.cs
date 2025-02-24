@@ -23,8 +23,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
-
     public void MarkMonsterAsDefeated(string enemyID)
     {
         if (!defeatedMonsters.ContainsKey(enemyID))

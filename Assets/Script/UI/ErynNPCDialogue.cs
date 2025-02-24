@@ -8,19 +8,39 @@ public class ErynNPCDialogue : MonoBehaviour
 {
 
     public string NPCName = "Eryn";
+    public Sprite NPCsprite;
 
     private uint talkCount = 0;
     private bool isPlayerNearby = false;
     private bool isInteract = false;
     public DialogueManager dialogueManager;
+    
 
     public GameObject interactionPrompt;
 
-    public string[] dialogue;
+    private string[] dialogue = {
+        "Hello, newcomer...",
+        "Welcome to the world of mathematics!",
+        "Oh, sorry I forgot to introduce myself.",
+        "My name is Eryn",
+        "I'm a businesswoman",
+        "You can buy props from me",
+        "Look, there are some bags of money",
+        "As a meeting gift I give you",
+        "Take it"
+    };
 
-    public string[] dialogue2;
+    private string[] dialogue2 = {
+        "I see you got some money",
+        "You can buy a potion from me",
+        "It's up to you to buy it or not",
+        "But the potion will help you a lot"
+    };
 
-    public string[] dialogue3;
+    private string[] dialogue3 = {
+        "What do you need?",
+        "Have a nice day",
+    };
 
     // Update is called once per frame
     void Update()
@@ -49,10 +69,18 @@ public class ErynNPCDialogue : MonoBehaviour
             }
             dialogueManager.SetSentence(dialog);
             dialogueManager.speakerName = NPCName;
+            dialogueManager.speakerImage.sprite = NPCsprite;
             dialogueManager.currentLineIndex = 0;
             dialogueManager.changeNameIndex = changeNameIndex;
             talkCount++;
             isInteract = true;
+
+            
+        }
+
+        if (dialogueManager.isEnd == true)
+        {
+            isInteract = false;
         }
     }
 

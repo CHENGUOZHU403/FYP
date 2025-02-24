@@ -9,6 +9,7 @@ public class GeoNPCDialogue : MonoBehaviour
 {
 
     public string NPCName = "Geo";
+    public Sprite NPCsprite;
 
     private uint talkCount = 0;
     private bool isPlayerNearby = false;
@@ -68,6 +69,7 @@ public class GeoNPCDialogue : MonoBehaviour
             }
             dialogueManager.SetSentence(dialog);
             dialogueManager.speakerName = NPCName;
+            dialogueManager.speakerImage.sprite = NPCsprite;
             dialogueManager.currentLineIndex = 0;
             dialogueManager.changeNameIndex = changeNameIndex;
             talkCount++;

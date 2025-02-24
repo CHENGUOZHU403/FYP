@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
     public HeroKnight HeroKnight;
 
     public string speakerName = "???";
+    public Image speakerImage;
+    public Sprite defaultSprite;
     [Header("Dialogue Content")]
     [TextArea(3, 5)]
     public string[] dialogueLines;
@@ -80,7 +82,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        shopButton.gameObject.SetActive(false);
+        //shopButton.gameObject.SetActive(false);
         dialoguePanel.SetActive(false);
         isEnd = true;
         heroKnight.m_canMove = true;
