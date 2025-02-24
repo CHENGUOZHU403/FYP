@@ -62,7 +62,6 @@ public class PortalTrigger : MonoBehaviour
         selectedSpawnPosition = pos;
     }
 
-    // 最终执行传送的方法（无参数）
     public void ExecuteTeleport()
     {
         if (selectedLevelIndex < 0) return;
