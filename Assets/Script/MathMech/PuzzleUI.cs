@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.EventSystems;
 
 public class PuzzleUI : MonoBehaviour
 {
     [Header("UI Elements")]
     public GameObject puzzlePanel;
-    public Text problemText;
-    public InputField answerInput;
-    public Text promptText;
-    public Text errorText;
+    public TMP_Text problemText;
+    public TMP_InputField answerInput;
+    public TMP_Text promptText;
+    public TMP_Text errorText;
 
     public System.Action<int> OnAnswerSubmitted;
 

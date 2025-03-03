@@ -5,7 +5,7 @@ public class MathPuzzle : MonoBehaviour
 {
     [Header("Settings")]
     public int minNumber = 1;
-    public int maxNumber = 10;
+    public int maxNumber = 100;
     
     [Header("References")]
     public GameObject obstacle;
