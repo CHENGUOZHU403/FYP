@@ -3,12 +3,19 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance;
-    
+
+    [Header("Boss use")]
+
+
     [SerializeField] private int totalPuzzles = 3;
     private int solvedPuzzles;
-    
+
     public System.Action OnAllPuzzlesSolved;
 
+    public bool AllPuzzlesSolved
+    {
+        get { return solvedPuzzles >= totalPuzzles; }
+    }
     private void Awake()
     {
         if (Instance == null)
