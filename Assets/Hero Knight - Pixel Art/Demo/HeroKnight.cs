@@ -192,9 +192,13 @@ public class HeroKnight : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if(m_canMove)
-            m_body2d.MovePosition(m_body2d.position + movement * m_speed * Time.fixedDeltaTime);
-        
+        //if(m_canMove)
+        //    m_body2d.MovePosition(m_body2d.position + movement * m_speed * Time.fixedDeltaTime);
+        if (m_canMove)
+        {
+            m_body2d.velocity = new Vector2(movement.x * m_speed, movement.y * m_speed);
+        }
+
     }
     // Animation Events
     // Called in slide animation.
