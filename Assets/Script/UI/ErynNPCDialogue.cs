@@ -14,8 +14,8 @@ public class ErynNPCDialogue : MonoBehaviour
     private bool isPlayerNearby = false;
     private bool isInteract = false;
     public DialogueManager dialogueManager;
+    public dialoguePanel dialoguePanel;
     
-
     public GameObject interactionPrompt;
 
     private string[] dialogue = {
@@ -58,13 +58,13 @@ public class ErynNPCDialogue : MonoBehaviour
                 case 1:
                     dialog = dialogue2;
                     changeNameIndex = 0;
-                    dialogueManager.shopButton.gameObject.SetActive(true);
+                    dialoguePanel.shopButton.gameObject.SetActive(true);
                     break;
                 case 2:
                 default:
                     dialog = dialogue3;
                     changeNameIndex = 0;
-                    dialogueManager.shopButton.gameObject.SetActive(true);
+                    dialoguePanel.shopButton.gameObject.SetActive(true);
                     break;
             }
             dialogueManager.SetSentence(dialog);
@@ -74,8 +74,6 @@ public class ErynNPCDialogue : MonoBehaviour
             dialogueManager.changeNameIndex = changeNameIndex;
             talkCount++;
             isInteract = true;
-
-            
         }
 
         if (dialogueManager.isEnd == true)

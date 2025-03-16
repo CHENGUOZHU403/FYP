@@ -15,6 +15,7 @@ public class GeoNPCDialogue : MonoBehaviour
     private bool isPlayerNearby = false;
     private bool isInteract = false;
     public DialogueManager dialogueManager;
+    public dialoguePanel dialoguePanel;
 
     public GameObject interactionPrompt;
 
@@ -58,13 +59,13 @@ public class GeoNPCDialogue : MonoBehaviour
                 case 1:
                     dialog = dialogue2;
                     changeNameIndex = 0;
-                    dialogueManager.shopButton.gameObject.SetActive(true);
+                    dialoguePanel.shopButton.gameObject.SetActive(true);
                     break;
                 case 2:
                 default:
                     dialog = dialogue3;
                     changeNameIndex = 0;
-                    dialogueManager.shopButton.gameObject.SetActive(true);
+                    dialoguePanel.shopButton.gameObject.SetActive(true);
                     break;
             }
             dialogueManager.SetSentence(dialog);
