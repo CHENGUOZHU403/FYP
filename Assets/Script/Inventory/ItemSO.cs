@@ -16,7 +16,11 @@ public class ItemSO : ScriptableObject
     {
         if (statToChange == StatToChange.health)
         {
-          
+          //GameObject.Find("HealthManager").GetCompent<PlayerHealth>().ChangeHealth(amountToChangeStat);
+        }
+        if (statToChange == StatToChange.mp)
+        {
+            //GameObject.Find("MPManager").GetCompent<PlayerMP>().ChangeMP(amountToChangeStat);
         }
     }
 
@@ -24,8 +28,7 @@ public class ItemSO : ScriptableObject
     {
         none,
         health,
-        mana,
-        stamina,
+        mp,
         time
 
 
@@ -35,12 +38,7 @@ public class ItemSO : ScriptableObject
     public enum AttributesToChange
     {
         none,
-        strength,
-        defense,
-        intelligence,
-        agility
-
-
+        
     }
 
 }
