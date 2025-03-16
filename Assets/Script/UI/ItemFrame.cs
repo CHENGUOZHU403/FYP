@@ -18,6 +18,12 @@ public class ItemFrame : MonoBehaviour
 
     public ShopManager shopManager;
 
+    [Header("Item Basic Value")]
+    public string itemName;
+    public Sprite itemSprite;
+    public string itemDescription;
+    public ItemType itemType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +47,11 @@ public class ItemFrame : MonoBehaviour
 
     private void UpdateTotalPrice()
     {
+        if (ValueText == null || totalPriceText == null || shopManager == null)
+    {
+        Debug.LogError("有未赋值的字段！");
+        return;
+    }
         ItemtotPricel = quantity * price;
         ValueText.text = quantity.ToString();
         totalPriceText.text = ItemtotPricel.ToString();

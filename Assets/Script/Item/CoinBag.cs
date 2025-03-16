@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class CoinBag : MonoBehaviour
 {
-    public int coinAmount = 5;  
-
+    public int coinAmount = 100;
+    public PlayerData playerData; 
+    public AudioClip coinSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-           
-            HeroKnight HeroKnight = other.GetComponent<HeroKnight>();
-            if (HeroKnight != null)
+            if (playerData != null)
             {
-                HeroKnight.AddMoney(coinAmount);  
-                Destroy(gameObject); 
+                playerData.AddMoney(coinAmount);
+                Destroy(gameObject);
+                AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            }
+            else
+            {
+                Debug.LogWarning("PlayerData reference is missing in CoinBag!");
             }
         }
     }
