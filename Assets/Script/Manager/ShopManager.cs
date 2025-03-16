@@ -41,44 +41,44 @@ public class ShopManager : MonoBehaviour
         UserMoneyText.text = playerData.money.ToString();
     }
 
-void PurchaseItems()
-{
-    if(totalPrice == 0)
+    void PurchaseItems()
     {
-        Debug.Log("You can't buy nothing!");
-        alertText.text = "You can't buy anything!";
-    }
-    else if (totalPrice <= playerData.money) 
-    {
-        foreach (var itemFrame in itemFrameslist)
+        if(totalPrice == 0)
         {
-            if(itemFrame.quantity > 0)
-            {
-                inventoryManagers.AddItem(
-                    itemFrame.itemName,
-                    itemFrame.quantity,
-                    itemFrame.itemSprite,
-                    itemFrame.itemDescription,
-                    itemFrame.itemType
-                );
-            }
+            alertText.text = "You can't buy anything!";
         }
 
-        Debug.Log("Player purchased item(s)");
-        alertText.text = "Purchase successfully!";
-    
-        playerData.money -= totalPrice;
-        UpdatePlayerMoneyUI();
-        Reset();
-    }
-    else
-    {
-        Debug.Log("You have not enough money");
-        alertText.text = "Not enough money!";
-    }
+        else if (totalPrice <= playerData.money) 
+        {
+            foreach (var itemFrame in itemFrameslist)
+            {
+                if(itemFrame.quantity > 0)
+                {
+                    inventoryManagers.AddItem(
+                        itemFrame.itemName,
+                        itemFrame.quantity,
+                        itemFrame.itemSprite,
+                        itemFrame.itemDescription,
+                        itemFrame.itemType
+                    );
+                }
+            }
 
-    StartCoroutine(ClearAlert());
-}
+            Debug.Log("Player purchased item(s)");
+            alertText.text = "Purchase successfully!";
+    
+            playerData.money -= totalPrice;
+            UpdatePlayerMoneyUI();
+            Reset();
+        }
+        else
+        {
+            Debug.Log("You have not enough money");
+            alertText.text = "Not enough money!";
+        }
+
+        StartCoroutine(ClearAlert());
+    }
 
     public void UpdateTotalPrice()
     {
