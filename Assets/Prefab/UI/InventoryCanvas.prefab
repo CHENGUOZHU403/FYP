@@ -3058,6 +3058,7 @@ GameObject:
   - component: {fileID: 4211946103070032544}
   - component: {fileID: 4267920408075862821}
   - component: {fileID: 712367712884606135}
+  - component: {fileID: 5509322811475066421}
   m_Layer: 5
   m_Name: EqirpmentMenu
   m_TagString: Untagged
@@ -3150,6 +3151,28 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5509322811475066421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813548286337370220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1eeace595d85f4da8982c5ba720cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  armor: 0
+  mp: 0
+  ap: 5
+  time: 10
+  healthText: {fileID: 7422042195981355739}
+  armorText: {fileID: 5107518670927896893}
+  mpText: {fileID: 29680487733303307}
+  apText: {fileID: 5222186544088255631}
+  timeText: {fileID: 8127302190725973220}
 --- !u!1 &1877091056084843528
 GameObject:
   m_ObjectHideFlags: 0

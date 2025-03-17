@@ -11,7 +11,7 @@ public class EquipmentSO : ScriptableObject
 
     public void EquipItem()
     {
-        PlayerStat playerstats = GameObject.Find("StatManager").GetComponent<PlayerStat>();
+        PlayerStat playerstats = GameObject.Find("EqirpmentMenu").GetComponent<PlayerStat>();
         playerstats.health += health;
         playerstats.armor += armor;
         playerstats.mp += mp;
@@ -22,7 +22,7 @@ public class EquipmentSO : ScriptableObject
     }
     public void UnEquipItem()
     {
-        PlayerStat playerstats = GameObject.Find("StatManager").GetComponent<PlayerStat>();
+        PlayerStat playerstats = GameObject.Find("EqirpmentMenu").GetComponent<PlayerStat>();
         playerstats.health -= health;
         playerstats.armor -= armor;
         playerstats.mp -= mp;
