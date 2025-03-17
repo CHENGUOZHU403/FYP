@@ -14,7 +14,8 @@ public class PlayerStat : MonoBehaviour
     {
         
     }
-public void UpdateEquipmentStats()
+
+    public void UpdateEquipmentStats()
     {
         playerData.UpdataPlayerStat(health, armor, mp, ap, time);
         healthText.text = health.ToString();
