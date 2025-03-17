@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: New Item SO
   m_EditorClassIdentifier: 
   itemName: 
-  statToChange: 0
-  amountToChangeStat: 0
+  statToChange: 1
+  amountToChangeStat: 50
   attributesToChange: 0
   amountToChangeAttribute: 0
   playerData: {fileID: 0}

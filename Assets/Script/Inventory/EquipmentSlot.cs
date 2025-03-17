@@ -160,6 +160,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     private void EmptySlot()
     {
         itemName = itemDescription = string.Empty;
+        itemType = ItemType.none;
         itemSprite = emptySprite;
         quantity = 0;
         isFull = false;
