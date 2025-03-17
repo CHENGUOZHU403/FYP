@@ -20,12 +20,15 @@ public class ShopManager : MonoBehaviour
 
     public PlayerData playerData;
 
-    public GameObject shopUi;
+    //public GameObject shopUi;
+
+    private InventoryManagers inventoryManagers;
 
     void Start()
     {
         buyButton.onClick.AddListener(PurchaseItems);
         UserMoneyText.text = playerData.money.ToString();
+        inventoryManagers = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagers>();
     }
 
     void Update()
@@ -40,20 +43,31 @@ public class ShopManager : MonoBehaviour
 
     void PurchaseItems()
     {
-
         if(totalPrice == 0)
         {
-            Debug.Log("You can't buy nothing!");
-            alertText.text = "You can't buy nothing!";
+            alertText.text = "You can't buy anything!";
         }
+
         else if (totalPrice <= playerData.money) 
         {
+            foreach (var itemFrame in itemFrameslist)
+            {
+                if(itemFrame.quantity > 0)
+                {
+                    inventoryManagers.AddItem(
+                        itemFrame.itemName,
+                        itemFrame.quantity,
+                        itemFrame.itemSprite,
+                        itemFrame.itemDescription,
+                        itemFrame.itemType
+                    );
+                }
+            }
 
             Debug.Log("Player purchased item(s)");
             alertText.text = "Purchase successfully!";
-        
+    
             playerData.money -= totalPrice;
-
             UpdatePlayerMoneyUI();
             Reset();
         }
@@ -96,8 +110,8 @@ public class ShopManager : MonoBehaviour
         alertText.text = "";
     }
 
-    public void hideShopUI()
-    {
-        shopUi.SetActive(false);
-    }
+    // public void hideShopUI()
+    // {
+    //     shopUi.SetActive(false);
+    // }
 }

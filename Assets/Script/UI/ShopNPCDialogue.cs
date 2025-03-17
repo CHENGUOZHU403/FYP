@@ -29,7 +29,6 @@ public class ShopNPCDialogue : MonoBehaviour
         dialoguePanel.SetActive(false);
         shopUI.SetActive(false);
         nextButton.onClick.AddListener(DisplayNextLine);
-        ShopButton.onClick.AddListener(OpenShop);
     }
 
     private void Update()
@@ -38,12 +37,19 @@ public class ShopNPCDialogue : MonoBehaviour
         {
             StartDialogue();
         }
+
+        if (shopUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseShop();
+        }
     }
 
     public void OpenShop()
     {
-        if (dialoguePanel.activeSelf) return;
+        if (shopUI.activeSelf) return;
         shopUI.SetActive(true);
+        dialoguePanel.SetActive(false);
+        isDialogueActive = false;
     }
 
     public void CloseShop()
@@ -110,6 +116,8 @@ public class ShopNPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            EndDialogue();
+            CloseShop();
         }
     }
 }

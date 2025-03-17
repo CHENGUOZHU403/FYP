@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InventoryManagers : MonoBehaviour
 {
+    public GameObject playerInfoUI;
     public GameObject InventoryMenu;
     public GameObject EquipmentMenu;
     public ItemSlot[] itemSlot;
@@ -47,12 +48,14 @@ public class InventoryManagers : MonoBehaviour
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
+            playerInfoUI.SetActive(true);
         }
         else
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
             EquipmentMenu.SetActive(false);
+            playerInfoUI.SetActive(false);
         }
     }
 
@@ -63,12 +66,14 @@ public class InventoryManagers : MonoBehaviour
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
+            playerInfoUI.SetActive(true);
         }
         else
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(true);
+            playerInfoUI.SetActive(false);
         }
     }
 

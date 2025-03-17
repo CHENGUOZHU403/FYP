@@ -11,9 +11,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
     public TMP_Text speakerNameText;
-    public Button shopButton;
-    public Button nextButton;
-    public HeroKnight HeroKnight;
 
     public string speakerName = "???";
     public Image speakerImage;
@@ -27,28 +24,11 @@ public class DialogueManager : MonoBehaviour
     private Coroutine displayCoroutine;
     public int changeNameIndex = -1;
 
-    [Header("Black Mask")]
-    public Image blackMask;
-    public float fadeDuration = 2.0f;
-
     public HeroKnight heroKnight;
 
     public bool isEnd;
 
-    private void Start()
-    {
-        if (GameManager.Instance.isWatched)
-        {
-            dialoguePanel.SetActive(false);
-            blackMask.enabled = false;
-        }
-        else
-        {
-            GameManager.Instance.isWatched = true;
-            StartDialogue();
-            nextButton.onClick.AddListener(DisplayNextLine);
-        }
-    }
+
 
     public void StartDialogue()
     {
@@ -60,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextLine();
     }
 
-    private void DisplayNextLine()
+    public void DisplayNextLine()
     {
         if (displayCoroutine != null)
         {
@@ -76,7 +56,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             EndDialogue();
-            StartCoroutine(FadeIn());
+            
         }
     }
 
@@ -86,8 +66,6 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         isEnd = true;
         heroKnight.m_canMove = true;
-
-
     }
 
     private IEnumerator TypeSentence(string sentence)
@@ -109,25 +87,5 @@ public class DialogueManager : MonoBehaviour
     public void SetSpeakerName(string speakerName)
     {
         speakerNameText.text = speakerName;
-    }
-
-    private IEnumerator FadeIn()
-    {
-        Color maskColor = blackMask.color;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < fadeDuration)
-        {
-            maskColor.a = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
-            blackMask.color = maskColor;
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        maskColor.a = 0f;
-        blackMask.color = maskColor;
-
-        blackMask.gameObject.SetActive(false);
     }
 }

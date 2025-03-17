@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerInfoUI : MonoBehaviour
 {
     public TMP_Text HPText;
     public Slider HpSilder;
