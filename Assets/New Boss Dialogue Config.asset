@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: New Boss Dialogue Config
+  m_EditorClassIdentifier: Assembly-CSharp::BossDialogueConfig
+  dialogueSequence:
+  - speakerName: The Big Eye
+    speakerIcon: {fileID: 21300000, guid: 3b8b366a670273244abf114ca93e1467, type: 3}
+    content: Foolish hero...How dare you challenge my territory?
+    focusPoint: {fileID: 0}
+    zoomLevel: 0
+    cameraMoveDuration: 0
+  voiceEffects: []
+  dialogueUIPrefab: {fileID: 0}
