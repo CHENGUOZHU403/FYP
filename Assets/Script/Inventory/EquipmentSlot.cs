@@ -100,10 +100,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
             EquipGear();
             EmptySlot();
-            //if (oldEquirp != null)
-            //{
-            //    AddItem(oldEquirp.itemName, oldEquirp.quantity, oldEquirp.sprite, " ", oldEquirp.itemType);
-           // }
+           
         }
         else
         {
@@ -127,35 +124,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
         equippedSlots[(int)itemType]?.EquipGear(itemSprite, itemName, itemDescription);
 
-        //if (equippedSlots[(int)itemType] !=null)
-        //{
-        //    equippedSlots[(int)itemType].EquipGear(itemSprite, itemName, itemDescription);
-        //}
-
-        //EquippedSlot es = null;
-
-        //switch (itemType)
-        //{
-        //    case ItemType.head:
-        //        es = headSlot;
-        //        break;
-        //    case ItemType.body:
-        //        es = bodySlot;
-        //        break;
-        //    case ItemType.leg:
-        //        es = legSlot;
-        //        break;
-        //    default:
-        //        Debug.LogError("Unable to equip gear: Invalid type or slot not found.");
-        //        break;
-        //}
-
-        //if (es != null)
-        //{
-        //    es.EquipGear(itemSprite, itemName, itemDescription);
-        //}
-
-        //EmptySlot(); // Clear the current slot after equipping
+       
     }
     private void EmptySlot()
     {
