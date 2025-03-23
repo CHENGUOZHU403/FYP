@@ -132,7 +132,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         itemName = string.Empty;
         itemDescription = string.Empty;
         itemSprite = uiMaskSprite;
-        itemType = ItemType.none;
+        //itemType = ItemType.none;
         slotInUse = false;
 
         slotImage.sprite = itemSprite != null ? itemSprite : uiMaskSprite;

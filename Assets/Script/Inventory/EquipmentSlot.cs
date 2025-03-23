@@ -131,6 +131,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         itemName = itemDescription = string.Empty;
         itemSprite = emptySprite;
         quantity = 0;
+        itemType = ItemType.none;
         isFull = false;
         RefreshSlotUI();
         RefreshDescUI();
