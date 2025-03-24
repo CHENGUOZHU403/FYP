@@ -89,11 +89,17 @@ public class BattleHUD : MonoBehaviour
         animator.SetBool("isMove", false);
     }
 
+
     public IEnumerator Back(Vector3 targetPosition)
     {
         float duration = 1f; // Duration of the movement
         float elapsed = 0f;
         Vector3 startingPosition = imageTransform.position;
+        imageTransform.transform.eulerAngles = new Vector3(
+        imageTransform.transform.eulerAngles.x,
+        imageTransform.transform.eulerAngles.y + 180,
+        imageTransform.transform.eulerAngles.z
+        );
         Vector3 stoppingPosition = targetPosition;
 
         animator.SetBool("isMove", true);
@@ -106,6 +112,11 @@ public class BattleHUD : MonoBehaviour
         }
         // Ensure the unit ends exactly at the target position
         imageTransform.position = stoppingPosition;
+        imageTransform.transform.eulerAngles = new Vector3(
+        imageTransform.transform.eulerAngles.x,
+        imageTransform.transform.eulerAngles.y - 180,
+        imageTransform.transform.eulerAngles.z
+        );
         animator.SetBool("isMove", false);
     }
 
