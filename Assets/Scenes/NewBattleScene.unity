@@ -1212,6 +1212,7 @@ MonoBehaviour:
   allMonsters:
   - {fileID: 11400000, guid: 2b170d848c4016c4cb52f390aad734af, type: 2}
   - {fileID: 11400000, guid: ee1ddc5591e479044b8ac1d2b182669c, type: 2}
+  - {fileID: 11400000, guid: 4ee81101093a38e458a0fb3061f6264c, type: 2}
   monsterCurrentHealth: 0
   encounteredMonster: {fileID: 0}
   playerData: {fileID: 11400000, guid: 50c4fef23791f194284b29c485a6f65e, type: 2}
