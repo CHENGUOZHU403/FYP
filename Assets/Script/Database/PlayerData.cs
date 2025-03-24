@@ -7,6 +7,8 @@ public class PlayerData : ScriptableObject
     public string playerName;
     public int attackPower;
     public float attackRange;
+    public int armor, mp, ap, time;
+    
 
     [Header("Health")]
     public int maxHealth = 100;
@@ -26,6 +28,15 @@ public class PlayerData : ScriptableObject
     public float positionX;
     public float positionY;
     public float positionZ;
+
+    public void UpdataPlayerStat(int maxHealth, int armor, int mp,int ap,int time)
+    {
+        this.maxHealth = maxHealth;
+        this.armor = armor;
+        this.mp = mp;
+        this.ap = ap;
+        this.time = time;
+    }
 
     public void SavePlayerPosition(Vector3 position)
     {

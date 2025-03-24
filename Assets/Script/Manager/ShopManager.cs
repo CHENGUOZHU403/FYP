@@ -39,7 +39,7 @@ public class ShopManager : MonoBehaviour
     void UpdatePlayerMoneyUI()
     {
         UserMoneyText.text = playerData.money.ToString();
-    }
+    } 
 
     void PurchaseItems()
     {

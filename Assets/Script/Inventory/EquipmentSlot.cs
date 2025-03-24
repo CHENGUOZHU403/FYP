@@ -155,11 +155,12 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         //    es.EquipGear(itemSprite, itemName, itemDescription);
         //}
 
-        //EmptySlot(); // Clear the current slot after equipping
+        EmptySlot(); // Clear the current slot after equipping
     }
     private void EmptySlot()
     {
         itemName = itemDescription = string.Empty;
+        itemType = ItemType.none;
         itemSprite = emptySprite;
         quantity = 0;
         isFull = false;
