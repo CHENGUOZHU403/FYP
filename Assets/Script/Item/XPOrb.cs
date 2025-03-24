@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class XPOrb : MonoBehaviour
 {
-    public int xpValue = 30; // 經驗球提供的經驗值
+    public int xpValue = 30;
+    public MonsterData monsterData;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            // use AddXp method
             HeroKnight player = other.GetComponent<HeroKnight>();
-            if (player != null)
+            if (player != null && monsterData.isDefeated)
             {
                 player.playerData.GainXP(xpValue);
                 Destroy(gameObject); 
