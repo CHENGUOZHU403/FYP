@@ -3,79 +3,64 @@ using System.Collections;
 using TMPro;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "Boss Dialogue Config")]
-public class BossDialogueConfig : ScriptableObject
-{
-    [System.Serializable]
-    public class DialoguePhase
-    {
-        public string speakerName;
-        public Sprite speakerIcon;
-        [TextArea(3, 5)] public string content;
-        public Transform focusPoint; 
-        public float zoomLevel = 5f;
-        public float cameraMoveDuration = 1f;
-    }
-
-    public DialoguePhase[] dialogueSequence;
-    public AudioClip[] voiceEffects;
-    public GameObject dialogueUIPrefab;
-}
-
 public class BossDialogueManager : MonoBehaviour
 {
     public static BossDialogueManager Instance { get; private set; }
 
-    [Header("Global Settings")]
-    public float defaultTextSpeed = 0.05f;
-    public KeyCode continueKey = KeyCode.Space;
-    public Camera mainCamera;
-    public Transform playerFocusPoint;
-
-    private BossDialogueConfig currentConfig;
-    private GameObject activeUI;
-    private Coroutine dialogueRoutine;
-
-    void Awake()
+    [System.Serializable]
+    public class DialoguePhase
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        public string speakerName; // 说话者名字
+        public Sprite speakerIcon; // 说话者头像
+        [TextArea(3, 5)] public string content; // 对话内容
     }
 
-    public void StartBossDialogue(BossDialogueConfig config)
+    [Header("Dialogue Settings")]
+    public DialoguePhase[] dialogueSequence; // 对话序列
+    public float defaultTextSpeed = 0.05f; // 文字显示速度
+    public KeyCode continueKey = KeyCode.Space; // 继续对话的按键
+
+    [Header("Camera Settings")]
+    public Camera mainCamera; // 主摄像机
+    public Transform playerFocusPoint; // 玩家的镜头焦点位置
+    public Transform bossFocusPoint; // Boss的镜头焦点位置
+    public float cameraMoveDuration = 1f; // 镜头移动时间
+    public float bossZoomLevel = 5f; // 聚焦Boss时的镜头缩放级别
+    public float playerZoomLevel = 7f; // 默认镜头缩放级别
+
+    [Header("UI Settings")]
+    public GameObject dialogueUIPrefab; // 对话UI预制件
+
+    private GameObject activeUI; // 当前激活的UI
+    private Coroutine dialogueRoutine; // 对话协程
+
+    public void StartBossDialogue()
     {
         if (dialogueRoutine != null) return;
 
-        currentConfig = config;
         dialogueRoutine = StartCoroutine(DialogueProcess());
     }
 
     private IEnumerator DialogueProcess()
     {
-        // 初始化UI
-        activeUI = Instantiate(currentConfig.dialogueUIPrefab);
-        TMP_Text dialogueText = activeUI.GetComponentInChildren<TMP_Text>();
-        Image speakerIcon = activeUI.transform.Find("SpeakerIcon").GetComponent<Image>();
-
         // 暂停游戏
         Time.timeScale = 0;
 
-        foreach (var phase in currentConfig.dialogueSequence)
-        {
-            // 镜头移动
-            yield return StartCoroutine(MoveCamera(
-                phase.focusPoint.position,
-                phase.zoomLevel,
-                phase.cameraMoveDuration
-            ));
+        // 镜头移动到Boss
+        yield return StartCoroutine(MoveCamera(
+            bossFocusPoint.position,
+            bossZoomLevel,
+            cameraMoveDuration
+        ));
 
+        // 初始化UI
+        activeUI = Instantiate(dialogueUIPrefab);
+        TMP_Text dialogueText = activeUI.GetComponentInChildren<TMP_Text>();
+        Image speakerIcon = activeUI.transform.Find("SpeakerIcon").GetComponent<Image>();
+
+        // 逐段显示对话
+        foreach (var phase in dialogueSequence)
+        {
             // 更新UI
             speakerIcon.sprite = phase.speakerIcon;
             dialogueText.text = "";
@@ -91,9 +76,17 @@ public class BossDialogueManager : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown(continueKey));
         }
 
-        // 清理
+        // 清理UI
         Destroy(activeUI);
-        yield return ReturnCameraToPlayer();
+
+        // 镜头回到玩家
+        yield return StartCoroutine(MoveCamera(
+            playerFocusPoint.position,
+            playerZoomLevel,
+            cameraMoveDuration
+        ));
+
+        // 恢复游戏
         Time.timeScale = 1;
         dialogueRoutine = null;
     }
@@ -121,29 +114,10 @@ public class BossDialogueManager : MonoBehaviour
             elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
+
+        // 确保最终位置准确
+        mainCamera.transform.position = new Vector3(targetPos.x, targetPos.y, startPos.z);
+        mainCamera.orthographicSize = zoom;
     }
 
-    private IEnumerator ReturnCameraToPlayer()
-    {
-        yield return MoveCamera(
-            playerFocusPoint.position,
-            mainCamera.orthographicSize,
-            1f
-        );
-    }
-
-    // 触发示例（挂在Boss房间触发器上）
-    public class BossDialogueTrigger : MonoBehaviour
-    {
-        public BossDialogueConfig dialogueConfig;
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                BossDialogueManager.Instance.StartBossDialogue(dialogueConfig);
-                GetComponent<Collider2D>().enabled = false;
-            }
-        }
-    }
 }
