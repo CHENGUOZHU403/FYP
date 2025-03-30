@@ -13,7 +13,7 @@ public class MonsterEncounter : MonoBehaviour
             PlayerPrefs.SetString("EncounteredMonster", monster.name);
             PlayerPrefs.SetString("CurrentMonster", monsterID);
             GameManager.Instance.playerPosition = other.transform.position;
-            SceneManager.LoadScene("NewBattleScene");
+            GameManager.Instance.EnterBattle();
         }
     }
 }

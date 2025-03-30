@@ -1115,8 +1115,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1572757725}
-        m_TargetAssemblyTypeName: SceneTracker, Assembly-CSharp
-        m_MethodName: ReturnToPreviousScene
+        m_TargetAssemblyTypeName: BattleReturnController, Assembly-CSharp
+        m_MethodName: EndBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4157,7 +4157,7 @@ GameObject:
   - component: {fileID: 1572757724}
   - component: {fileID: 1572757725}
   m_Layer: 0
-  m_Name: SceneTracker
+  m_Name: BattleReturnController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4190,7 +4190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec9b1eaf384ba14d9c800ab2c20cb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousSceneName: Prologue
 --- !u!1 &1585959732
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,11 +15,17 @@ MonoBehaviour:
   playerName: Player
   attackPower: 10
   attackRange: 2.5
+  armor: 0
+  mp: 0
+  ap: 0
+  time: 0
   maxHealth: 100
-  currentHealth: 96
+  currentHealth: 100
   level: 1
   currentXP: 0
   xpToNextLevel: 100
-  PlayerImage: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
   playerPrefab: {fileID: 3850317792141814371, guid: b6f618e8b68e80744855523398d6dcbe, type: 3}
   money: 0
+  positionX: 0
+  positionY: 0
+  positionZ: 0
