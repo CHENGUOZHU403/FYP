@@ -15,7 +15,7 @@ public class BossDialogueTrigger : MonoBehaviour
             BossDialogueManager.Instance.StartBossDialogue();
             //m_camera.GetComponent<CameraFollow>().enabled = false;
             //m_camera.transform.position = targetPosition.position;
-            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Collider2D>().enabled = false; 
         }
     }
 
