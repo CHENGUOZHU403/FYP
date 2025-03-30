@@ -7,6 +7,10 @@ public class MonsterData : ScriptableObject
     public string monsterName;
     public GameObject monsterPrefab;
 
+    [Header("XP Settings")]
+    public int baseXP = 30;
+    public float xpMultiplier = 1.5f;
+
     [Header("MonsterValue")]
     public int maxHealth;
     public int level;

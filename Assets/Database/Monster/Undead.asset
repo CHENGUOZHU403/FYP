@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bd9189ffc383b4fadcbcefd1101e3c, type: 3}
+  m_Name: Undead
+  m_EditorClassIdentifier: 
+  monsterName: Undead
+  monsterPrefab: {fileID: 7457510136974621220, guid: 9a35f2e2a15db1f45b3fa6ee19918059, type: 3}
+  baseXP: 30
+  xpMultiplier: 1.5
+  maxHealth: 120
+  level: 1
+  attackPower: 15
+  attackRange: -1
+  isDefeated: 0
