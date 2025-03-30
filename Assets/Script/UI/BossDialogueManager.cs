@@ -5,7 +5,20 @@ using UnityEngine.UI;
 
 public class BossDialogueManager : MonoBehaviour
 {
-    public static BossDialogueManager Instance { get; private set; }
+    public static BossDialogueManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // 确保只有一个实例
+        }
+    }
 
     [System.Serializable]
     public class DialoguePhase
@@ -15,18 +28,21 @@ public class BossDialogueManager : MonoBehaviour
         [TextArea(3, 5)] public string content; // 对话内容
     }
 
-    [Header("Dialogue Settings")]
-    public DialoguePhase[] dialogueSequence; // 对话序列
-    public float defaultTextSpeed = 0.05f; // 文字显示速度
-    public KeyCode continueKey = KeyCode.Space; // 继续对话的按键
+    public dialoguePanel dialoguePanel;
+    string[] content = { "How did you get in?", "Forget it, you are just an ant in my eyes" };
+
+    //[Header("Dialogue Settings")]
+    //public DialoguePhase[] dialogueSequence; // 对话序列
+    //public float defaultTextSpeed = 0.05f; // 文字显示速度
+    //public KeyCode continueKey = KeyCode.Space; // 继续对话的按键
 
     [Header("Camera Settings")]
     public Camera mainCamera; // 主摄像机
     public Transform playerFocusPoint; // 玩家的镜头焦点位置
     public Transform bossFocusPoint; // Boss的镜头焦点位置
     public float cameraMoveDuration = 1f; // 镜头移动时间
-    public float bossZoomLevel = 5f; // 聚焦Boss时的镜头缩放级别
-    public float playerZoomLevel = 7f; // 默认镜头缩放级别
+    public float bossZoomLevel = 1.3f; // 聚焦Boss时的镜头缩放级别
+    public float playerZoomLevel = 1.3f; // 默认镜头缩放级别
 
     [Header("UI Settings")]
     public GameObject dialogueUIPrefab; // 对话UI预制件
@@ -45,6 +61,8 @@ public class BossDialogueManager : MonoBehaviour
     {
         // 暂停游戏
         Time.timeScale = 0;
+        mainCamera.GetComponent<CameraFollow>().enabled = false;
+        //dialoguePanel.dialogueManager.heroKnight.movement = new Vector2(0, 0);
 
         // 镜头移动到Boss
         yield return StartCoroutine(MoveCamera(
@@ -54,30 +72,34 @@ public class BossDialogueManager : MonoBehaviour
         ));
 
         // 初始化UI
-        activeUI = Instantiate(dialogueUIPrefab);
-        TMP_Text dialogueText = activeUI.GetComponentInChildren<TMP_Text>();
-        Image speakerIcon = activeUI.transform.Find("SpeakerIcon").GetComponent<Image>();
+        //activeUI = Instantiate(dialogueUIPrefab);
+        //TMP_Text dialogueText = activeUI.GetComponentInChildren<TMP_Text>();
+        //Image speakerIcon = activeUI.transform.Find("SpeakerIcon").GetComponent<Image>();
 
         // 逐段显示对话
-        foreach (var phase in dialogueSequence)
-        {
-            // 更新UI
-            speakerIcon.sprite = phase.speakerIcon;
-            dialogueText.text = "";
+        //foreach (var phase in dialogueSequence)
+        //{
+        //    // 更新UI
+        //    speakerIcon.sprite = phase.speakerIcon;
+        //    dialogueText.text = "";
 
-            // 逐字显示
-            foreach (char c in phase.content)
-            {
-                dialogueText.text += c;
-                yield return new WaitForSecondsRealtime(defaultTextSpeed);
-            }
+        //    // 逐字显示
+        //    foreach (char c in phase.content)
+        //    {
+        //        dialogueText.text += c;
+        //        yield return new WaitForSecondsRealtime(defaultTextSpeed);
+        //    }
 
-            // 等待玩家输入
-            yield return new WaitUntil(() => Input.GetKeyDown(continueKey));
-        }
+        //    // 等待玩家输入
+        //    yield return new WaitUntil(() => Input.GetKeyDown(continueKey));
+        //}
+
+        dialoguePanel.dialogueManager.SetSentence(content);
+        yield return new WaitUntil(() => dialoguePanel.dialogueManager.isEnd);
+
 
         // 清理UI
-        Destroy(activeUI);
+        //Destroy(activeUI);
 
         // 镜头回到玩家
         yield return StartCoroutine(MoveCamera(
@@ -88,6 +110,7 @@ public class BossDialogueManager : MonoBehaviour
 
         // 恢复游戏
         Time.timeScale = 1;
+        mainCamera.GetComponent<CameraFollow>().enabled = true;
         dialogueRoutine = null;
     }
 
