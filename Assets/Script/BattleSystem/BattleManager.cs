@@ -138,7 +138,7 @@ public class BattleManager : MonoBehaviour
         Vector3 originalPosition = monsterHUD.imageTransform.position;
 
         yield return StartCoroutine(ShowDialogue($"{encounteredMonster.monsterName} attacks!"));
-        yield return StartCoroutine(monsterHUD.Move(playerHUD.imageTransform.position));
+        yield return StartCoroutine(monsterHUD.MonsterMove(playerHUD.imageTransform.position));
 
         monsterHUD.Attack();
         playerHUD.Hurt();
@@ -152,7 +152,7 @@ public class BattleManager : MonoBehaviour
 
 
 
-        yield return StartCoroutine(monsterHUD.Back(originalPosition));
+        yield return StartCoroutine(monsterHUD.MonsterBack(originalPosition));
 
 
         if (playerData.currentHealth <= 0)
