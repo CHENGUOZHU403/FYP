@@ -16,25 +16,29 @@ public class BossDialogueManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // 确保只有一个实例
+            Destroy(gameObject); 
         }
     }
 
     [System.Serializable]
     public class DialoguePhase
     {
-        public string speakerName; // 说话者名字
-        public Sprite speakerIcon; // 说话者头像
-        [TextArea(3, 5)] public string content; // 对话内容
+        public string speakerName;
+        public Sprite speakerIcon;
+        [TextArea(3, 5)] public string content;
     }
 
     public dialoguePanel dialoguePanel;
-    string[] content = { "How did you get in?", "Forget it, you are just an ant in my eyes" };
+    string[] content = {"Who is there?", 
+                        "How did you get inside my room???",
+                        "Why can't I detect you from my eyes?", 
+                        "Well nothing, you are just a insect in my eyes.",
+                        "Come!! Let me show you ................ hell!"};
 
     //[Header("Dialogue Settings")]
-    //public DialoguePhase[] dialogueSequence; // 对话序列
-    //public float defaultTextSpeed = 0.05f; // 文字显示速度
-    //public KeyCode continueKey = KeyCode.Space; // 继续对话的按键
+    //public DialoguePhase[] dialogueSequence; // Dialogue Squence
+    //public float defaultTextSpeed = 0.05f; // Text show speed
+    //public KeyCode continueKey = KeyCode.Space; // Continue Key
 
     [Header("Camera Settings")]
     public Camera mainCamera; // 主摄像机
@@ -47,7 +51,7 @@ public class BossDialogueManager : MonoBehaviour
     [Header("UI Settings")]
     public GameObject dialogueUIPrefab; // 对话UI预制件
 
-    private GameObject activeUI; // 当前激活的UI
+    private GameObject activeUI; // actived UI
     private Coroutine dialogueRoutine; // 对话协程
 
     public void StartBossDialogue()
@@ -101,14 +105,14 @@ public class BossDialogueManager : MonoBehaviour
         // 清理UI
         //Destroy(activeUI);
 
-        // 镜头回到玩家
+        // camera back to player
         yield return StartCoroutine(MoveCamera(
             playerFocusPoint.position,
             playerZoomLevel,
             cameraMoveDuration
         ));
 
-        // 恢复游戏
+        // Time scale
         Time.timeScale = 1;
         mainCamera.GetComponent<CameraFollow>().enabled = true;
         dialogueRoutine = null;
