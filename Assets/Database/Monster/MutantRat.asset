@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: MutantRat
   monsterPrefab: {fileID: 5189876949089933833, guid: 639600377368fe940823fdd2fddf6d01, type: 3}
+  baseXP: 30
+  xpMultiplier: 1.5
   maxHealth: 100
   level: 1
   attackPower: 1
-  attackRange: 20
+  attackRange: 10
   isDefeated: 0

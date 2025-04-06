@@ -17,7 +17,7 @@ MonoBehaviour:
   baseXP: 30
   xpMultiplier: 1.5
   maxHealth: 120
-  level: 1
-  attackPower: 15
+  level: 2
+  attackPower: 25
   attackRange: -1
   isDefeated: 0

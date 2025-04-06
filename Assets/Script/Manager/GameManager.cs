@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         string currentScene = SceneManager.GetActiveScene().name;
         sceneHistory.Push(currentScene);
-        SceneManager.LoadScene("NewBattleScene");
+        SceneManager.LoadScene("BattleScene");
     }
 
     public void ReturnToPreviousScene()
