@@ -3,18 +3,18 @@ using UnityEngine;
 public class CoinBag : MonoBehaviour
 {
     public int coinAmount = 100;
-    public PlayerData playerData; 
     public AudioClip coinSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (playerData != null)
+            HeroKnight player = other.GetComponent<HeroKnight>();
+            if (player != null)
             {
-                playerData.AddMoney(coinAmount);
+                player.AddMoney(coinAmount);
                 Destroy(gameObject);
-                AudioSource.PlayClipAtPoint(coinSound, transform.position);
+                //AudioSource.PlayClipAtPoint(coinSound, transform.position);
             }
             else
             {

@@ -1038,6 +1038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9108395035716042118}
+  - component: {fileID: 9034936153290824219}
   m_Layer: 5
   m_Name: playerInfo
   m_TagString: Untagged
@@ -1067,6 +1068,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9034936153290824219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8693782787235597816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea29cd9536c990049a2544880cdc4bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPText: {fileID: 1028088562750609197}
+  HpSilder: {fileID: 1361658340518398960}
+  levelText: {fileID: 3464653510300848705}
+  LevelSilder: {fileID: 1459911828482915439}
+  moneyText: {fileID: 6327687684658924663}
 --- !u!1 &8730535971318684396
 GameObject:
   m_ObjectHideFlags: 0
