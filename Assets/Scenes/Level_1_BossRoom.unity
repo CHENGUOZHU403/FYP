@@ -27116,7 +27116,7 @@ Tilemap:
       - {fileID: -687920845, guid: f1fc19a64e1ff2b4f91d14069a8fd2ae, type: 3}
       - {fileID: -1967995909, guid: f1fc19a64e1ff2b4f91d14069a8fd2ae, type: 3}
       - {fileID: -1503462461, guid: f1fc19a64e1ff2b4f91d14069a8fd2ae, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 22, y: -8, z: 0}
@@ -31243,6 +31243,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 639600377368fe940823fdd2fddf6d01, type: 3}
+--- !u!1 &1327535657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327535659}
+  - component: {fileID: 1327535658}
+  m_Layer: 0
+  m_Name: GameSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1327535658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327535657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bb8b71de36f5d4e9105944683d705e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!4 &1327535659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327535657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1327890819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41633,7 +41678,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807b51fe5f9c8504a905642582966155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 11400000, guid: 4ee81101093a38e458a0fb3061f6264c, type: 2}
+  monsterData: {fileID: 11400000, guid: 4ee81101093a38e458a0fb3061f6264c, type: 2}
+  goldBagPrefab: {fileID: 8078332258095469248, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
+  xpBallPrefab: {fileID: 8078732518401571865, guid: 643eac376b48ddd408ac645599320df1, type: 3}
 --- !u!224 &7551297244017593107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41965,3 +42012,4 @@ SceneRoots:
   - {fileID: 1327890819}
   - {fileID: 1166162796}
   - {fileID: 1307275709}
+  - {fileID: 1327535659}

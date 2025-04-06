@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Z_ReserveMap.unity
     guid: 86b96a96e7202284489d442c37b68e15
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mix.unity
     guid: c33503e953ed6504b979c9e74449fd41
   - enabled: 1
@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1_Map.unity
     guid: 82ceb60802f9d7b41a823a481c2e6363
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BossRoom.unity
     guid: 5881a6422f3831144be56dd8aed926fb
   m_configObjects: {}
