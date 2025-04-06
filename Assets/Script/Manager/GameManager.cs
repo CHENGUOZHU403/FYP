@@ -7,13 +7,24 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public Vector3 playerPosition;
+    public GameObject player;
     private Dictionary<string, bool> defeatedMonsters = new Dictionary<string, bool>();
     public bool isWatched = false;
+
+    private bool isFirst = true;
 
     private Stack<string> sceneHistory = new Stack<string>();
 
     private void Awake()
     {
+
+        if (isFirst)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerPosition = player.GetComponent<Transform>().position;
+            isFirst = false;
+        }
+
         if (Instance == null)
         {
             Instance = this;
@@ -24,6 +35,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 
     public void EnterBattle()
     {

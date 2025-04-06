@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8078332258095469248}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7, y: -4.05, z: -0.00021362305}
-  m_LocalScale: {x: 3.1476395, y: 3.1476395, z: 3.1476395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -144,5 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinAmount: 10
-  playerData: {fileID: 0}
   coinSound: {fileID: 0}

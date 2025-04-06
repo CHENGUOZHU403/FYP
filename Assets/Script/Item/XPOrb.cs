@@ -6,7 +6,7 @@ public class XPOrb : MonoBehaviour
     [SerializeField] private float floatSpeed = 1f;
     [SerializeField] private float floatHeight = 0.5f;
     
-    private int xpValue;
+    private int xpValue = 5;
     private Vector3 startPos;
 
     public void Initialize(int xp)
@@ -33,7 +33,7 @@ public class XPOrb : MonoBehaviour
             HeroKnight player = other.GetComponent<HeroKnight>();
             if(player != null)
             {
-                player.playerData.GainXP(xpValue);
+                player.AddXP(xpValue);
                 Destroy(gameObject);
                 Debug.Log($"Gain {xpValue} Exp");
             }
