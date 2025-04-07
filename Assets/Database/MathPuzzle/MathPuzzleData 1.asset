@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MathPuzzleData 1
   m_EditorClassIdentifier: 
   additionProblems:
-  - problemText: 2 + 9
+  - problemText: Xiao Ming has two candies, and then his friend gives him nine. How
+      many candies does Xiao Ming have now?
     correctAnswer: 11
     difficultyLevel: 0
   subtractionProblems:
