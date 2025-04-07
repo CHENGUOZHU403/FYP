@@ -12,10 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bd9189ffc383b4fadcbcefd1101e3c, type: 3}
   m_Name: Viper
   m_EditorClassIdentifier: 
-  monsterName: anc
+  monsterName: Viper
   monsterPrefab: {fileID: 5531301586080410238, guid: cd72c62ae957d26419e026c667c1888e, type: 3}
+  baseXP: 30
+  xpMultiplier: 1.5
   maxHealth: 20
   level: 1
   attackPower: 1
   attackRange: -3
   isDefeated: 0
+  dropTable:
+  - itemType: 0
+    dropProbability: 1
+    quantityRange: {x: 1, y: 2}
+    possibleEquipment: []
+  - itemType: 1
+    dropProbability: 1
+    quantityRange: {x: 3, y: 5}
+    possibleEquipment: []
