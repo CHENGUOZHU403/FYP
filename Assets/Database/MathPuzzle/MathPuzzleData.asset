@@ -16,6 +16,10 @@ MonoBehaviour:
   - problemText: 1+1
     correctAnswer: 2
     difficultyLevel: 0
+  - problemText: Xiao Ming has two candies, and then his friend gives him nine. How
+      many candies does Xiao Ming have now?
+    correctAnswer: 11
+    difficultyLevel: 0
   subtractionProblems:
   - problemText: 2-1
     correctAnswer: 1
