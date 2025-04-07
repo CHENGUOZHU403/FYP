@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, bool> defeatedMonsters = new Dictionary<string, bool>();
     public bool isWatched = false;
 
-    private bool isFirst = true;
+    private static bool isFirst = true;
 
     private Stack<string> sceneHistory = new Stack<string>();
 
