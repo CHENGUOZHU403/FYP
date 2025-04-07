@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
             playerPosition = player.GetComponent<Transform>().position;
+            player.GetComponent<HeroKnight>().playerData.Reset();
+            Debug.Log("playerData Reset");
             isFirst = false;
         }
 

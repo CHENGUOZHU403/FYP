@@ -44,7 +44,6 @@ public class HeroKnight : MonoBehaviour {
     {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
-        playerData.Reset();
         m_animator.SetBool("Grounded", true);
         //m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_HeroKnight>();
         //m_wallSensorR1 = transform.Find("WallSensor_R1").GetComponent<Sensor_HeroKnight>();
