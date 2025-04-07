@@ -12,14 +12,19 @@ public class MonsterManager : MonoBehaviour
     private void Awake()
     {
         monsterID = gameObject.name;
+        Debug.Log(monsterID);
     }
 
     private void OnEnable()
     {
         if (GameManager.Instance.IsMonsterDefeated(monsterID))
         {
-            GenerateLoot(transform.position);
-            Destroy(gameObject);
+            if (!GameManager.Instance.IsMonsterGeneratedLoot(monsterID))
+            {
+                GenerateLoot(transform.position);
+                GameManager.Instance.MarkMonsterAsGeneratedLoot(monsterID);
+            }
+            gameObject.SetActive(false);
         }
     }
 

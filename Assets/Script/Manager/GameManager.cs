@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Vector3 playerPosition;
     public GameObject player;
     private Dictionary<string, bool> defeatedMonsters = new Dictionary<string, bool>();
+    private Dictionary<string, bool> generatedLootMonsters = new Dictionary<string, bool>();
     public bool isWatched = false;
 
     private static bool isFirst = true;
@@ -68,8 +69,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void MarkMonsterAsGeneratedLoot(string enemyID)
+    {
+        if (generatedLootMonsters.ContainsKey(enemyID))
+        {
+            generatedLootMonsters[enemyID] = true;
+        }
+        else
+        {
+            generatedLootMonsters.Add(enemyID, true);
+        }
+    }
+
+
     public bool IsMonsterDefeated(string enemyID)
     {
         return defeatedMonsters.ContainsKey(enemyID) && defeatedMonsters[enemyID];
+    }
+
+    public bool IsMonsterGeneratedLoot(string enemyID)
+    {
+        return generatedLootMonsters.ContainsKey(enemyID) && generatedLootMonsters[enemyID];
     }
 }
