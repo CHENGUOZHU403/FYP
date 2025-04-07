@@ -49,16 +49,22 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToPreviousScene()
     {
-            string previousScene = sceneHistory.Pop();
-            SceneManager.LoadScene(previousScene);
+        string previousScene = sceneHistory.Pop();
+        string defeatedMonsterID = PlayerPrefs.GetString("CurrentMonster");
+        MarkMonsterAsDefeated(defeatedMonsterID);
+        SceneManager.LoadScene(previousScene);
 
     }
 
     public void MarkMonsterAsDefeated(string enemyID)
     {
-        if (!defeatedMonsters.ContainsKey(enemyID))
+        if (defeatedMonsters.ContainsKey(enemyID))
         {
             defeatedMonsters[enemyID] = true;
+        }
+        else
+        {
+            defeatedMonsters.Add(enemyID, true);
         }
     }
 

@@ -123,6 +123,6 @@ public class GeoNPCDialogue : MonoBehaviour
         PlayerPrefs.SetString("EncounteredMonster", monster.name);
         PlayerPrefs.SetString("CurrentMonster", monsterID);
         GameManager.Instance.playerPosition = gameObject.transform.position;
-        SceneManager.LoadScene("NewBattleScene");
+        SceneManager.LoadScene("BattleScene");
     }
 }

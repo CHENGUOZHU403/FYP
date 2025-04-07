@@ -4,9 +4,35 @@ using UnityEngine.SceneManagement;
 public class MonsterManager : MonoBehaviour
 {
     public MonsterData monsterData;
+    string monsterID;
     [Header("DropIitemPrefabs")]
     public GameObject goldBagPrefab;
     public GameObject xpBallPrefab;
+
+    private void Awake()
+    {
+        monsterID = gameObject.name;
+    }
+
+    private void OnEnable()
+    {
+        if (GameManager.Instance.IsMonsterDefeated(monsterID))
+        {
+            GenerateLoot(transform.position);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerPrefs.SetString("EncounteredMonster", monsterData.name);
+            PlayerPrefs.SetString("CurrentMonster", monsterID);
+            GameManager.Instance.playerPosition = other.transform.position;
+            GameManager.Instance.EnterBattle();
+        }
+    }
 
     public void GenerateLoot(Vector2 spawnPosition)
     {
@@ -60,28 +86,6 @@ public class MonsterManager : MonoBehaviour
                     Random.Range(2f, 4f)
                 ), ForceMode2D.Impulse);
             }
-        }
-    }
-
-    void Start()
-    {
-        string monsterID = gameObject.name; // set object name to ID
-        if (GameManager.Instance.IsMonsterDefeated(monsterID))
-        {
-            GenerateLoot(transform.position);
-            gameObject.SetActive(false); // hide gameobject
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            string monsterID = gameObject.name;
-            PlayerPrefs.SetString("EncounteredMonster", monsterData.name);
-            PlayerPrefs.SetString("CurrentMonster", monsterID);
-            GameManager.Instance.playerPosition = other.transform.position;
-            GameManager.Instance.EnterBattle();
         }
     }
 }

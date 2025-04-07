@@ -60,6 +60,9 @@ TagManager:
   - name: Enemy
     uniqueID: 2621478683
     locked: 0
+  - name: ParticleSystem
+    uniqueID: 2250269881
+    locked: 0
   - name: Items
     uniqueID: 2464777993
     locked: 0
