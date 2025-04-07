@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [Header("Settings")]
-    public string bossSceneName = "BossRoom";
+    public string bossSceneName = "Level_1_BossRoom";
     public float transitionDelay = 1f;
 
     private bool canTransition;

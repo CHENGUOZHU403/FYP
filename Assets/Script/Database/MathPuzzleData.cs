@@ -18,7 +18,7 @@ public class MathPuzzleData : ScriptableObject
 
     public MathProblem GetRandomProblem()
     {
-        // 隨機選擇問題類型
+        // Choose random type problem
         int problemType = Random.Range(0, 4);
 
         // 根據類型返回隨機問題

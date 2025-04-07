@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MathPuzzle : MonoBehaviour
 {
@@ -9,6 +8,10 @@ public class MathPuzzle : MonoBehaviour
     public int puzzleDataIndex = 0;
     public bool useDifficultySystem = false;
     public int problemDifficulty = 1;
+
+    [Header("Puzzle Settings")]
+    public bool generateNewOnCorrect = true; 
+    public bool keepObstacleDisabled = false; 
 
     private bool isSolved;
     private bool playerInRange;
@@ -50,8 +53,22 @@ public class MathPuzzle : MonoBehaviour
         {
             isSolved = true;
             obstacle.SetActive(false);
+
             puzzleUI.ToggleUI(false);
+
             PuzzleManager.Instance.SolvePuzzle();
+
+
+            if (generateNewOnCorrect)
+            {
+                GenerateProblem();
+                isSolved = false;
+
+                if (!keepObstacleDisabled)
+                {
+                    obstacle.SetActive(true);
+                }
+            }
         }
         else
         {
@@ -75,6 +92,7 @@ public class MathPuzzle : MonoBehaviour
         {
             playerInRange = false;
             puzzleUI.TogglePrompt(false);
+            puzzleUI.ToggleUI(false);
         }
     }
 }

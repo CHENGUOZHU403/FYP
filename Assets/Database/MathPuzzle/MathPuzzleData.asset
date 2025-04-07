@@ -13,22 +13,24 @@ MonoBehaviour:
   m_Name: MathPuzzleData
   m_EditorClassIdentifier: 
   additionProblems:
-  - problemText: 1+1
-    correctAnswer: 2
-    difficultyLevel: 0
+  - problemText: 'Hello Brave Man, solve the follwing question: 10+3'
+    correctAnswer: 13
+    difficultyLevel: 1
   - problemText: Xiao Ming has two candies, and then his friend gives him nine. How
       many candies does Xiao Ming have now?
     correctAnswer: 11
-    difficultyLevel: 0
+    difficultyLevel: 2
   subtractionProblems:
-  - problemText: 2-1
-    correctAnswer: 1
-    difficultyLevel: 0
+  - problemText: Xiaohua went to the fruit store and bought some apples. He originally
+      had 15 apples, but when he go back home he found that he dropped 7 of them
+      on the way. How many apples does Xiaohua have now?
+    correctAnswer: 8
+    difficultyLevel: 3
   multiplicationProblems:
   - problemText: 2 x 2
     correctAnswer: 4
-    difficultyLevel: 0
+    difficultyLevel: 4
   divisionProblems:
   - problemText: 8 / 2
     correctAnswer: 4
-    difficultyLevel: 0
+    difficultyLevel: 5
