@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections; 
 
@@ -6,7 +7,7 @@ public class XPOrb : MonoBehaviour
     [SerializeField] private float floatSpeed = 1f;
     [SerializeField] private float floatHeight = 0.5f;
     
-    private int xpValue = 5;
+    private int xpValue = 20;
     private Vector3 startPos;
 
     public void Initialize(int xp)

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MonsterManager : MonoBehaviour
 {
     public MonsterData monsterData;
-    [Header("基础掉落物预制体")]
+    [Header("DropIitemPrefabs")]
     public GameObject goldBagPrefab;
     public GameObject xpBallPrefab;
 
@@ -46,19 +46,18 @@ public class MonsterManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            Vector2 offset = Random.insideUnitCircle * 1.5f; // 分散掉落位置
+            Vector2 offset = Random.insideUnitCircle * 0.5f; // Spawn offset
             GameObject item = Instantiate(
                 prefab,
                 position + offset,
                 Quaternion.identity
             );
 
-            // 添加物理效果（可选）
             if (item.TryGetComponent<Rigidbody2D>(out var rb))
             {
                 rb.AddForce(new Vector2(
-                    Random.Range(-2f, 2f),
-                    Random.Range(3f, 5f)
+                    Random.Range(-1f, 1f),
+                    Random.Range(2f, 4f)
                 ), ForceMode2D.Impulse);
             }
         }
