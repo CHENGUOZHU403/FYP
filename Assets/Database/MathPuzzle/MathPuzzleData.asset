@@ -16,21 +16,95 @@ MonoBehaviour:
   - problemText: 'Hello Brave Man, solve the follwing question: 10+3'
     correctAnswer: 13
     difficultyLevel: 1
-  - problemText: Xiao Ming has two candies, and then his friend gives him nine. How
-      many candies does Xiao Ming have now?
+  - problemText: A kid has two candies, and then his friend gives him nine. How many
+      candies does he have now?
     correctAnswer: 11
-    difficultyLevel: 2
+    difficultyLevel: 1
+  - problemText: Someone bought 4 bottles of health potions and 6 bottles of mana
+      potions in the potion shop. How many bottles did that guy buy in total?
+    correctAnswer: 10
+    difficultyLevel: 1
+  - problemText: After getting 3 gold coins, you get 5 more gold coins. How many
+      gold coins are there in total?
+    correctAnswer: 8
+    difficultyLevel: 1
+  - problemText: Someone bought 4 bottles of health potions and 6 bottles of mana
+      potions in the potion shop. How many bottles did that guy buy in total?
+    correctAnswer: 10
+    difficultyLevel: 1
+  - problemText: There are 12 monsters on the first level of the maze, and 8 more
+      on the second level. How many monsters are there in total?
+    correctAnswer: 20
+    difficultyLevel: 1
+  - problemText: "The first area of \u200B\u200Bthe dungeon has 11 cells, and the
+      second area has 19. How many cells are there in total?"
+    correctAnswer: 30
+    difficultyLevel: 1
+  - problemText: The merchant sold 27 apples on the first day and 14 on the second
+      day. How many apples did he sell in total?
+    correctAnswer: 41
+    difficultyLevel: 1
+  - problemText: It takes 22 archers and 17 swordsmen to guard the tower. How many
+      people are needed in total?
+    correctAnswer: 39
+    difficultyLevel: 1
+  - problemText: There are 14 spells on the first page of the magic book and 11 on
+      the second page. How many spells are there in total?
+    correctAnswer: 25
+    difficultyLevel: 1
   subtractionProblems:
   - problemText: Xiaohua went to the fruit store and bought some apples. He originally
       had 15 apples, but when he go back home he found that he dropped 7 of them
       on the way. How many apples does Xiaohua have now?
     correctAnswer: 8
-    difficultyLevel: 3
+    difficultyLevel: 2
+  - problemText: You have 15 gold coins, and you spend 7 on potions. How much is
+      left?
+    correctAnswer: 8
+    difficultyLevel: 2
+  - problemText: The original health value is 25 points. It takes 13 points of damage.
+      How much is left?
+    correctAnswer: 12
+    difficultyLevel: 2
+  - problemText: 'Solve this question : 25 - 21'
+    correctAnswer: 4
+    difficultyLevel: 2
+  - problemText: 'Solve this question : 30-12'
+    correctAnswer: 18
+    difficultyLevel: 2
+  - problemText: There were 60 candles in the maze originally. 24 of them were extinguished.
+      How many are left lit?
+    correctAnswer: 36
+    difficultyLevel: 2
+  - problemText: 'Solve this question : 60 - 35'
+    correctAnswer: 25
+    difficultyLevel: 2
+  - problemText: The original health value is 25 points. It takes 13 points of damage.
+      How much is left?
+    correctAnswer: 12
+    difficultyLevel: 2
+  - problemText: The original health value is 25 points. It takes 13 points of damage.
+      How much is left?
+    correctAnswer: 12
+    difficultyLevel: 2
+  - problemText: The original health value is 25 points. It takes 13 points of damage.
+      How much is left?
+    correctAnswer: 12
+    difficultyLevel: 2
   multiplicationProblems:
+  - problemText: If 8 points of mana are restored every hour, how much mana will
+      be restored in 6 hours?
+    correctAnswer: 48
+    difficultyLevel: 3
   - problemText: 2 x 2
     correctAnswer: 4
-    difficultyLevel: 4
+    difficultyLevel: 3
   divisionProblems:
-  - problemText: 8 / 2
-    correctAnswer: 4
-    difficultyLevel: 5
+  - problemText: You get 24 gold coins and want to divide them equally among your
+      three teammates. How much does each person get?
+    correctAnswer: 8
+    difficultyLevel: 4
+  - problemText: 48 magic gems need to be put into 6 bags. How many gems are there
+      in each bag?
+    correctAnswer: 8
+    difficultyLevel: 4
