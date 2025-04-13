@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,24 +12,61 @@ public class MonsterManager : MonoBehaviour
     public GameObject teleportScrollPrefab; 
     [Range(0f, 1f)] public float teleportDropChance = 0.3f;
 
+    public PortalController portalAnimtor;
+    public PortalController portalAnimtor2;
+
+    BoxCollider2D boxCollider2d;
+
 
     private void Awake()
     {
         monsterID = gameObject.name;
         Debug.Log(monsterID);
+        boxCollider2d = GetComponent<BoxCollider2D>();
+        portalAnimtor = GameObject.FindGameObjectWithTag("Portal").GetComponent<PortalController>();
+        portalAnimtor2 = GameObject.FindGameObjectWithTag("Portal2").GetComponent<PortalController>();
     }
 
     private void OnEnable()
     {
         if (GameManager.Instance.IsMonsterDefeated(monsterID))
         {
+            boxCollider2d.enabled = false;
             if (!GameManager.Instance.IsMonsterGeneratedLoot(monsterID))
             {
                 GenerateLoot(transform.position);
                 GameManager.Instance.MarkMonsterAsGeneratedLoot(monsterID);
             }
+            if (monsterData.isBoss)
+            {
+                StartCoroutine(DelayedOpenPortal());
+            }
             gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator DelayedOpenPortal()
+    {
+        yield return null; // 等待一帧，确保所有组件初始化
+        if (portalAnimtor != null)
+        {
+            portalAnimtor.OpenPortal();
+        }
+        else
+        {
+            Debug.Log("Cant find");
+        }
+
+        if (portalAnimtor2 != null)
+        {
+            portalAnimtor2.OpenPortal();
+        }
+        else
+        {
+            Debug.Log("Cant find");
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

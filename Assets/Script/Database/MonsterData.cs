@@ -11,11 +11,9 @@ public class MonsterDropItem
     [Range(0, 1)]
     public float dropProbability = 0.5f;
 
-    [Tooltip("��С/�������")]
     public Vector2Int quantityRange = new Vector2Int(1, 1);
 
-    [Header("װ��ר��")]
-    public GameObject[] possibleEquipment; // ��������Equipmentʱ��Ч
+    public GameObject[] possibleEquipment; 
 }
 
 
@@ -38,16 +36,16 @@ public class MonsterData : ScriptableObject
     public bool isDefeated;
 
     [Header("Monster Type")]
-    public bool isBoss = false; // 标记是否为Boss怪物
+    public bool isBoss = false; 
 
     [Header("����ϵͳ")]
     public List<MonsterDropItem> dropTable = new List<MonsterDropItem>
     {
-        // Ĭ������ʾ��
+        
         new MonsterDropItem
         {
             itemType = MonsterDropItem.ItemType.GoldBag,
-            dropProbability = 1f, // 100%����
+            dropProbability = 1f, 
             quantityRange = new Vector2Int(1, 2)
         },
         new MonsterDropItem
