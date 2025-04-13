@@ -2153,6 +2153,7 @@ GameObject:
   - component: {fileID: 6832277127483782871}
   - component: {fileID: 2855116870278619562}
   - component: {fileID: 5428889245835499890}
+  - component: {fileID: 7494789491092580503}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -2257,6 +2258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac15e0b2ba98a554db9236f32d0897ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInfoUI: {fileID: 0}
   InventoryMenu: {fileID: 3672825406193646395}
   EquipmentMenu: {fileID: 1813548286337370220}
   itemSlot:
@@ -2343,6 +2345,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a878f8ffb4df3744a92f5e28803f28c, type: 2}
   - {fileID: 11400000, guid: c47aa58bfc1b0e04c9673bde9383b5f9, type: 2}
   - {fileID: 11400000, guid: 11f121b9fd6d4c344ad57e9df6b9c480, type: 2}
+--- !u!114 &7494789491092580503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269271950278849760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99ce47034ef97a4f8f42afa256ae56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIndex: 1
 --- !u!1 &1398349759446770431
 GameObject:
   m_ObjectHideFlags: 0
