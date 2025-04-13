@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("BasicMap 2");
+        SceneManager.LoadScene("NoviceVillage");
     }
 
     public void ExitGame()
