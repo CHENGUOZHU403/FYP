@@ -8,6 +8,9 @@ public class MonsterManager : MonoBehaviour
     [Header("DropIitemPrefabs")]
     public GameObject goldBagPrefab;
     public GameObject xpBallPrefab;
+    public GameObject teleportScrollPrefab; 
+    [Range(0f, 1f)] public float teleportDropChance = 0.3f;
+
 
     private void Awake()
     {
@@ -53,6 +56,11 @@ public class MonsterManager : MonoBehaviour
                 drop.quantityRange.y + 1
             );
 
+            if (monsterData.isBoss && Random.value <= teleportDropChance)
+            {
+                 SpawnTeleportScroll(spawnPosition);
+            }
+
             SpawnItems(itemToSpawn, spawnPosition, quantity);
         }
     }
@@ -61,6 +69,8 @@ public class MonsterManager : MonoBehaviour
     {
         switch (type)
         {
+            case MonsterDropItem.ItemType.TeleportScroll: 
+                return teleportScrollPrefab;
             case MonsterDropItem.ItemType.GoldBag:
                 return goldBagPrefab;
             case MonsterDropItem.ItemType.XPBall:
@@ -92,5 +102,11 @@ public class MonsterManager : MonoBehaviour
                 ), ForceMode2D.Impulse);
             }
         }
+    }
+
+    private void SpawnTeleportScroll(Vector2 position)
+    {
+        Vector2 offset = Random.insideUnitCircle * 0.5f;
+        Instantiate(teleportScrollPrefab, position + offset, Quaternion.identity);
     }
 }

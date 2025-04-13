@@ -4,17 +4,18 @@ using UnityEngine;
 [System.Serializable]
 public class MonsterDropItem
 {
-    public enum ItemType { GoldBag, XPBall, Equipment }
+    
+    public enum ItemType { GoldBag, XPBall, Equipment, TeleportScroll }
     public ItemType itemType;
 
     [Range(0, 1)]
     public float dropProbability = 0.5f;
 
-    [Tooltip("×îĞ¡/×î´óÊıÁ¿")]
+    [Tooltip("ï¿½ï¿½Ğ¡/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public Vector2Int quantityRange = new Vector2Int(1, 1);
 
-    [Header("×°±¸×¨ÓÃ")]
-    public GameObject[] possibleEquipment; // µ±ÀàĞÍÊÇEquipmentÊ±ÉúĞ§
+    [Header("×°ï¿½ï¿½×¨ï¿½ï¿½")]
+    public GameObject[] possibleEquipment; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½EquipmentÊ±ï¿½ï¿½Ğ§
 }
 
 
@@ -36,14 +37,17 @@ public class MonsterData : ScriptableObject
     public float attackRange;
     public bool isDefeated;
 
-    [Header("µôÂäÏµÍ³")]
+    [Header("Monster Type")]
+    public bool isBoss = false; // æ ‡è®°æ˜¯å¦ä¸ºBossæ€ªç‰©
+
+    [Header("ï¿½ï¿½ï¿½ï¿½ÏµÍ³")]
     public List<MonsterDropItem> dropTable = new List<MonsterDropItem>
     {
-        // Ä¬ÈÏÅäÖÃÊ¾Àı
+        // Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
         new MonsterDropItem
         {
             itemType = MonsterDropItem.ItemType.GoldBag,
-            dropProbability = 1f, // 100%µôÂä
+            dropProbability = 1f, // 100%ï¿½ï¿½ï¿½ï¿½
             quantityRange = new Vector2Int(1, 2)
         },
         new MonsterDropItem

@@ -14,8 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Beholder
   monsterPrefab: {fileID: 4334525371570296644, guid: 83e778fd6f20d174da661d005d0e03ea, type: 3}
+  baseXP: 30
+  xpMultiplier: 1.5
   maxHealth: 200
   level: 10
   attackPower: 30
   attackRange: -2.5
   isDefeated: 0
+  isBoss: 1
+  dropTable:
+  - itemType: 0
+    dropProbability: 1
+    quantityRange: {x: 1, y: 2}
+    possibleEquipment: []
+  - itemType: 1
+    dropProbability: 1
+    quantityRange: {x: 3, y: 5}
+    possibleEquipment: []

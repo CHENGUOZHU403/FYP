@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, bool> generatedLootMonsters = new Dictionary<string, bool>();
     public bool isWatched = false;
 
+    [Header("Teleport Settings")]
+    public string mainTownScene = "NoviceVillage";
+    public Vector3 townSpawnPosition = Vector3.zero;
+
     private static bool isFirst = true;
 
     private Stack<string> sceneHistory = new Stack<string>();
@@ -91,4 +95,43 @@ public class GameManager : MonoBehaviour
     {
         return generatedLootMonsters.ContainsKey(enemyID) && generatedLootMonsters[enemyID];
     }
+
+    public void TeleportToTown()
+{
+    // 保存当前场景到历史栈
+    string currentScene = SceneManager.GetActiveScene().name;
+    if (!sceneHistory.Contains(currentScene)) // 避免重复添加
+    {
+        sceneHistory.Push(currentScene);
+    }
+    
+    // 保存玩家状态
+    SavePlayerPosition();
+    SceneManager.LoadScene(mainTownScene);
+}
+
+public void ReturnFromTown()
+{
+    if (sceneHistory.Count > 0)
+    {
+        string previousScene = sceneHistory.Pop();
+        SceneManager.LoadScene(previousScene);
+    }
+    else
+    {
+        Debug.LogWarning("No scene history to return to");
+        SceneManager.LoadScene(mainTownScene);
+    }
+}
+
+private void SavePlayerPosition()
+{
+    if (player != null)
+    {
+        playerPosition = player.transform.position;
+        PlayerPrefs.SetFloat("PlayerPosX", playerPosition.x);
+        PlayerPrefs.SetFloat("PlayerPosY", playerPosition.y);
+        PlayerPrefs.Save();
+    }
+}
 }
