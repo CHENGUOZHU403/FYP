@@ -36,7 +36,7 @@ public class ObjectiveManager : MonoBehaviour
 
     private void UpdateObjectiveDisplay()
     {
-        objectiveText.text = $"Defeat {totalWaves} wave enemies to unlock the boss room";
+        objectiveText.text = $"Defeat {totalWaves} wave enemies and solve 3 questions to unlock the boss room";
         // progressSlider.value = (float)currentWavesCleared / totalWaves;
         // waveCounter.text = $"{currentWavesCleared}/{totalWaves}";
     }
