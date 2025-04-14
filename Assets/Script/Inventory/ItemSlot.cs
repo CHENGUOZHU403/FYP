@@ -33,6 +33,14 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public GameObject selectedShader;
     public bool thisItemSelected;
 
+
+    public GameObject confirmPanel;
+    public TMP_Text confirmPanelItemNameText;
+    public Image confirmPanelItemImage;
+    public Button confirmUseButton;
+    public Button confirmCancelButton;
+
+
     private InventoryManagers inventoryManagers;
 
     public void Start()
@@ -85,12 +93,17 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
         if (thisItemSelected && quantity > 0)
         {
-            inventoryManagers.UseItem(itemName);
-            this.quantity -= 1;
-            if (this.quantity <= 0)
-                EmptySlot();
-            else
-                RefreshSlotUI();
+            // Show confirmation panel
+            confirmPanel.SetActive(true);
+            confirmPanelItemNameText.text = itemName;
+            confirmPanelItemImage.sprite = itemSprite;
+
+            // Hook up button actions
+            confirmUseButton.onClick.RemoveAllListeners();
+            confirmUseButton.onClick.AddListener(() => ConfirmUseItem());
+
+            confirmCancelButton.onClick.RemoveAllListeners();
+            confirmCancelButton.onClick.AddListener(() => CancelUseItem());
         }
         else
         {
@@ -101,6 +114,25 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    private void ConfirmUseItem()
+    {
+        // Use the item
+        inventoryManagers.UseItem(itemName);
+        this.quantity -= 1;
+        if (this.quantity <= 0)
+            EmptySlot();
+        else
+            RefreshSlotUI();
+
+        // Close confirmation panel
+        confirmPanel.SetActive(false);
+    }
+
+    private void CancelUseItem()
+    {
+        // Simply hide the confirmation panel
+        confirmPanel.SetActive(false);
+    }
     private void EmptySlot()
     {
         itemName = itemDescription = string.Empty;
