@@ -8,16 +8,16 @@ public class PortalController : MonoBehaviour
     private Animator anim;
     private SpriteRenderer spriteRenderer;
 
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
+        
     }
 
     public void OpenPortal()
     {
-        Debug.Log("Open the Protal");
         spriteRenderer.enabled = true;
         anim.SetBool("Open", true);
     }

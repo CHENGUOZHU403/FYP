@@ -14,7 +14,7 @@ public class ItemFrame : MonoBehaviour
     public Button addButton;
 
     public TMP_Text ValueText;
-    public TMP_Text totalPriceText;
+
 
     public ShopManager shopManager;
 
@@ -47,14 +47,13 @@ public class ItemFrame : MonoBehaviour
 
     private void UpdateTotalPrice()
     {
-        if (ValueText == null || totalPriceText == null || shopManager == null)
+        if (ValueText == null  || shopManager == null)
     {
         Debug.LogError("有未赋值的字段！");
         return;
     }
         ItemtotPricel = quantity * price;
         ValueText.text = quantity.ToString();
-        totalPriceText.text = ItemtotPricel.ToString();
         shopManager.UpdateTotalPrice();
     }
 }

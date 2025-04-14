@@ -39,35 +39,14 @@ public class MonsterManager : MonoBehaviour
             }
             if (monsterData.isBoss)
             {
-                StartCoroutine(DelayedOpenPortal());
+                Debug.Log("i am BOSS");
+                portalAnimtor.OpenPortal();
+                portalAnimtor2.OpenPortal();
             }
             gameObject.SetActive(false);
         }
     }
 
-    private IEnumerator DelayedOpenPortal()
-    {
-        yield return null; // 等待一帧，确保所有组件初始化
-        if (portalAnimtor != null)
-        {
-            portalAnimtor.OpenPortal();
-        }
-        else
-        {
-            Debug.Log("Cant find");
-        }
-
-        if (portalAnimtor2 != null)
-        {
-            portalAnimtor2.OpenPortal();
-        }
-        else
-        {
-            Debug.Log("Cant find");
-        }
-
-
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
