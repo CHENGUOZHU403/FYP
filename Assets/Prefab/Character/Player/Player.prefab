@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 4487385567134279662}
   - component: {fileID: 2178396812208452981}
   - component: {fileID: 7414904301030800520}
+  - component: {fileID: 5960758161905351235}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -370,7 +371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7793381583067998958}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.01, y: -3.089, z: -7.1278}
   m_LocalScale: {x: 0.30294, y: 0.30294, z: 0.30294}
   m_ConstrainProportionsScale: 0
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_speed: 1.1
   m_slideDust: {fileID: 1038168246061390451, guid: 8b8c8cc6774fb074cb9139cc631b108e, type: 3}
   m_canMove: 1
+  movement: {x: 0, y: 0}
   hasEnergyBall: 0
   playerData: {fileID: 11400000, guid: 50c4fef23791f194284b29c485a6f65e, type: 2}
 --- !u!95 &3402710325430676996
@@ -571,6 +573,41 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7793381583067998958}
   m_Enabled: 1
+--- !u!58 &5960758161905351235
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793381583067998958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.62545407}
+  serializedVersion: 2
+  m_Radius: 1.9378612
 --- !u!1 &7863484011039570168
 GameObject:
   m_ObjectHideFlags: 0
