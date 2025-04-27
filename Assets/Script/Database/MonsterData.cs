@@ -38,7 +38,7 @@ public class MonsterData : ScriptableObject
     [Header("Monster Type")]
     public bool isBoss = false; 
 
-    [Header("����ϵͳ")]
+    [Header("MonsterDropItem")]
     public List<MonsterDropItem> dropTable = new List<MonsterDropItem>
     {
         

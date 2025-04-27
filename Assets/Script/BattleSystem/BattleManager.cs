@@ -102,6 +102,7 @@ public class BattleManager : MonoBehaviour
         int playerDamage = Mathf.RoundToInt(playerData.attackPower * MCsystem.correctCount * MCsystem.accuracy / 100 * 0.5f ) ;
         damageDisplay.ShowDamage(monsterHUD.imageTransform.position, playerDamage, 1.5f);
         monsterCurrentHealth -= playerDamage;
+        monsterCurrentHealth = Mathf.Max(monsterCurrentHealth, 0);
 
         monsterHUD.SetHP(monsterCurrentHealth);
 
