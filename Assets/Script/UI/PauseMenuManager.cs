@@ -13,6 +13,10 @@ public class PauseMenuManager : MonoBehaviour
 
     private bool isPaused = false; // Tracks whether the game is currently paused
 
+    void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
     void Update()
     {
         // Toggle pause when the Escape key is pressed
