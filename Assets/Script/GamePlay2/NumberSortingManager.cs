@@ -10,7 +10,8 @@ public class NumberSortingManager : MonoBehaviour
     public GameObject dropZonePrefab;
     public Transform panel;
     public int numberCount = 5;
-    
+    public bool isSorted = false;
+
     [SerializeField]
     private List<int> numbers = new List<int>();
     [SerializeField]
@@ -18,11 +19,16 @@ public class NumberSortingManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> dropZones = new List<GameObject>();
 
+    public TextMeshProUGUI alartText;
+
 
     void Start()
     {
         GenerateNumbers();
         CreateNumberButtons();
+
+        alartText.text = "";
+        isSorted = false;
     }
 
     // Randomly generate a set of numbers
@@ -55,11 +61,11 @@ public class NumberSortingManager : MonoBehaviour
 
         for (int i = 0; i < numbers.Count; i++)
         {
-            // 创建 DropZone 容器
+            // Create DropZone 
             GameObject dropZone = Instantiate(dropZonePrefab, panel);
             dropZones.Add(dropZone);
 
-            // 创建按钮并设置到 DropZone 下
+            // Put the button into DropZone
             GameObject button = Instantiate(numberPrefab, dropZone.transform);
             button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = numbers[i].ToString();
 
@@ -68,28 +74,30 @@ public class NumberSortingManager : MonoBehaviour
     }
 
     // Check the order is Correct
-    public bool CheckSort()
+    public void CheckSort()
     {
-        bool isSorted = true;
+        
         for (int i = 0; i < numberButtons.Count; i++)
         {
             int number = int.Parse(dropZones[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text);
-            Debug.Log(number);
             if (number != i + 1)
             {
                 isSorted = false;
                 break;
             }
+            isSorted = true;
         }
 
         if (isSorted)
         {
-            Debug.Log("排序正确！");
+            Debug.Log("Sorted correctly");
+            alartText.text = "Sorted correctly";
+
         }
         else
         {
-            Debug.Log("排序错误，请继续！");
+            Debug.Log("Sorted incorrectly, Try Again");
+            alartText.text = "Sorted incorrectly, Try Again";
         }
-        return isSorted;
     }
 }

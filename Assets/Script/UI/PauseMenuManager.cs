@@ -120,7 +120,9 @@ public class PauseMenuManager : MonoBehaviour
     private IEnumerator AnimateOpen(Transform panel)
     {
         if (isAnimating) yield break;
+
         isAnimating = true;
+        Vector3 finalScale = new Vector3(2, 2, 2);
 
         panel.localScale = Vector3.zero;
         float timer = 0f;
@@ -129,10 +131,10 @@ public class PauseMenuManager : MonoBehaviour
         {
             timer += Time.unscaledDeltaTime;
             float progress = timer / duration;
-            panel.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, progress);
+            panel.localScale = Vector3.Lerp(Vector3.zero, finalScale, progress);
             yield return null;
         }
-        panel.localScale = Vector3.one;
+        panel.localScale = finalScale;
         isAnimating = false;
     }
 
