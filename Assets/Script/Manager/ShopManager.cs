@@ -16,6 +16,7 @@ public class ShopManager : MonoBehaviour
 
     public Button buyButton;
 
+    [SerializeField]
     private int totalPrice = 0;
 
     public PlayerData playerData;
