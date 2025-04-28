@@ -48,7 +48,7 @@ public class PauseMenuManager : MonoBehaviour
             StartCoroutine(AnimateClose(settingsMenu.transform, () => {
                 settingsMenu.SetActive(false);
                 pauseMenu.SetActive(true);
-                StartCoroutine(AnimateOpen(pauseMenu.transform));
+                StartCoroutine(AnimateOpen2(pauseMenu.transform));
             }));
         }
         else if(controlMenu.activeSelf)
@@ -56,7 +56,7 @@ public class PauseMenuManager : MonoBehaviour
             StartCoroutine(AnimateClose(controlMenu.transform, () => {
                 controlMenu.SetActive(false);
                 pauseMenu.SetActive(true);
-                StartCoroutine(AnimateOpen(pauseMenu.transform));
+                StartCoroutine(AnimateOpen2(pauseMenu.transform));
             }));
         }
     }
@@ -64,7 +64,7 @@ public class PauseMenuManager : MonoBehaviour
     private void OpenPauseMenu()
     {
         pauseMenu.SetActive(true);
-        StartCoroutine(AnimateOpen(pauseMenu.transform));
+        StartCoroutine(AnimateOpen2(pauseMenu.transform));
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -122,11 +122,32 @@ public class PauseMenuManager : MonoBehaviour
         if (isAnimating) yield break;
 
         isAnimating = true;
-        Vector3 finalScale = new Vector3(2, 2, 2);
+        Vector3 finalScale = new Vector3(1, 1, 1);
 
         panel.localScale = Vector3.zero;
         float timer = 0f;
         float duration = 0.2f; 
+        while (timer < duration)
+        {
+            timer += Time.unscaledDeltaTime;
+            float progress = timer / duration;
+            panel.localScale = Vector3.Lerp(Vector3.zero, finalScale, progress);
+            yield return null;
+        }
+        panel.localScale = finalScale;
+        isAnimating = false;
+    }
+
+    private IEnumerator AnimateOpen2(Transform panel)
+    {
+        if (isAnimating) yield break;
+
+        isAnimating = true;
+        Vector3 finalScale = new Vector3(2, 2, 2);
+
+        panel.localScale = Vector3.zero;
+        float timer = 0f;
+        float duration = 0.2f;
         while (timer < duration)
         {
             timer += Time.unscaledDeltaTime;
