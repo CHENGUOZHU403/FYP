@@ -14,13 +14,24 @@ public class SortChest : MonoBehaviour
     {
         numberSortingManager = SortQuestionPanel.GetComponent<NumberSortingManager>();
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (Input.GetKey(KeyCode.F))
+            {
+                SortQuestionPanel.SetActive(true);
+            }
+        }
+    }
 
-    private void Update()
+    public void CheckSorted()
     {
         if (numberSortingManager.isSorted == true)
         {
             SortQuestionPanel.SetActive(false);
             SpawnItems(moneyBag, gameObject.transform.position, 3);
+            Destroy(gameObject);
         }
     }
 
@@ -39,23 +50,9 @@ public class SortChest : MonoBehaviour
             {
                 rb.AddForce(new Vector2(
                     Random.Range(-1f, 1f),
-                    Random.Range(2f, 4f)
+                    Random.Range(-4f, -6f)
                 ), ForceMode2D.Impulse);
             }
         }
     }
-
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        { 
-            if (Input.GetKey(KeyCode.F))
-            {
-                SortQuestionPanel.SetActive(true);
-            }
-        }
-    }
-
-    
 }
