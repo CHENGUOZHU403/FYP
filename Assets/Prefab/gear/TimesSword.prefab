@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2114392055428305858}
   - component: {fileID: 7008583716478947154}
   m_Layer: 0
-  m_Name: PlusSword 1
+  m_Name: TimesSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  itemName: PlusSword
+  itemName: TimesSword
   quantity: 1
-  sprite: {fileID: 21300000, guid: 41a6bc37ad7f44f4897f0643891338d9, type: 3}
+  sprite: {fileID: 21300000, guid: 7ee130ca25e96464fb68ad7606aa9af5, type: 3}
   itemDescription: 'Hand
 
 '
