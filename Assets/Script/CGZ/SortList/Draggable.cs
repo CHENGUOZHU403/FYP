@@ -7,25 +7,25 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     [SerializeField]
-    public Transform originalParent; // 原始父对象
+    public Transform originalParent;
     [SerializeField]
     private Canvas canvas;
     [SerializeField]
-    private Transform tempParent; // 临时父对象（Canvas）
+    private Transform tempParent;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
-        tempParent = canvas.transform; // 设置临时父对象为 Canvas
+        tempParent = canvas.transform;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalParent = transform.parent; // 保存原始父对象
-        transform.SetParent(tempParent); // 将按钮移到 Canvas 下，脱离布局影响
-        canvasGroup.blocksRaycasts = false; // 禁用射线检测
+        originalParent = transform.parent;
+        transform.SetParent(tempParent);
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -44,11 +44,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.blocksRaycasts = true; // 启用射线检测
+        canvasGroup.blocksRaycasts = true;
 
         if (transform.parent == tempParent)
         {
-            // 如果没有放到新的 DropZone，则回到原始父对象
             transform.SetParent(originalParent);
             rectTransform.anchoredPosition = Vector2.zero;
         }

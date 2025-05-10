@@ -17,7 +17,7 @@ public class SortChest : MonoBehaviour
         numberSortingManager = SortQuestionPanel.GetComponent<NumberSortingManager>();
         if (GameManager.Instance.IsChestOpened(chestID))
         {
-            gameObject.SetActive(false); // 已經開過了，不再顯示
+            gameObject.SetActive(false);
         }
         
     }
