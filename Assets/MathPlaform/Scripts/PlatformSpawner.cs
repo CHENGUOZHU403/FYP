@@ -14,9 +14,9 @@ public class PlatformSpawner : MonoBehaviour
     public int maxPlatformsPerRow = 5;
 
     [Header("移動控制")]
-    [SerializeField] float baseSpeed = 2f;
-    [SerializeField] float speedIncreasePerPhase = 0.3f;
-    [SerializeField] float speedUpdateInterval = 30f;
+    public float baseSpeed = 1f;
+    public float speedMultiplier = 1.05f; // 每阶段速度倍增比例
+    public float speedUpdateInterval = 10f;
 
     private float currentSpeed;
     private float nextSpeedIncreaseTime;
@@ -50,7 +50,7 @@ public class PlatformSpawner : MonoBehaviour
         RecyclePlatforms();
     }
 
-    void MovePlatforms()
+    private void MovePlatforms()
     {
         foreach (var platform in activePlatforms)
         {
@@ -58,12 +58,13 @@ public class PlatformSpawner : MonoBehaviour
         }
     }
 
-    void HandleDifficulty()
+    private void HandleDifficulty()
     {
         if (Time.time >= nextSpeedIncreaseTime)
         {
-            currentSpeed += speedIncreasePerPhase;
+            currentSpeed *= speedMultiplier; // 指数级加速
             nextSpeedIncreaseTime = Time.time + speedUpdateInterval;
+            Debug.Log($"速度提升至: {currentSpeed:F1}");
         }
     }
 
@@ -83,6 +84,7 @@ public class PlatformSpawner : MonoBehaviour
         
         float availableWidth = spawnRangeX.y - spawnRangeX.x;
         float spacing = availableWidth / (spawnCount + 1);
+        float spawnY = Camera.main.ViewportToWorldPoint(Vector3.down).y - 2f;
         
         // 智能分布算法
         for (int i = 1; i <= spawnCount; i++)
@@ -109,6 +111,7 @@ public class PlatformSpawner : MonoBehaviour
             GameObject platform = Instantiate(platformPrefab, spawnPos, Quaternion.identity, platformParent);
             SetupPlatform(platform);
             activePlatforms.Add(platform);
+            platform.GetComponent<PlatformMovement>().SetSpeed(currentSpeed); // 新平台继承当前速度
         }
 
         Debug.Log($"生成新排：{spawnCount}个平台，间隔：{spacing:F1}单位");
