@@ -6,13 +6,20 @@ public class SortChest : MonoBehaviour
 {
     public GameObject SortQuestionPanel;
     public GameObject moneyBag;
+    public string chestID;
 
     [SerializeField]
     private NumberSortingManager numberSortingManager;
 
     private void Start()
     {
+        chestID = gameObject.name;
         numberSortingManager = SortQuestionPanel.GetComponent<NumberSortingManager>();
+        if (GameManager.Instance.IsChestOpened(chestID))
+        {
+            gameObject.SetActive(false); // 已經開過了，不再顯示
+        }
+        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -31,6 +38,7 @@ public class SortChest : MonoBehaviour
         {
             SortQuestionPanel.SetActive(false);
             SpawnItems(moneyBag, gameObject.transform.position, 3);
+            GameManager.Instance.OpenChest(chestID);
             Destroy(gameObject);
         }
     }
