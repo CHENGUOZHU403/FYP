@@ -5,7 +5,7 @@ public class MathPlatform : MonoBehaviour
 {
     public int answer;
     public GameObject correctFX;
-    public TextMeshPro questionText;
+    public TMP_Text questionText;
     
     public void SetQuestion(string question)
     {

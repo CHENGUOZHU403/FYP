@@ -7,59 +7,99 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject platformPrefab;
     public Transform platformParent;
     public Vector2 spawnRangeX = new Vector2(-5, 5);
-    public float spawnY = -10f; // 生成在畫面下方
-    public float initialSpawnInterval = 2f;
+    public float initialSpawnY = -5f; // 初始生成Y位置（改名为initialSpawnY）
+    public float verticalSpacing = 2f; // 平台垂直間距
+    public int platformsPerRow = 3; // 每排生成幾個平台
     
-    [Header("速度控制")]
+    [Header("移動控制")]
     public float baseSpeed = 1f;
-    public float speedIncreasePerPhase = 0.5f;
+    public float speedIncreasePerPhase = 0.2f;
     public float speedUpdateInterval = 30f;
 
-    private float nextSpawnTime;
     private float currentSpeed;
+    private float nextSpeedIncreaseTime;
     private List<GameObject> activePlatforms = new List<GameObject>();
+    private float nextSpawnY; // 下次生成的高度基準
 
     void Start()
     {
         currentSpeed = baseSpeed;
-        nextSpawnTime = Time.time + initialSpawnInterval;
-        InvokeRepeating("IncreaseSpeed", speedUpdateInterval, speedUpdateInterval);
+        nextSpeedIncreaseTime = Time.time + speedUpdateInterval;
+        nextSpawnY = initialSpawnY; // 使用initialSpawnY初始化
+        SpawnPlatformRow(); // 初始生成第一排
     }
 
     void Update()
     {
-        if (Time.time >= nextSpawnTime)
+        // 平台移動
+        foreach (var platform in activePlatforms)
         {
-            SpawnPlatform();
-            nextSpawnTime = Time.time + initialSpawnInterval;
+            platform.transform.Translate(Vector3.up * currentSpeed * Time.deltaTime);
         }
 
-        // 回收超出畫面的平台
+        // 動態加速
+        if (Time.time >= nextSpeedIncreaseTime)
+        {
+            currentSpeed += speedIncreasePerPhase;
+            nextSpeedIncreaseTime = Time.time + speedUpdateInterval;
+        }
+
+        // 當最高平台超過一定高度時，在底部生成新的一排
+        if (GetHighestPlatformY() > nextSpawnY - verticalSpacing * 2f)
+        {
+            SpawnPlatformRow();
+        }
+
         RecyclePlatforms();
     }
 
-    void SpawnPlatform()
+    void SpawnPlatformRow()
     {
-        GameObject platform = Instantiate(platformPrefab, platformParent);
-        float randomX = Random.Range(spawnRangeX.x, spawnRangeX.y);
-        platform.transform.position = new Vector3(randomX, spawnY, 0);
+        // 決定這排要生成幾個平台 (1到platformsPerRow之間)
+        int spawnCount = Random.Range(1, platformsPerRow + 1);
         
-        // 設定數學題目
-        MathPlatform mathComp = platform.GetComponent<MathPlatform>();
-        mathComp.SetQuestion(GenerateQuestion());
-        
-        activePlatforms.Add(platform);
+        // 隨機選擇生成位置
+        List<float> xPositions = new List<float>();
+        for (int i = 0; i < spawnCount; i++)
+        {
+            float x;
+            do {
+                x = Random.Range(spawnRangeX.x, spawnRangeX.y);
+            } while (xPositions.Exists(pos => Mathf.Abs(pos - x) < 1.5f)); // 避免平台太近
+            
+            xPositions.Add(x);
+            
+            GameObject platform = Instantiate(platformPrefab, platformParent);
+            platform.transform.position = new Vector3(x, nextSpawnY, 0);
+            
+            // 設定數學題目 (難度隨時間增加)
+            int difficulty = Mathf.FloorToInt(Time.time / speedUpdateInterval);
+            string question = GenerateQuestion(difficulty);
+            platform.GetComponent<MathPlatform>().SetQuestion(question);
+            
+            activePlatforms.Add(platform);
+        }
+
+        nextSpawnY -= verticalSpacing; // 下次生成位置往下移
     }
 
-        string GenerateQuestion()
+    string GenerateQuestion(int difficulty)
+    {
+        int a = Random.Range(1, 3 + difficulty);
+        int b = Random.Range(1, 3 + difficulty);
+        return $"{a} + {b} = ?";
+    }
+
+    float GetHighestPlatformY()
+    {
+        float highestY = Mathf.NegativeInfinity;
+        foreach (var platform in activePlatforms)
         {
-            // 根據難度動態生成題目
-            int difficulty = Mathf.FloorToInt(Time.time / speedUpdateInterval);
-            int a = Random.Range(1, 3 + difficulty);
-            int b = Random.Range(1, 3 + difficulty);
-            return $"{a} + {b} = ?";
-            
+            if (platform.transform.position.y > highestY)
+                highestY = platform.transform.position.y;
         }
+        return highestY;
+    }
 
     void RecyclePlatforms()
     {
@@ -73,12 +113,13 @@ public class PlatformSpawner : MonoBehaviour
         }
     }
 
-    void IncreaseSpeed()
+    // 除錯用繪製
+    void OnDrawGizmosSelected()
     {
-        currentSpeed += speedIncreasePerPhase;
-        foreach (var platform in activePlatforms)
-        {
-            platform.GetComponent<PlatformMovement>().speed = currentSpeed;
-        }
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(
+            new Vector3(spawnRangeX.x, nextSpawnY, 0),
+            new Vector3(spawnRangeX.y, nextSpawnY, 0)
+        );
     }
 }
