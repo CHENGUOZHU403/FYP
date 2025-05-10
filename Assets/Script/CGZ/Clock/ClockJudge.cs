@@ -13,6 +13,8 @@ public class ClockJudge : MonoBehaviour
 
     public TextMeshProUGUI textMeshPro;
 
+    public bool isCorrect = false;
+
     public void CheckTime()
     {
         // 修正時針和分針的角度
@@ -32,11 +34,13 @@ public class ClockJudge : MonoBehaviour
         {
             Debug.Log("Correct!");
             textMeshPro.text = "Correct!";
+            isCorrect = true;
         }
         else
         {
             Debug.Log("Incorrect!");
             textMeshPro.text = "Incorrect!";
+            isCorrect = false;
         }
     }
 }
