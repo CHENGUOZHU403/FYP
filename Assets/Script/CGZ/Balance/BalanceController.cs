@@ -9,7 +9,9 @@ public class BalanceController : MonoBehaviour
     public TextMeshProUGUI resultText;
 
     public float maxAngle = 15f;      
-    public float rotateSpeed = 5f;    
+    public float rotateSpeed = 5f;
+
+    public bool isCorrect;
 
     void Update()
     {
@@ -28,12 +30,24 @@ public class BalanceController : MonoBehaviour
         float currentAngle = Mathf.LerpAngle(transform.eulerAngles.z, targetAngle, Time.deltaTime * rotateSpeed);
         transform.eulerAngles = new Vector3(0, 0, currentAngle);
 
-        if(leftWeight == rightWeight)
+        if (leftWeight == rightWeight)
         {
             if (CheckPuzzleCondition())
+            {
                 resultText.text = "Correct!";
+                isCorrect = true;
+            }
             else
+            {
                 resultText.text = "Balanced, but incorrect...";
+                isCorrect = false;
+            }
+                
+        }
+        else
+        {
+            resultText.text = "Unbalanced";
+            isCorrect = false;
         }
     }
 
@@ -51,25 +65,39 @@ public class BalanceController : MonoBehaviour
 
     private bool CheckPuzzleCondition()
     {
-        // 特定謎題條件示範：左邊放錢袋，右邊總重量等於7
-
         bool leftHasMoneyBag = false;
+        bool rightHasMoneyBag = false;
+        int leftTotalWeight = 0;
         int rightTotalWeight = 0;
 
         foreach (Transform item in leftTray)
         {
             var draggable = item.GetComponent<DraggableSnap>();
-            if (draggable != null && draggable.isMoneyBag)
-                leftHasMoneyBag = true;
+            if (draggable != null)
+            {
+                if (draggable.isMoneyBag)
+                    leftHasMoneyBag = true;
+                else
+                    leftTotalWeight += draggable.weight;
+            }
         }
 
         foreach (Transform item in rightTray)
         {
             var draggable = item.GetComponent<DraggableSnap>();
             if (draggable != null)
-                rightTotalWeight += draggable.weight;
+            {
+                if (draggable.isMoneyBag)
+                    rightHasMoneyBag = true;
+                else
+                    rightTotalWeight += draggable.weight;
+            }
         }
 
-        return leftHasMoneyBag && rightTotalWeight == 7;
+        bool leftCorrect = leftHasMoneyBag && rightTotalWeight == 7;
+        bool rightCorrect = rightHasMoneyBag && leftTotalWeight == 7;
+
+        return leftCorrect || rightCorrect;
     }
+
 }
