@@ -10,7 +10,15 @@ public class ClockChest : MonoBehaviour
 
     public ClockJudge clockJudge;
 
-    public Transform playerTransform;
+    public string chestID;
+
+    void Start()
+    {
+        if (GameManager.Instance.IsChestOpened(chestID))
+        {
+            gameObject.SetActive(false); // 已經開過了，不再顯示
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -18,7 +26,6 @@ public class ClockChest : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.F))
             {
-                clockPanel.transform.position = playerTransform.position;
                 clockPanel.SetActive(true);
             }
         }
@@ -30,6 +37,7 @@ public class ClockChest : MonoBehaviour
         {
             clockPanel.SetActive(false);
             SpawnItems(moneyBag, gameObject.transform.position, 3);
+            GameManager.Instance.OpenChest(chestID);
             Destroy(gameObject);
         }
     }

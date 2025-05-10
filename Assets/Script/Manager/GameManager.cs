@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     private Dictionary<string, bool> defeatedMonsters = new Dictionary<string, bool>();
     private Dictionary<string, bool> generatedLootMonsters = new Dictionary<string, bool>();
+    public HashSet<string> openedChests = new HashSet<string>();
     public bool isWatched = false;
 
     [Header("Teleport Settings")]
@@ -97,41 +98,51 @@ public class GameManager : MonoBehaviour
     }
 
     public void TeleportToTown()
-{
-    // 保存当前场景到历史栈
-    string currentScene = SceneManager.GetActiveScene().name;
-    if (!sceneHistory.Contains(currentScene)) // 避免重复添加
     {
-        sceneHistory.Push(currentScene);
-    }
-    
-    // 保存玩家状态
-    SavePlayerPosition();
-    SceneManager.LoadScene(mainTownScene);
-}
+        // 保存当前场景到历史栈
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (!sceneHistory.Contains(currentScene)) // 避免重复添加
+        {
+            sceneHistory.Push(currentScene);
+        }
 
-public void ReturnFromTown()
-{
-    if (sceneHistory.Count > 0)
-    {
-        string previousScene = sceneHistory.Pop();
-        SceneManager.LoadScene(previousScene);
-    }
-    else
-    {
-        Debug.LogWarning("No scene history to return to");
+        // 保存玩家状态
+        SavePlayerPosition();
         SceneManager.LoadScene(mainTownScene);
     }
-}
 
-private void SavePlayerPosition()
-{
-    if (player != null)
+    public void ReturnFromTown()
     {
-        playerPosition = player.transform.position;
-        PlayerPrefs.SetFloat("PlayerPosX", playerPosition.x);
-        PlayerPrefs.SetFloat("PlayerPosY", playerPosition.y);
-        PlayerPrefs.Save();
+        if (sceneHistory.Count > 0)
+        {
+            string previousScene = sceneHistory.Pop();
+            SceneManager.LoadScene(previousScene);
+        }
+        else
+        {
+            Debug.LogWarning("No scene history to return to");
+            SceneManager.LoadScene(mainTownScene);
+        }
     }
-}
+
+    private void SavePlayerPosition()
+    {
+        if (player != null)
+        {
+            playerPosition = player.transform.position;
+            PlayerPrefs.SetFloat("PlayerPosX", playerPosition.x);
+            PlayerPrefs.SetFloat("PlayerPosY", playerPosition.y);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public void OpenChest(string chestID)
+    {
+        openedChests.Add(chestID);
+    }
+
+    public bool IsChestOpened(string chestID)
+    {
+        return openedChests.Contains(chestID);
+    }
 }
