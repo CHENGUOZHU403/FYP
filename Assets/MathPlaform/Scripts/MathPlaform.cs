@@ -5,7 +5,7 @@ public class MathPlatform : MonoBehaviour
 {
     public int answer;
     public GameObject correctFX;
-    public TMP_Text questionText;
+     [SerializeField] private TMP_Text questionText; // 改為private強制使用序列化欄位
     
     public void SetQuestion(string question)
     {
