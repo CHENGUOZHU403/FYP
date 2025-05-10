@@ -9,13 +9,17 @@ public class PlayerMathJump : MonoBehaviour
     public float jumpForce = 12f;
     public LayerMask platformLayer;
 
-    [Header("Math UI")]
+    [Header("UI Elements")]
+    public GameObject questionPanel;
     public TextMeshProUGUI questionText;
-    public TextMeshProUGUI feedbackText; // 新增：正确/错误反馈
+    public TextMeshProUGUI feedbackText;
+    public bool freezeMovementDuringQuestion = true;
+    private bool isAnsweringQuestion = false;
 
     private Rigidbody2D rb;
     private Animator anim;
     private bool isGrounded;
+    private bool isNearPlatform = false;
     private Vector2 groundCheckPos;
 
     void Start()
@@ -27,7 +31,6 @@ public class PlayerMathJump : MonoBehaviour
 
     void Update()
     {
-        // 地面检测
         isGrounded = Physics2D.OverlapCircle(
             (Vector2)transform.position + groundCheckPos, 
             0.2f, 
@@ -35,18 +38,21 @@ public class PlayerMathJump : MonoBehaviour
         );
         anim.SetBool("Grounded", isGrounded);
 
-        // 移动控制
+        if (isAnsweringQuestion && freezeMovementDuringQuestion) 
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         float moveX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
 
-        // 跳跃（仅在地面时生效）
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             anim.SetTrigger("Jump");
         }
 
-        // 动画控制
         anim.SetFloat("AirSpeedY", rb.velocity.y);
         anim.SetInteger("AnimState", Mathf.Abs(moveX) > 0.1f ? 1 : 0);
     }
@@ -55,13 +61,39 @@ public class PlayerMathJump : MonoBehaviour
     {
         if (other.CompareTag("MathPlatform"))
         {
-            questionText.text = other.GetComponent<MathPlatform>().GetQuestion();
+            isAnsweringQuestion = true;
+            isNearPlatform = true;
+            questionPanel.SetActive(true);
+            
+            // 获取平台问题并显示
+            MathPlatform platform = other.GetComponent<MathPlatform>();
+            string question = GenerateQuestion(); // 使用本地生成方法
+            questionText.text = question;
+            platform.SetQuestion(question);
         }
     }
 
-    // 提供给UI按钮的答案提交方法
+    string GenerateQuestion()
+    {
+        int a = Random.Range(1, 5);
+        int b = Random.Range(1, 5);
+        return $"{a} + {b} = ?";
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("MathPlatform"))
+        {
+            isNearPlatform = false;
+            questionPanel.SetActive(false);
+            feedbackText.text = "";
+        }
+    }
+
     public void SubmitAnswer(int playerAnswer)
     {
+        if (!isNearPlatform) return;
+
         var platform = Physics2D.OverlapCircle(
             (Vector2)transform.position + groundCheckPos, 
             0.3f, 
@@ -74,10 +106,12 @@ public class PlayerMathJump : MonoBehaviour
             feedbackText.text = isCorrect ? "Correct!" : "Wrong!";
             feedbackText.color = isCorrect ? Color.green : Color.red;
             
-            // 2秒后清除反馈
             CancelInvoke(nameof(ClearFeedback));
             Invoke(nameof(ClearFeedback), 2f);
         }
+
+        isAnsweringQuestion = false;
+        questionPanel.SetActive(false);
     }
 
     void ClearFeedback() => feedbackText.text = "";
