@@ -14,7 +14,7 @@ public class CoinBag : MonoBehaviour
             {
                 player.AddMoney(coinAmount);
                 Destroy(gameObject); 
-                //AudioSource.PlayClipAtPoint(coinSound, transform.position);
+                AudioSource.PlayClipAtPoint(coinSound, transform.position);
             }
             else
             {

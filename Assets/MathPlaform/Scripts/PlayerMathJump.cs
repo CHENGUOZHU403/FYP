@@ -13,20 +13,26 @@ public class PlayerMathJump : MonoBehaviour
     public GameObject questionPanel;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI feedbackText;
+    public GameObject tipspanel;
     public bool freezeMovementDuringQuestion = true;
     private bool isAnsweringQuestion = false;
 
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     private Animator anim;
     private bool isGrounded;
     private bool isNearPlatform = false;
     private Vector2 groundCheckPos;
 
+
     void Start()
     {
+        tipspanel.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         groundCheckPos = new Vector2(0, -0.5f);
+         sr = GetComponent<SpriteRenderer>();
+        
     }
 
     void Update()
@@ -60,6 +66,11 @@ public class PlayerMathJump : MonoBehaviour
             anim.SetTrigger("Jump");
         }
 
+        if (moveX != 0)
+        {
+            sr.flipX = moveX < 0;
+        }
+
         anim.SetFloat("AirSpeedY", rb.velocity.y);
         anim.SetInteger("AnimState", Mathf.Abs(moveX) > 0.1f ? 1 : 0);
     }
@@ -68,6 +79,7 @@ public class PlayerMathJump : MonoBehaviour
     {
         if (other.CompareTag("MathPlatform"))
         {
+            tipspanel.SetActive(false);
             isAnsweringQuestion = true;
             isNearPlatform = true;
             questionPanel.SetActive(true);
@@ -91,6 +103,7 @@ public class PlayerMathJump : MonoBehaviour
     {
         if (other.CompareTag("MathPlatform"))
         {
+            tipspanel.SetActive(true);
             isNearPlatform = false;
             questionPanel.SetActive(false);
             feedbackText.text = "";

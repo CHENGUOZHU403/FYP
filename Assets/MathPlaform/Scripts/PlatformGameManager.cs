@@ -20,6 +20,7 @@ public class PlatformGameManager : MonoBehaviour
     public AudioClip gameOverSound;
     public AudioClip ButtonSound;
     private AudioSource audioSource;
+    public GameObject Audio;
 
     [Header("Scene Settings")]
     public string noviceVillageSceneName = "NoviceVillage"; // 确保这个变量名拼写正确
@@ -68,6 +69,7 @@ public class PlatformGameManager : MonoBehaviour
         
         // 延迟显示死亡文本
         StartCoroutine(ShowDeathTextAfterDelay(1f));
+        Audio.SetActive(false);
     }
 
     IEnumerator ShowDeathTextAfterDelay(float delay)

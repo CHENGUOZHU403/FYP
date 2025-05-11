@@ -6,6 +6,7 @@ public class MathPlatform : MonoBehaviour
 {
     public int answer;
     public GameObject correctFX;
+    public AudioClip DestorySound;
     [SerializeField] private TMP_Text questionText;
     
     // 新增平台销毁参数
@@ -57,5 +58,7 @@ public class MathPlatform : MonoBehaviour
         // 延迟销毁
         yield return new WaitForSeconds(destroyDelay);
         Destroy(gameObject);
+
+        AudioSource.PlayClipAtPoint(DestorySound, transform.position);
     }
 }
