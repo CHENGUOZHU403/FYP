@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   playerName: Player
-  attackPower: 2234
+  attackPower: 364
   attackRange: 2.5
   armor: 0
   mp: 0
-  ap: 0
-  time: 0
-  maxHealth: 100
-  currentHealth: 100
-  level: 1
-  currentXP: 0
-  xpToNextLevel: 100
+  ap: 25
+  time: 10
+  maxHealth: 105
+  currentHealth: 105
+  level: 2
+  currentXP: 60
+  xpToNextLevel: 150
   playerPrefab: {fileID: 3850317792141814371, guid: b6f618e8b68e80744855523398d6dcbe, type: 3}
-  money: 0
+  money: 100
   positionX: 0
   positionY: 0
   positionZ: 0

@@ -6,7 +6,7 @@ public class SceneLoader : MonoBehaviour
     [Header("Settings")]
     public string bossSceneName = "Level_1_BossRoom";
     public float transitionDelay = 1f;
-
+    public Vector3 transferPoint;
     private bool canTransition;
 
     public void InitiateBossTransition()
@@ -20,6 +20,7 @@ public class SceneLoader : MonoBehaviour
 
     private void LoadBossScene()
     {
+        GameManager.Instance.playerPosition = transferPoint;
         SceneManager.LoadScene(bossSceneName, LoadSceneMode.Single);
     }
 

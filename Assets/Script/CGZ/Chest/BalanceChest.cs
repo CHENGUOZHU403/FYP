@@ -6,6 +6,7 @@ public class BalanceChest : MonoBehaviour
 {
     public GameObject BalancePanel;
     public GameObject moneyBag;
+    public GameObject[] equipmentPrefabs;
 
     public BalanceController BalanceManager;
 
@@ -63,7 +64,10 @@ public class BalanceChest : MonoBehaviour
         yield return new WaitForSeconds(3f); // µ¥«İ 3 ¬í
 
         BalancePanel.SetActive(false);
-        SpawnItems(moneyBag, transform.position, 3);
+        int moneyCount = Random.Range(1, 4);
+        SpawnItems(moneyBag, transform.position, moneyCount);
+        GameObject equipmentPrefab = GetEquipmentPrefab();
+        SpawnItems(equipmentPrefab, transform.position, 1);
         GameManager.Instance.OpenChest(chestID);
         Destroy(gameObject);
     }
@@ -87,5 +91,14 @@ public class BalanceChest : MonoBehaviour
                 ), ForceMode2D.Impulse);
             }
         }
+    }
+
+    private GameObject GetEquipmentPrefab()
+    {
+        if (equipmentPrefabs != null && equipmentPrefabs.Length > 0)
+        {
+            return equipmentPrefabs[Random.Range(0, equipmentPrefabs.Length)];
+        }
+        return null;
     }
 }

@@ -39,7 +39,7 @@ public class MonsterManager : MonoBehaviour
             }
             if (monsterData.isBoss)
             {
-                Debug.Log("i am BOSS");
+                Debug.Log("I am BOSS");
                 portalAnimtor.OpenPortal();
                 portalAnimtor2.OpenPortal();
             }

@@ -7,6 +7,7 @@ public class ClockChest : MonoBehaviour
 {
     public GameObject clockPanel;
     public GameObject moneyBag;
+    public GameObject[] equipmentPrefabs;
 
     public ClockJudge clockJudge;
 
@@ -50,7 +51,10 @@ public class ClockChest : MonoBehaviour
         if (clockJudge.isCorrect == true)
         {
             clockPanel.SetActive(false);
-            SpawnItems(moneyBag, gameObject.transform.position, 3);
+            int moneyCount = Random.Range(1, 4);
+            SpawnItems(moneyBag, transform.position, moneyCount);
+            GameObject equipmentPrefab = GetEquipmentPrefab();
+            SpawnItems(equipmentPrefab, transform.position, 1);
             GameManager.Instance.OpenChest(chestID);
             Destroy(gameObject);
         }
@@ -76,5 +80,14 @@ public class ClockChest : MonoBehaviour
                 ), ForceMode2D.Impulse);
             }
         }
+    }
+
+    private GameObject GetEquipmentPrefab()
+    {
+        if (equipmentPrefabs != null && equipmentPrefabs.Length > 0)
+        {
+            return equipmentPrefabs[Random.Range(0, equipmentPrefabs.Length)];
+        }
+        return null;
     }
 }

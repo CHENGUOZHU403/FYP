@@ -7,34 +7,74 @@ public class BossDoorController : MonoBehaviour
     public SceneLoader sceneLoader;
     public Animator doorAnimator;
     public TMP_Text promptText;
+    public GameObject promptTextContainer;
+
+    public GameObject prompt;
 
     private bool playerInRange;
 
     private void Start()
     {
-       //PuzzleManager.Instance.OnAllPuzzlesSolved += () => {
-       //    doorAnimator.SetBool("Unlocked", true);
-       //};
+        prompt = transform.GetChild(0).gameObject;
+        if (prompt != null)
+        {
+            prompt.SetActive(false);
+        }
+        //PuzzleManager.Instance.OnAllPuzzlesSolved += () => {
+        //    doorAnimator.SetBool("Unlocked", true);
+        //};
     }
 
     private void Update()
     {
-        if (playerInRange && PuzzleManager.Instance.AllPuzzlesSolved)
+        if (playerInRange)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                sceneLoader.InitiateBossTransition();
+                if (GameManager.Instance.AllMonsterDefeated)
+                {
+                    sceneLoader.InitiateBossTransition();
+                }
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && PuzzleManager.Instance.AllPuzzlesSolved)
+        if (other.CompareTag("Player"))
         {
+            prompt.SetActive(true);
             playerInRange = true;
-            promptText.gameObject.SetActive(true);
-            sceneLoader.EnableTransition();
+            promptTextContainer.SetActive(true);
+            if (GameManager.Instance.AllMonsterDefeated)
+            {
+                promptText.text = "To see the final Boss";
+                sceneLoader.EnableTransition();
+            }
+            else
+            {
+                promptText.text = "Need to Defeat three monsters";
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            prompt.SetActive(true);
+            playerInRange = true;
+            promptTextContainer.SetActive(true);
+            if (GameManager.Instance.AllMonsterDefeated)
+            {
+                promptText.text = "To see the final Boss";
+                sceneLoader.EnableTransition();
+            }
+            else
+            {
+                promptText.text = "Need to Defeat three monsters";
+            }
+
         }
     }
 
@@ -43,7 +83,12 @@ public class BossDoorController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            promptText.gameObject.SetActive(false);
+
+            if (prompt != null)
+                prompt.SetActive(false);
+
+            if (promptTextContainer != null)
+                promptTextContainer.SetActive(false);
         }
     }
 }

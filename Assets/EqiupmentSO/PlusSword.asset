@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlusSword
   m_EditorClassIdentifier: 
   itemName: PlusSword
-  health: 2000
+  health: 20
   armor: 1
   mp: 0
   ap: 14

@@ -6,6 +6,7 @@ public class SortChest : MonoBehaviour
 {
     public GameObject SortQuestionPanel;
     public GameObject moneyBag;
+    public GameObject[] equipmentPrefabs;
     public string chestID;
 
     [SerializeField]
@@ -52,8 +53,12 @@ public class SortChest : MonoBehaviour
     {
         if (numberSortingManager.isSorted == true)
         {
+            numberSortingManager.isSorted = false;
             SortQuestionPanel.SetActive(false);
-            SpawnItems(moneyBag, gameObject.transform.position, 3);
+            int moneyCount = Random.Range(1, 4);
+            SpawnItems(moneyBag, transform.position, moneyCount);
+            GameObject equipmentPrefab = GetEquipmentPrefab();
+            SpawnItems(equipmentPrefab, transform.position, 1);
             GameManager.Instance.OpenChest(chestID);
             Destroy(gameObject);
         }
@@ -74,9 +79,18 @@ public class SortChest : MonoBehaviour
             {
                 rb.AddForce(new Vector2(
                     Random.Range(-1f, 1f),
-                    Random.Range(-4f, -6f)
+                    Random.Range(-6f, -4f)
                 ), ForceMode2D.Impulse);
             }
         }
+    }
+
+    private GameObject GetEquipmentPrefab()
+    {
+        if (equipmentPrefabs != null && equipmentPrefabs.Length > 0)
+        {
+            return equipmentPrefabs[Random.Range(0, equipmentPrefabs.Length)];
+        }
+        return null;
     }
 }

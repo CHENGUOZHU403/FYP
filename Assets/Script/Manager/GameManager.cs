@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
     public Vector3 townSpawnPosition = Vector3.zero;
 
     private static bool isFirst = true;
-    
 
     private Stack<string> sceneHistory = new Stack<string>();
 
     public bool hasEnteredDungeon = false;
-    
+    public bool AllMonsterDefeated = false;
+
+
 
     private void Awake()
     {
@@ -48,6 +49,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Update()
+    {
+        List<string> level1Monsters = new List<string> { "mutantRat", "viper2", "Undead" };
+
+        AllMonsterDefeated = AreAllMonstersDefeated(level1Monsters);
+
+        if (AllMonsterDefeated)
+        {
+            Debug.Log("Level 1 已完成！");
+        }
+    }
+
 
 
 
@@ -133,6 +147,7 @@ public class GameManager : MonoBehaviour
     public void ReturnToMainTownScene()
     {
         ResetAllDefeatedMonsters();
+        AllMonsterDefeated = false;
         SceneManager.LoadScene(mainTownScene);
     }
 
@@ -172,5 +187,15 @@ public class GameManager : MonoBehaviour
     public void ResetAllDefeatedMonsters()
     {
         defeatedMonsters.Clear();
+    }
+
+    public bool AreAllMonstersDefeated(List<string> monsterIDs)
+    {
+        foreach (var id in monsterIDs)
+        {
+            if (!IsMonsterDefeated(id))
+                return false;
+        }
+        return true;
     }
 }
