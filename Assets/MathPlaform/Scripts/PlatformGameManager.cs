@@ -8,15 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class PlatformGameManager : MonoBehaviour
 {
-    // 单例实例（添加[SerializeField]以便在编辑器中调试）
     [SerializeField] private static PlatformGameManager _instance;
     
     [Header("Game Over UI")]
     public GameObject gameOverPanel;
-    public TMP_Text fadeText;  // 拖入FadeText对象
-    public TMP_Text deathText; // 拖入DeathText对象
+    public TMP_Text fadeText;  
+    public TMP_Text deathText; 
     public Button retryButton;
-    public Animator fadeAnimator; // 拖入FadeText的Animator组件
+    public Animator fadeAnimator;
     public float textDelay = 1f;
     public AudioClip gameOverSound;
     public AudioClip ButtonSound;
@@ -31,7 +30,7 @@ public class PlatformGameManager : MonoBehaviour
                 if (_instance == null) {
                     GameObject obj = new GameObject("PlatformGameManager");
                     _instance = obj.AddComponent<PlatformGameManager>();
-                    Debug.LogWarning("Auto-create PlatformGameManager实例");
+                    Debug.LogWarning("Auto-create PlatformGameManager");
                 }
             }
             return _instance;

@@ -113,8 +113,7 @@ public class PlatformSpawner : MonoBehaviour
             activePlatforms.Add(platform);
             platform.GetComponent<PlatformMovement>().SetSpeed(currentSpeed); // 新平台继承当前速度
         }
-
-        Debug.Log($"生成新排：{spawnCount}个平台，间隔：{spacing:F1}单位");
+        
     }
 
     void SetupPlatform(GameObject platform)

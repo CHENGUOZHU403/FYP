@@ -31,6 +31,13 @@ public class PlayerMathJump : MonoBehaviour
 
     void Update()
     {
+       
+        if (LevelManager.Instance != null && LevelManager.Instance.IsLevelCompleted)
+        {
+            rb.velocity = Vector2.zero; 
+            return; 
+        }
+
         isGrounded = Physics2D.OverlapCircle(
             (Vector2)transform.position + groundCheckPos, 
             0.2f, 
