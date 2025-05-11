@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public bool isWatched = false;
 
     [Header("Teleport Settings")]
-    public string mainTownScene = "NoviceVillage";
+    public string mainTownScene = "EndGameScene";
     public Vector3 townSpawnPosition = Vector3.zero;
 
     private static bool isFirst = true;
