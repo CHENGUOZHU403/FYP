@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, bool> defeatedMonsters = new Dictionary<string, bool>();
     private Dictionary<string, bool> generatedLootMonsters = new Dictionary<string, bool>();
     public HashSet<string> openedChests = new HashSet<string>();
+    public Dictionary<string, int> npcDialogState = new Dictionary<string, int>();
     public bool isWatched = false;
 
     [Header("Teleport Settings")]
@@ -18,8 +19,12 @@ public class GameManager : MonoBehaviour
     public Vector3 townSpawnPosition = Vector3.zero;
 
     private static bool isFirst = true;
+    
 
     private Stack<string> sceneHistory = new Stack<string>();
+
+    public bool hasEnteredDungeon = false;
+    public Vector3 lv1dungeonEntrancePosition = new Vector3(0, 0, 0);
 
     private void Awake()
     {
@@ -144,5 +149,17 @@ public class GameManager : MonoBehaviour
     public bool IsChestOpened(string chestID)
     {
         return openedChests.Contains(chestID);
+    }
+
+    public int GetNPCState(string npcID)
+    {
+        if (npcDialogState.TryGetValue(npcID, out int state))
+            return state;
+        return 0;
+    }
+
+    public void SetNPCState(string npcID, int state)
+    {
+        npcDialogState[npcID] = state;
     }
 }

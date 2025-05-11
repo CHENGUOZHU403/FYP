@@ -12,10 +12,17 @@ public class PortalTrigger : MonoBehaviour
     private int selectedLevelIndex;
     private Vector3 selectedSpawnPosition;
 
+    public GameObject prompt;
+
     private void Start()
     {
         portalAnimator.enabled = false; 
         levelSelectUI.SetActive(false);
+        prompt = transform.GetChild(0).gameObject;
+        if (prompt != null)
+        {
+            prompt.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -24,7 +31,7 @@ public class PortalTrigger : MonoBehaviour
         {
             player = other.GetComponent<HeroKnight>();
             playerInRange = true;
-
+            prompt.SetActive(true);
 
             if (player.hasEnergyBall)
             {
@@ -39,13 +46,14 @@ public class PortalTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            levelSelectUI.SetActive(false); 
+            levelSelectUI.SetActive(false);
+            prompt.SetActive(false);
         }
     }
 
     private void Update()
     {
-        if (playerInRange && player.hasEnergyBall && Input.GetKeyDown(KeyCode.X))
+        if (playerInRange && player.hasEnergyBall && Input.GetKeyDown(KeyCode.F))
         {
             levelSelectUI.SetActive(true); 
             Time.timeScale = 0f; 

@@ -8,9 +8,9 @@ public class ErynNPCDialogue : MonoBehaviour
 {
 
     public string NPCName = "Eryn";
+    public string npcID = "NPC_Eryn"; //for game manager
     public Sprite NPCsprite;
 
-    private uint talkCount = 0;
     private bool isPlayerNearby = false;
     private bool isInteract = false;
     public DialogueManager dialogueManager;
@@ -47,6 +47,7 @@ public class ErynNPCDialogue : MonoBehaviour
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && !isInteract) // Input F to interact with NPC
         {
+            int talkCount = GameManager.Instance.GetNPCState(npcID);
             string[] dialog;
             int changeNameIndex;
             switch (talkCount)
@@ -72,7 +73,9 @@ public class ErynNPCDialogue : MonoBehaviour
             dialogueManager.speakerImage.sprite = NPCsprite;
             dialogueManager.currentLineIndex = 0;
             dialogueManager.changeNameIndex = changeNameIndex;
-            talkCount++;
+
+            GameManager.Instance.SetNPCState(npcID, Mathf.Min(talkCount + 1, 2));
+
             isInteract = true;
         }
 
@@ -88,7 +91,6 @@ public class ErynNPCDialogue : MonoBehaviour
         {
             isPlayerNearby = true;
             interactionPrompt.SetActive(true);
-            Debug.Log("Player is Nearby NPC");
         }
     }
 
@@ -101,7 +103,6 @@ public class ErynNPCDialogue : MonoBehaviour
             isInteract = false;
             interactionPrompt.SetActive(false);
             dialogueManager.EndDialogue();
-            Debug.Log("Player is not Nearby NPC");
         }
     }
 }
