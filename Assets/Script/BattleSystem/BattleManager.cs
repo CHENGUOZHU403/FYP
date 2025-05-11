@@ -28,6 +28,9 @@ public class BattleManager : MonoBehaviour
     public MCsystem MCsystem;
     public Timer timer;
 
+
+    public GameObject EscapePanel;
+
     void Start()
     {
         string monsterName = PlayerPrefs.GetString("EncounteredMonster", "");
@@ -75,13 +78,26 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(PlayerAttack());
     }
 
-    public void OnHealButton()
-    {
-        if (state != BattleState.Playerturn)
-            return;
+    //public void OnHealButton()
+    //{
+    //    if (state != BattleState.Playerturn)
+    //        return;
 
-        StartCoroutine(PlayerHeal());
+    //    StartCoroutine(PlayerHeal());
+    //}
+
+    public void OnEscapeButton()
+    {
+        EscapePanel.SetActive(true);
     }
+
+    public void Confirmescape()
+    {
+        state = BattleState.Lost;
+        EndBattle();
+    }
+
+
 
     IEnumerator PlayerAttack()
     {
@@ -126,14 +142,13 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    IEnumerator PlayerHeal()
-    {
-        playerData.Heal(10);
-        playerHUD.SetHP(playerData.currentHealth);
-        yield return StartCoroutine(ShowDialogue("You feel renewed strength!"));
-        StartCoroutine(EnemyTurn());
-    }
-
+    //IEnumerator PlayerHeal()
+    //{
+    //    playerData.Heal(10);
+    //    playerHUD.SetHP(playerData.currentHealth);
+    //    yield return StartCoroutine(ShowDialogue("You feel renewed strength!"));
+    //    StartCoroutine(EnemyTurn());
+    //}
 
     IEnumerator EnemyTurn()
     {

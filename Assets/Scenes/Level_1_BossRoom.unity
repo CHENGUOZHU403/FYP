@@ -10382,6 +10382,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3723733844126183797, guid: 0ff98e64bb0673c4dbdddf51c6f67de8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7245903482842296796, guid: 0ff98e64bb0673c4dbdddf51c6f67de8, type: 3}
       propertyPath: m_Name
       value: Dialogue
