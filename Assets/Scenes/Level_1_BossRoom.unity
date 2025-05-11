@@ -1201,63 +1201,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &367885944
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8078332258095469248, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_Name
-      value: Money Bag
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.3793488
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.0464315
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.00021362305
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8586139599102655111, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d86cbb970cc685c42838748a521dd1a0, type: 3}
 --- !u!1 &385618402
 GameObject:
   m_ObjectHideFlags: 0
@@ -15166,6 +15109,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6091025505355450647, guid: e41818495996fbf4da72bf274545fb76, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091025505355450647, guid: e41818495996fbf4da72bf274545fb76, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1830189303
+      objectReference: {fileID: 0}
     - target: {fileID: 6091645355962297328, guid: e41818495996fbf4da72bf274545fb76, type: 3}
       propertyPath: m_Name
       value: PortalFXOnly
@@ -17489,63 +17440,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &6822914642405341595
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8078732518401571865, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_Name
-      value: Experience Orb
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.4104996
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078732518401571867, guid: 643eac376b48ddd408ac645599320df1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 643eac376b48ddd408ac645599320df1, type: 3}
 --- !u!114 &7510278173944901178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17720,6 +17614,4 @@ SceneRoots:
   - {fileID: 1307275709}
   - {fileID: 1327890819}
   - {fileID: 1327535659}
-  - {fileID: 6822914642405341595}
-  - {fileID: 367885944}
   - {fileID: 1704399503}

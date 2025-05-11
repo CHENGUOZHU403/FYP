@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private Stack<string> sceneHistory = new Stack<string>();
 
     public bool hasEnteredDungeon = false;
-    public Vector3 lv1dungeonEntrancePosition = new Vector3(0, 0, 0);
+    
 
     private void Awake()
     {

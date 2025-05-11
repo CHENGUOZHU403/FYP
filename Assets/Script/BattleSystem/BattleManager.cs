@@ -32,6 +32,7 @@ public class BattleManager : MonoBehaviour
     {
         string monsterName = PlayerPrefs.GetString("EncounteredMonster", "");
         encounteredMonster = System.Array.Find(allMonsters, m => m.name == monsterName);
+        MCsystem.currentMonsterType = encounteredMonster.monsterName;
 
         if (encounteredMonster != null)
         {

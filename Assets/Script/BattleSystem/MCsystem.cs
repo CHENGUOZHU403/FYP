@@ -30,6 +30,8 @@ public class MCsystem : MonoBehaviour
     public Text accuracyText;
 
 
+    public string currentMonsterType;
+
     void Start()
     {
         GenerateQuestion();
@@ -60,35 +62,76 @@ public class MCsystem : MonoBehaviour
 
     private void SetAnswerOptions()
     {
-        // 根据偏移量生成选项数组
         for (int i = 0; i < optionOffset.Length; i++)
         {
             optionsArr[i] = answer + optionOffset[i];
         }
 
-        // 随机打乱选项
         ShuffleList(optionsArr);
 
-        // 将选项分配给按钮
         for (int i = 0; i < options.Length; i++)
         {
             var answerScript = options[i].GetComponent<AnswerScript>();
             Text optionText = options[i].transform.GetChild(0).GetComponent<Text>();
 
             optionText.text = optionsArr[i].ToString();
-            answerScript.isCorrect = (optionsArr[i] == answer); // 标记正确选项
+            answerScript.isCorrect = (optionsArr[i] == answer);
         }
     }
 
     public void GenerateQuestion()
     {
-        questionA = UnityEngine.Random.Range(0, 5);
-        questionB = UnityEngine.Random.Range(0, 5);
+        switch (currentMonsterType)
+        {
+            case "MutantRat":
+                questionA = UnityEngine.Random.Range(0, 10);
+                questionB = UnityEngine.Random.Range(0, 10);
+                questionText.text = $"{questionA} + {questionB} = ?";
+                answer = questionA + questionB;
+                break;
 
-        questionText.text = $"{questionA} + {questionB} = ?";
-        answer = questionA + questionB;
+            case "Undead":
+                questionA = UnityEngine.Random.Range(1, 5);
+                questionB = UnityEngine.Random.Range(1, 5);
+                questionText.text = $"{questionA} ⊙ {questionB} = ?";
+                answer = questionA * questionB;
+                break;
+
+            case "Viper":
+                questionA = UnityEngine.Random.Range(5, 15);
+                questionB = UnityEngine.Random.Range(0, questionA);
+                questionText.text = $"{questionA} - {questionB} = ?";
+                answer = questionA - questionB;
+                break;
+
+            case "Beholder":
+                int op1 = UnityEngine.Random.Range(0, 10);
+                int op2 = UnityEngine.Random.Range(0, 10);
+                int op3 = UnityEngine.Random.Range(0, 10);
+
+                string[] operatorsPool = { "+", "-", "*", "+", "-" };
+                string opSymbol1 = operatorsPool[UnityEngine.Random.Range(0, operatorsPool.Length)];
+
+                string[] nextOperators = (opSymbol1 == "*") ? new string[] { "+", "-" } : operatorsPool;
+                string opSymbol2 = nextOperators[UnityEngine.Random.Range(0, nextOperators.Length)];
+
+                string expression = $"{op1} {opSymbol1} {op2} {opSymbol2} {op3}";
+                answer = EvaluateExpression(op1, opSymbol1, op2, opSymbol2, op3);
+
+                questionText.text = $"{expression} = ?";
+                break;
+
+            default: // 纐粄肈
+                questionA = UnityEngine.Random.Range(0, 5);
+                questionB = UnityEngine.Random.Range(0, 5);
+                questionText.text = $"{questionA} + {questionB} = ?";
+                answer = questionA + questionB;
+                break;
+        }
+
         SetAnswerOptions();
     }
+
 
     List<int> ShuffleList(List<int> list)
     {
@@ -114,5 +157,30 @@ public class MCsystem : MonoBehaviour
         accuracyText.text = $"Accuracy: {Mathf.RoundToInt(accuracy)}%";
 
         GenerateQuestion();
+    }
+
+    private int EvaluateExpression(int a, string op1, int b, string op2, int c)
+    {
+        if (op2 == "*")
+        {
+            int second = ApplyOperator(b, op2, c);
+            return ApplyOperator(a, op1, second);
+        }
+        else
+        {
+            int firstCalc = ApplyOperator(a, op1, b);
+            return ApplyOperator(firstCalc, op2, c);
+        }
+    }
+
+    private int ApplyOperator(int left, string op, int right)
+    {
+        switch (op)
+        {
+            case "+": return left + right;
+            case "-": return left - right;
+            case "*": return left * right;
+            default: return 0;
+        }
     }
 }
