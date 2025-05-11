@@ -14,6 +14,14 @@ public class Scenechange : MonoBehaviour
 
     public void Map2()
     {
-        SceneManager.LoadScene("Level_2_Map");
+        SceneManager.LoadScene("MathPlaform");
+    }
+     public void Map3()
+    {
+        SceneManager.LoadScene("Clock");
+    }
+     public void Map4()
+    {
+        SceneManager.LoadScene("Balance");
     }
 }

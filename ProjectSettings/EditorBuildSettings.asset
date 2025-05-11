@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1_BossRoom.unity
     guid: 4f7e082aabf68b5489e7e78c1b3c9500
+  - enabled: 1
+    path: Assets/Scenes/GamePlay/Balance.unity
+    guid: dd37189cf1adb2447a654a6a83285773
+  - enabled: 1
+    path: Assets/Scenes/GamePlay/Clock.unity
+    guid: 7a097bf69eb8b884da0eb79f7f5099af
+  - enabled: 1
+    path: Assets/Scenes/EndGameScene.unity
+    guid: dfdf2f0d7a6389849ae3b9203f0e8e22
+  - enabled: 1
+    path: Assets/Scenes/MathPlaform.unity
+    guid: a5ed9aa9898ccbd4c90a2628f98b31d2
   m_configObjects: {}
