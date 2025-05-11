@@ -21,7 +21,6 @@ public class MonsterManager : MonoBehaviour
     private void Awake()
     {
         monsterID = gameObject.name;
-        Debug.Log(monsterID);
         boxCollider2d = GetComponent<BoxCollider2D>();
        
         portalAnimtor = GameObject.FindGameObjectWithTag("Portal")?.GetComponent<PortalController>();

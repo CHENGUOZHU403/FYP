@@ -130,6 +130,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ReturnToMainTownScene()
+    {
+        ResetAllDefeatedMonsters();
+        SceneManager.LoadScene(mainTownScene);
+    }
+
     private void SavePlayerPosition()
     {
         if (player != null)
@@ -161,5 +167,10 @@ public class GameManager : MonoBehaviour
     public void SetNPCState(string npcID, int state)
     {
         npcDialogState[npcID] = state;
+    }
+
+    public void ResetAllDefeatedMonsters()
+    {
+        defeatedMonsters.Clear();
     }
 }

@@ -3761,6 +3761,7 @@ MonoBehaviour:
   correctCountText: {fileID: 1916533543}
   wrongCountText: {fileID: 269004231}
   accuracyText: {fileID: 1616464081}
+  currentMonsterType: 
 --- !u!1 &1438360869
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,6 +4193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec9b1eaf384ba14d9c800ab2c20cb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleManager: {fileID: 497153242}
 --- !u!1 &1585959732
 GameObject:
   m_ObjectHideFlags: 0
