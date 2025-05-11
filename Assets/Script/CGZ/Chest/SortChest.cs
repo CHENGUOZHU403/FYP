@@ -11,9 +11,16 @@ public class SortChest : MonoBehaviour
     [SerializeField]
     private NumberSortingManager numberSortingManager;
 
+    public GameObject prompt;
+
     private void Start()
     {
         chestID = gameObject.name;
+        prompt = transform.GetChild(0).gameObject;
+        if (prompt != null)
+        {
+            prompt.SetActive(false);
+        }
         numberSortingManager = SortQuestionPanel.GetComponent<NumberSortingManager>();
         if (GameManager.Instance.IsChestOpened(chestID))
         {
@@ -25,10 +32,19 @@ public class SortChest : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            prompt.SetActive(true);
             if (Input.GetKey(KeyCode.F))
             {
                 SortQuestionPanel.SetActive(true);
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            prompt.SetActive(false);
         }
     }
 

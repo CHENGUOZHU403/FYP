@@ -10,8 +10,14 @@ public class BalanceChest : MonoBehaviour
     public BalanceController BalanceManager;
 
     public string chestID;
+    public GameObject prompt;
     void Start()
     {
+        prompt = transform.GetChild(0).gameObject;
+        if (prompt != null)
+        {
+            prompt.SetActive(false);
+        }
         if (GameManager.Instance.IsChestOpened(chestID))
         {
             gameObject.SetActive(false);
@@ -27,10 +33,19 @@ public class BalanceChest : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            prompt.SetActive(true);
             if (Input.GetKey(KeyCode.F))
             {
                 BalancePanel.SetActive(true);
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            prompt.SetActive(false);
         }
     }
 

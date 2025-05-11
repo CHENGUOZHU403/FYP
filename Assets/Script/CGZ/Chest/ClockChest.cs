@@ -11,9 +11,15 @@ public class ClockChest : MonoBehaviour
     public ClockJudge clockJudge;
 
     public string chestID;
+    public GameObject prompt;
 
     void Start()
     {
+        prompt = transform.GetChild(0).gameObject;
+        if (prompt != null)
+        {
+            prompt.SetActive(false);
+        }
         if (GameManager.Instance.IsChestOpened(chestID))
         {
             gameObject.SetActive(false);
@@ -24,10 +30,18 @@ public class ClockChest : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            prompt.SetActive(true);
             if (Input.GetKey(KeyCode.F))
             {
                 clockPanel.SetActive(true);
             }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            prompt.SetActive(false);
         }
     }
 
